@@ -46,8 +46,8 @@ VALUES (NULL, "'.$text_esc_en.'", "'.$text_esc_es.'", "1", "0", "0", "0", "0", "
 ';
 $datos2 = mysqli_query($conexion2, $sql2);
 }else{
-echo 'Ya esta registrado</span>';
-}
+ech
+}o 'Ya esta registrado</span>';
 echo '</p>';
 }
 echo '</div>
