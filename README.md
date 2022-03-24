@@ -2,140 +2,99 @@
 **PotoBW - WoW Text EN-ES**
 ===
 
-**WoW Text EN-ES** es un proyecto de código abierto escrito en diferentes lenguajes como [SQL][1], [Python][3], [JavaScript][4], [PHP][5] y [HTML][6]; siendo el 
-[SQL][1] el más importante. El código [SQL][1] está programado para ser ejecutado en [MySQL][7], usamos herramientas auxiliares como [Navicat][8] y [PhpMyAdmin][9].
+**WoW Text EN-ES** es un proyecto de código abierto escrito en diferentes lenguajes como [SQL][1], 
+[Python][3], [JavaScript][4], [PHP][5] y [HTML][6]; siendo el [SQL][1] el más importante. El código 
+[SQL][1] está programado para ser ejecutado en [MySQL][7], usamos herramientas auxiliares como 
+[Navicat][8] y [PhpMyAdmin][9].
 
-Si te gustó [World of Warcraft][2] pero el servidor está en inglés, proporcionamos una traducción al español que puede ser utilizado para llenar las tablas de 
-traducción en las bases de datos de su servidor privado si este está preparado para soportar traducciones.
+Si te gustó [World of Warcraft][2] pero el servidor está en inglés, proporcionamos una traducción al 
+español que puede ser utilizado para llenar las tablas de traducción en las bases de datos de su servidor 
+privado si este está preparado para soportar traducciones.
 
 Cada texto fue traducido por la [API de traducción de Google][10] y actualmente se trabaja en su revisión.
 
 Requisitos
 ------------
 - Usar [MySQL][7] como gestor de base de datos de nuestro servidor privado.
-- Tener [PHP][5] y [Apache][11] instalado o usar [XAMPP][12], [WAMPP][13] u otro programa similar que garantice [PHP][5] y [Apache][11].
+- Tener [PHP][5] y [Apache][11] instalado o usar [XAMPP][12], [WAMPP][13] u otro programa similar que 
+garantice [PHP][5] y [Apache][11].
 - Conocimiento de [PHP][5].
 - Conocimiento de [SQL][1].
 
 Herramientas
 -----------------
--[Ajustador de ids][14]: Permite ajustar la columna id_text para mejorar el orden, busqueda y tamaño de las tuplas en la base de datos. Esta programado en PHP, SQL, JavaScript, HTML.
+- [Ajustador de ids][14]: Permite ajustar la columna 'id_text' para mejorar el orden, busqueda y tamaño de 
+las tuplas en la base de datos. Está programado en [PHP][5], [SQL][1], [JavaScript][4], [HTML][6].
+- [Corrector de Texto][15]: Permite sustituir cadenas o subcadenas de textos (parte del texto) por otra 
+cadena definida por el usuario. Solo sustituye los textos en español. Está programado en [PHP][5], [SQL][1], 
+[JavaScript][4], [HTML][6].
+- [Extractor de texto][16]: Herramienta que permite extraer el texto en inglés y español (puede ser 
+cualquier otro lenguaje que usted desee) del servidor privado y lo introduce en la base de datos de WoW 
+Text EN-ES. Está programado en [PHP][5], [SQL][1], [JavaScript][4], [HTML][6].
+- [Traductor][17]: Herramienta que permite traducir del inglés al español (puede cambiar el lenguaje si 
+lo desea) y guardarlo en la base de datos de WoW Text EN-ES para su posterior uso. Está programado en 
+[Python][3] y [SQL][1].
 
-Compilers
----------
-Building the server is currently possible with these compilers:
-
-* **[Microsoft Visual Studio][31] 32 bit and 64 bit.** All editions of Visual Studio
-from 2015 upwards are officially supported (although support for 2015 and 2017 are end of life.)
-
-* **[Clang][33]**, 32 bit and 64 bit. The Clang compiler can be used on any
-  supported operating system.
-
-Dependencies
+Softwares, Lenguajes y Librerías
 ------------
-The server stands on the shoulders of several well-known Open Source libraries plus
-a few awesome, but less known libraries to prevent us from inventing the wheel again.
+Usamos las versiones de los siguientes softwares, lenguajes y librerías:
+-	[MySQL][7] – 10.4.22-MariaDB o superior
+-	[XAMPP][12] – 8.1.2 o superior
+-	[PHP][5] – 8.1.2 o superior
+-	[Python][3] – 3.9 o superior
+-	[Apache][11] – 2.4.53 o superior
+-	[PhpMyAdmin][9] – 5.1.1 o superior
+-   [Navicat][8] – 16.0.9 o superior
+-   [certifi][18] - 2021.10.8
+-   [charset-normalizer][19] - 2.0.12
+-   [idna][20] - 3.3
+-   [PyMySQL][21] - 1.0.2
+-   [requests][22] - 2.27.1
+-   [urllib3][23] - 1.26.9
 
-**Please note that Linux and Mac OS X users should install packages using
-their systems package management instead of source packages.**
+Las versiones que publicamos aquí son las que usamos, recomendamos usar las mas
+modernas en medida de que sea disponible, pero puede usar versiones viejas si 
+así lo desea lo que puede atentar contra el correcto funcionamiento del código. 
 
-* **[Git][34] / [Github for Windows][35]**: This version control software allows you to get the source files in the first place.
-* **[MySQL][40]** / **[MariaDB][41]**: These databases are used to store content and user data.
-* **[ACE][43]**: aka Adaptive Communication Environment, provides us with a solid cross-platform framework for abstracting operating system specific details.
-* **[Recast][44]**: In order to create navigation data from the client's map files, Recast is used to do the dirty work. It provides functions for rendering, pathing, etc.
-* **[G3D][45]**: This engine provides the basic framework for handling 3D data and is used to handle basic map data.
-* **[Stormlib][46]**: Provides an abstraction layer for reading from the client's data files.
-* **[Zlib][53]/[Zlib for Windows][51]** provides compression algorithms used in both MPQ archive handling and the client/server protocol.
-* **[Bzip2][54]/[Bzip2 for Windows][52]** provides compression algorithms used in MPQ archives.
-* **[OpenSSL][48]/[OpenSSL for Windows][55]** provides encryption algorithms used when authenticating clients.
-
-**ACE**, **Recast**, **G3D**, **Stormlib**, **Zlib** and **Bzip2** are included in the standard distribution as
-we rely on specific versions.
-
-Optional dependencies
----------------------
-
-* **[Doxygen][49]**: If you want to export HTML or PDF formatted documentation for the Mangos API, you should install this.
-
-
-<br>We have a small, but extremely friendly and helpful community managed by MadMax and Antz.
-
-
-Our discord/forum motto is: 
-```js
-'Be nice or Be somewhere else'
-```
-Any trolling or unpleasantness is swiftly dealt with !!
-
-**Official Website**
+**Contactos**
 ----
 
-We welcome anyone who is interested in enjoying older versions of wow or contributing and helping out !
+Mi cibernombre o nick es PotoBW, normalmente trabajo solo para producir estos 
+códigos. En caso de que desea reportar errores, sugerencias o necesidades use 
+los siguientes contactos: 
 
-* [**Official MaNGOS Website**][3]  
+- **Celular, WhatApp, Telegram:**  +5355920042  - (Teléfono de Cuba)
+- **Telegram:** [@PotoBW][24]
+- **Correo:** dmosquerabw@gmail.com
 
-**Discord Server**
+**Errores**
 ----
 
-We also have a Discord server where many of us hang out and discuss Mangos related stuff.
+Las palabras son traducidas por la API traductora de Google por lo que no esta 
+traducido 100% correctamente. Trabajamos en revisar traducción por traducción, 
+pero hay que entender que es un trabajo de eterna esclavitud. 
 
-* [**Discord Server**][9]
+En caso de encontrar errores, malas traducciones, textos incomprensibles o 
+caracteres extraños nos es importante que detalle en el reporte que nos hará 
+llegar por medio de los contactos definidos en este documento parte del texto 
+o personaje, misión, objeto que lo dice. Esto agilizaría la solución del 
+problema.
 
-**Main Wiki**
+
+**Guías de Uso**
 ----
 
-The repository of as much information as we can pack in. Details regarding the Database, file type definitions, packet definitons etc.
+Actualmente lo tenemos ninguna guía disponible trabajamos arduamente en 
+realizar almenos una.
 
-* [**Wiki Table of Contents**][15]
-
-
-**Bug / Issue Tracker**
+**Expansiones referidas a los textos**
 ----
+- WoW Classic (Vanilla)
 
-Found an issue or something which doesn't seem right, please log it in the relevant section of the Bug Tracker.
-
-* [**Bug Tracker**][16]
-
-**Installation Guides**
-----
-
-Installation instructions for various operation systems can be found here.
-
-* [**Installation Guides**][17] 
-
-
-License
--------
-This program is free software; you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation; either version 2 of the License, or (at your option) any later
-version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with
-this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
-Street, Fifth Floor, Boston, MA 02110-1301 USA.
-
-The full license is included in the file [LICENSE](LICENSE).
-
-We have all put in hundreds of hours of time for free to make the server what it
-is today.
-<br>All we ask is that if you modify the code and make improvements, please have
-the decency to feed those changes back to us.
-
-In addition, as a special exception, permission is granted to link the code of
-*Mangos* with the OpenSSL project's [OpenSSL library][48] (or with modified
-versions of it that use the same license as the OpenSSL library), and distribute
-the linked executables. You must obey the GNU General Public License in all
-respects for all of the code used other than [OpenSSL][48].
-
-Acknowledgements
---------
-World of Warcraft, and all related art, images, and lore are copyright [Blizzard Entertainment, Inc.][1]
-
+Trabajamos para incorporar otras expiaciones, pero se debe entender que no 
+debemos avanzar hacia otra expansión sin antes revisar al menos el 70% de los
+textos. De todas maneras, muchos textos de la primera entrega siguen siendo 
+usados en la última entrega. 
 
 [1]: https://es.wikipedia.org/wiki/SQL
 [2]: https://worldofwarcraft.com/ "World of Warcraft"
@@ -151,3 +110,13 @@ World of Warcraft, and all related art, images, and lore are copyright [Blizzard
 [12]: https://www.apachefriends.org/es/index.html
 [13]: https://www.wampserver.com/
 [14]: https://github.com/PotoBW2/wow_text_en_es/tree/master/tools/adjust_id
+[15]: https://github.com/PotoBW2/wow_text_en_es/tree/master/tools/corrector
+[16]: https://github.com/PotoBW2/wow_text_en_es/tree/master/tools/extrat%20text
+[17]: https://github.com/PotoBW2/wow_text_en_es/tree/master/tools/traslater_tool_python
+[18]: https://pypi.org/project/certifi/
+[19]: https://pypi.org/project/charset-normalizer/
+[20]: https://pypi.org/project/idna/
+[21]: https://pypi.org/project/PyMySQL/
+[22]: https://pypi.org/project/requests/
+[23]: https://pypi.org/project/urllib3/
+[24]: t.me/PotoBW
