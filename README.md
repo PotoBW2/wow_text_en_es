@@ -12,23 +12,14 @@ Cada texto fue traducido por la [API de traducción de Google][10] y actualmente
 
 Requisitos
 ------------
-- Usar MySQL como gestor de base de datos de nuestro servidor privado.
-- Tener PHP y Apache instalado o usar XAMPP, LAMPP, WAMPP u otro programa similar que garantice PHP y Apache.
-- Conocimiento de PHP.
-- Conocimiento de SQL.
+- Usar [MySQL][7] como gestor de base de datos de nuestro servidor privado.
+- Tener [PHP][5] y [Apache][11] instalado o usar [XAMPP][12], [WAMPP][13] u otro programa similar que garantice [PHP][5] y [Apache][11].
+- Conocimiento de [PHP][5].
+- Conocimiento de [SQL][1].
 
-
-Operating systems
+Herramientas
 -----------------
-Currently we support running the server on the following operating systems:
-
-* **[Windows][20]**, 32 bit and 64 bit. Windows Server 2008 (or newer) or Windows 8 (or newer) is recommended.
-* **Linux**, 32 bit and 64 bit. [Debian 7][21] and [Ubuntu 12.04 LTS][22] are
-  recommended. Other distributions with similar package versions will work, too.
-* **BSD**, 32 bit and 64 bit. [FreeBSD][23], [NetBSD][24], [OpenBSD][25] are recommended.
-
-Of course, newer versions should work, too. In the case of Windows, matching
-server versions will work, too.
+-[Ajustador de ids][14]: Permite ajustar la columna id_text para mejorar el orden, busqueda y tamaño de las tuplas en la base de datos. Esta programado en PHP, SQL, JavaScript, HTML.
 
 Compilers
 ---------
@@ -156,34 +147,7 @@ World of Warcraft, and all related art, images, and lore are copyright [Blizzard
 [8]: https://www.navicat.com/
 [9]: https://www.phpmyadmin.net/
 [10]: https://cloud.google.com/translate
-[11]: https://ci.appveyor.com/project/MaNGOS/server-9fytl/history "AppVeyor Scan - Windows build status"
-[12]: https://app.codacy.com/gh/mangoszero/server/dashboard "Codacy Code Status"
-[13]: https://www.codefactor.io/repository/github/mangoszero/server "Codefactor Code Status"
-[14]: http://makeapullrequest.com "Show PR's Welcome Icon"
-[15]: http://getmangos.eu/wiki "Mangos Wiki"
-[16]: https://www.getmangos.eu/bug-tracker/mangos-zero/ "Mangos Online tracker"
-[17]: https://www.getmangos.eu/wiki/documentation/installation-guides/ "Installation Guides"
-[19]: http://www.cmake.org/ "CMake - Cross Platform Make"
-[20]: http://windows.microsoft.com/ "Microsoft Windows"
-[21]: http://www.debian.org/ "Debian - The Universal Operating System"
-[22]: http://www.ubuntu.com/ "Ubuntu - The world's most popular free OS"
-[23]: http://www.freebsd.org/ "FreeBSD - The Power To Serve"
-[24]: http://www.netbsd.org/ "NetBSD - The NetBSD Project"
-[25]: http://www.openbsd.org/ "OpenBSD - Free, functional and secure"
-[31]: https://visualstudio.microsoft.com/vs/older-downloads/ "Visual Studio Downloads"
-[33]: http://clang.llvm.org/ "clang - a C language family frontend for LLVM"
-[34]: http://git-scm.com/ "Git - Distributed version control system"
-[35]: http://windows.github.com/ "github - windows client"
-
-[41]: https://mariadb.org/download/ "MariaDB - An enhanced, drop-in replacement for MySQL"
-[43]: http://www.dre.vanderbilt.edu/~schmidt/ACE.html "ACE - The ADAPTIVE Communication Environment"
-[44]: http://github.com/memononen/recastnavigation "Recast - Navigation-mesh Toolset for Games"
-[45]: http://sourceforge.net/projects/g3d/ "G3D - G3D Innovation Engine"
-[46]: http://zezula.net/en/mpq/stormlib.html "Stormlib - A library for reading data from MPQ archives"
-[48]: http://www.openssl.org/ "OpenSSL - The Open Source toolkit for SSL/TLS"
-[49]: https://www.doxygen.nl/download.html "Doxygen - API documentation generator"
-[51]: http://gnuwin32.sourceforge.net/packages/zlib.htm "Zlib for Windows"
-[52]: http://gnuwin32.sourceforge.net/packages/bzip2.htm "Bzip2 for Windows"
-[53]: http://www.zlib.net/ "Zlib"
-[54]: http://www.bzip.org/ "Bzip2"
-[55]: http://slproweb.com/products/Win32OpenSSL.html "OpenSSL for Windows"
+[11]: https://httpd.apache.org/
+[12]: https://www.apachefriends.org/es/index.html
+[13]: https://www.wampserver.com/
+[14]: https://github.com/PotoBW2/wow_text_en_es/tree/master/tools/adjust_id
