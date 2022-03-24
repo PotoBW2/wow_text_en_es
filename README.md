@@ -119,4 +119,4 @@ usados en la última entrega.
 [21]: https://pypi.org/project/PyMySQL/
 [22]: https://pypi.org/project/requests/
 [23]: https://pypi.org/project/urllib3/
-[24]: t.me/PotoBW
+[24]: https://t.me/PotoBW
