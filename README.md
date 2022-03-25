@@ -34,7 +34,7 @@ Text EN-ES. Está programado en [PHP][5], [SQL][1], [JavaScript][4], [HTML][6].
 - [Traductor][17]: Herramienta que permite traducir del inglés al español (puede cambiar el lenguaje si 
 lo desea) y guardarlo en la base de datos de WoW Text EN-ES para su posterior uso. Está programado en 
 [Python][3] y [SQL][1].
-- [Inyector de SQL][15]: Permite introducir o actualizar los textos en lenguaje español en las tablas 
+- [Inyector de SQL][26]: Permite introducir o actualizar los textos en lenguaje español en las tablas 
 locales del servidor de bases de datos de nuestro servidor privado. Está programado en [PHP][5], [SQL][1], 
 [JavaScript][4], [HTML][6].
 
@@ -126,3 +126,4 @@ usados en la última entrega.
 [23]: https://pypi.org/project/urllib3/
 [24]: https://t.me/PotoBW
 [25]: https://www.jetbrains.com/es-es/phpstorm/
+[26]: https://github.com/PotoBW2/wow_text_en_es/tree/master/tools/inyect_locales
