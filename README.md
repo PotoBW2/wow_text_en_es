@@ -5,7 +5,7 @@
 **WoW Text EN-ES** es un proyecto de código abierto escrito en diferentes lenguajes como [SQL][1], 
 [Python][3], [JavaScript][4], [PHP][5] y [HTML][6]; siendo el [SQL][1] el más importante. El código 
 [SQL][1] está programado para ser ejecutado en [MySQL][7], usamos herramientas auxiliares como 
-[Navicat][8] y [PhpMyAdmin][9].
+[Navicat][8], [PhpMyAdmin][9] y [PHPStorm][25].
 
 Si te gustó [World of Warcraft][2] pero el servidor está en inglés, proporcionamos una traducción al 
 español que puede ser utilizado para llenar las tablas de traducción en las bases de datos de su servidor 
@@ -34,6 +34,10 @@ Text EN-ES. Está programado en [PHP][5], [SQL][1], [JavaScript][4], [HTML][6].
 - [Traductor][17]: Herramienta que permite traducir del inglés al español (puede cambiar el lenguaje si 
 lo desea) y guardarlo en la base de datos de WoW Text EN-ES para su posterior uso. Está programado en 
 [Python][3] y [SQL][1].
+- [Inyector de SQL][15]: Permite introducir o actualizar los textos en lenguaje español en las tablas 
+locales del servidor de bases de datos de nuestro servidor privado. Está programado en [PHP][5], [SQL][1], 
+[JavaScript][4], [HTML][6].
+
 
 Softwares, Lenguajes y Librerías
 ------------
@@ -45,6 +49,7 @@ Usamos las versiones de los siguientes softwares, lenguajes y librerías:
 -	[Apache][11] – 2.4.53 o superior
 -	[PhpMyAdmin][9] – 5.1.1 o superior
 -   [Navicat][8] – 16.0.9 o superior
+-   [PHPStorm][25] – 2019.3 o superior
 -   [certifi][18] - 2021.10.8
 -   [charset-normalizer][19] - 2.0.12
 -   [idna][20] - 3.3
@@ -70,7 +75,7 @@ los siguientes contactos:
 **Errores**
 ----
 
-Las palabras son traducidas por la API traductora de Google por lo que no esta 
+Las palabras son traducidas por la [API de traducción de Google][10] por lo que no esta 
 traducido 100% correctamente. Trabajamos en revisar traducción por traducción, 
 pero hay que entender que es un trabajo de eterna esclavitud. 
 
@@ -120,3 +125,4 @@ usados en la última entrega.
 [22]: https://pypi.org/project/requests/
 [23]: https://pypi.org/project/urllib3/
 [24]: https://t.me/PotoBW
+[25]: https://www.jetbrains.com/es-es/phpstorm/
