@@ -1,5 +1,5 @@
 ---
-**PotoBW - WoW Text EN-ES ver 1.03**
+**PotoBW - WoW Text EN-ES ver 1.04**
 ===
 
 **WoW Text EN-ES** es un proyecto de código abierto escrito en diferentes lenguajes como [SQL][1], 
@@ -94,7 +94,13 @@ realizar almenos una.
 
 **Expansiones referidas a los textos**
 ----
-- WoW Classic (Vanilla)
+- [WoW Classic (Vanilla)][27]
+
+Nuestro equipo trabaja actualizando los textos de algunos servidores que están disponibles en internet de cada una de 
+las expansiones. Cualquier usuario nos puede pedir que incorporemos su repack 
+para generar los textos en español automáticamente. Esperemos que servidores 
+privados contacten con nosotros para mejorar el bienestar de la comunidad de 
+habla hispana u otros lenguajes. 
 
 Trabajamos para incorporar otras expiaciones, pero se debe entender que no 
 debemos avanzar hacia otra expansión sin antes revisar al menos el 70% de los
@@ -127,3 +133,4 @@ usados en la última entrega.
 [24]: https://t.me/PotoBW
 [25]: https://www.jetbrains.com/es-es/phpstorm/
 [26]: https://github.com/PotoBW2/wow_text_en_es/tree/master/tools/inyect_locales
+[27]: https://github.com/PotoBW2/wow_text_en_es/tree/master/path/path_1
