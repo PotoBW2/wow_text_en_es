@@ -1,5 +1,5 @@
 ---
-**PotoBW - WoW Text EN-ES ver 1.05**
+**PotoBW - WoW Text EN-ES ver 1.06**
 ===
 
 **WoW Text EN-ES** es un proyecto de código abierto escrito en diferentes lenguajes como [SQL][1], 
