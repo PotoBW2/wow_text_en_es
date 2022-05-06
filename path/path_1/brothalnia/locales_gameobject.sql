@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : nueva_conexion_de_prueba
+ Source Server         : 127.0.0.1
  Source Server Type    : MySQL
  Source Server Version : 50562
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 29/03/2022 17:16:17
+ Date: 05/05/2022 13:09:42
 */
 
 SET NAMES utf8mb4;
@@ -45,7 +45,7 @@ INSERT INTO `locales_gameobject` VALUES (35, '선장의 사물함', 'Cantine du 
 INSERT INTO `locales_gameobject` VALUES (36, '부서진 통', 'Tonneau cassé', 'Zerbrochenes Fass', '破桶', '破桶', 'Barrica rota', 'Barrica rota', 'Разбитая бочка');
 INSERT INTO `locales_gameobject` VALUES (37, 'Eliza\'s Tombstone', 'Tombe d\'Eliza', 'Eliza\'s Tombstone', '伊莉莎的墓碑', 'Eliza\'s Tombstone', 'Eliza\'s Tombstone', 'Eliza\'s Tombstone', 'Надгробный камень Элизы');
 INSERT INTO `locales_gameobject` VALUES (41, '대사의 상자', 'Placard de l\'ambassadeur', 'Spind des Botschafters', '大使的箱子', '大使的箱子', 'Armario del Embajador', 'Armario del Embajador', 'Сундук посла');
-INSERT INTO `locales_gameobject` VALUES (47, '현상 수배!', 'Avis de recherche : Lieutenant Tripecroc', 'GESUCHT:', '通缉：范高雷中尉', '懸賞!', '¡Se busca!', '¡Se busca!', 'Разыскивается: лейтенант Фангор');
+INSERT INTO `locales_gameobject` VALUES (47, '현상 수배!', 'Avis de recherche : Lieutenant Tripecroc', 'GESUCHT:', '通缉：范高雷中尉', '懸賞!', 'Se Busca: Lieutenant Fangore', '¡Se busca!', 'Разыскивается: лейтенант Фангор');
 INSERT INTO `locales_gameobject` VALUES (52, '구루바시의 몰락', 'Chute des Gurubashi', 'Gurubashis Untergang', '古拉巴什的毁灭', '古拉巴什的毀滅', 'La Caída de Gurubashi', 'La Caída de Gurubashi', 'Водопад Гурубаши');
 INSERT INTO `locales_gameobject` VALUES (54, '제국의 무덤', 'La tombe de l\'empereur', 'Das Grabmal des Imperators', '帝王之墓', '帝王之墓', 'La Tumba del Emperador', 'La Tumba del Emperador', 'Гробница императора');
 INSERT INTO `locales_gameobject` VALUES (55, '반쯤 파먹힌 시체', 'Un corps à moitié dévoré', 'Ein halb aufgefressener Körper', '被吃掉一半的尸体', '被吃掉一半的屍體', 'Un cadáver medio comido', 'Un cadáver medio comido', 'Обглоданный труп');
@@ -53,9 +53,9 @@ INSERT INTO `locales_gameobject` VALUES (56, '롤프의 시체', 'Cadavre de Rol
 INSERT INTO `locales_gameobject` VALUES (57, '붉은머리 전통지식 서판', 'La Lune la Vallée', 'Schrifttafel der Blutskalpe', '月亮照耀着山谷', '血頂知識石板', 'Tablilla de conocimiento Sangrapellejo', 'Tablilla de conocimiento Sangrapellejo', 'Луна над долиной');
 INSERT INTO `locales_gameobject` VALUES (58, '방랑자 그리렉', 'Gri\'lek le Vagabond', 'Gri\'lek der Wanderer', '格丽流浪者', '漫遊者格里雷克', 'Gri\'lek el Trotamundos', 'Gri\'lek el Trotamundos', 'Гри\'лек Странник');
 INSERT INTO `locales_gameobject` VALUES (59, 'Mound of loose dirt', 'Monticule de poussière', 'Mound of loose dirt', '一堆松软的泥土', 'Mound of loose dirt', 'Mound of loose dirt', 'Mound of loose dirt', 'Куча рыхлой земли');
-INSERT INTO `locales_gameobject` VALUES (60, '현상 수배: 가스일조그', 'Avis de recherche : Gath\'Ilzogg', 'GESUCHT: Gath\'Ilzogg', '通缉：加塞尔佐格', '懸賞:加塞爾佐格', 'Se busca: Gath\'Ilzogg', 'Se busca: Gath\'Ilzogg', 'Разыскивается: Гат\'Илзогг');
+INSERT INTO `locales_gameobject` VALUES (60, '현상 수배: 가스일조그', 'Avis de recherche : Gath\'Ilzogg', 'GESUCHT: Gath\'Ilzogg', '通缉：加塞尔佐格', '懸賞:加塞爾佐格', 'Se Busca: Gath\'Ilzogg', 'Se busca: Gath\'Ilzogg', 'Разыскивается: Гат\'Илзогг');
 INSERT INTO `locales_gameobject` VALUES (61, '낡은 묘비', 'Un tombeau dégradé par les intempéries', 'Ein verwittertes Grab', '破旧的坟墓', '破舊的墳墓', 'Una tumba erosionada', 'Una tumba erosionada', 'Обветшавшая могила');
-INSERT INTO `locales_gameobject` VALUES (68, '현상 수배 전단', 'Avis de recherche', 'Steckbrief', '通缉告示', '懸賞告示', 'Cartel de Se busca', 'Cartel de Se busca', 'Плакат \"Разыскивается\"');
+INSERT INTO `locales_gameobject` VALUES (68, '현상 수배 전단', 'Avis de recherche', 'Steckbrief', '通缉告示', '懸賞告示', 'Cartel de Se Busca', 'Cartel de Se busca', 'Плакат \"Разыскивается\"');
 INSERT INTO `locales_gameobject` VALUES (76, '빈 단지', 'Une jarre vide', 'Ein leerer Krug', '空瓶子', '空瓶子', 'Un tarro vacío', 'Un tarro vacío', 'Пустой кувшин');
 INSERT INTO `locales_gameobject` VALUES (80, '오래된 해안길', 'Ancienne route de la côte', 'Alte Küstenstraße', '旧海滩大道', '舊海灘大道', 'Viejo camino de la costa', 'Viejo camino de la costa', 'Старый прибрежный тракт');
 INSERT INTO `locales_gameobject` VALUES (81, '감시의 언덕', 'Colline des sentinelles', 'Späherkuppe', '哨兵岭', '哨兵嶺', 'Centinela del Cerro', 'Colina del Centinela', 'Сторожевой холм');
@@ -103,7 +103,7 @@ INSERT INTO `locales_gameobject` VALUES (123, '엘윈 숲', 'Forêt d\'Elwynn', 
 INSERT INTO `locales_gameobject` VALUES (124, '달빛시내 마을', 'Ruisselune', 'Mondbruch', '月溪镇', '月溪鎮', 'Arroyo de la Luna', 'Arroyo de la Luna', 'Луноречье');
 INSERT INTO `locales_gameobject` VALUES (167, 'Abercrombie\'s Crate', 'Caisse d\'Abercrombie', 'Abercrombie\'s Crate', '亚伯克隆比的箱子', 'Abercrombie\'s Crate', 'Cajón de Abercrombie', 'Abercrombie\'s Crate', 'Ящик Аберкромби');
 INSERT INTO `locales_gameobject` VALUES (251, 'Research Equipment', 'Equipement de recherches', 'Research Equipment', '研究设备', 'Research Equipment', 'Research Equipment', 'Research Equipment', 'Исследовательское оборудование');
-INSERT INTO `locales_gameobject` VALUES (256, '현상 수배!', 'AVIS DE RECHERCHE', 'GESUCHT', '通缉', '通緝', '¡Se busca!', '¡Se busca!', 'РАЗЫСКИВАЕТСЯ');
+INSERT INTO `locales_gameobject` VALUES (256, '현상 수배!', 'AVIS DE RECHERCHE', 'GESUCHT', '通缉', '通緝', 'SE BUSCA', '¡Se busca!', 'РАЗЫСКИВАЕТСЯ');
 INSERT INTO `locales_gameobject` VALUES (257, '수상한 통', 'Tonneau suspect', 'Verdächtiges Fass', '可疑的桶', '可疑的桶子', 'Barrica sospechosa', 'Barrica sospechosa', 'Подозрительная бочка');
 INSERT INTO `locales_gameobject` VALUES (259, '반쯤 묻힌 통', 'Tonneau à moitié enseveli', 'Halb vergrabenes Fass', '半埋的大桶', '半埋的大桶', 'Barrica semienterrada', 'Barrica semienterrada', 'Полузакопанная бочка');
 INSERT INTO `locales_gameobject` VALUES (261, '부서진 상자', 'Caisse endommagée', 'Beschädigte Kiste', '破损的箱子', '破損的木箱', 'Cajón dañado', 'Cajón dañado', 'Поврежденный ящик');
@@ -157,7 +157,7 @@ INSERT INTO `locales_gameobject` VALUES (386, '철퇴', 'Masse en métal', 'Meta
 INSERT INTO `locales_gameobject` VALUES (387, '모단 호수', 'Loch Modan', 'Loch Modan', '洛克莫丹', '洛克莫丹', 'Lago Modan', 'Loch Modan', 'Лок Модан');
 INSERT INTO `locales_gameobject` VALUES (388, '아라시 고원', 'Hautes-terres d\'Arathi', 'Das Arathihochland', '阿拉希高地', '阿拉希高地', 'Tierras Altas de Arathi', 'Tierras Altas de Arathi', 'Нагорье Арати');
 INSERT INTO `locales_gameobject` VALUES (389, '던 모드르', 'Dun Modr', 'Dun Modr', '丹莫德', '丹莫德', 'Dun Modr', 'Dun Modr', 'Дун Модр');
-INSERT INTO `locales_gameobject` VALUES (711, 'Wanted!', 'Avis de recherche !', 'Wanted!', '通缉！', 'Wanted!', 'Wanted!', 'Wanted!', 'Розыск!');
+INSERT INTO `locales_gameobject` VALUES (711, 'Wanted!', 'Avis de recherche !', 'Wanted!', '通缉！', 'Wanted!', '¡Se busca!', 'Wanted!', 'Розыск!');
 INSERT INTO `locales_gameobject` VALUES (759, '신성한 샘물', 'La source sacrée', 'Der Heilige Quell', '圣泉', '聖泉', 'El manantial sagrado', 'El manantial sagrado', 'Святой источник');
 INSERT INTO `locales_gameobject` VALUES (965, '검은연기', 'Fumée noire, échelle 2', 'Schwarzer Rauch - Maßstab 2', '黑烟-鳞片2', '黑煙 - 規模 2', 'Black Smoke - scale 2', 'Black Smoke - scale 2', 'Черный дым – масштаб 2');
 INSERT INTO `locales_gameobject` VALUES (1162, '메네실 항구', 'Port de Menethil', 'Hafen von Menethil', '米奈希尔港', '米奈希爾港', 'Puerto de Menethil', 'Puerto de Menethil', 'Гавань Менетилов');
@@ -304,7 +304,7 @@ INSERT INTO `locales_gameobject` VALUES (1755, 'Forge', 'Forge', 'Forge', '熔�
 INSERT INTO `locales_gameobject` VALUES (1759, '언덕마루 마을 기록부', 'Registre municipal de Hautebrande', 'Stadtverzeichnis von Hügellandhof', '希尔斯布莱德城镇文档', '希爾斯布萊德城鎮文檔', 'Registro de Trabalomas', 'Registro de Trabalomas', 'Регистрационная книга Хилсбрада');
 INSERT INTO `locales_gameobject` VALUES (1760, '오래된 책장', 'Bibliothèque dégradée par les intempéries', 'Verwitterter Bücherschrank', '陈旧的书架', '陳舊的書架', 'Estantería deteriorada', 'Estantería deteriorada', 'Старый книжный шкаф');
 INSERT INTO `locales_gameobject` VALUES (1761, '언덕마루 선언문', 'Proclamation de Hautebrande', 'Proklamation des Hügellands', '希尔斯布莱德宣言', '希爾斯布萊德宣言', 'Proclamación de Trabalomas', 'Proclamación de Trabalomas', 'Хилсбрадское официальное объявление');
-INSERT INTO `locales_gameobject` VALUES (1763, 'WANTED', 'AVIS DE RECHERCHE', 'WANTED', '通缉', 'WANTED', '¡Se busca!', 'WANTED', 'РАЗЫСКИВАЕТСЯ');
+INSERT INTO `locales_gameobject` VALUES (1763, 'WANTED', 'AVIS DE RECHERCHE', 'WANTED', '通缉', 'WANTED', 'SE BUSCA', 'WANTED', 'РАЗЫСКИВАЕТСЯ');
 INSERT INTO `locales_gameobject` VALUES (1764, '단단히 잠긴 족쇄', 'Boulet et chaîne verrouillés', 'Verschlossene Kugel und Kette', '坚固链球', '堅固鍊球', 'Cadena con bola de preso', 'Cadena con bola de preso', 'Запертые шар и цепь');
 INSERT INTO `locales_gameobject` VALUES (1765, '낡은 나무 궤짝', 'Coffre en bois usé', 'Abgenutzte Holztruhe', '旧木箱', '老舊木製箱', 'Cofre de madera gastado', 'Cofre de madera gastado', 'Подержанный деревянный сундук');
 INSERT INTO `locales_gameobject` VALUES (1766, '모닥불', 'Feu', 'Feuer', '火', '火焰', 'Fuego', 'Fuego', 'Огонь');
@@ -522,7 +522,7 @@ INSERT INTO `locales_gameobject` VALUES (2004, 'Smoldering Fire', 'Feu fumant', 
 INSERT INTO `locales_gameobject` VALUES (2005, '모닥불', 'Feu de camp', 'Lagerfeuer', '营火', '篝火', 'Campfire', 'Hoguera', 'Костер');
 INSERT INTO `locales_gameobject` VALUES (2006, '모닥불', 'Feu de camp', 'Lagerfeuer', '营火', '篝火', 'Campfire', 'Hoguera', 'Костер');
 INSERT INTO `locales_gameobject` VALUES (2007, 'Campfire', 'Feu de camp', 'Campfire', '营火', 'Campfire', 'Campfire', 'Campfire', 'Костер');
-INSERT INTO `locales_gameobject` VALUES (2008, 'Dangerous!', 'Dangereux !', 'Dangerous!', '危险！', 'Dangerous!', 'Dangerous!', 'Dangerous!', 'ОПАСНО!');
+INSERT INTO `locales_gameobject` VALUES (2008, 'Dangerous!', 'Dangereux !', 'Dangerous!', '危险！', 'Dangerous!', '¡Peligroso!', 'Dangerous!', 'ОПАСНО!');
 INSERT INTO `locales_gameobject` VALUES (2010, '모루', 'Enclume', 'Amboss', '铁砧', '鐵砧', 'Yunque', 'Yunque', 'Наковальня');
 INSERT INTO `locales_gameobject` VALUES (2014, '모루', 'Enclume', 'Amboss', '铁砧', '鐵砧', 'Yunque', 'Yunque', 'Наковальня');
 INSERT INTO `locales_gameobject` VALUES (2015, '가열로', 'Forge', 'Schmiede', '熔炉', '熔爐', 'Forja', 'Forja', 'Горн');
@@ -711,7 +711,7 @@ INSERT INTO `locales_gameobject` VALUES (2708, '은빛소나무의 영혼호의 
 INSERT INTO `locales_gameobject` VALUES (2709, '처녀의 망상호의 항해일지', 'Journal de la Folie de la Vierge', 'Logbuch der TOLLEN MINNA', '处女号的航海日志', '少女號的航海日誌', 'Cuaderno de bitácora de El Capricho', 'Cuaderno de bitácora de El Capricho', 'Судовой журнал \"Девичьей Блажи\"');
 INSERT INTO `locales_gameobject` VALUES (2710, '은빛소나무의 영혼호의 항해일지', 'Journal de l\'Esprit des Pins argentés', 'Logbuch der SILBERGEIST', '银松之魂号的航海日志', '銀松之靈號的航海日誌', 'Cuaderno de bitácora del Espíritu de Argénteos', 'Cuaderno de bitácora del Espíritu de Argénteos', 'Судовой журнал \"Духа Серебряного бора\"');
 INSERT INTO `locales_gameobject` VALUES (2712, '엘프의 보석', 'Gemme elfique calcifiée', 'Verkalkter Elfenedelstein', '石化精灵宝钻', '石化精靈寶石', 'Gema élfica calcificada', 'Gema élfica calcificada', 'Окаменевший эльфийский самоцвет');
-INSERT INTO `locales_gameobject` VALUES (2713, '현상 수배 전단', 'Tableau des recherches', 'Steckbriefbrett', '通缉板', '通緝板', 'Tablón de Se busca', 'Tablón de Se busca', 'Розыск!');
+INSERT INTO `locales_gameobject` VALUES (2713, '현상 수배 전단', 'Tableau des recherches', 'Steckbriefbrett', '通缉板', '通緝板', 'Tablón de Se Busca', 'Tablón de Se busca', 'Розыск!');
 INSERT INTO `locales_gameobject` VALUES (2714, '알터랙 화강암', 'Granit d\'Alterac', 'Alteracgranit', '奥特兰克花岗岩', '奧特蘭克花崗岩', 'Granito de Alterac', 'Granito de Alterac', 'Альтеракский гранит');
 INSERT INTO `locales_gameobject` VALUES (2715, '룬새김 주춧돌', 'Piédestal runique', 'Runenverziertes Podest', '符文底座', '符文底座', 'Pedestal con runas', 'Pedestal con runas', 'Рунный пьедестал');
 INSERT INTO `locales_gameobject` VALUES (2716, '트렐레인의 궤짝', 'Coffre de Trelane', 'Trelanes Truhe', '特雷莱恩的箱子', '特雷萊恩的箱子', 'Cofre de Trelane', 'Cofre de Trelane', 'Сундук Трелана');
@@ -1036,7 +1036,7 @@ INSERT INTO `locales_gameobject` VALUES (3963, '이글거리는 화롯불', 'Bra
 INSERT INTO `locales_gameobject` VALUES (3964, '이글거리는 화롯불', 'Brasier ardent', 'Wilde Lohe', '烈火', '烈火', 'Llamaradas feroces', 'Llamaradas feroces', 'Буйное пламя');
 INSERT INTO `locales_gameobject` VALUES (3967, '이글거리는 화롯불', 'Brasier ardent', 'Wilde Lohe', '烈火', '烈火', 'Llamaradas feroces', 'Llamaradas feroces', 'Буйное пламя');
 INSERT INTO `locales_gameobject` VALUES (3968, '이글거리는 화롯불', 'Brasier ardent', 'Wilde Lohe', '烈火', '烈火', 'Llamaradas feroces', 'Llamaradas feroces', 'Буйное пламя');
-INSERT INTO `locales_gameobject` VALUES (3972, '현상 수배!', 'AVIS DE RECHERCHE', 'GESUCHT', '通缉', '通緝', '¡Se busca!', 'SE BUSCA', 'РАЗЫСКИВАЕТСЯ');
+INSERT INTO `locales_gameobject` VALUES (3972, '현상 수배!', 'AVIS DE RECHERCHE', 'GESUCHT', '通缉', '通緝', 'SE BUSCA', 'SE BUSCA', 'РАЗЫСКИВАЕТСЯ');
 INSERT INTO `locales_gameobject` VALUES (4004, 'Fire Plume Ridge Lava Lake', '', 'Fire Plume Ridge Lava Lake', '火羽山熔岩湖', 'Fire Plume Ridge Lava Lake', 'Fire Plume Ridge Lava Lake', 'Fire Plume Ridge Lava Lake', 'Банк');
 INSERT INTO `locales_gameobject` VALUES (4005, 'Bank', 'Banque', 'Bank', '银行', 'Bank', 'El banco', 'Bank', 'Банк');
 INSERT INTO `locales_gameobject` VALUES (4072, '주제어 밸브', 'Valve de commande principale', 'Hauptsteuerventil', '主调节阀', '主調節閥', 'Válvula de control principal', 'Válvula de control principal', 'Главный клапан управления');
@@ -3936,7 +3936,7 @@ INSERT INTO `locales_gameobject` VALUES (142117, '우체통', 'Boîte aux lettre
 INSERT INTO `locales_gameobject` VALUES (142118, '끓고 있는 가마솥', 'Chaudron bouillonnant', 'Blubbernder Kessel', '冒泡的大锅', '冒泡的大鍋', 'Caldera burbujeante', 'Caldera burbujeante', 'Бурлящий котел');
 INSERT INTO `locales_gameobject` VALUES (142119, 'Mailbox', 'Boîte aux lettres', 'Mailbox', '邮箱', 'Mailbox', 'Buzón', 'Mailbox', 'Почтовый ящик');
 INSERT INTO `locales_gameobject` VALUES (142121, '모닥불', 'Feu de camp', 'Lagerfeuer', '营火', '篝火', 'Campfire', 'Hoguera', 'Костер');
-INSERT INTO `locales_gameobject` VALUES (142122, '현상 수배 전단', 'Avis de recherche', 'Steckbrief', '通缉告示', '懸賞告示', 'Cartel de Se busca', 'Cartel de Se busca', 'Плакат \"Разыскивается\"');
+INSERT INTO `locales_gameobject` VALUES (142122, '현상 수배 전단', 'Avis de recherche', 'Steckbrief', '通缉告示', '懸賞告示', 'Cartel de Se Busca', 'Cartel de Se busca', 'Плакат \"Разыскивается\"');
 INSERT INTO `locales_gameobject` VALUES (142123, '모닥불', 'Feu de camp', 'Lagerfeuer', '营火', '篝火', 'Campfire', 'Hoguera', 'Костер');
 INSERT INTO `locales_gameobject` VALUES (142124, '모닥불', 'Feu de camp', 'Lagerfeuer', '营火', '篝火', 'Campfire', 'Hoguera', 'Костер');
 INSERT INTO `locales_gameobject` VALUES (142131, '모닥불', 'Feu de camp', 'Lagerfeuer', '营火', '篝火', 'Campfire', 'Hoguera', 'Костер');
@@ -4489,7 +4489,7 @@ INSERT INTO `locales_gameobject` VALUES (149481, 'Rune of Beth\'Amara', 'Rune de
 INSERT INTO `locales_gameobject` VALUES (149482, 'Rune of Markri', 'Rune de Markri', 'Rune of Markri', '玛克雷符文', 'Rune of Markri', 'Rune of Markri', 'Rune of Markri', 'Руна Маркри');
 INSERT INTO `locales_gameobject` VALUES (149483, 'Rune of Sael\'hai', 'Rune de Sael\'hai', 'Rune of Sael\'hai', '萨尔哈符文', 'Rune of Sael\'hai', 'Rune of Sael\'hai', 'Rune of Sael\'hai', 'Руна Саэл\'Хаи');
 INSERT INTO `locales_gameobject` VALUES (149502, '검은용군단의 보물', 'Trésor du Vol noir', 'Hort des schwarzen Drachenschwarms', '黑龙的财宝', '黑龍軍團的財寶', 'Tesoro oculto del Vuelo Negro', 'Tesoro oculto del Vuelo Negro', 'Сокровищница черных драконов');
-INSERT INTO `locales_gameobject` VALUES (150075, 'Wanted Poster', 'Avis de recherche', 'Wanted Poster', '通缉告示', 'Wanted Poster', 'Cartel de Se busca', 'Wanted Poster', 'Плакат \"Разыскивается\"');
+INSERT INTO `locales_gameobject` VALUES (150075, 'Wanted Poster', 'Avis de recherche', 'Wanted Poster', '通缉告示', 'Wanted Poster', 'Cartel de Se Busca', 'Wanted Poster', 'Плакат \"Разыскивается\"');
 INSERT INTO `locales_gameobject` VALUES (150079, '미스릴 광맥', 'Gisement de mithril', 'Mithrilvorkommen', '秘银矿脉', '秘銀礦床', 'Depósito de mitril', 'Depósito de mitril', 'Мифриловые залежи');
 INSERT INTO `locales_gameobject` VALUES (150080, '금 광맥', 'Filon d\'or', 'Goldader', '金矿石', '金礦脈', 'Filón de oro', 'Filón de oro', 'Золотая жила');
 INSERT INTO `locales_gameobject` VALUES (150081, '진은 광맥', 'Gisement de vrai-argent', 'Echtsilbervorkommen', '真银矿石', '真銀礦床', 'Depósito de veraplata', 'Depósito de veraplata', 'Залежи истинного серебра');
@@ -4638,7 +4638,7 @@ INSERT INTO `locales_gameobject` VALUES (153695, '모닥불', 'Feu de camp', 'La
 INSERT INTO `locales_gameobject` VALUES (153716, '우체통', 'Boîte aux lettres', 'Briefkasten', '邮箱', '郵箱', 'Buzón', 'Buzón', 'Почтовый ящик');
 INSERT INTO `locales_gameobject` VALUES (153723, '화톳불', 'Feu de joie', 'Freudenfeuer', '篝火', '營火', 'Fogata', 'Fogata', 'Большой костер');
 INSERT INTO `locales_gameobject` VALUES (154357, '번들거리는 진흙', 'Boue luisante', 'Glitzernder Matsch', '闪光的泥浆', '閃光的泥漿', 'Barro centelleante', 'Barro centelleante', 'Блестящая грязь');
-INSERT INTO `locales_gameobject` VALUES (156561, '현상 수배 전단', 'Avis de recherche', 'Steckbrief', '通缉告示', '懸賞告示', 'Cartel de Se busca', 'Cartel de Se busca', 'Плакат \"Разыскивается\"');
+INSERT INTO `locales_gameobject` VALUES (156561, '현상 수배 전단', 'Avis de recherche', 'Steckbrief', '通缉告示', '懸賞告示', 'Cartel de Se Busca', 'Cartel de Se busca', 'Плакат \"Разыскивается\"');
 INSERT INTO `locales_gameobject` VALUES (157636, '모닥불', 'Feu de camp', 'Lagerfeuer', '营火', '篝火', 'Campfire', 'Hoguera', 'Костер');
 INSERT INTO `locales_gameobject` VALUES (157637, '우체통', 'Boîte aux lettres', 'Briefkasten', '邮箱', '郵箱', 'Buzón', 'Buzón', 'Почтовый ящик');
 INSERT INTO `locales_gameobject` VALUES (157816, '나무 우리', 'Enclos', 'Sammelpferch', '围栏', '圍欄', 'Holding Pen', 'Cercado', 'Загон');
@@ -4805,7 +4805,7 @@ INSERT INTO `locales_gameobject` VALUES (164827, '오라 - 링쿠', '', 'Aura 2 
 INSERT INTO `locales_gameobject` VALUES (164838, '붉은 수정', 'Cristal rouge JD 1', 'JD Roter Kristall 1', '红水晶1', '紅水晶1', 'JD Red Crystal 1', 'JD Red Crystal 1', 'Красный кристалл Джей Ди 1');
 INSERT INTO `locales_gameobject` VALUES (164839, '폭발의 덫', 'Piège explosif', 'Sprengfalle', '爆炸陷阱', '爆炸陷阱', 'Trampa explosiva', 'Trampa explosiva', 'Взрывная ловушка');
 INSERT INTO `locales_gameobject` VALUES (164840, '우체통', 'Boîte aux lettres', 'Briefkasten', '邮箱', '郵箱', 'Buzón', 'Buzón', 'Почтовый ящик');
-INSERT INTO `locales_gameobject` VALUES (164867, '현상 수배!', 'AVIS DE RECHERCHE', 'GESUCHT', '通缉', '懸賞啟事', '¡Se busca!', 'SE BUSCA', 'РАЗЫСКИВАЕТСЯ');
+INSERT INTO `locales_gameobject` VALUES (164867, '현상 수배!', 'AVIS DE RECHERCHE', 'GESUCHT', '通缉', '懸賞啟事', 'SE BUSCA', 'SE BUSCA', 'РАЗЫСКИВАЕТСЯ');
 INSERT INTO `locales_gameobject` VALUES (164868, '사살 지령', 'TUER À VUE', 'SOFORT TÖTEN', '格杀勿论', '格殺勿論', 'MATAR INMEDIATAMENTE', 'MATAR INMEDIATAMENTE', 'УБИТЬ НА МЕСТЕ');
 INSERT INTO `locales_gameobject` VALUES (164870, '연기 방출기', 'Lance-fumée 02', 'Rauch-Emitter 02', '烟雾发射器02', '煙霧發射器02', 'Smoke Emitter 02', 'Smoke Emitter 02', 'Источник дыма 2');
 INSERT INTO `locales_gameobject` VALUES (164871, '비행선 (천둥부름호)', 'Zeppelin (Le Mande-tonnerre)', 'Zeppelin (Die Donnersturm)', '飞艇-奥格瑞玛到幽暗城', '飛艇(喚雷者號)', 'Zepelín (El Invocador del Trueno)', 'Zepelín (El Invocador del Trueno)', 'Дирижабль');
@@ -6009,7 +6009,7 @@ INSERT INTO `locales_gameobject` VALUES (175316, '활활타는 화롯불', 'Bras
 INSERT INTO `locales_gameobject` VALUES (175317, '활활타는 화롯불', 'Brasier puissant', 'Mächtige Lohe', '火焰', '大火盆', 'Grandes llamaradas', 'Grandes llamaradas', 'Могучее пламя');
 INSERT INTO `locales_gameobject` VALUES (175318, '활활타는 화롯불', 'Brasier puissant', 'Mächtige Lohe', '火焰', '大火盆', 'Grandes llamaradas', 'Grandes llamaradas', 'Могучее пламя');
 INSERT INTO `locales_gameobject` VALUES (175319, '검은불꽃 비밀집회', 'Enclave de Sombrefeu', 'Dunkelfeuerenklave', '暗火营地', '暗火營地', 'Darkfire Enclave', 'Enclave Fuego Oscuro', 'Анклав Темного Пламени');
-INSERT INTO `locales_gameobject` VALUES (175320, 'WANTED: Murkdeep!', 'AVIS DE RECHERCHE : Fondeboue !', 'WANTED: Murkdeep!', '通缉：莫克迪普!', 'WANTED: Murkdeep!', 'WANTED: Murkdeep!', 'WANTED: Murkdeep!', 'Разыскивается: Глубомрак!');
+INSERT INTO `locales_gameobject` VALUES (175320, 'WANTED: Murkdeep!', 'AVIS DE RECHERCHE : Fondeboue !', 'WANTED: Murkdeep!', '通缉：莫克迪普!', 'WANTED: Murkdeep!', '¡SE BUSCA: Murkdeep!', 'WANTED: Murkdeep!', 'Разыскивается: Глубомрак!');
 INSERT INTO `locales_gameobject` VALUES (175324, '서리망치거인 조각', 'Eclats cognegivre', 'Frosthagelsplitter', '霜槌碎片', '霜槌裂片', 'Esquirlas de Machacahielo', 'Esquirlas de Machacahielo', 'Обломки Ледяного Молота');
 INSERT INTO `locales_gameobject` VALUES (175329, 'Blackwood Nut Stores', 'Réserves de noix des Noirbois', 'Blackwood Nut Stores', '黑木坚果', 'Blackwood Nut Stores', 'Blackwood Nut Stores', 'Blackwood Nut Stores', 'Ореховый склад Чернолесья');
 INSERT INTO `locales_gameobject` VALUES (175330, 'Blackwood Fruit Stores', 'Réserves de fruits des Noirbois', 'Blackwood Fruit Stores', '黑木水果', 'Blackwood Fruit Stores', 'Blackwood Fruit Stores', 'Blackwood Fruit Stores', 'Фруктовый склад Чернолесья');
@@ -7020,7 +7020,7 @@ INSERT INTO `locales_gameobject` VALUES (177804, '훼손된 인간 시체', 'Res
 INSERT INTO `locales_gameobject` VALUES (177805, '훼손된 인간 시체', 'Restes humains mutilés', 'Zerfleischte menschliche Überreste', '破碎的人类残骸', '破碎的人類殘骸', 'Restos humanos destrozados', 'Restos humanos destrozados', 'Изуродованный человеческий труп');
 INSERT INTO `locales_gameobject` VALUES (177806, '훼손된 인간 시체', 'Restes humains mutilés', 'Zerfleischte menschliche Überreste', '破碎的人类残骸', '破碎的人類殘骸', 'Restos humanos destrozados', 'Restos humanos destrozados', 'Изуродованный человеческий труп');
 INSERT INTO `locales_gameobject` VALUES (177844, '이상한 금고', 'Etrange coffret', 'Merkwürdige Schließkassette', '奇怪的保险箱', '奇怪的帶鎖箱', 'Arcón extraño', 'Arcón extraño', 'Странный денежный ящик');
-INSERT INTO `locales_gameobject` VALUES (177904, '현상 수배: 베스셀레스', 'Avis de recherche : Besseleth', 'Steckbrief: Besseleth', '通缉：贝瑟莱斯', '懸賞告示:貝瑟萊斯', 'Cartel de Se busca: Besseleth', 'Cartel de Se busca: Besseleth', 'Плакат: \"Розыск\": Бесселет');
+INSERT INTO `locales_gameobject` VALUES (177904, '현상 수배: 베스셀레스', 'Avis de recherche : Besseleth', 'Steckbrief: Besseleth', '通缉：贝瑟莱斯', '懸賞告示:貝瑟萊斯', 'Cartel de Se Busca: Besseleth', 'Cartel de Se busca: Besseleth', 'Плакат: \"Розыск\": Бесселет');
 INSERT INTO `locales_gameobject` VALUES (177905, '머큐시오 말뚝', 'Poste de Mercutio', 'Mercutio-Posten', '莫库提奥岗哨', '莫庫提奧崗哨', 'Puesto de Mercutio', 'Puesto de Mercutio', 'Почта Меркуцио');
 INSERT INTO `locales_gameobject` VALUES (177926, '가이아 씨앗', 'Graine de Gaïa', 'Gaeasamenkorn', '盖亚之种', '蓋亞之種', 'Semilla de Gaia', 'Semilla de Gaia', 'Семя Геи');
 INSERT INTO `locales_gameobject` VALUES (177927, '탐라의 가이아 묘목', 'Petit plant de Gaïa de Tammra', 'Tammras Gaeaschössling', 'Tammra Gaea Sapling', '塔姆拉蓋亞樹苗', 'Árbol joven de Gaia tammra', 'Árbol joven de Gaia tammra', 'Саженец Геи Таммры');
@@ -7202,8 +7202,8 @@ INSERT INTO `locales_gameobject` VALUES (179425, '[PH] Horde Graveyard Mid Pre-B
 INSERT INTO `locales_gameobject` VALUES (179426, '방랑자 그리렉', 'Gri\'lek le Vagabond', 'Gri\'lek der Wanderer', '游荡者格里雷克', '漫遊者格里雷克', 'Gri\'lek el Trotamundos', 'Gri\'lek el Trotamundos', 'Гри\'лек Странник');
 INSERT INTO `locales_gameobject` VALUES (179435, '분쟁 깃발', 'Bannière disputée', 'Umkämpftes Banner', '争夺中的军旗', '爭奪中的旌旗', 'Estandarte de enfrentamiento', 'Estandarte de enfrentamiento', 'Оспариваемое знамя');
 INSERT INTO `locales_gameobject` VALUES (179436, '[PH] Horde A1 Tower Pre-Banner BIG', '[PH] Horde A1 Tower Pre-Banner BIG', '[PH] Horde A1 Tower Pre-Banner BIG', '[PH] Horde A1 Tower Pre-Banner BIG', '[PH] Horde A1 Tower Pre-Banner BIG', '[PH] Horde A1 Tower Pre-Banner BIG', '[PH] Horde A1 Tower Pre-Banner BIG', '[PH] Орда A1 Башня – предварительный указатель – БОЛЬШОЙ');
-INSERT INTO `locales_gameobject` VALUES (179437, '현상 수배: 오크!', 'Avis de recherche : ORCS !', 'GESUCHT: ORCS!', '通缉：兽人!', '懸賞:獸人!', 'Se buscan: ¡ORCOS!', 'Se buscan: ¡ORCOS!', 'Розыск: ОРКИ!');
-INSERT INTO `locales_gameobject` VALUES (179438, '현상 수배: 드워프!', 'Avis de recherche : NAINS !', 'GESUCHT: ZWERGE!', '通缉：矮人!', '懸賞:矮人!', 'Se buscan: ¡ENANOS!', 'Se buscan: ¡ENANOS!', 'Розыск: ДВОРФЫ!');
+INSERT INTO `locales_gameobject` VALUES (179437, '현상 수배: 오크!', 'Avis de recherche : ORCS !', 'GESUCHT: ORCS!', '通缉：兽人!', '懸賞:獸人!', '¡Se Buscan: ORCOS!', 'Se buscan: ¡ORCOS!', 'Розыск: ОРКИ!');
+INSERT INTO `locales_gameobject` VALUES (179438, '현상 수배: 드워프!', 'Avis de recherche : NAINS !', 'GESUCHT: ZWERGE!', '通缉：矮人!', '懸賞:矮人!', '¡Se buscan: ENANOS!', 'Se buscan: ¡ENANOS!', 'Розыск: ДВОРФЫ!');
 INSERT INTO `locales_gameobject` VALUES (179439, '분쟁 깃발', 'Bannière disputée', 'Umkämpftes Banner', '争夺中的军旗', '爭奪中的旌旗', 'Estandarte de enfrentamiento', 'Estandarte de enfrentamiento', 'Оспариваемое знамя');
 INSERT INTO `locales_gameobject` VALUES (179440, '[PH] Horde A2 Tower Pre-Banner BIG', '[PH] Horde A2 Tower Pre-Banner BIG', '[PH] Horde A2 Tower Pre-Banner BIG', '[PH] Horde A2 Tower Pre-Banner BIG', '[PH] Horde A2 Tower Pre-Banner BIG', '[PH] Horde A2 Tower Pre-Banner BIG', '[PH] Horde A2 Tower Pre-Banner BIG', '[PH] Орда A2 Башня – предварительный указатель – БОЛЬШОЙ');
 INSERT INTO `locales_gameobject` VALUES (179441, '분쟁 깃발', 'Bannière disputée', 'Umkämpftes Banner', '争夺中的军旗', '爭奪中的旌旗', 'Estandarte de enfrentamiento', 'Estandarte de enfrentamiento', 'Оспариваемое знамя');
@@ -9872,7 +9872,7 @@ INSERT INTO `locales_gameobject` VALUES (34357, 'BerryFizz Potions and Mixed Dri
 INSERT INTO `locales_gameobject` VALUES (26497, 'Deep Mountain Mining Guild', 'Guilde des mineurs de la montagne profonde', 'Deep Mountain Mining Guild', '深山矿工协会', 'Deep Mountain Mining Guild', 'Deep Mountain Mining Guild', 'Deep Mountain Mining Guild', 'Гильдия горняков Тайной Горы');
 INSERT INTO `locales_gameobject` VALUES (20917, '푸른 오라', 'Aura bleue, petite colonne, échelle 3', 'Blaue Aura, kurzer Pfeiler, Maßstab 1,2', '蓝色光环', '藍色光環，短圓柱狀，規模 1.2', 'Aura azul, columna corta, escala 1.2', 'Aura azul, columna corta, escala 1.2', 'Синяя аура, низкая колонна, масштаб 3');
 INSERT INTO `locales_gameobject` VALUES (20817, 'Holding Pen', 'Enclos', 'Holding Pen', '围栏', 'Holding Pen', 'Holding Pen', 'Holding Pen', 'Кутузка');
-INSERT INTO `locales_gameobject` VALUES (254, 'Wanted: Chok\'Sul', 'Avis de recherche : Chok\'Sul', 'Wanted: Chok\'Sul', '祖玛维颅骨堆', 'Wanted: Chok\'Sul', 'Wanted: Chok\'Sul', 'Wanted: Chok\'Sul', 'Разыскивается: Чок\'сул');
+INSERT INTO `locales_gameobject` VALUES (254, 'Wanted: Chok\'Sul', 'Avis de recherche : Chok\'Sul', 'Wanted: Chok\'Sul', '祖玛维颅骨堆', 'Wanted: Chok\'Sul', 'Se Busca: Chok\'Sul', 'Wanted: Chok\'Sul', 'Разыскивается: Чок\'сул');
 INSERT INTO `locales_gameobject` VALUES (211024, 'Black Portal', '', 'Black Portal', 'Black Portal', 'Black Portal', 'Black Portal', 'Black Portal', 'Темный Портал');
 INSERT INTO `locales_gameobject` VALUES (211029, 'Banner', 'Bannière', 'Banner', '旗帜', 'Banner', 'Estandarte', 'Banner', 'Знамя');
 INSERT INTO `locales_gameobject` VALUES (211033, 'Aura', '', 'Aura', '光环', 'Aura', 'Aura', 'Aura', 'Аура');

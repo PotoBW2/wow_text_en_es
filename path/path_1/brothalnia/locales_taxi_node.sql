@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : nueva_conexion_de_prueba
+ Source Server         : 127.0.0.1
  Source Server Type    : MySQL
  Source Server Version : 50562
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 29/03/2022 17:17:25
+ Date: 06/05/2022 16:55:29
 */
 
 SET NAMES utf8mb4;
@@ -70,7 +70,7 @@ INSERT INTO `locales_taxi_node` VALUES (32, '테라모어 섬 (먼지진흙 습�
 INSERT INTO `locales_taxi_node` VALUES (33, '돌발톱 봉우리 (돌발톱 산맥)', 'Pic des Serres-Rocheuses, Serres-Rocheuses', 'Steinkrallengipfel, Steinkrallengebirge', '石爪峰，石爪山', '石爪峰，石爪山', 'Cima del Espolón, Sierra Espolón');
 INSERT INTO `locales_taxi_node` VALUES (34, '운송 수단 (무법항 ~ 톱니항)', 'Transport, Ratchet - Baie-du-Butin', 'Transport, Booty Bay - Ratchet', '棘齿城到藏宝海湾的船只', '傳送，藏寶海灣 - 棘齒城', 'Transporte, Bahía del Botín - Trinquete');
 INSERT INTO `locales_taxi_node` VALUES (35, '운송 수단 (오그리마 비행선)', 'Transport, zeppelins d\'Orgrimmar', 'Transport, Zeppeline von Orgrimmar', '奥格瑞玛的飞艇', '傳送，奧格瑪飛艇', 'Transporte, Zeppelines de Orgrimmar');
-INSERT INTO `locales_taxi_node` VALUES (36, '일반 (세계 대상)', 'Générique, cible monde', 'Generic, World target', 'Generic, World target', 'Generic, World target', 'TEST');
+INSERT INTO `locales_taxi_node` VALUES (36, '일반 (세계 대상)', 'Générique, cible monde', 'Generic, World target', 'Generic, World target', 'Generic, World target', 'Genérico, Objetivo mundial');
 INSERT INTO `locales_taxi_node` VALUES (37, '나이젤의 야영지 (잊혀진 땅)', 'Combe de Nijel, Désolace', 'Die Nijelspitze, Desolace', '尼耶尔前哨站，凄凉之地', '尼耶爾前哨站，淒涼之地', 'Punta de Nijel, Desolace');
 INSERT INTO `locales_taxi_node` VALUES (38, '그늘수렵 마을 (잊혀진 땅)', 'Proie-de-l\'Ombre, Désolace', 'Shadowprey, Desolace', '葬影村，凄凉之地', '葬影村，淒涼之地', 'Aldea Cazasombras, Desolace');
 INSERT INTO `locales_taxi_node` VALUES (39, '가젯잔 (타나리스)', 'Gadgetzan, Tanaris', 'Gadgetzan, Tanaris', '加基森，塔纳利斯', '加基森，塔納利斯', 'Gadgetzan, Tanaris');

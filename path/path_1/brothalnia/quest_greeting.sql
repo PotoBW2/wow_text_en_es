@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : nueva_conexion_de_prueba
+ Source Server         : 127.0.0.1
  Source Server Type    : MySQL
  Source Server Version : 50562
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 29/03/2022 17:18:31
+ Date: 06/05/2022 17:24:58
 */
 
 SET NAMES utf8mb4;
@@ -198,7 +198,7 @@ INSERT INTO `quest_greeting` VALUES (9177, 0, 'Stand at attention, soldier!$B$BW
 INSERT INTO `quest_greeting` VALUES (9562, 0, 'Greetings, $R.', NULL, NULL, NULL, NULL, NULL, 'Saludos, $r.', NULL, 'Приветствую вас, $r.', 2, 0);
 INSERT INTO `quest_greeting` VALUES (10260, 0, 'Welcome to Kibler\'s Exotic Pets! How can you help me today??', NULL, NULL, NULL, NULL, NULL, '¡Bienvenido a las mascotas exóticas de Kibler! ¿Cómo puedes ayudarme hoy?', NULL, 'Добро пожаловать в экзотический питомник Киблера! Чем вы можете мне сегодня помочь?', 5, 0);
 INSERT INTO `quest_greeting` VALUES (3848, 0, 'The balance of nature is a delicate one, and easily tipped.  Are you brave enough to make things right?', NULL, NULL, NULL, NULL, NULL, 'El equilibrio de la naturaleza es delicado y fácil de inclinar. ¿Eres lo suficientemente valiente para hacer las cosas bien?', NULL, 'Природный баланс очень хрупок. Но достаточно ли вы храбры, чтобы все исправить?', 1, 0);
-INSERT INTO `quest_greeting` VALUES (1952, 0, 'Hello, $C.  If you\'re here, then you must know that Silverpine is saturated with our enemies.  To survive, the Forsaken must drive them back!', NULL, NULL, NULL, NULL, NULL, 'Hola, $C. Si estás aquí, debes saber que Pino plateado está saturado de enemigos. ¡Para sobrevivir, los Renegados deben hacerlos retroceder!', NULL, NULL, 0, 0);
+INSERT INTO `quest_greeting` VALUES (1952, 0, 'Hello, $C.  If you\'re here, then you must know that Silverpine is saturated with our enemies.  To survive, the Forsaken must drive them back!', NULL, NULL, NULL, NULL, NULL, 'Hola, $C. Si estás aquí, debes saber que los Argénteos están saturados de enemigos. ¡Para sobrevivir, los Renegados deben hacerlos retroceder!', NULL, NULL, 0, 0);
 INSERT INTO `quest_greeting` VALUES (10321, 0, '<Emberstrife acknowledges your presence.>', NULL, NULL, NULL, NULL, NULL, '<La lucha de las ascuas reconoce tu presencia.>', NULL, NULL, 0, 0);
 INSERT INTO `quest_greeting` VALUES (11596, 0, 'My business plan never accounted for housing giant kodos... maybe I should have gone into the underwater basket weaving business instead.', NULL, NULL, NULL, NULL, NULL, 'Mi plan de negocios nunca tuvo en cuenta la vivienda de kodos gigantes ... tal vez debería haberme dedicado al negocio del tejido de cestas bajo el agua.', NULL, NULL, 1, 0);
 INSERT INTO `quest_greeting` VALUES (7777, 0, 'The Gordunni Ogres encroach upon our lands.  We send as many as are willing to face them in the desecrated ruins of Feralas.', NULL, NULL, NULL, NULL, NULL, 'Los ogros Gordunni invaden nuestras tierras. Enviamos a todos los que estén dispuestos a enfrentarlos en las ruinas profanadas de Feralas.', NULL, NULL, 1, 0);
