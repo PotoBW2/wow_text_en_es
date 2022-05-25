@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 127.0.0.1
+ Source Server         : Classic
  Source Server Type    : MySQL
  Source Server Version : 50562
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 23/05/2022 17:47:31
+ Date: 25/05/2022 06:57:24
 */
 
 SET NAMES utf8mb4;
@@ -35,11 +35,7 @@ CREATE TABLE `auction`  (
   `deposit` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `key_item_guid`(`item_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of auction
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for character_action
@@ -51,7 +47,7 @@ CREATE TABLE `character_action`  (
   `action` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `type` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `button`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of character_action
@@ -138,11 +134,11 @@ INSERT INTO `character_action` VALUES (4, 27, 10156, 0);
 INSERT INTO `character_action` VALUES (4, 39, 13262, 0);
 INSERT INTO `character_action` VALUES (4, 10, 12825, 0);
 INSERT INTO `character_action` VALUES (4, 32, 475, 0);
-INSERT INTO `character_action` VALUES (4, 5, 6131, 0);
+INSERT INTO `character_action` VALUES (4, 5, 1, 65);
 INSERT INTO `character_action` VALUES (4, 59, 10138, 0);
 INSERT INTO `character_action` VALUES (4, 33, 10173, 0);
 INSERT INTO `character_action` VALUES (4, 3, 12525, 0);
-INSERT INTO `character_action` VALUES (4, 6, 1953, 0);
+INSERT INTO `character_action` VALUES (4, 6, 6131, 0);
 INSERT INTO `character_action` VALUES (4, 8, 2139, 0);
 INSERT INTO `character_action` VALUES (4, 60, 10179, 0);
 INSERT INTO `character_action` VALUES (4, 61, 10185, 0);
@@ -157,13 +153,13 @@ INSERT INTO `character_action` VALUES (4, 9, 10159, 0);
 INSERT INTO `character_action` VALUES (4, 11, 10201, 0);
 INSERT INTO `character_action` VALUES (4, 58, 10144, 0);
 INSERT INTO `character_action` VALUES (4, 62, 10211, 0);
-INSERT INTO `character_action` VALUES (4, 4, 1, 64);
+INSERT INTO `character_action` VALUES (4, 4, 1953, 0);
 INSERT INTO `character_action` VALUES (4, 24, 5019, 0);
 INSERT INTO `character_action` VALUES (4, 34, 10169, 0);
 INSERT INTO `character_action` VALUES (4, 44, 7620, 0);
 INSERT INTO `character_action` VALUES (4, 65, 13019, 0);
-INSERT INTO `character_action` VALUES (4, 70, 2, 64);
-INSERT INTO `character_action` VALUES (4, 71, 3, 64);
+INSERT INTO `character_action` VALUES (4, 70, 3, 65);
+INSERT INTO `character_action` VALUES (4, 71, 2, 65);
 
 -- ----------------------------
 -- Table structure for character_aura
@@ -186,7 +182,7 @@ CREATE TABLE `character_aura`  (
   `duration` int(11) NOT NULL DEFAULT 0,
   `effect_index_mask` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `caster_guid`, `item_guid`, `spell`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of character_aura
@@ -196,7 +192,6 @@ INSERT INTO `character_aura` VALUES (2, 2, 0, 16609, 1, 0, 300, 15, 10, 0, 0, 20
 INSERT INTO `character_aura` VALUES (2, 2, 0, 22988, 1, 0, 1400, 20, 30, 0, 0, 0, -1, -1, 7);
 INSERT INTO `character_aura` VALUES (2, 2, 149, 24252, 1, 0, 0, 100, 0, 0, 0, 0, -1, -1, 3);
 INSERT INTO `character_aura` VALUES (3, 3, 169, 28143, 1, 0, 33, 33, 0, 0, 0, 0, -1, -1, 3);
-INSERT INTO `character_aura` VALUES (4, 17379391011112971768, 0, 7367, 1, 0, 15, 5, 0, 10000, 0, 0, 180000, 72667, 3);
 
 -- ----------------------------
 -- Table structure for character_battleground_data
@@ -212,7 +207,7 @@ CREATE TABLE `character_battleground_data`  (
   `join_o` float NOT NULL DEFAULT 0,
   `join_map` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of character_battleground_data
@@ -229,11 +224,7 @@ CREATE TABLE `character_deleted_items`  (
   `item_id` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
   `stack_count` mediumint(8) UNSIGNED NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = COMPACT;
-
--- ----------------------------
--- Records of character_deleted_items
--- ----------------------------
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for character_duplicate_account
@@ -241,11 +232,7 @@ CREATE TABLE `character_deleted_items`  (
 DROP TABLE IF EXISTS `character_duplicate_account`;
 CREATE TABLE `character_duplicate_account`  (
   `account` int(11) NULL DEFAULT NULL
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of character_duplicate_account
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for character_forgotten_skills
@@ -256,11 +243,7 @@ CREATE TABLE `character_forgotten_skills`  (
   `skill` mediumint(9) UNSIGNED NOT NULL,
   `value` mediumint(9) UNSIGNED NOT NULL,
   PRIMARY KEY (`guid`, `skill`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of character_forgotten_skills
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for character_gifts
@@ -273,11 +256,7 @@ CREATE TABLE `character_gifts`  (
   `flags` int(20) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`item_guid`) USING BTREE,
   INDEX `idx_guid`(`guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of character_gifts
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for character_homebind
@@ -291,7 +270,7 @@ CREATE TABLE `character_homebind`  (
   `position_y` float NOT NULL DEFAULT 0,
   `position_z` float NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of character_homebind
@@ -313,12 +292,7 @@ CREATE TABLE `character_honor_cp`  (
   `date` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `type` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   INDEX `idx_guid`(`guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of character_honor_cp
--- ----------------------------
-INSERT INTO `character_honor_cp` VALUES (4, 3, 4510, 29, 19122, 2);
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for character_instance
@@ -330,12 +304,7 @@ CREATE TABLE `character_instance`  (
   `permanent` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `instance`) USING BTREE,
   INDEX `idx_instance`(`instance`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of character_instance
--- ----------------------------
-INSERT INTO `character_instance` VALUES (4, 100, 0);
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for character_inventory
@@ -349,7 +318,7 @@ CREATE TABLE `character_inventory`  (
   `item_id` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Item Identifier',
   PRIMARY KEY (`item_guid`) USING BTREE,
   INDEX `idx_guid`(`guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of character_inventory
@@ -596,6 +565,14 @@ INSERT INTO `character_inventory` VALUES (4, 4251, 10, 7753, 8751);
 INSERT INTO `character_inventory` VALUES (4, 4251, 11, 7754, 4583);
 INSERT INTO `character_inventory` VALUES (4, 4252, 0, 7755, 12203);
 INSERT INTO `character_inventory` VALUES (4, 4252, 1, 7756, 14896);
+INSERT INTO `character_inventory` VALUES (4, 4252, 7, 7784, 12208);
+INSERT INTO `character_inventory` VALUES (4, 4252, 8, 7786, 11417);
+INSERT INTO `character_inventory` VALUES (4, 4252, 9, 7787, 5636);
+INSERT INTO `character_inventory` VALUES (4, 4252, 10, 7790, 4018);
+INSERT INTO `character_inventory` VALUES (4, 4252, 11, 7791, 5117);
+INSERT INTO `character_inventory` VALUES (4, 4253, 0, 7792, 12203);
+INSERT INTO `character_inventory` VALUES (4, 4253, 1, 7794, 8749);
+INSERT INTO `character_inventory` VALUES (4, 4253, 2, 7798, 15172);
 
 -- ----------------------------
 -- Table structure for character_pet
@@ -627,11 +604,7 @@ CREATE TABLE `character_pet`  (
   `teach_spell_data` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idx_owner`(`owner_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Pet System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of character_pet
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Pet System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for character_queststatus
@@ -654,7 +627,7 @@ CREATE TABLE `character_queststatus`  (
   `item_count4` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `reward_choice` int(11) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `quest`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of character_queststatus
@@ -973,8 +946,8 @@ INSERT INTO `character_queststatus` VALUES (4, 4642, 1, 1, 0, 1653340909, 0, 0, 
 INSERT INTO `character_queststatus` VALUES (4, 4561, 0, 1, 0, 1653338208, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 7815, 1, 1, 0, 1653340909, 15, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 7816, 1, 1, 0, 1653340909, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 7828, 3, 0, 0, 1653341809, 12, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 7829, 3, 0, 0, 1653341809, 3, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7828, 3, 0, 0, 1653446836, 15, 1, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7829, 3, 0, 0, 1653446836, 12, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for character_reputation
@@ -986,7 +959,7 @@ CREATE TABLE `character_reputation`  (
   `standing` int(11) NOT NULL DEFAULT 0,
   `flags` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `faction`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of character_reputation
@@ -1218,7 +1191,7 @@ CREATE TABLE `character_skills`  (
   `value` mediumint(9) UNSIGNED NOT NULL,
   `max` mediumint(9) UNSIGNED NOT NULL,
   PRIMARY KEY (`guid`, `skill`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of character_skills
@@ -1287,7 +1260,7 @@ INSERT INTO `character_skills` VALUES (3, 113, 300, 300);
 INSERT INTO `character_skills` VALUES (3, 115, 300, 300);
 INSERT INTO `character_skills` VALUES (3, 109, 300, 300);
 INSERT INTO `character_skills` VALUES (3, 762, 150, 150);
-INSERT INTO `character_skills` VALUES (4, 95, 236, 240);
+INSERT INTO `character_skills` VALUES (4, 95, 237, 240);
 INSERT INTO `character_skills` VALUES (4, 673, 300, 300);
 INSERT INTO `character_skills` VALUES (4, 415, 1, 1);
 INSERT INTO `character_skills` VALUES (4, 8, 1, 1);
@@ -1301,7 +1274,7 @@ INSERT INTO `character_skills` VALUES (4, 129, 270, 300);
 INSERT INTO `character_skills` VALUES (4, 197, 205, 300);
 INSERT INTO `character_skills` VALUES (4, 185, 50, 150);
 INSERT INTO `character_skills` VALUES (4, 356, 1, 75);
-INSERT INTO `character_skills` VALUES (4, 173, 90, 240);
+INSERT INTO `character_skills` VALUES (4, 173, 119, 240);
 INSERT INTO `character_skills` VALUES (4, 43, 136, 240);
 INSERT INTO `character_skills` VALUES (4, 762, 75, 75);
 
@@ -1318,11 +1291,7 @@ CREATE TABLE `character_social`  (
   INDEX `idx_friend`(`friend`) USING BTREE,
   INDEX `idx_guid_flags`(`guid`, `flags`) USING BTREE,
   INDEX `idx_friend_flags`(`friend`, `flags`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of character_social
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for character_spell
@@ -1335,7 +1304,7 @@ CREATE TABLE `character_spell`  (
   `disabled` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `spell`) USING BTREE,
   INDEX `idx_spell`(`spell`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of character_spell
@@ -1682,11 +1651,7 @@ CREATE TABLE `character_spell_cooldown`  (
   `category_expire_time` bigint(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Spell category cooldown expire time',
   `item_id` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Item Identifier',
   PRIMARY KEY (`guid`, `spell`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of character_spell_cooldown
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for character_stats
@@ -1722,11 +1687,7 @@ CREATE TABLE `character_stats`  (
   `attack_power` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `ranged_attack_power` int(10) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of character_stats
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for character_tutorial
@@ -1743,7 +1704,7 @@ CREATE TABLE `character_tutorial`  (
   `tut6` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `tut7` int(11) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`account`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of character_tutorial
@@ -1826,15 +1787,15 @@ CREATE TABLE `characters`  (
   INDEX `idx_account`(`account`) USING BTREE,
   INDEX `idx_online`(`online`) USING BTREE,
   INDEX `idx_name`(`name`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of characters
 -- ----------------------------
-INSERT INTO `characters` VALUES (1, 1, 'Repack', 2, 1, 1, 0, 0, 0, 0, 0, 60, 0, 7982089, 512, 22, 451, 16216.5, 16112.1, 69.4448, 2.3527, 0, 0, 0, 0, 0, '4194304 0 0 0 0 0 0 0 ', '', 0, 2956, 2936, 0, 1492803100, 0, 0, 0, 0, 0, 0, 0, 0, 2, 697499, 18, 0, 0, 0, 0, 0, 4294967295, 0, 17299, 0, 0, 0, 100, 0, '1 0 33554432 0 256 0 0 0 131072 0 0 0 0 0 0 0 0 8 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '21329 0 17782 0 21330 0 11840 0 21331 0 21598 0 21332 0 21333 0 21618 0 21581 0 12947 0 19384 0 19341 0 23041 0 23030 0 40001 1899 40001 1898 22811 0 40000 0 ', 12654, 0, NULL, NULL, NULL, 1);
+INSERT INTO `characters` VALUES (1, 1, 'Repack', 2, 1, 1, 0, 0, 0, 0, 0, 60, 0, 7982089, 512, 22, 451, 16216.5, 16112.1, 69.4448, 2.3527, 0, 0, 0, 0, 0, '4194304 0 0 0 0 0 0 0 ', '', 0, 2956, 2936, 0, 1492803100, 0, 0, 0, 0, 0, 0, 0, 0, 2, 694999, 18, 0, 0, 0, 0, 0, 4294967295, 0, 17299, 0, 0, 0, 100, 0, '1 0 33554432 0 256 0 0 0 131072 0 0 0 0 0 0 0 0 8 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '21329 0 17782 0 21330 0 11840 0 21331 0 21598 0 21332 0 21333 0 21618 0 21581 0 12947 0 19384 0 19341 0 23041 0 23030 0 40001 1899 40001 1898 22811 0 40000 0 ', 12654, 0, NULL, NULL, NULL, 1);
 INSERT INTO `characters` VALUES (2, 1, 'By', 4, 4, 0, 0, 0, 0, 0, 0, 60, 0, 997987789, 512, 616, 1, 4519.98, -3570.21, 982.339, 1.91693, 0, 0, 0, 0, 0, '100663296 0 0 0 0 0 0 0 ', '', 0, 1599, 1594, 0, 1588539759, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 4294967295, 0, 5483, 0, 0, 0, 100, 0, '0 0 0 1073741824 0 0 0 0 0 0 0 0 0 0 0 0 0 131072 0 2048 0 65536 2304 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '16908 0 23053 0 16832 0 6796 0 16905 0 16910 0 16909 0 16906 0 16911 0 16907 0 21596 0 19376 0 19406 0 18815 0 19398 0 18584 172359680 18583 40960000 22812 0 19160 0 ', 12654, 0, NULL, NULL, NULL, 1);
 INSERT INTO `characters` VALUES (3, 1, 'Brotalnia', 1, 8, 0, 0, 0, 0, 0, 0, 60, 0, 0, 520, 876, 1, 16228.5, 16308.5, 29.2623, 5.47966, 0, 0, 0, 0, 0, '2 0 0 0 0 0 0 0 ', '', 0, 2492, 2483, 0, 1561306223, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4294967295, 0, 1930, 3303, 0, 0, 100, 0, '0 0 0 536870912 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '12064 0 0 0 0 0 0 0 2586 0 0 0 0 0 11508 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 22630 0 0 0 5209 0 0 0 ', 0, 0, NULL, NULL, NULL, 1);
-INSERT INTO `characters` VALUES (4, 2, 'Pantine', 5, 8, 1, 0, 0, 0, 0, 0, 48, 89051, 997760857, 512, 47, 0, 83.5825, -3915.68, 142.123, 1.40678, 0, 0, 0, 0, 0, '275453440 281018368 34816 0 0 0 0 0 ', '', 1, 605947, 19761, 0, 1653341809, 0, 9428.62, 1, 1621062384, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1297, 2991, 0, 0, 100, 0, '2144993281 2944235095 2712354823 2424779720 22794759 3221764096 522499 1086324672 4289807456 906232065 2017723493 13960715 12582944 1842488453 26195968 876648832 960495950 375395204 2148236802 18941835 1333133376 538517891 2134884600 1868563003 554013372 67636738 0 100738840 1048576 12601387 2155872768 553665536 4096 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '8749 0 7722 0 3942 0 4330 0 14434 847 9945 0 14433 0 7472 66 14279 0 14231 0 4550 0 2951 0 18706 0 0 0 15703 0 9680 241 6803 0 5215 0 0 0 4499 0 ', 0, 0, NULL, NULL, NULL, 1);
+INSERT INTO `characters` VALUES (4, 2, 'Pantine', 5, 8, 1, 0, 0, 0, 0, 0, 48, 98189, 997761879, 514, 47, 0, 498.748, -3474.21, 116.095, 5.06205, 0, 0, 0, 0, 0, '275453440 281018368 34816 0 0 0 0 0 ', '', 0, 609521, 23335, 0, 1653449776, 0, 8140.25, 1, 1621062384, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1712, 2991, 0, 0, 100, 0, '2144993281 2944235095 2712387591 2424779720 22794759 3221764096 522499 1086324672 4289807456 906232065 2017723493 13960715 12582944 1842488453 26195968 876648832 960495950 375395204 2148236802 18941835 1333133376 538517891 2134884600 1868563003 554013372 67636738 0 100738840 1048576 12601387 2155872768 553665536 4096 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '8749 0 7722 0 3942 0 4330 0 14434 847 9945 0 14433 0 7472 66 14279 0 14231 0 4550 0 2951 0 18706 0 0 0 15703 0 9680 241 6803 0 5215 0 0 0 4499 0 ', 0, 0, NULL, NULL, NULL, 1);
 
 -- ----------------------------
 -- Table structure for characters_guid_delete
@@ -1843,11 +1804,7 @@ DROP TABLE IF EXISTS `characters_guid_delete`;
 CREATE TABLE `characters_guid_delete`  (
   `guid` int(11) NULL DEFAULT NULL,
   UNIQUE INDEX `key_guid`(`guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of characters_guid_delete
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for characters_item_delete
@@ -1856,11 +1813,7 @@ DROP TABLE IF EXISTS `characters_item_delete`;
 CREATE TABLE `characters_item_delete`  (
   `entry` int(11) NULL DEFAULT NULL,
   UNIQUE INDEX `key_entry`(`entry`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of characters_item_delete
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for corpse
@@ -1882,11 +1835,7 @@ CREATE TABLE `corpse`  (
   INDEX `idx_instance`(`instance`) USING BTREE,
   INDEX `idx_player`(`player_guid`) USING BTREE,
   INDEX `idx_time`(`time`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Death System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of corpse
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Death System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for creature_respawn
@@ -1899,203 +1848,106 @@ CREATE TABLE `creature_respawn`  (
   `map` int(5) UNSIGNED NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `instance`) USING BTREE,
   INDEX `idx_instance`(`instance`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Grid Loading System' ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Grid Loading System' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of creature_respawn
 -- ----------------------------
-INSERT INTO `creature_respawn` VALUES (151, 1653342069, 0, 0);
-INSERT INTO `creature_respawn` VALUES (1644, 1653329852, 0, 0);
-INSERT INTO `creature_respawn` VALUES (2097, 1653341229, 0, 0);
-INSERT INTO `creature_respawn` VALUES (2275, 1653342716, 0, 0);
-INSERT INTO `creature_respawn` VALUES (2289, 1653342629, 0, 0);
-INSERT INTO `creature_respawn` VALUES (2292, 1653342442, 0, 0);
-INSERT INTO `creature_respawn` VALUES (2293, 1653342399, 0, 0);
-INSERT INTO `creature_respawn` VALUES (2294, 1653342381, 0, 0);
-INSERT INTO `creature_respawn` VALUES (3163, 1653342441, 0, 0);
-INSERT INTO `creature_respawn` VALUES (3216, 1653342032, 0, 0);
-INSERT INTO `creature_respawn` VALUES (4508, 1653327885, 0, 0);
-INSERT INTO `creature_respawn` VALUES (6007, 1653342501, 0, 0);
-INSERT INTO `creature_respawn` VALUES (6050, 1653342406, 0, 0);
-INSERT INTO `creature_respawn` VALUES (6051, 1653342437, 0, 0);
-INSERT INTO `creature_respawn` VALUES (6056, 1653342435, 0, 0);
-INSERT INTO `creature_respawn` VALUES (6057, 1653342493, 0, 0);
-INSERT INTO `creature_respawn` VALUES (6076, 1653342321, 0, 0);
-INSERT INTO `creature_respawn` VALUES (6306, 1653342706, 0, 0);
-INSERT INTO `creature_respawn` VALUES (13966, 1653341461, 0, 1);
-INSERT INTO `creature_respawn` VALUES (13971, 1653337747, 0, 1);
-INSERT INTO `creature_respawn` VALUES (14772, 1653342074, 0, 0);
-INSERT INTO `creature_respawn` VALUES (16011, 1653340692, 0, 0);
-INSERT INTO `creature_respawn` VALUES (16093, 1653342448, 0, 0);
-INSERT INTO `creature_respawn` VALUES (16458, 1653342646, 0, 0);
-INSERT INTO `creature_respawn` VALUES (19760, 1653342166, 0, 1);
-INSERT INTO `creature_respawn` VALUES (19764, 1653342166, 0, 1);
-INSERT INTO `creature_respawn` VALUES (22156, 1653339717, 0, 1);
-INSERT INTO `creature_respawn` VALUES (22514, 1653336737, 0, 1);
-INSERT INTO `creature_respawn` VALUES (22540, 1653336753, 0, 1);
-INSERT INTO `creature_respawn` VALUES (22605, 1653336828, 0, 1);
-INSERT INTO `creature_respawn` VALUES (22669, 1653339718, 0, 1);
-INSERT INTO `creature_respawn` VALUES (23647, 1653331978, 0, 1);
-INSERT INTO `creature_respawn` VALUES (23690, 1653331960, 0, 1);
-INSERT INTO `creature_respawn` VALUES (23794, 1653339810, 0, 1);
-INSERT INTO `creature_respawn` VALUES (23795, 1653339810, 0, 1);
-INSERT INTO `creature_respawn` VALUES (23798, 1653336908, 0, 1);
-INSERT INTO `creature_respawn` VALUES (23800, 1653336912, 0, 1);
-INSERT INTO `creature_respawn` VALUES (23811, 1653336901, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24111, 1653339945, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24129, 1653339940, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24266, 1653336948, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24286, 1653336932, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24308, 1653336940, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24341, 1653339798, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24371, 1653339997, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24457, 1653336920, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24489, 1653339838, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24740, 1653339894, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24747, 1653342277, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24748, 1653342735, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24754, 1653342475, 0, 1);
-INSERT INTO `creature_respawn` VALUES (24759, 1653340119, 0, 1);
-INSERT INTO `creature_respawn` VALUES (27003, 1653339011, 0, 1);
-INSERT INTO `creature_respawn` VALUES (27654, 1653336163, 0, 1);
-INSERT INTO `creature_respawn` VALUES (28057, 1653339173, 0, 1);
-INSERT INTO `creature_respawn` VALUES (28062, 1653339161, 0, 1);
-INSERT INTO `creature_respawn` VALUES (28714, 1653342027, 0, 1);
-INSERT INTO `creature_respawn` VALUES (28929, 1653338951, 0, 1);
-INSERT INTO `creature_respawn` VALUES (33657, 1653408382, 100, 109);
-INSERT INTO `creature_respawn` VALUES (33658, 1653408384, 100, 109);
-INSERT INTO `creature_respawn` VALUES (34521, 1653409103, 100, 109);
-INSERT INTO `creature_respawn` VALUES (34522, 1653408358, 100, 109);
-INSERT INTO `creature_respawn` VALUES (39737, 1653408399, 100, 109);
-INSERT INTO `creature_respawn` VALUES (39842, 1653408737, 100, 109);
-INSERT INTO `creature_respawn` VALUES (39843, 1653408366, 100, 109);
-INSERT INTO `creature_respawn` VALUES (39844, 1653408369, 100, 109);
-INSERT INTO `creature_respawn` VALUES (39845, 1653408346, 100, 109);
-INSERT INTO `creature_respawn` VALUES (39846, 1653408348, 100, 109);
-INSERT INTO `creature_respawn` VALUES (39847, 1653408351, 100, 109);
-INSERT INTO `creature_respawn` VALUES (43213, 1653341177, 0, 1);
-INSERT INTO `creature_respawn` VALUES (43214, 1653341232, 0, 1);
-INSERT INTO `creature_respawn` VALUES (43215, 1653341191, 0, 1);
-INSERT INTO `creature_respawn` VALUES (43216, 1653341204, 0, 1);
-INSERT INTO `creature_respawn` VALUES (43266, 1653335790, 0, 1);
-INSERT INTO `creature_respawn` VALUES (45153, 1653339047, 0, 0);
-INSERT INTO `creature_respawn` VALUES (45211, 1653342501, 0, 0);
-INSERT INTO `creature_respawn` VALUES (45212, 1653342686, 0, 0);
-INSERT INTO `creature_respawn` VALUES (45221, 1653342495, 0, 0);
-INSERT INTO `creature_respawn` VALUES (45222, 1653342216, 0, 0);
-INSERT INTO `creature_respawn` VALUES (45223, 1653342336, 0, 0);
-INSERT INTO `creature_respawn` VALUES (45224, 1653342322, 0, 0);
-INSERT INTO `creature_respawn` VALUES (45349, 1653341198, 0, 0);
-INSERT INTO `creature_respawn` VALUES (45350, 1653341837, 0, 0);
-INSERT INTO `creature_respawn` VALUES (45461, 1653342652, 0, 0);
-INSERT INTO `creature_respawn` VALUES (45587, 1653341859, 0, 1);
-INSERT INTO `creature_respawn` VALUES (45919, 1653341854, 0, 0);
-INSERT INTO `creature_respawn` VALUES (45921, 1653341827, 0, 0);
-INSERT INTO `creature_respawn` VALUES (46761, 1653342119, 0, 0);
-INSERT INTO `creature_respawn` VALUES (46762, 1653342768, 0, 0);
-INSERT INTO `creature_respawn` VALUES (47243, 1653342471, 0, 0);
-INSERT INTO `creature_respawn` VALUES (47248, 1653342480, 0, 0);
-INSERT INTO `creature_respawn` VALUES (47924, 1653342405, 0, 1);
-INSERT INTO `creature_respawn` VALUES (47934, 1653342409, 0, 1);
-INSERT INTO `creature_respawn` VALUES (48629, 1653342626, 0, 0);
-INSERT INTO `creature_respawn` VALUES (51736, 1653342569, 0, 0);
-INSERT INTO `creature_respawn` VALUES (52257, 1653342607, 0, 0);
-INSERT INTO `creature_respawn` VALUES (54001, 1653342426, 0, 0);
-INSERT INTO `creature_respawn` VALUES (54003, 1653342394, 0, 0);
-INSERT INTO `creature_respawn` VALUES (80454, 1653341224, 0, 0);
-INSERT INTO `creature_respawn` VALUES (80761, 1653342384, 0, 0);
-INSERT INTO `creature_respawn` VALUES (80810, 1653328185, 0, 0);
-INSERT INTO `creature_respawn` VALUES (81032, 1653342259, 0, 0);
-INSERT INTO `creature_respawn` VALUES (81360, 1653339197, 0, 0);
-INSERT INTO `creature_respawn` VALUES (81369, 1653340200, 0, 0);
-INSERT INTO `creature_respawn` VALUES (81370, 1653340199, 0, 0);
-INSERT INTO `creature_respawn` VALUES (81374, 1653340207, 0, 0);
-INSERT INTO `creature_respawn` VALUES (89530, 1653333404, 0, 0);
-INSERT INTO `creature_respawn` VALUES (90142, 1653342590, 0, 0);
-INSERT INTO `creature_respawn` VALUES (90338, 1653337797, 0, 0);
-INSERT INTO `creature_respawn` VALUES (90342, 1653329553, 0, 0);
-INSERT INTO `creature_respawn` VALUES (90381, 1653342640, 0, 0);
-INSERT INTO `creature_respawn` VALUES (90403, 1653341610, 0, 0);
-INSERT INTO `creature_respawn` VALUES (90416, 1653329115, 0, 0);
-INSERT INTO `creature_respawn` VALUES (90418, 1653342579, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92156, 1653336722, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92268, 1653339952, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92270, 1653340245, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92272, 1653340253, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92274, 1653340030, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92275, 1653339933, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92278, 1653336705, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92279, 1653340042, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92281, 1653340288, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92364, 1653342261, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92385, 1653342311, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92528, 1653342230, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92535, 1653342218, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92596, 1653342251, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92597, 1653342278, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92602, 1653342187, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92603, 1653342123, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92604, 1653342136, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92605, 1653342158, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92608, 1653342201, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92613, 1653342219, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92630, 1653342168, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92703, 1653342106, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92712, 1653342243, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92715, 1653342332, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92716, 1653342299, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92718, 1653342077, 0, 0);
-INSERT INTO `creature_respawn` VALUES (92779, 1653342058, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93020, 1653341678, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93093, 1653341576, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93098, 1653341670, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93188, 1653340861, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93347, 1653341070, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93350, 1653341583, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93351, 1653341553, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93391, 1653341074, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93393, 1653340877, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93394, 1653341067, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93551, 1653341100, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93606, 1653341081, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93608, 1653341096, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93613, 1653341568, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93616, 1653340885, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93618, 1653342061, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93630, 1653341565, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93658, 1653341603, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93681, 1653341089, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93682, 1653340863, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93683, 1653340880, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93684, 1653340866, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93685, 1653341063, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93686, 1653341546, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93687, 1653340872, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93688, 1653342061, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93707, 1653341584, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93723, 1653341599, 0, 0);
-INSERT INTO `creature_respawn` VALUES (93728, 1653341093, 0, 0);
-INSERT INTO `creature_respawn` VALUES (140693, 1653342555, 0, 0);
-INSERT INTO `creature_respawn` VALUES (140694, 1653342555, 0, 0);
-INSERT INTO `creature_respawn` VALUES (140695, 1653342553, 0, 0);
-INSERT INTO `creature_respawn` VALUES (140696, 1653342556, 0, 0);
-INSERT INTO `creature_respawn` VALUES (140697, 1653342564, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190214, 1653342415, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190215, 1653342405, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190218, 1653342444, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190221, 1653342441, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190222, 1653342459, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190223, 1653342452, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190224, 1653342449, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190225, 1653342467, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190226, 1653342463, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190227, 1653342465, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190230, 1653342426, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190231, 1653342426, 0, 0);
-INSERT INTO `creature_respawn` VALUES (300997, 1653408332, 100, 109);
-INSERT INTO `creature_respawn` VALUES (300998, 1653408342, 100, 109);
-INSERT INTO `creature_respawn` VALUES (301770, 1653342404, 0, 0);
-INSERT INTO `creature_respawn` VALUES (301771, 1653342377, 0, 0);
+INSERT INTO `creature_respawn` VALUES (1644, 1653448388, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2243, 1653450336, 0, 0);
+INSERT INTO `creature_respawn` VALUES (3163, 1653446740, 0, 0);
+INSERT INTO `creature_respawn` VALUES (4508, 1653446432, 0, 0);
+INSERT INTO `creature_respawn` VALUES (4588, 1653450985, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6007, 1653450707, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6050, 1653448464, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6051, 1653448495, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6056, 1653448493, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6057, 1653450700, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6076, 1653448377, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6306, 1653450245, 0, 0);
+INSERT INTO `creature_respawn` VALUES (13971, 1653448931, 0, 1);
+INSERT INTO `creature_respawn` VALUES (14772, 1653450452, 0, 0);
+INSERT INTO `creature_respawn` VALUES (14773, 1653450475, 0, 0);
+INSERT INTO `creature_respawn` VALUES (14774, 1653450440, 0, 0);
+INSERT INTO `creature_respawn` VALUES (14775, 1653450473, 0, 0);
+INSERT INTO `creature_respawn` VALUES (14776, 1653450456, 0, 0);
+INSERT INTO `creature_respawn` VALUES (16011, 1653448895, 0, 0);
+INSERT INTO `creature_respawn` VALUES (16093, 1653450494, 0, 0);
+INSERT INTO `creature_respawn` VALUES (16152, 1653447828, 0, 0);
+INSERT INTO `creature_respawn` VALUES (19760, 1653449559, 0, 1);
+INSERT INTO `creature_respawn` VALUES (19764, 1653449559, 0, 1);
+INSERT INTO `creature_respawn` VALUES (27003, 1653450330, 0, 1);
+INSERT INTO `creature_respawn` VALUES (27654, 1653447481, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28057, 1653450504, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28062, 1653450496, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28929, 1653450290, 0, 1);
+INSERT INTO `creature_respawn` VALUES (43213, 1653449454, 0, 1);
+INSERT INTO `creature_respawn` VALUES (43214, 1653449530, 0, 1);
+INSERT INTO `creature_respawn` VALUES (43215, 1653449475, 0, 1);
+INSERT INTO `creature_respawn` VALUES (43216, 1653449490, 0, 1);
+INSERT INTO `creature_respawn` VALUES (45211, 1653450542, 0, 0);
+INSERT INTO `creature_respawn` VALUES (45212, 1653450487, 0, 0);
+INSERT INTO `creature_respawn` VALUES (45221, 1653450601, 0, 0);
+INSERT INTO `creature_respawn` VALUES (45222, 1653450318, 0, 0);
+INSERT INTO `creature_respawn` VALUES (45223, 1653450170, 0, 0);
+INSERT INTO `creature_respawn` VALUES (45224, 1653450313, 0, 0);
+INSERT INTO `creature_respawn` VALUES (45587, 1653449793, 0, 1);
+INSERT INTO `creature_respawn` VALUES (47501, 1653450498, 0, 1);
+INSERT INTO `creature_respawn` VALUES (47528, 1653450633, 0, 1);
+INSERT INTO `creature_respawn` VALUES (47532, 1653450629, 0, 1);
+INSERT INTO `creature_respawn` VALUES (47910, 1653449067, 0, 1);
+INSERT INTO `creature_respawn` VALUES (47923, 1653447876, 0, 1);
+INSERT INTO `creature_respawn` VALUES (47924, 1653450659, 0, 1);
+INSERT INTO `creature_respawn` VALUES (47934, 1653450663, 0, 1);
+INSERT INTO `creature_respawn` VALUES (47935, 1653449067, 0, 1);
+INSERT INTO `creature_respawn` VALUES (49863, 1653450526, 0, 1);
+INSERT INTO `creature_respawn` VALUES (49869, 1653450434, 0, 1);
+INSERT INTO `creature_respawn` VALUES (49873, 1653449067, 0, 1);
+INSERT INTO `creature_respawn` VALUES (49888, 1653450469, 0, 1);
+INSERT INTO `creature_respawn` VALUES (49890, 1653450440, 0, 1);
+INSERT INTO `creature_respawn` VALUES (54001, 1653450391, 0, 0);
+INSERT INTO `creature_respawn` VALUES (54003, 1653450356, 0, 0);
+INSERT INTO `creature_respawn` VALUES (80454, 1653447279, 0, 0);
+INSERT INTO `creature_respawn` VALUES (80761, 1653450665, 0, 0);
+INSERT INTO `creature_respawn` VALUES (80810, 1653446722, 0, 0);
+INSERT INTO `creature_respawn` VALUES (81024, 1653447179, 0, 0);
+INSERT INTO `creature_respawn` VALUES (81032, 1653450569, 0, 0);
+INSERT INTO `creature_respawn` VALUES (81080, 1653447296, 0, 0);
+INSERT INTO `creature_respawn` VALUES (81369, 1653450403, 0, 0);
+INSERT INTO `creature_respawn` VALUES (81370, 1653450397, 0, 0);
+INSERT INTO `creature_respawn` VALUES (81374, 1653450435, 0, 0);
+INSERT INTO `creature_respawn` VALUES (89530, 1653447816, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90142, 1653447655, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90342, 1653448094, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90381, 1653447621, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90403, 1653447656, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90412, 1653447636, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90417, 1653447666, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90418, 1653447685, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93020, 1653446636, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93182, 1653446680, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93278, 1653446753, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93365, 1653446659, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93430, 1653446684, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93434, 1653446689, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93438, 1653446673, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93450, 1653446717, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93476, 1653446748, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93505, 1653446726, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93618, 1653446607, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93621, 1653446694, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93623, 1653446739, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93626, 1653446732, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93653, 1653446669, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93688, 1653446606, 0, 0);
+INSERT INTO `creature_respawn` VALUES (93690, 1653446714, 0, 0);
+INSERT INTO `creature_respawn` VALUES (140693, 1653450494, 0, 0);
+INSERT INTO `creature_respawn` VALUES (140694, 1653450494, 0, 0);
+INSERT INTO `creature_respawn` VALUES (140695, 1653450491, 0, 0);
+INSERT INTO `creature_respawn` VALUES (140696, 1653450499, 0, 0);
+INSERT INTO `creature_respawn` VALUES (140697, 1653450519, 0, 0);
+INSERT INTO `creature_respawn` VALUES (301770, 1653450360, 0, 0);
+INSERT INTO `creature_respawn` VALUES (301771, 1653450331, 0, 0);
 
 -- ----------------------------
 -- Table structure for game_event_status
@@ -2104,19 +1956,17 @@ DROP TABLE IF EXISTS `game_event_status`;
 CREATE TABLE `game_event_status`  (
   `event` smallint(6) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`event`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Game event system' ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Game event system' ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of game_event_status
 -- ----------------------------
 INSERT INTO `game_event_status` VALUES (13);
 INSERT INTO `game_event_status` VALUES (16);
-INSERT INTO `game_event_status` VALUES (20);
 INSERT INTO `game_event_status` VALUES (27);
 INSERT INTO `game_event_status` VALUES (32);
-INSERT INTO `game_event_status` VALUES (35);
+INSERT INTO `game_event_status` VALUES (37);
 INSERT INTO `game_event_status` VALUES (45);
-INSERT INTO `game_event_status` VALUES (47);
 INSERT INTO `game_event_status` VALUES (48);
 INSERT INTO `game_event_status` VALUES (52);
 INSERT INTO `game_event_status` VALUES (53);
@@ -2130,7 +1980,7 @@ INSERT INTO `game_event_status` VALUES (73);
 INSERT INTO `game_event_status` VALUES (74);
 INSERT INTO `game_event_status` VALUES (75);
 INSERT INTO `game_event_status` VALUES (86);
-INSERT INTO `game_event_status` VALUES (151);
+INSERT INTO `game_event_status` VALUES (150);
 INSERT INTO `game_event_status` VALUES (156);
 INSERT INTO `game_event_status` VALUES (158);
 INSERT INTO `game_event_status` VALUES (159);
@@ -2146,11 +1996,7 @@ CREATE TABLE `gameobject_respawn`  (
   `map` int(5) UNSIGNED NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `instance`) USING BTREE,
   INDEX `idx_instance`(`instance`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Grid Loading System' ROW_FORMAT = COMPACT;
-
--- ----------------------------
--- Records of gameobject_respawn
--- ----------------------------
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Grid Loading System' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for gm_subsurveys
@@ -2162,11 +2008,7 @@ CREATE TABLE `gm_subsurveys`  (
   `rank` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `comment` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`survey_id`, `subsurvey_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of gm_subsurveys
--- ----------------------------
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for gm_surveys
@@ -2179,11 +2021,7 @@ CREATE TABLE `gm_surveys`  (
   `overall_comment` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `create_time` int(10) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`survey_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of gm_surveys
--- ----------------------------
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for gm_tickets
@@ -2211,11 +2049,7 @@ CREATE TABLE `gm_tickets`  (
   `ticket_type` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   `security_needed` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`ticket_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of gm_tickets
--- ----------------------------
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for group_instance
@@ -2227,11 +2061,7 @@ CREATE TABLE `group_instance`  (
   `permanent` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`leader_guid`, `instance`) USING BTREE,
   INDEX `idx_instance`(`instance`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of group_instance
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for group_member
@@ -2244,11 +2074,7 @@ CREATE TABLE `group_member`  (
   `subgroup` smallint(6) UNSIGNED NOT NULL,
   PRIMARY KEY (`group_id`, `member_guid`) USING BTREE,
   INDEX `idx_memberGuid`(`member_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Groups' ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of group_member
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Groups' ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for groups
@@ -2273,11 +2099,7 @@ CREATE TABLE `groups`  (
   `is_raid` tinyint(1) UNSIGNED NOT NULL,
   PRIMARY KEY (`group_id`) USING BTREE,
   UNIQUE INDEX `key_leaderGuid`(`leader_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Groups' ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of groups
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Groups' ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for guild
@@ -2296,11 +2118,7 @@ CREATE TABLE `guild`  (
   `motd` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `create_date` bigint(20) NOT NULL DEFAULT 0,
   PRIMARY KEY (`guild_id`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of guild
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for guild_eventlog
@@ -2318,11 +2136,7 @@ CREATE TABLE `guild_eventlog`  (
   INDEX `idx_PlayerGuid1`(`player_guid1`) USING BTREE,
   INDEX `idx_PlayerGuid2`(`player_guid2`) USING BTREE,
   INDEX `idx_LogGuid`(`log_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild Eventlog' ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of guild_eventlog
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild Eventlog' ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for guild_member
@@ -2337,11 +2151,7 @@ CREATE TABLE `guild_member`  (
   UNIQUE INDEX `key_guid`(`guid`) USING BTREE,
   INDEX `idx_guildid`(`guild_id`) USING BTREE,
   INDEX `idx_guildid_rank`(`guild_id`, `rank`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild System' ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of guild_member
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild System' ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for guild_rank
@@ -2354,11 +2164,7 @@ CREATE TABLE `guild_rank`  (
   `rights` int(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guild_id`, `id`) USING BTREE,
   INDEX `idx_rid`(`id`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of guild_rank
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for instance
@@ -2372,12 +2178,7 @@ CREATE TABLE `instance`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idx_map`(`map`) USING BTREE,
   INDEX `idx_resettime`(`reset_time`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of instance
--- ----------------------------
-INSERT INTO `instance` VALUES (100, 109, 1653416303, '3 3 3 0 0 1');
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for instance_reset
@@ -2387,12 +2188,12 @@ CREATE TABLE `instance_reset`  (
   `map` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `reset_time` bigint(40) NOT NULL DEFAULT 0,
   PRIMARY KEY (`map`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of instance_reset
 -- ----------------------------
-INSERT INTO `instance_reset` VALUES (249, 1653364800);
+INSERT INTO `instance_reset` VALUES (249, 1653796800);
 INSERT INTO `instance_reset` VALUES (309, 1653537600);
 INSERT INTO `instance_reset` VALUES (409, 1653710400);
 INSERT INTO `instance_reset` VALUES (469, 1653710400);
@@ -2422,7 +2223,7 @@ CREATE TABLE `item_instance`  (
   PRIMARY KEY (`guid`) USING BTREE,
   INDEX `idx_owner_guid`(`owner_guid`) USING BTREE,
   INDEX `idx_itemEntry`(`item_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Item System' ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Item System' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of item_instance
@@ -2662,14 +2463,22 @@ INSERT INTO `item_instance` VALUES (7748, 15176, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0,
 INSERT INTO `item_instance` VALUES (7751, 8167, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7752, 19022, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 55, 0, 0);
 INSERT INTO `item_instance` VALUES (7753, 8751, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 60, 0, 0);
-INSERT INTO `item_instance` VALUES (7754, 4583, 4, 0, 0, 4, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7755, 12203, 4, 0, 0, 7, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7754, 4583, 4, 0, 0, 5, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7755, 12203, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7756, 14896, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 354 0 0 356 0 0 0 0 0 0 0 0 ', 863, 55, 0, 0);
-INSERT INTO `item_instance` VALUES (7758, 12208, 4, 0, 0, 8, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7758, 12208, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7761, 4584, 4, 0, 0, 2, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7771, 3943, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 70, 0, 0);
-INSERT INTO `item_instance` VALUES (7776, 12207, 4, 0, 0, 2, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7778, 8146, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7776, 12207, 4, 0, 0, 5, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7778, 8146, 4, 0, 0, 2, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7784, 12208, 4, 0, 0, 2, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7786, 11417, 4, 0, 0, 3, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7787, 5636, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7790, 4018, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 85, 0, 0);
+INSERT INTO `item_instance` VALUES (7791, 5117, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7792, 12203, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7794, 8749, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 45, 0, 0);
+INSERT INTO `item_instance` VALUES (7798, 15172, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 97 0 0 101 0 0 0 0 0 0 0 0 ', 772, 30, 0, 0);
 
 -- ----------------------------
 -- Table structure for item_loot
@@ -2683,11 +2492,7 @@ CREATE TABLE `item_loot`  (
   `property` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `item_id`) USING BTREE,
   INDEX `idx_owner_guid`(`owner_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Item System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of item_loot
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Item System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for item_text
@@ -2697,7 +2502,7 @@ CREATE TABLE `item_text`  (
   `id` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `text` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Item System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Item System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of item_text
@@ -2725,7 +2530,7 @@ CREATE TABLE `mail`  (
   `checked` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idx_receiver`(`receiver_guid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Mail System' ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Mail System' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of mail
@@ -2744,7 +2549,7 @@ CREATE TABLE `mail_items`  (
   PRIMARY KEY (`mail_id`, `item_guid`) USING BTREE,
   INDEX `idx_receiver`(`receiver_guid`) USING BTREE,
   INDEX `idx_item_guid`(`item_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mail_items
@@ -2758,7 +2563,7 @@ DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations`  (
   `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -2786,11 +2591,7 @@ CREATE TABLE `pet_aura`  (
   `duration` int(11) NOT NULL DEFAULT 0,
   `effect_index_mask` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `caster_guid`, `item_guid`, `spell`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Pet System' ROW_FORMAT = COMPACT;
-
--- ----------------------------
--- Records of pet_aura
--- ----------------------------
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Pet System' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for pet_spell
@@ -2801,11 +2602,7 @@ CREATE TABLE `pet_spell`  (
   `spell` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Spell Identifier',
   `active` int(11) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `spell`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Pet System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of pet_spell
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Pet System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for pet_spell_cooldown
@@ -2816,11 +2613,7 @@ CREATE TABLE `pet_spell_cooldown`  (
   `spell` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Spell Identifier',
   `time` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `spell`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
-
--- ----------------------------
--- Records of pet_spell_cooldown
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Table structure for petition
@@ -2834,11 +2627,7 @@ CREATE TABLE `petition`  (
   PRIMARY KEY (`owner_guid`) USING BTREE,
   UNIQUE INDEX `key_ownerguid_petitionguid`(`owner_guid`, `petition_guid`) USING BTREE,
   UNIQUE INDEX `charterguid`(`charter_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of petition
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for petition_sign
@@ -2852,11 +2641,7 @@ CREATE TABLE `petition_sign`  (
   PRIMARY KEY (`petition_guid`, `player_guid`) USING BTREE,
   INDEX `idx_playerguid`(`player_guid`) USING BTREE,
   INDEX `idx_ownerguid`(`owner_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild System' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of petition_sign
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for playerbot
@@ -2868,11 +2653,7 @@ CREATE TABLE `playerbot`  (
   `comment` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `ai` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`char_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of playerbot
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for saved_variables
@@ -2885,12 +2666,12 @@ CREATE TABLE `saved_variables`  (
   `honor_next_maintenance_day` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `honor_maintenance_marker` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`key`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Variable Saves' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Variable Saves' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of saved_variables
 -- ----------------------------
-INSERT INTO `saved_variables` VALUES (0, 0, 19123, 19130, 1);
+INSERT INTO `saved_variables` VALUES (0, 0, 19130, 19137, 1);
 
 -- ----------------------------
 -- Table structure for world
@@ -2900,11 +2681,7 @@ CREATE TABLE `world`  (
   `map` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `data` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`map`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of world
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for worldstates
@@ -2915,10 +2692,6 @@ CREATE TABLE `worldstates`  (
   `value` int(11) NULL DEFAULT NULL,
   `comment` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   UNIQUE INDEX `key_entry`(`entry`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of worldstates
--- ----------------------------
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
