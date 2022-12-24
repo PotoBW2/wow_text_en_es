@@ -68,7 +68,7 @@ Mi cibernombre o nick es PotoBW, normalmente trabajo solo para producir estos
 códigos. En caso de que desea reportar errores, sugerencias o necesidades use 
 los siguientes contactos: 
 
-- **Celular, WhatApp, Telegram:**  +5355920042  - (Teléfono de Cuba)
+- **Celular, WhatApp, Telegram:**  +5355920042
 - **Telegram:** [@PotoBW][24]
 - **Correo:** dmosquerabw@gmail.com
 
