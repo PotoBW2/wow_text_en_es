@@ -5,7 +5,7 @@
 **WoW Text EN-ES** es un proyecto de código abierto escrito en diferentes lenguajes como [SQL][1], 
 [Python][3], [JavaScript][4], [PHP][5] y [HTML][6]; siendo el [SQL][1] el más importante. El código 
 [SQL][1] está programado para ser ejecutado en [MySQL][7], usamos herramientas auxiliares como 
-[Navicat][8], [PhpMyAdmin][9] y [PHPStorm][25].
+[Navicat][8], [PhpMyAdmin][9] y [PHPStorm][25]..
 
 Si te gustó [World of Warcraft][2] pero el servidor está en inglés, proporcionamos una traducción al 
 español que puede ser utilizado para llenar las tablas de traducción en las bases de datos de su servidor 
