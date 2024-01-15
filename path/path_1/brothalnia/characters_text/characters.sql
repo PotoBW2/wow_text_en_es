@@ -1,21 +1,37 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : classic
+ Source Server         : wow_classic
  Source Server Type    : MySQL
- Source Server Version : 50562
+ Source Server Version : 50562 (5.5.62)
  Source Host           : localhost:3306
  Source Schema         : characters
 
  Target Server Type    : MySQL
- Target Server Version : 50562
+ Target Server Version : 50562 (5.5.62)
  File Encoding         : 65001
 
- Date: 06/09/2022 15:33:08
+ Date: 14/01/2024 16:48:36
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for account_data
+-- ----------------------------
+DROP TABLE IF EXISTS `account_data`;
+CREATE TABLE `account_data`  (
+  `account` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `type` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `time` bigint(11) UNSIGNED NOT NULL DEFAULT 0,
+  `data` longblob NOT NULL,
+  PRIMARY KEY (`account`, `type`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of account_data
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for auction
@@ -35,10 +51,26 @@ CREATE TABLE `auction`  (
   `deposit` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `key_item_guid`(`item_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of auction
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for character_account_data
+-- ----------------------------
+DROP TABLE IF EXISTS `character_account_data`;
+CREATE TABLE `character_account_data`  (
+  `guid` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `type` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `time` bigint(11) UNSIGNED NOT NULL DEFAULT 0,
+  `data` longblob NOT NULL,
+  PRIMARY KEY (`guid`, `type`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of character_account_data
 -- ----------------------------
 
 -- ----------------------------
@@ -133,16 +165,16 @@ INSERT INTO `character_action` VALUES (4, 37, 13331, 128);
 INSERT INTO `character_action` VALUES (4, 2, 10215, 0);
 INSERT INTO `character_action` VALUES (4, 35, 2855, 0);
 INSERT INTO `character_action` VALUES (4, 29, 10191, 0);
-INSERT INTO `character_action` VALUES (4, 38, 7413, 0);
+INSERT INTO `character_action` VALUES (4, 38, 13920, 0);
 INSERT INTO `character_action` VALUES (4, 27, 10156, 0);
 INSERT INTO `character_action` VALUES (4, 39, 13262, 0);
 INSERT INTO `character_action` VALUES (4, 10, 12825, 0);
 INSERT INTO `character_action` VALUES (4, 32, 475, 0);
-INSERT INTO `character_action` VALUES (4, 5, 1, 65);
+INSERT INTO `character_action` VALUES (4, 5, 13019, 0);
 INSERT INTO `character_action` VALUES (4, 59, 10138, 0);
 INSERT INTO `character_action` VALUES (4, 33, 10173, 0);
 INSERT INTO `character_action` VALUES (4, 3, 12525, 0);
-INSERT INTO `character_action` VALUES (4, 6, 6131, 0);
+INSERT INTO `character_action` VALUES (4, 6, 1, 65);
 INSERT INTO `character_action` VALUES (4, 8, 2139, 0);
 INSERT INTO `character_action` VALUES (4, 60, 10179, 0);
 INSERT INTO `character_action` VALUES (4, 61, 10185, 0);
@@ -161,16 +193,21 @@ INSERT INTO `character_action` VALUES (4, 4, 1953, 0);
 INSERT INTO `character_action` VALUES (4, 24, 5019, 0);
 INSERT INTO `character_action` VALUES (4, 34, 10169, 0);
 INSERT INTO `character_action` VALUES (4, 44, 7620, 0);
-INSERT INTO `character_action` VALUES (4, 65, 13019, 0);
+INSERT INTO `character_action` VALUES (4, 66, 6131, 0);
 INSERT INTO `character_action` VALUES (4, 70, 3, 65);
 INSERT INTO `character_action` VALUES (4, 71, 2, 65);
-INSERT INTO `character_action` VALUES (15, 4, 6603, 0);
-INSERT INTO `character_action` VALUES (15, 0, 1, 64);
-INSERT INTO `character_action` VALUES (15, 1, 403, 0);
-INSERT INTO `character_action` VALUES (15, 2, 331, 0);
-INSERT INTO `character_action` VALUES (15, 3, 20572, 0);
-INSERT INTO `character_action` VALUES (15, 10, 159, 128);
-INSERT INTO `character_action` VALUES (15, 11, 117, 128);
+INSERT INTO `character_action` VALUES (5, 6, 1, 64);
+INSERT INTO `character_action` VALUES (5, 33, 118, 128);
+INSERT INTO `character_action` VALUES (5, 3, 331, 0);
+INSERT INTO `character_action` VALUES (5, 1, 8042, 0);
+INSERT INTO `character_action` VALUES (5, 0, 403, 0);
+INSERT INTO `character_action` VALUES (5, 34, 159, 128);
+INSERT INTO `character_action` VALUES (5, 35, 117, 128);
+INSERT INTO `character_action` VALUES (5, 47, 8017, 0);
+INSERT INTO `character_action` VALUES (5, 60, 2, 64);
+INSERT INTO `character_action` VALUES (5, 71, 20572, 0);
+INSERT INTO `character_action` VALUES (5, 36, 6948, 128);
+INSERT INTO `character_action` VALUES (4, 48, 6948, 128);
 
 -- ----------------------------
 -- Table structure for character_aura
@@ -193,7 +230,7 @@ CREATE TABLE `character_aura`  (
   `duration` int(11) NOT NULL DEFAULT 0,
   `effect_index_mask` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `caster_guid`, `item_guid`, `spell`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of character_aura
@@ -235,7 +272,7 @@ CREATE TABLE `character_deleted_items`  (
   `item_id` mediumint(8) UNSIGNED NOT NULL DEFAULT 0,
   `stack_count` mediumint(8) UNSIGNED NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of character_deleted_items
@@ -247,7 +284,7 @@ CREATE TABLE `character_deleted_items`  (
 DROP TABLE IF EXISTS `character_duplicate_account`;
 CREATE TABLE `character_duplicate_account`  (
   `account` int(11) NULL DEFAULT NULL
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of character_duplicate_account
@@ -279,7 +316,7 @@ CREATE TABLE `character_gifts`  (
   `flags` int(20) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`item_guid`) USING BTREE,
   INDEX `idx_guid`(`guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of character_gifts
@@ -306,7 +343,7 @@ INSERT INTO `character_homebind` VALUES (1, 1, 14, -618.518, -4251.67, 38.718);
 INSERT INTO `character_homebind` VALUES (2, 1, 141, 10311.3, 832.463, 1326.41);
 INSERT INTO `character_homebind` VALUES (3, 1, 876, 16224, 16283.5, 13.1754);
 INSERT INTO `character_homebind` VALUES (4, 0, 1497, 1634.62, 224.062, -43.1031);
-INSERT INTO `character_homebind` VALUES (15, 1, 14, -618.518, -4251.67, 38.718);
+INSERT INTO `character_homebind` VALUES (5, 1, 1637, 1632.31, -4439.32, 15.571);
 
 -- ----------------------------
 -- Table structure for character_honor_cp
@@ -325,6 +362,7 @@ CREATE TABLE `character_honor_cp`  (
 -- ----------------------------
 -- Records of character_honor_cp
 -- ----------------------------
+INSERT INTO `character_honor_cp` VALUES (4, 3, 2784, 488, 19725, 1);
 
 -- ----------------------------
 -- Table structure for character_instance
@@ -336,7 +374,7 @@ CREATE TABLE `character_instance`  (
   `permanent` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `instance`) USING BTREE,
   INDEX `idx_instance`(`instance`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of character_instance
@@ -438,173 +476,136 @@ INSERT INTO `character_inventory` VALUES (3, 0, 7, 167, 11508);
 INSERT INTO `character_inventory` VALUES (3, 0, 0, 168, 12064);
 INSERT INTO `character_inventory` VALUES (3, 0, 21, 175, 14156);
 INSERT INTO `character_inventory` VALUES (3, 0, 22, 172, 14156);
-INSERT INTO `character_inventory` VALUES (4, 4251, 7, 4243, 10978);
+INSERT INTO `character_inventory` VALUES (5, 0, 23, 8809, 6948);
 INSERT INTO `character_inventory` VALUES (4, 0, 23, 193, 6948);
 INSERT INTO `character_inventory` VALUES (4, 0, 29, 5572, 8523);
-INSERT INTO `character_inventory` VALUES (4, 0, 37, 486, 6218);
-INSERT INTO `character_inventory` VALUES (4, 0, 50, 2029, 2325);
-INSERT INTO `character_inventory` VALUES (4, 4254, 9, 2267, 10940);
-INSERT INTO `character_inventory` VALUES (4, 0, 53, 6882, 4338);
-INSERT INTO `character_inventory` VALUES (4, 0, 57, 1471, 2605);
-INSERT INTO `character_inventory` VALUES (4, 0, 38, 7475, 11176);
+INSERT INTO `character_inventory` VALUES (5, 0, 6, 8938, 2962);
+INSERT INTO `character_inventory` VALUES (4, 4252, 0, 2029, 2325);
+INSERT INTO `character_inventory` VALUES (4, 4252, 9, 8795, 1710);
+INSERT INTO `character_inventory` VALUES (4, 0, 38, 1471, 2605);
+INSERT INTO `character_inventory` VALUES (4, 4260, 4, 7475, 11176);
 INSERT INTO `character_inventory` VALUES (4, 0, 16, 6055, 6803);
 INSERT INTO `character_inventory` VALUES (4, 4259, 11, 7079, 10828);
 INSERT INTO `character_inventory` VALUES (4, 0, 66, 4257, 4499);
-INSERT INTO `character_inventory` VALUES (4, 0, 42, 4067, 11164);
-INSERT INTO `character_inventory` VALUES (4, 4252, 8, 4754, 11176);
-INSERT INTO `character_inventory` VALUES (4, 4252, 6, 5076, 11134);
+INSERT INTO `character_inventory` VALUES (4, 4256, 2, 4754, 11176);
+INSERT INTO `character_inventory` VALUES (4, 4256, 11, 5076, 11134);
 INSERT INTO `character_inventory` VALUES (4, 0, 19, 4251, 4499);
 INSERT INTO `character_inventory` VALUES (4, 0, 64, 4256, 4499);
-INSERT INTO `character_inventory` VALUES (4, 4254, 8, 7525, 10940);
+INSERT INTO `character_inventory` VALUES (4, 4256, 5, 7525, 10940);
 INSERT INTO `character_inventory` VALUES (4, 0, 5, 6135, 9945);
-INSERT INTO `character_inventory` VALUES (4, 4258, 9, 6303, 16203);
-INSERT INTO `character_inventory` VALUES (4, 4255, 11, 2071, 4340);
-INSERT INTO `character_inventory` VALUES (4, 0, 61, 2081, 4341);
-INSERT INTO `character_inventory` VALUES (4, 4255, 6, 2091, 4342);
+INSERT INTO `character_inventory` VALUES (4, 4255, 10, 6303, 16203);
+INSERT INTO `character_inventory` VALUES (4, 4251, 4, 2071, 4340);
+INSERT INTO `character_inventory` VALUES (4, 4251, 2, 2081, 4341);
+INSERT INTO `character_inventory` VALUES (4, 4252, 3, 2091, 4342);
 INSERT INTO `character_inventory` VALUES (4, 4259, 3, 7277, 16647);
-INSERT INTO `character_inventory` VALUES (4, 4252, 9, 4132, 11139);
-INSERT INTO `character_inventory` VALUES (4, 4258, 1, 3857, 10939);
-INSERT INTO `character_inventory` VALUES (4, 4252, 5, 3853, 10939);
+INSERT INTO `character_inventory` VALUES (4, 4255, 7, 8777, 11082);
+INSERT INTO `character_inventory` VALUES (4, 4258, 7, 3857, 10939);
+INSERT INTO `character_inventory` VALUES (4, 0, 33, 8797, 19024);
 INSERT INTO `character_inventory` VALUES (4, 0, 3, 2934, 4330);
 INSERT INTO `character_inventory` VALUES (4, 0, 63, 4255, 4499);
-INSERT INTO `character_inventory` VALUES (4, 0, 54, 2000, 2320);
-INSERT INTO `character_inventory` VALUES (4, 4255, 1, 7500, 4291);
-INSERT INTO `character_inventory` VALUES (4, 4251, 0, 7357, 11137);
-INSERT INTO `character_inventory` VALUES (4, 4253, 3, 3700, 11083);
-INSERT INTO `character_inventory` VALUES (4, 4257, 10, 7240, 11135);
-INSERT INTO `character_inventory` VALUES (4, 4251, 6, 5382, 11083);
-INSERT INTO `character_inventory` VALUES (4, 4253, 1, 4895, 11082);
-INSERT INTO `character_inventory` VALUES (4, 4251, 5, 4129, 11083);
-INSERT INTO `character_inventory` VALUES (4, 0, 40, 2297, 3737);
+INSERT INTO `character_inventory` VALUES (4, 4251, 11, 2000, 2320);
+INSERT INTO `character_inventory` VALUES (4, 4252, 5, 9136, 4500);
+INSERT INTO `character_inventory` VALUES (5, 0, 22, 8987, 5572);
+INSERT INTO `character_inventory` VALUES (4, 4258, 6, 3700, 11083);
+INSERT INTO `character_inventory` VALUES (4, 4255, 5, 8778, 11130);
+INSERT INTO `character_inventory` VALUES (5, 0, 4, 9024, 1425);
+INSERT INTO `character_inventory` VALUES (4, 4251, 8, 2297, 3737);
 INSERT INTO `character_inventory` VALUES (4, 4259, 5, 2355, 16650);
 INSERT INTO `character_inventory` VALUES (4, 4259, 4, 2361, 16651);
 INSERT INTO `character_inventory` VALUES (4, 0, 24, 2371, 16742);
-INSERT INTO `character_inventory` VALUES (4, 4253, 0, 3101, 11138);
-INSERT INTO `character_inventory` VALUES (4, 0, 51, 3153, 2321);
-INSERT INTO `character_inventory` VALUES (4, 4253, 4, 7875, 11137);
-INSERT INTO `character_inventory` VALUES (4, 0, 49, 6556, 4339);
-INSERT INTO `character_inventory` VALUES (4, 0, 52, 2537, 2996);
+INSERT INTO `character_inventory` VALUES (4, 4256, 6, 3101, 11138);
+INSERT INTO `character_inventory` VALUES (4, 4251, 1, 3153, 2321);
+INSERT INTO `character_inventory` VALUES (5, 0, 26, 9014, 4882);
+INSERT INTO `character_inventory` VALUES (4, 4252, 2, 2537, 2996);
 INSERT INTO `character_inventory` VALUES (4, 0, 65, 4260, 4499);
-INSERT INTO `character_inventory` VALUES (4, 0, 56, 2573, 6261);
-INSERT INTO `character_inventory` VALUES (4, 0, 55, 2583, 8343);
-INSERT INTO `character_inventory` VALUES (4, 4255, 0, 2593, 10290);
-INSERT INTO `character_inventory` VALUES (4, 0, 60, 2603, 14341);
-INSERT INTO `character_inventory` VALUES (4, 4253, 2, 7520, 11084);
-INSERT INTO `character_inventory` VALUES (4, 4255, 2, 3118, 2997);
-INSERT INTO `character_inventory` VALUES (4, 4251, 1, 3856, 10939);
-INSERT INTO `character_inventory` VALUES (4, 4251, 11, 4588, 11137);
+INSERT INTO `character_inventory` VALUES (4, 4251, 7, 2573, 6261);
+INSERT INTO `character_inventory` VALUES (4, 4251, 3, 2583, 8343);
+INSERT INTO `character_inventory` VALUES (4, 4252, 1, 2593, 10290);
+INSERT INTO `character_inventory` VALUES (4, 4251, 9, 2603, 14341);
+INSERT INTO `character_inventory` VALUES (4, 4260, 7, 7520, 11084);
+INSERT INTO `character_inventory` VALUES (4, 4253, 2, 9150, 15043);
+INSERT INTO `character_inventory` VALUES (4, 4256, 4, 4588, 11137);
 INSERT INTO `character_inventory` VALUES (4, 0, 15, 7335, 9680);
-INSERT INTO `character_inventory` VALUES (4, 4258, 10, 5840, 11135);
-INSERT INTO `character_inventory` VALUES (4, 0, 7, 3373, 7472);
+INSERT INTO `character_inventory` VALUES (4, 4255, 6, 8780, 6218);
 INSERT INTO `character_inventory` VALUES (4, 0, 34, 7269, 16743);
 INSERT INTO `character_inventory` VALUES (4, 0, 28, 2678, 3711);
 INSERT INTO `character_inventory` VALUES (4, 0, 0, 2692, 8749);
-INSERT INTO `character_inventory` VALUES (4, 4251, 10, 7359, 10998);
-INSERT INTO `character_inventory` VALUES (4, 4251, 8, 4242, 10978);
-INSERT INTO `character_inventory` VALUES (4, 4256, 0, 7092, 4305);
+INSERT INTO `character_inventory` VALUES (4, 4260, 6, 7359, 10998);
+INSERT INTO `character_inventory` VALUES (5, 0, 9, 9010, 9755);
 INSERT INTO `character_inventory` VALUES (4, 0, 68, 4259, 4499);
-INSERT INTO `character_inventory` VALUES (4, 0, 41, 2888, 11206);
 INSERT INTO `character_inventory` VALUES (4, 0, 67, 4258, 4499);
-INSERT INTO `character_inventory` VALUES (4, 0, 9, 5813, 14231);
+INSERT INTO `character_inventory` VALUES (5, 0, 16, 9120, 4937);
 INSERT INTO `character_inventory` VALUES (4, 0, 35, 7080, 10454);
-INSERT INTO `character_inventory` VALUES (4, 0, 62, 5689, 2324);
+INSERT INTO `character_inventory` VALUES (4, 4251, 0, 5689, 2324);
 INSERT INTO `character_inventory` VALUES (4, 0, 27, 6223, 22526);
-INSERT INTO `character_inventory` VALUES (4, 4251, 2, 7358, 11174);
+INSERT INTO `character_inventory` VALUES (5, 0, 8, 8935, 9752);
 INSERT INTO `character_inventory` VALUES (4, 0, 11, 3528, 2951);
-INSERT INTO `character_inventory` VALUES (4, 4257, 0, 3852, 10939);
-INSERT INTO `character_inventory` VALUES (4, 4259, 8, 3850, 10939);
-INSERT INTO `character_inventory` VALUES (4, 4254, 10, 4244, 10978);
-INSERT INTO `character_inventory` VALUES (4, 4252, 4, 4245, 10978);
-INSERT INTO `character_inventory` VALUES (4, 4252, 1, 4246, 10978);
-INSERT INTO `character_inventory` VALUES (4, 4253, 7, 7385, 11084);
+INSERT INTO `character_inventory` VALUES (4, 4260, 9, 3852, 10939);
+INSERT INTO `character_inventory` VALUES (4, 4252, 8, 8796, 18706);
+INSERT INTO `character_inventory` VALUES (4, 4255, 11, 8769, 11082);
+INSERT INTO `character_inventory` VALUES (4, 4256, 7, 4245, 10978);
+INSERT INTO `character_inventory` VALUES (4, 4255, 4, 8773, 11145);
+INSERT INTO `character_inventory` VALUES (4, 4260, 0, 7385, 11084);
 INSERT INTO `character_inventory` VALUES (4, 0, 17, 3759, 5215);
 INSERT INTO `character_inventory` VALUES (4, 0, 2, 4407, 3942);
-INSERT INTO `character_inventory` VALUES (4, 4254, 1, 4578, 11082);
-INSERT INTO `character_inventory` VALUES (15, 0, 33, 8344, 11933);
-INSERT INTO `character_inventory` VALUES (4, 4252, 2, 4537, 11174);
-INSERT INTO `character_inventory` VALUES (15, 0, 32, 8343, 11932);
+INSERT INTO `character_inventory` VALUES (5, 0, 3, 8805, 154);
 INSERT INTO `character_inventory` VALUES (4, 0, 20, 4252, 4499);
 INSERT INTO `character_inventory` VALUES (4, 0, 1, 5983, 7722);
 INSERT INTO `character_inventory` VALUES (4, 0, 22, 4254, 4499);
 INSERT INTO `character_inventory` VALUES (4, 0, 14, 7078, 12465);
 INSERT INTO `character_inventory` VALUES (4, 0, 10, 6059, 4550);
-INSERT INTO `character_inventory` VALUES (4, 4251, 9, 7083, 14344);
+INSERT INTO `character_inventory` VALUES (4, 4260, 2, 7083, 14344);
 INSERT INTO `character_inventory` VALUES (4, 0, 21, 4253, 4499);
-INSERT INTO `character_inventory` VALUES (4, 0, 36, 4915, 6339);
-INSERT INTO `character_inventory` VALUES (4, 4253, 6, 6663, 11137);
-INSERT INTO `character_inventory` VALUES (4, 4255, 7, 7510, 2604);
-INSERT INTO `character_inventory` VALUES (4, 4255, 3, 7097, 4305);
-INSERT INTO `character_inventory` VALUES (4, 4252, 11, 6819, 14343);
-INSERT INTO `character_inventory` VALUES (4, 4254, 0, 6821, 16202);
-INSERT INTO `character_inventory` VALUES (4, 0, 47, 7356, 11225);
-INSERT INTO `character_inventory` VALUES (4, 4259, 0, 5966, 11137);
-INSERT INTO `character_inventory` VALUES (4, 4259, 10, 7071, 10807);
-INSERT INTO `character_inventory` VALUES (4, 4253, 11, 4576, 11083);
-INSERT INTO `character_inventory` VALUES (4, 4252, 7, 5384, 10939);
-INSERT INTO `character_inventory` VALUES (4, 0, 43, 4305, 10312);
-INSERT INTO `character_inventory` VALUES (15, 0, 30, 8342, 11746);
-INSERT INTO `character_inventory` VALUES (4, 0, 44, 4333, 10312);
+INSERT INTO `character_inventory` VALUES (4, 4252, 4, 7510, 2604);
+INSERT INTO `character_inventory` VALUES (4, 4255, 9, 6821, 16202);
+INSERT INTO `character_inventory` VALUES (4, 4254, 11, 7356, 11225);
+INSERT INTO `character_inventory` VALUES (5, 0, 20, 8902, 5572);
 INSERT INTO `character_inventory` VALUES (4, 0, 32, 4334, 1532);
-INSERT INTO `character_inventory` VALUES (4, 0, 58, 4899, 6260);
-INSERT INTO `character_inventory` VALUES (4, 4251, 3, 6053, 10938);
+INSERT INTO `character_inventory` VALUES (4, 4251, 5, 4899, 6260);
+INSERT INTO `character_inventory` VALUES (4, 4260, 8, 6053, 10938);
 INSERT INTO `character_inventory` VALUES (4, 0, 81, 5831, 7146);
 INSERT INTO `character_inventory` VALUES (4, 0, 26, 5372, 16745);
-INSERT INTO `character_inventory` VALUES (15, 0, 31, 8340, 8950);
-INSERT INTO `character_inventory` VALUES (4, 4255, 9, 7090, 4305);
-INSERT INTO `character_inventory` VALUES (4, 0, 33, 7350, 8463);
-INSERT INTO `character_inventory` VALUES (4, 4255, 4, 7106, 4339);
-INSERT INTO `character_inventory` VALUES (4, 4255, 10, 7091, 4305);
+INSERT INTO `character_inventory` VALUES (4, 0, 25, 9151, 15044);
+INSERT INTO `character_inventory` VALUES (4, 0, 9, 8754, 10003);
+INSERT INTO `character_inventory` VALUES (4, 4252, 7, 9138, 18706);
 INSERT INTO `character_inventory` VALUES (4, 0, 30, 5373, 13331);
-INSERT INTO `character_inventory` VALUES (4, 4254, 3, 7771, 3943);
-INSERT INTO `character_inventory` VALUES (4, 0, 25, 7072, 6212);
-INSERT INTO `character_inventory` VALUES (4, 0, 31, 6867, 6193);
-INSERT INTO `character_inventory` VALUES (4, 4252, 0, 5636, 11137);
-INSERT INTO `character_inventory` VALUES (4, 4252, 3, 7119, 11137);
-INSERT INTO `character_inventory` VALUES (4, 4255, 5, 6857, 4339);
-INSERT INTO `character_inventory` VALUES (4, 4258, 11, 5074, 11177);
+INSERT INTO `character_inventory` VALUES (4, 0, 36, 8568, 9241);
+INSERT INTO `character_inventory` VALUES (4, 0, 6, 8506, 11123);
+INSERT INTO `character_inventory` VALUES (4, 0, 4, 9141, 9943);
+INSERT INTO `character_inventory` VALUES (4, 4256, 1, 7119, 11137);
+INSERT INTO `character_inventory` VALUES (4, 4256, 8, 5074, 11177);
 INSERT INTO `character_inventory` VALUES (4, 0, 12, 4822, 18706);
-INSERT INTO `character_inventory` VALUES (4, 4253, 10, 7016, 11178);
-INSERT INTO `character_inventory` VALUES (4, 4255, 8, 6837, 4339);
-INSERT INTO `character_inventory` VALUES (4, 0, 39, 7181, 10302);
-INSERT INTO `character_inventory` VALUES (4, 0, 4, 6414, 14434);
-INSERT INTO `character_inventory` VALUES (4, 4251, 4, 6818, 11176);
-INSERT INTO `character_inventory` VALUES (4, 0, 45, 6593, 10300);
-INSERT INTO `character_inventory` VALUES (4, 4259, 7, 6058, 11175);
-INSERT INTO `character_inventory` VALUES (4, 4253, 5, 5969, 11134);
-INSERT INTO `character_inventory` VALUES (4, 0, 59, 6847, 4339);
-INSERT INTO `character_inventory` VALUES (4, 4252, 10, 5072, 11135);
-INSERT INTO `character_inventory` VALUES (4, 4253, 8, 6336, 11137);
-INSERT INTO `character_inventory` VALUES (4, 0, 6, 6974, 14433);
-INSERT INTO `character_inventory` VALUES (4, 4253, 9, 5964, 11083);
-INSERT INTO `character_inventory` VALUES (4, 0, 46, 6925, 16220);
-INSERT INTO `character_inventory` VALUES (15, 0, 29, 8331, 11325);
-INSERT INTO `character_inventory` VALUES (15, 0, 81, 8328, 11000);
-INSERT INTO `character_inventory` VALUES (15, 0, 28, 8326, 22223);
-INSERT INTO `character_inventory` VALUES (15, 0, 27, 8321, 14047);
-INSERT INTO `character_inventory` VALUES (15, 0, 26, 8320, 11078);
-INSERT INTO `character_inventory` VALUES (4, 0, 48, 7624, 10300);
-INSERT INTO `character_inventory` VALUES (15, 0, 8, 8319, 18432);
+INSERT INTO `character_inventory` VALUES (4, 4252, 11, 6414, 14434);
+INSERT INTO `character_inventory` VALUES (4, 4260, 5, 6818, 11176);
+INSERT INTO `character_inventory` VALUES (4, 4254, 9, 6593, 10300);
+INSERT INTO `character_inventory` VALUES (4, 4260, 1, 5969, 11134);
+INSERT INTO `character_inventory` VALUES (4, 4260, 3, 5072, 11135);
+INSERT INTO `character_inventory` VALUES (4, 4260, 11, 6336, 11137);
+INSERT INTO `character_inventory` VALUES (4, 4256, 3, 8659, 11137);
+INSERT INTO `character_inventory` VALUES (4, 4254, 10, 6925, 16220);
+INSERT INTO `character_inventory` VALUES (5, 0, 25, 9040, 4869);
 INSERT INTO `character_inventory` VALUES (4, 0, 8, 7645, 14279);
-INSERT INTO `character_inventory` VALUES (4, 4254, 11, 7752, 19022);
-INSERT INTO `character_inventory` VALUES (4, 4254, 2, 7753, 8751);
-INSERT INTO `character_inventory` VALUES (15, 0, 14, 8318, 18461);
-INSERT INTO `character_inventory` VALUES (4, 4254, 4, 7790, 4018);
-INSERT INTO `character_inventory` VALUES (15, 0, 2, 8317, 16580);
-INSERT INTO `character_inventory` VALUES (4, 4254, 5, 7794, 8749);
-INSERT INTO `character_inventory` VALUES (15, 0, 0, 8316, 16578);
-INSERT INTO `character_inventory` VALUES (15, 0, 9, 8315, 16574);
-INSERT INTO `character_inventory` VALUES (15, 0, 6, 8314, 16579);
-INSERT INTO `character_inventory` VALUES (15, 0, 4, 8313, 16577);
-INSERT INTO `character_inventory` VALUES (15, 0, 7, 8312, 16573);
-INSERT INTO `character_inventory` VALUES (4, 4254, 6, 7834, 4006);
-INSERT INTO `character_inventory` VALUES (4, 4254, 7, 7838, 3967);
-INSERT INTO `character_inventory` VALUES (15, 0, 18, 8311, 15199);
-INSERT INTO `character_inventory` VALUES (15, 0, 25, 8308, 6948);
-INSERT INTO `character_inventory` VALUES (15, 0, 24, 8306, 159);
-INSERT INTO `character_inventory` VALUES (15, 0, 3, 8304, 154);
-INSERT INTO `character_inventory` VALUES (15, 0, 15, 8309, 18828);
-INSERT INTO `character_inventory` VALUES (15, 0, 23, 8300, 117);
-INSERT INTO `character_inventory` VALUES (15, 0, 16, 8310, 18826);
+INSERT INTO `character_inventory` VALUES (4, 4256, 0, 8656, 11176);
+INSERT INTO `character_inventory` VALUES (5, 0, 5, 8980, 4675);
+INSERT INTO `character_inventory` VALUES (4, 4251, 6, 8714, 4339);
+INSERT INTO `character_inventory` VALUES (4, 4251, 10, 8713, 4339);
+INSERT INTO `character_inventory` VALUES (5, 0, 14, 9134, 4944);
+INSERT INTO `character_inventory` VALUES (5, 0, 7, 9135, 15004);
+INSERT INTO `character_inventory` VALUES (5, 0, 15, 9023, 4563);
+INSERT INTO `character_inventory` VALUES (4, 4256, 9, 8653, 14343);
+INSERT INTO `character_inventory` VALUES (5, 0, 21, 9022, 11845);
+INSERT INTO `character_inventory` VALUES (4, 0, 7, 8352, 9645);
+INSERT INTO `character_inventory` VALUES (4, 4256, 10, 8655, 11178);
+INSERT INTO `character_inventory` VALUES (5, 0, 24, 8900, 5175);
+INSERT INTO `character_inventory` VALUES (4, 4255, 8, 8783, 6339);
+INSERT INTO `character_inventory` VALUES (4, 4259, 2, 8411, 2744);
+INSERT INTO `character_inventory` VALUES (4, 4253, 1, 9143, 15681);
+INSERT INTO `character_inventory` VALUES (4, 0, 31, 8507, 3900);
+INSERT INTO `character_inventory` VALUES (4, 0, 37, 8522, 4338);
+INSERT INTO `character_inventory` VALUES (4, 4252, 10, 9140, 17043);
+INSERT INTO `character_inventory` VALUES (5, 0, 19, 8894, 5572);
+INSERT INTO `character_inventory` VALUES (4, 4252, 6, 9137, 15279);
+INSERT INTO `character_inventory` VALUES (4, 4259, 10, 8485, 15681);
 
 -- ----------------------------
 -- Table structure for character_pet
@@ -670,326 +671,380 @@ CREATE TABLE `character_queststatus`  (
 -- ----------------------------
 INSERT INTO `character_queststatus` VALUES (4, 363, 0, 0, 0, 1618090467, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 364, 1, 1, 0, 1618131348, 8, 8, 0, 0, 0, 0, 0, 0, 3275);
-INSERT INTO `character_queststatus` VALUES (4, 3098, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 3098, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 3901, 1, 1, 0, 1618247202, 12, 0, 0, 0, 0, 0, 0, 0, 3274);
-INSERT INTO `character_queststatus` VALUES (4, 376, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 6060);
+INSERT INTO `character_queststatus` VALUES (4, 376, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 6060);
 INSERT INTO `character_queststatus` VALUES (4, 380, 1, 1, 0, 1618250228, 10, 8, 0, 0, 0, 0, 0, 0, 3270);
-INSERT INTO `character_queststatus` VALUES (4, 3902, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 11848);
+INSERT INTO `character_queststatus` VALUES (4, 3902, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 11848);
 INSERT INTO `character_queststatus` VALUES (4, 6395, 1, 1, 0, 1618250228, 1, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 381, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3268);
-INSERT INTO `character_queststatus` VALUES (4, 382, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3277);
-INSERT INTO `character_queststatus` VALUES (4, 8, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 4604);
-INSERT INTO `character_queststatus` VALUES (4, 365, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 383, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 5481, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 404, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 5482, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 367, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 407, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 358, 1, 1, 0, 1662491610, 0, 8, 5, 0, 0, 0, 0, 0, 6063);
-INSERT INTO `character_queststatus` VALUES (4, 374, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 12299);
-INSERT INTO `character_queststatus` VALUES (4, 398, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 5941);
+INSERT INTO `character_queststatus` VALUES (4, 381, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3268);
+INSERT INTO `character_queststatus` VALUES (4, 382, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3277);
+INSERT INTO `character_queststatus` VALUES (4, 8, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 4604);
+INSERT INTO `character_queststatus` VALUES (4, 365, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 383, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 5481, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 404, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 5482, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 367, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 407, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 358, 1, 1, 0, 1704245615, 0, 8, 5, 0, 0, 0, 0, 0, 6063);
+INSERT INTO `character_queststatus` VALUES (4, 374, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 12299);
+INSERT INTO `character_queststatus` VALUES (4, 398, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 5941);
 INSERT INTO `character_queststatus` VALUES (4, 427, 1, 1, 0, 1618430787, 10, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 375, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 1, 0, 0, 3833);
-INSERT INTO `character_queststatus` VALUES (4, 368, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 375, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 1, 0, 0, 3833);
+INSERT INTO `character_queststatus` VALUES (4, 368, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 356, 1, 1, 0, 1624984403, 8, 8, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 405, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 354, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 362, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 405, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 354, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 362, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 359, 1, 1, 0, 1621235837, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 370, 1, 1, 0, 1621179088, 1, 3, 3, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 426, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3834);
-INSERT INTO `character_queststatus` VALUES (4, 445, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 5725, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 15449);
-INSERT INTO `character_queststatus` VALUES (4, 357, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 361, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 426, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3834);
+INSERT INTO `character_queststatus` VALUES (4, 445, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 5725, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 15449);
+INSERT INTO `character_queststatus` VALUES (4, 357, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 361, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 371, 1, 1, 0, 1624196605, 1, 5, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 360, 1, 1, 0, 1624188313, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 369, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 369, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 1881, 1, 1, 0, 1624191248, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1882, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 7507);
+INSERT INTO `character_queststatus` VALUES (4, 1882, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 7507);
 INSERT INTO `character_queststatus` VALUES (4, 372, 1, 1, 0, 1625246225, 1, 2, 0, 0, 0, 0, 0, 0, 3445);
 INSERT INTO `character_queststatus` VALUES (4, 355, 1, 1, 0, 1624815607, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 2934, 3, 0, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 566, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 408, 1, 1, 0, 1662491610, 8, 8, 0, 0, 0, 0, 0, 0, 3446);
-INSERT INTO `character_queststatus` VALUES (4, 492, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 8368, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 2934, 3, 0, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 566, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 408, 1, 1, 0, 1704245615, 8, 8, 0, 0, 0, 0, 0, 0, 3446);
+INSERT INTO `character_queststatus` VALUES (4, 492, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 8368, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 9368, 1, 1, 0, 1624989036, 1, 1, 1, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 366, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 366, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 409, 1, 1, 0, 1625256343, 1, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 431, 0, 1, 0, 1625254940, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 410, 0, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 411, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 6321, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 410, 0, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 411, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 6321, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 428, 1, 1, 0, 1625479111, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 437, 1, 1, 1, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 437, 1, 1, 1, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 421, 1, 1, 0, 1625466323, 5, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 447, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 447, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 477, 1, 1, 0, 1625498264, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 422, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 423, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 6323, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 6322, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 6324, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 429, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 430, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 425, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3453);
-INSERT INTO `character_queststatus` VALUES (4, 450, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 422, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 423, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 6323, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 6322, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 6324, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 429, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 430, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 425, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3453);
+INSERT INTO `character_queststatus` VALUES (4, 450, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 438, 1, 1, 0, 1625516159, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 424, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 451, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3582);
+INSERT INTO `character_queststatus` VALUES (4, 424, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 451, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3582);
 INSERT INTO `character_queststatus` VALUES (4, 452, 1, 1, 1, 1625497328, 0, 0, 0, 0, 0, 0, 0, 0, 3449);
-INSERT INTO `character_queststatus` VALUES (4, 478, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 481, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 478, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 481, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 516, 1, 1, 0, 1625588231, 6, 6, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 482, 1, 1, 0, 1625505491, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 479, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 99, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 5242);
-INSERT INTO `character_queststatus` VALUES (4, 439, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 480, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3452);
-INSERT INTO `character_queststatus` VALUES (4, 440, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 443, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 441, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 530, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 444, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 446, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1013, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 6335);
-INSERT INTO `character_queststatus` VALUES (4, 442, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3461);
+INSERT INTO `character_queststatus` VALUES (4, 479, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 99, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 5242);
+INSERT INTO `character_queststatus` VALUES (4, 439, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 480, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3452);
+INSERT INTO `character_queststatus` VALUES (4, 440, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 443, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 441, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 530, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 444, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 446, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1013, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 6335);
+INSERT INTO `character_queststatus` VALUES (4, 442, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3461);
 INSERT INTO `character_queststatus` VALUES (4, 448, 1, 1, 0, 1625559962, 0, 0, 0, 0, 0, 0, 0, 0, 3240);
-INSERT INTO `character_queststatus` VALUES (4, 1014, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 460, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 461, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 491, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3457);
+INSERT INTO `character_queststatus` VALUES (4, 1014, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 460, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 461, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 491, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3457);
 INSERT INTO `character_queststatus` VALUES (4, 1098, 1, 1, 0, 1625602573, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 493, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 496, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 493, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 496, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 498, 1, 1, 0, 1630615590, 1, 1, 0, 0, 0, 0, 0, 0, 3752);
-INSERT INTO `character_queststatus` VALUES (4, 501, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 6482);
+INSERT INTO `character_queststatus` VALUES (4, 501, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 6482);
 INSERT INTO `character_queststatus` VALUES (4, 527, 1, 1, 0, 1630693959, 6, 6, 1, 1, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 8370, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 8426, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 8390, 0, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 8431, 0, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 509, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 499, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 502, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 8370, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 8426, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 8390, 0, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 8431, 0, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 509, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 499, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 502, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 528, 1, 1, 0, 1631045219, 15, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 546, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 546, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 549, 1, 1, 0, 1630696149, 10, 10, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 567, 1, 1, 0, 1631050156, 1, 1, 1, 1, 0, 0, 0, 0, 5250);
-INSERT INTO `character_queststatus` VALUES (4, 513, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 529, 1, 1, 0, 1662491610, 1, 4, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 515, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3749);
+INSERT INTO `character_queststatus` VALUES (4, 513, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 529, 1, 1, 0, 1704245615, 1, 4, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 515, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3749);
 INSERT INTO `character_queststatus` VALUES (4, 1943, 1, 1, 0, 1637351134, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 532, 1, 1, 0, 1662491610, 1, 5, 1, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 547, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3751);
-INSERT INTO `character_queststatus` VALUES (4, 517, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 532, 1, 1, 0, 1704245615, 1, 5, 1, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 547, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3751);
+INSERT INTO `character_queststatus` VALUES (4, 517, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 539, 1, 1, 0, 1636212428, 1, 10, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 494, 1, 1, 0, 1636212428, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 541, 1, 1, 0, 1637207177, 10, 8, 4, 1, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1164, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 2032);
-INSERT INTO `character_queststatus` VALUES (4, 524, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 550, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3822);
-INSERT INTO `character_queststatus` VALUES (4, 7321, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 8162, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1164, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 2032);
+INSERT INTO `character_queststatus` VALUES (4, 524, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 550, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3822);
+INSERT INTO `character_queststatus` VALUES (4, 7321, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 8162, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 8171, 1, 1, 0, 1637348594, 1, 1, 1, 1, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1944, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 858, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1944, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 858, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 863, 1, 1, 1, 1652211220, 0, 0, 0, 0, 0, 0, 0, 0, 5326);
-INSERT INTO `character_queststatus` VALUES (4, 7789, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7789, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 6503, 1, 1, 0, 1638572204, 9, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 6504, 3, 0, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 6504, 3, 0, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 6544, 1, 1, 1, 1638572944, 0, 0, 0, 0, 0, 0, 0, 0, 16889);
-INSERT INTO `character_queststatus` VALUES (4, 6571, 3, 0, 0, 1662491610, 0, 0, 0, 0, 1, 1, 0, 1, 0);
-INSERT INTO `character_queststatus` VALUES (4, 8293, 0, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 6441, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 6571, 3, 0, 0, 1704245615, 0, 0, 0, 0, 1, 1, 0, 1, 0);
+INSERT INTO `character_queststatus` VALUES (4, 8293, 0, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 6441, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 25, 1, 1, 1, 1652626319, 12, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 6581, 0, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 552, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 533, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 535, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 503, 1, 1, 1, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 6581, 0, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 552, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 533, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 535, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 503, 1, 1, 1, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 506, 1, 1, 0, 1649271359, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 553, 1, 1, 0, 1662491610, 1, 1, 1, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1238, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 544, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 556, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 553, 1, 1, 0, 1704245615, 1, 1, 1, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1238, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 544, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 556, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 676, 1, 1, 0, 1649884355, 8, 10, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 1361, 1, 1, 0, 1652211220, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 507, 1, 1, 0, 1649803162, 1, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 8427, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 8436, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 8427, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 8436, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 545, 1, 1, 0, 1649365350, 6, 12, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 557, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1109, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 557, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1109, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 1947, 1, 1, 0, 1652237824, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1960, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1961, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1960, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1961, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 435, 1, 1, 1, 1649371650, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 449, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 449, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 590, 1, 1, 1, 1649371650, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1359, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1359, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 3221, 1, 1, 0, 1649456095, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 508, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 3764);
+INSERT INTO `character_queststatus` VALUES (4, 508, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 3764);
 INSERT INTO `character_queststatus` VALUES (4, 1962, 1, 1, 0, 1649878954, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1358, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 10638);
-INSERT INTO `character_queststatus` VALUES (4, 642, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1358, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 10638);
+INSERT INTO `character_queststatus` VALUES (4, 642, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 655, 1, 1, 0, 1651933189, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 671, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 671, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 677, 1, 1, 0, 1651933189, 10, 10, 8, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 651, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 2342, 3, 0, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 672, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 651, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 2342, 3, 0, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 672, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 678, 1, 1, 0, 1651936790, 10, 4, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 652, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 674, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 652, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 674, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 675, 1, 1, 0, 1651934990, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 701, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 701, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 679, 1, 1, 0, 1651954594, 15, 10, 0, 0, 0, 0, 0, 0, 9520);
-INSERT INTO `character_queststatus` VALUES (4, 680, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 4977);
-INSERT INTO `character_queststatus` VALUES (4, 702, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 680, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 4977);
+INSERT INTO `character_queststatus` VALUES (4, 702, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 847, 1, 1, 0, 1651937690, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 635, 1, 1, 0, 1651955494, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 1953, 1, 1, 0, 1652237824, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 673, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 4545);
+INSERT INTO `character_queststatus` VALUES (4, 673, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 4545);
 INSERT INTO `character_queststatus` VALUES (4, 6622, 1, 1, 1, 1651955494, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 662, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 662, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 663, 1, 1, 0, 1651956394, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 664, 1, 1, 0, 1651971705, 10, 3, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 665, 1, 1, 1, 1651957294, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 666, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 4547);
+INSERT INTO `character_queststatus` VALUES (4, 666, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 4547);
 INSERT INTO `character_queststatus` VALUES (4, 688, 1, 1, 0, 1651970804, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 668, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 668, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 687, 1, 0, 0, 1651970804, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 669, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 669, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 568, 1, 1, 0, 1652066138, 15, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 581, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 596, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 629, 3, 0, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 581, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 596, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 629, 3, 0, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 638, 1, 1, 0, 1652129451, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 2932, 1, 1, 1, 1652300424, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 569, 1, 1, 0, 1652112812, 10, 5, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 582, 1, 1, 0, 1662491610, 0, 0, 0, 0, 1, 0, 0, 0, 4132);
+INSERT INTO `character_queststatus` VALUES (4, 582, 1, 1, 0, 1704245615, 0, 0, 0, 0, 1, 0, 0, 0, 4132);
 INSERT INTO `character_queststatus` VALUES (4, 194, 1, 1, 0, 1652113712, 10, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 570, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 570, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 583, 1, 1, 0, 1652112812, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 195, 1, 1, 0, 1652114612, 10, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 196, 1, 1, 0, 1652116707, 10, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 584, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 585, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 197, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 572, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 586, 1, 1, 0, 1662491610, 8, 6, 4, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 338, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 584, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 585, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 197, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 572, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 586, 1, 1, 0, 1704245615, 8, 6, 4, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 338, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 588, 1, 1, 0, 1652119408, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 589, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 571, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 591, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 573, 1, 1, 0, 1662491610, 0, 10, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 592, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 4134);
-INSERT INTO `character_queststatus` VALUES (4, 639, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 640, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 641, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 643, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 644, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 645, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 646, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 4507);
-INSERT INTO `character_queststatus` VALUES (4, 339, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 340, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 593, 0, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 341, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 342, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 3341, 3, 0, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 7810, 1, 0, 0, 1652193566, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 589, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 571, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 591, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 573, 1, 1, 0, 1704245615, 0, 10, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 592, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 4134);
+INSERT INTO `character_queststatus` VALUES (4, 639, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 640, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 641, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 643, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 644, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 645, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 646, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 4507);
+INSERT INTO `character_queststatus` VALUES (4, 339, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 340, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 593, 0, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 341, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 1, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 342, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 3341, 3, 0, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7810, 1, 1, 0, 1663009343, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 190, 1, 1, 0, 1652194466, 10, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 191, 1, 1, 0, 1652194466, 10, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 192, 1, 1, 0, 1652194466, 10, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 193, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 193, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 185, 1, 1, 0, 1652196266, 10, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 186, 1, 1, 0, 1652197166, 10, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 187, 1, 1, 0, 1652198066, 10, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 188, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 208, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 17686);
-INSERT INTO `character_queststatus` VALUES (4, 348, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 188, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 208, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 17686);
+INSERT INTO `character_queststatus` VALUES (4, 348, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 595, 1, 1, 0, 1652384509, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 670, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 8551, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1113, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 6522, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 232, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 238, 1, 1, 0, 1662491610, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 670, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 8551, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1113, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 6522, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 232, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 238, 1, 1, 0, 1704245615, 0, 0, 0, 0, 1, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 243, 1, 1, 0, 1652296881, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 495, 1, 1, 0, 1652222523, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 518, 1, 1, 0, 1652223423, 14, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 6521, 3, 0, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 519, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 520, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 521, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 6521, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 17043);
+INSERT INTO `character_queststatus` VALUES (4, 519, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 520, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 521, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 1048, 1, 1, 0, 1652273537, 1, 1, 1, 1, 0, 0, 0, 0, 6803);
 INSERT INTO `character_queststatus` VALUES (4, 2995, 1, 1, 0, 1652294181, 1, 1, 1, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 2861, 1, 1, 0, 1652296881, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 667, 1, 1, 1, 1652274892, 0, 0, 0, 0, 0, 0, 0, 0, 4550);
 INSERT INTO `character_queststatus` VALUES (4, 2742, 1, 1, 1, 1652294181, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1446, 1, 0, 0, 1662491610, 0, 0, 0, 0, 1, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 2933, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 2782, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1446, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 11123);
+INSERT INTO `character_queststatus` VALUES (4, 2933, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 2782, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 8273, 1, 1, 0, 1652294181, 0, 0, 0, 0, 0, 0, 0, 0, 20642);
-INSERT INTO `character_queststatus` VALUES (4, 485, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 485, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 1372, 1, 1, 0, 1652301198, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1383, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 11265);
-INSERT INTO `character_queststatus` VALUES (4, 1389, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 698, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 576, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1424, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1430, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1383, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 11265);
+INSERT INTO `character_queststatus` VALUES (4, 1389, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 698, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 576, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1424, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1430, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 1418, 1, 0, 0, 1652387209, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 349, 0, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 349, 0, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 597, 1, 1, 0, 1652386309, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 1393, 1, 1, 1, 1652388840, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 599, 1, 1, 0, 1652392021, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 604, 1, 1, 0, 1662491610, 10, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 606, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 607, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 609, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 613, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 604, 1, 1, 0, 1704245615, 10, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 606, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 607, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 609, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 613, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 608, 1, 1, 0, 1652394708, 1, 1, 1, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 201, 1, 1, 1, 1652396509, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 699, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 699, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 2864, 1, 0, 0, 1652396509, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1429, 1, 0, 0, 1662491610, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1429, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 2872, 1, 0, 0, 1652397409, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 1422, 1, 1, 0, 1652410593, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 1426, 1, 1, 0, 1652664455, 10, 10, 10, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1388, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1388, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 3784, 1, 1, 0, 1652674423, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1391, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1391, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 2621, 1, 1, 0, 1652664455, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 2784, 1, 1, 1, 1652663555, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 2622, 1, 1, 0, 1652664455, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 2623, 1, 0, 0, 1662491610, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 2623, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 1427, 1, 1, 0, 1652665355, 0, 0, 0, 0, 0, 0, 0, 0, 9680);
-INSERT INTO `character_queststatus` VALUES (4, 1428, 3, 0, 0, 1652665355, 10, 7, 8, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 1918, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 3568, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 3373, 1, 0, 0, 1662491610, 0, 0, 0, 0, 1, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 3569, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1428, 1, 1, 0, 1663015643, 10, 10, 10, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1918, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 3568, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 3373, 1, 0, 0, 1704245615, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 3569, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 3570, 1, 1, 0, 1652714638, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 4293, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 4661, 0, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 4294, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 4642, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 15703);
-INSERT INTO `character_queststatus` VALUES (4, 4561, 0, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 4293, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 4661, 0, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 4294, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 4642, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 15703);
+INSERT INTO `character_queststatus` VALUES (4, 4561, 0, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 7815, 1, 1, 0, 1653340909, 15, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 7816, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7816, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 7828, 1, 1, 0, 1653531880, 15, 15, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `character_queststatus` VALUES (4, 7829, 1, 1, 0, 1653531880, 20, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 836, 1, 0, 1, 1653531880, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 7830, 1, 1, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (4, 7849, 3, 0, 0, 1662491610, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (15, 3801, 1, 1, 0, 1660925649, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (15, 3802, 1, 1, 0, 1660931161, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `character_queststatus` VALUES (15, 4295, 0, 1, 0, 1660931161, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 836, 1, 1, 1, 1663010243, 0, 0, 0, 0, 0, 0, 0, 0, 9645);
+INSERT INTO `character_queststatus` VALUES (4, 7830, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7849, 3, 0, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 788, 1, 1, 0, 1674579524, 10, 0, 0, 0, 0, 0, 0, 0, 4915);
+INSERT INTO `character_queststatus` VALUES (5, 4641, 1, 1, 0, 1674579524, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7838, 0, 1, 0, 1704245615, 0, 0, 0, 0, 3, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 5901, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 8, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 575, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 577, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 628, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 580, 1, 0, 0, 1704245615, 0, 0, 0, 0, 12, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 587, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 2801, 1, 1, 1, 1663015643, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 2681, 3, 0, 0, 1663017542, 1, 0, 3, 1, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7024, 1, 0, 0, 1671843897, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 1444, 1, 0, 0, 1671844797, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7839, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7844, 1, 1, 0, 1671845698, 30, 15, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7840, 1, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7841, 3, 0, 0, 1671848203, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7845, 1, 1, 0, 1671849103, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7846, 0, 1, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 7847, 1, 1, 0, 1671849103, 0, 0, 0, 0, 0, 0, 0, 0, 19115);
+INSERT INTO `character_queststatus` VALUES (4, 7850, 3, 0, 0, 1704245615, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 789, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 4919);
+INSERT INTO `character_queststatus` VALUES (5, 790, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 792, 1, 1, 0, 1674581324, 12, 0, 0, 0, 0, 0, 0, 0, 4924);
+INSERT INTO `character_queststatus` VALUES (5, 3089, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 4402, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 804, 1, 1, 0, 1674580424, 0, 0, 0, 0, 0, 0, 0, 0, 4916);
+INSERT INTO `character_queststatus` VALUES (5, 5441, 1, 1, 0, 1674592334, 5, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 794, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 4921);
+INSERT INTO `character_queststatus` VALUES (5, 1516, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 6394, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 805, 1, 1, 0, 1674583124, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 1517, 1, 1, 0, 1674582224, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 1518, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 786, 1, 1, 0, 1674584025, 1, 1, 1, 0, 0, 0, 0, 0, 4933);
+INSERT INTO `character_queststatus` VALUES (5, 808, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 817, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 818, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 823, 1, 1, 0, 1674586105, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 826, 1, 1, 0, 1674592334, 8, 8, 0, 0, 0, 0, 0, 0, 4940);
+INSERT INTO `character_queststatus` VALUES (5, 2161, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 159);
+INSERT INTO `character_queststatus` VALUES (5, 784, 1, 1, 0, 1674587005, 10, 8, 1, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 791, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 806, 1, 0, 0, 1674592334, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 815, 3, 0, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 816, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 837, 1, 1, 0, 1674587005, 4, 4, 4, 4, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 825, 3, 0, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 834, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 835, 3, 0, 0, 1674592334, 11, 4, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 1522, 1, 0, 0, 1674587905, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 5726, 3, 0, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 5761, 1, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (5, 812, 1, 1, 0, 1674594571, 0, 0, 0, 0, 0, 0, 0, 0, 4937);
+INSERT INTO `character_queststatus` VALUES (5, 813, 0, 1, 0, 1674592334, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 4133, 1, 0, 0, 1704205165, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `character_queststatus` VALUES (4, 5902, 1, 0, 0, 1704244028, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for character_reputation
@@ -1173,7 +1228,7 @@ INSERT INTO `character_reputation` VALUES (4, 569, 0, 4);
 INSERT INTO `character_reputation` VALUES (4, 571, 0, 4);
 INSERT INTO `character_reputation` VALUES (4, 570, 0, 4);
 INSERT INTO `character_reputation` VALUES (4, 289, 0, 4);
-INSERT INTO `character_reputation` VALUES (4, 577, 441, 1);
+INSERT INTO `character_reputation` VALUES (4, 577, 598, 1);
 INSERT INTO `character_reputation` VALUES (4, 46, 0, 4);
 INSERT INTO `character_reputation` VALUES (4, 550, 0, 4);
 INSERT INTO `character_reputation` VALUES (4, 69, 0, 6);
@@ -1183,8 +1238,8 @@ INSERT INTO `character_reputation` VALUES (4, 549, 0, 4);
 INSERT INTO `character_reputation` VALUES (4, 551, 0, 4);
 INSERT INTO `character_reputation` VALUES (4, 47, 0, 6);
 INSERT INTO `character_reputation` VALUES (4, 72, 0, 6);
-INSERT INTO `character_reputation` VALUES (4, 529, 0, 0);
-INSERT INTO `character_reputation` VALUES (4, 76, 725, 17);
+INSERT INTO `character_reputation` VALUES (4, 529, 190, 1);
+INSERT INTO `character_reputation` VALUES (4, 76, 825, 17);
 INSERT INTO `character_reputation` VALUES (4, 54, 0, 6);
 INSERT INTO `character_reputation` VALUES (4, 68, 38999, 17);
 INSERT INTO `character_reputation` VALUES (4, 81, 10, 17);
@@ -1192,23 +1247,23 @@ INSERT INTO `character_reputation` VALUES (4, 530, 0, 17);
 INSERT INTO `character_reputation` VALUES (4, 67, 0, 9);
 INSERT INTO `character_reputation` VALUES (4, 469, 0, 14);
 INSERT INTO `character_reputation` VALUES (4, 169, 0, 8);
-INSERT INTO `character_reputation` VALUES (4, 470, 451, 1);
+INSERT INTO `character_reputation` VALUES (4, 470, 608, 1);
 INSERT INTO `character_reputation` VALUES (4, 471, 0, 22);
-INSERT INTO `character_reputation` VALUES (4, 369, 441, 1);
+INSERT INTO `character_reputation` VALUES (4, 369, 598, 1);
 INSERT INTO `character_reputation` VALUES (4, 70, 0, 3);
 INSERT INTO `character_reputation` VALUES (4, 349, 0, 0);
 INSERT INTO `character_reputation` VALUES (4, 59, 0, 16);
 INSERT INTO `character_reputation` VALUES (4, 93, 0, 2);
 INSERT INTO `character_reputation` VALUES (4, 92, 0, 2);
-INSERT INTO `character_reputation` VALUES (4, 21, 915, 1);
+INSERT INTO `character_reputation` VALUES (4, 21, 1245, 1);
 INSERT INTO `character_reputation` VALUES (4, 589, 0, 6);
-INSERT INTO `character_reputation` VALUES (4, 87, -4000, 3);
+INSERT INTO `character_reputation` VALUES (4, 87, -5650, 3);
 INSERT INTO `character_reputation` VALUES (4, 576, 0, 2);
 INSERT INTO `character_reputation` VALUES (4, 609, 0, 0);
 INSERT INTO `character_reputation` VALUES (4, 629, 0, 0);
 INSERT INTO `character_reputation` VALUES (4, 630, 0, 0);
 INSERT INTO `character_reputation` VALUES (4, 709, 0, 20);
-INSERT INTO `character_reputation` VALUES (4, 730, 0, 2);
+INSERT INTO `character_reputation` VALUES (4, 730, 0, 3);
 INSERT INTO `character_reputation` VALUES (4, 729, 0, 16);
 INSERT INTO `character_reputation` VALUES (4, 749, 0, 0);
 INSERT INTO `character_reputation` VALUES (4, 789, 0, 16);
@@ -1220,62 +1275,62 @@ INSERT INTO `character_reputation` VALUES (4, 892, 0, 24);
 INSERT INTO `character_reputation` VALUES (4, 909, 0, 16);
 INSERT INTO `character_reputation` VALUES (4, 270, 0, 16);
 INSERT INTO `character_reputation` VALUES (4, 510, 0, 16);
-INSERT INTO `character_reputation` VALUES (4, 509, 0, 2);
+INSERT INTO `character_reputation` VALUES (4, 509, 0, 3);
 INSERT INTO `character_reputation` VALUES (4, 910, 0, 2);
-INSERT INTO `character_reputation` VALUES (15, 910, 0, 2);
-INSERT INTO `character_reputation` VALUES (15, 509, 0, 2);
-INSERT INTO `character_reputation` VALUES (15, 510, 0, 17);
-INSERT INTO `character_reputation` VALUES (15, 270, 0, 16);
-INSERT INTO `character_reputation` VALUES (15, 909, 0, 16);
-INSERT INTO `character_reputation` VALUES (15, 892, 0, 24);
-INSERT INTO `character_reputation` VALUES (15, 891, 0, 14);
-INSERT INTO `character_reputation` VALUES (15, 889, 0, 17);
-INSERT INTO `character_reputation` VALUES (15, 890, 0, 6);
-INSERT INTO `character_reputation` VALUES (15, 809, 0, 16);
-INSERT INTO `character_reputation` VALUES (15, 789, 0, 16);
-INSERT INTO `character_reputation` VALUES (15, 749, 0, 0);
-INSERT INTO `character_reputation` VALUES (15, 729, 0, 17);
-INSERT INTO `character_reputation` VALUES (15, 730, 0, 2);
-INSERT INTO `character_reputation` VALUES (15, 709, 0, 20);
-INSERT INTO `character_reputation` VALUES (15, 630, 0, 0);
-INSERT INTO `character_reputation` VALUES (15, 629, 0, 0);
-INSERT INTO `character_reputation` VALUES (15, 609, 0, 0);
-INSERT INTO `character_reputation` VALUES (15, 576, 0, 2);
-INSERT INTO `character_reputation` VALUES (15, 574, 0, 4);
-INSERT INTO `character_reputation` VALUES (15, 569, 0, 4);
-INSERT INTO `character_reputation` VALUES (15, 571, 0, 4);
-INSERT INTO `character_reputation` VALUES (15, 570, 0, 4);
-INSERT INTO `character_reputation` VALUES (15, 289, 0, 4);
-INSERT INTO `character_reputation` VALUES (15, 46, 0, 4);
-INSERT INTO `character_reputation` VALUES (15, 577, 0, 0);
-INSERT INTO `character_reputation` VALUES (15, 589, 0, 6);
-INSERT INTO `character_reputation` VALUES (15, 550, 0, 4);
-INSERT INTO `character_reputation` VALUES (15, 551, 0, 4);
-INSERT INTO `character_reputation` VALUES (15, 549, 0, 4);
-INSERT INTO `character_reputation` VALUES (15, 83, 0, 4);
-INSERT INTO `character_reputation` VALUES (15, 86, 0, 4);
-INSERT INTO `character_reputation` VALUES (15, 69, 0, 6);
-INSERT INTO `character_reputation` VALUES (15, 47, 0, 6);
-INSERT INTO `character_reputation` VALUES (15, 72, 0, 6);
-INSERT INTO `character_reputation` VALUES (15, 54, 0, 6);
-INSERT INTO `character_reputation` VALUES (15, 68, 0, 17);
-INSERT INTO `character_reputation` VALUES (15, 81, 0, 17);
-INSERT INTO `character_reputation` VALUES (15, 530, 0, 17);
-INSERT INTO `character_reputation` VALUES (15, 76, 0, 17);
-INSERT INTO `character_reputation` VALUES (15, 529, 0, 0);
-INSERT INTO `character_reputation` VALUES (15, 67, 0, 9);
-INSERT INTO `character_reputation` VALUES (15, 469, 0, 14);
-INSERT INTO `character_reputation` VALUES (15, 169, 0, 8);
-INSERT INTO `character_reputation` VALUES (15, 470, 0, 0);
-INSERT INTO `character_reputation` VALUES (15, 471, 0, 22);
-INSERT INTO `character_reputation` VALUES (15, 369, 0, 0);
-INSERT INTO `character_reputation` VALUES (15, 70, 0, 2);
-INSERT INTO `character_reputation` VALUES (15, 349, 0, 0);
-INSERT INTO `character_reputation` VALUES (15, 59, 0, 17);
-INSERT INTO `character_reputation` VALUES (15, 93, 0, 2);
-INSERT INTO `character_reputation` VALUES (15, 92, 0, 2);
-INSERT INTO `character_reputation` VALUES (15, 21, 0, 0);
-INSERT INTO `character_reputation` VALUES (15, 87, 0, 2);
+INSERT INTO `character_reputation` VALUES (5, 87, 0, 2);
+INSERT INTO `character_reputation` VALUES (5, 569, 0, 4);
+INSERT INTO `character_reputation` VALUES (5, 21, 50, 1);
+INSERT INTO `character_reputation` VALUES (5, 92, 0, 2);
+INSERT INTO `character_reputation` VALUES (5, 93, 0, 2);
+INSERT INTO `character_reputation` VALUES (5, 59, 0, 16);
+INSERT INTO `character_reputation` VALUES (5, 349, 0, 0);
+INSERT INTO `character_reputation` VALUES (5, 70, 0, 2);
+INSERT INTO `character_reputation` VALUES (5, 369, 50, 1);
+INSERT INTO `character_reputation` VALUES (5, 471, 0, 22);
+INSERT INTO `character_reputation` VALUES (5, 470, 100, 1);
+INSERT INTO `character_reputation` VALUES (5, 169, 0, 8);
+INSERT INTO `character_reputation` VALUES (5, 469, 0, 14);
+INSERT INTO `character_reputation` VALUES (5, 67, 0, 9);
+INSERT INTO `character_reputation` VALUES (5, 529, 0, 0);
+INSERT INTO `character_reputation` VALUES (5, 76, 2525, 17);
+INSERT INTO `character_reputation` VALUES (5, 530, 2475, 17);
+INSERT INTO `character_reputation` VALUES (5, 81, 0, 17);
+INSERT INTO `character_reputation` VALUES (5, 68, 0, 17);
+INSERT INTO `character_reputation` VALUES (5, 54, 0, 6);
+INSERT INTO `character_reputation` VALUES (5, 72, 0, 6);
+INSERT INTO `character_reputation` VALUES (5, 47, 0, 6);
+INSERT INTO `character_reputation` VALUES (5, 69, 0, 6);
+INSERT INTO `character_reputation` VALUES (5, 86, 0, 4);
+INSERT INTO `character_reputation` VALUES (5, 83, 0, 4);
+INSERT INTO `character_reputation` VALUES (5, 549, 0, 4);
+INSERT INTO `character_reputation` VALUES (5, 551, 0, 4);
+INSERT INTO `character_reputation` VALUES (5, 550, 0, 4);
+INSERT INTO `character_reputation` VALUES (5, 589, 0, 6);
+INSERT INTO `character_reputation` VALUES (5, 577, 50, 1);
+INSERT INTO `character_reputation` VALUES (5, 46, 0, 4);
+INSERT INTO `character_reputation` VALUES (5, 289, 0, 4);
+INSERT INTO `character_reputation` VALUES (5, 570, 0, 4);
+INSERT INTO `character_reputation` VALUES (5, 571, 0, 4);
+INSERT INTO `character_reputation` VALUES (5, 574, 0, 4);
+INSERT INTO `character_reputation` VALUES (5, 576, 0, 2);
+INSERT INTO `character_reputation` VALUES (5, 609, 0, 0);
+INSERT INTO `character_reputation` VALUES (5, 629, 0, 0);
+INSERT INTO `character_reputation` VALUES (5, 630, 0, 0);
+INSERT INTO `character_reputation` VALUES (5, 709, 0, 20);
+INSERT INTO `character_reputation` VALUES (5, 730, 0, 2);
+INSERT INTO `character_reputation` VALUES (5, 729, 0, 16);
+INSERT INTO `character_reputation` VALUES (5, 749, 0, 0);
+INSERT INTO `character_reputation` VALUES (5, 789, 0, 16);
+INSERT INTO `character_reputation` VALUES (5, 809, 0, 16);
+INSERT INTO `character_reputation` VALUES (5, 890, 0, 6);
+INSERT INTO `character_reputation` VALUES (5, 889, 0, 16);
+INSERT INTO `character_reputation` VALUES (5, 891, 0, 14);
+INSERT INTO `character_reputation` VALUES (5, 892, 0, 24);
+INSERT INTO `character_reputation` VALUES (5, 909, 0, 16);
+INSERT INTO `character_reputation` VALUES (5, 270, 0, 16);
+INSERT INTO `character_reputation` VALUES (5, 510, 0, 16);
+INSERT INTO `character_reputation` VALUES (5, 509, 0, 2);
+INSERT INTO `character_reputation` VALUES (5, 910, 0, 2);
 
 -- ----------------------------
 -- Table structure for character_skills
@@ -1356,37 +1411,36 @@ INSERT INTO `character_skills` VALUES (3, 113, 300, 300);
 INSERT INTO `character_skills` VALUES (3, 115, 300, 300);
 INSERT INTO `character_skills` VALUES (3, 109, 300, 300);
 INSERT INTO `character_skills` VALUES (3, 762, 150, 150);
-INSERT INTO `character_skills` VALUES (4, 95, 237, 245);
+INSERT INTO `character_skills` VALUES (4, 95, 250, 250);
 INSERT INTO `character_skills` VALUES (4, 673, 300, 300);
 INSERT INTO `character_skills` VALUES (4, 415, 1, 1);
 INSERT INTO `character_skills` VALUES (4, 8, 1, 1);
-INSERT INTO `character_skills` VALUES (4, 136, 167, 245);
+INSERT INTO `character_skills` VALUES (4, 136, 167, 250);
 INSERT INTO `character_skills` VALUES (4, 6, 1, 1);
-INSERT INTO `character_skills` VALUES (4, 162, 123, 245);
+INSERT INTO `character_skills` VALUES (4, 162, 123, 250);
 INSERT INTO `character_skills` VALUES (4, 109, 300, 300);
-INSERT INTO `character_skills` VALUES (4, 228, 190, 245);
-INSERT INTO `character_skills` VALUES (4, 333, 156, 225);
-INSERT INTO `character_skills` VALUES (4, 129, 270, 300);
-INSERT INTO `character_skills` VALUES (4, 197, 208, 300);
+INSERT INTO `character_skills` VALUES (4, 228, 190, 250);
+INSERT INTO `character_skills` VALUES (4, 333, 240, 300);
+INSERT INTO `character_skills` VALUES (4, 129, 286, 300);
+INSERT INTO `character_skills` VALUES (4, 197, 240, 300);
 INSERT INTO `character_skills` VALUES (4, 185, 50, 150);
 INSERT INTO `character_skills` VALUES (4, 356, 1, 75);
-INSERT INTO `character_skills` VALUES (4, 173, 119, 245);
-INSERT INTO `character_skills` VALUES (4, 43, 136, 245);
+INSERT INTO `character_skills` VALUES (4, 173, 162, 250);
+INSERT INTO `character_skills` VALUES (4, 43, 136, 250);
 INSERT INTO `character_skills` VALUES (4, 762, 75, 75);
-INSERT INTO `character_skills` VALUES (15, 44, 239, 300);
-INSERT INTO `character_skills` VALUES (15, 413, 1, 1);
-INSERT INTO `character_skills` VALUES (15, 172, 1, 300);
-INSERT INTO `character_skills` VALUES (15, 160, 1, 300);
-INSERT INTO `character_skills` VALUES (15, 136, 1, 300);
-INSERT INTO `character_skills` VALUES (15, 414, 1, 1);
-INSERT INTO `character_skills` VALUES (15, 109, 300, 300);
-INSERT INTO `character_skills` VALUES (15, 374, 1, 1);
-INSERT INTO `character_skills` VALUES (15, 433, 1, 1);
-INSERT INTO `character_skills` VALUES (15, 95, 270, 300);
-INSERT INTO `character_skills` VALUES (15, 54, 1, 300);
-INSERT INTO `character_skills` VALUES (15, 162, 1, 300);
-INSERT INTO `character_skills` VALUES (15, 415, 1, 1);
-INSERT INTO `character_skills` VALUES (15, 375, 1, 1);
+INSERT INTO `character_skills` VALUES (5, 109, 300, 300);
+INSERT INTO `character_skills` VALUES (5, 415, 1, 1);
+INSERT INTO `character_skills` VALUES (5, 375, 1, 1);
+INSERT INTO `character_skills` VALUES (5, 162, 1, 60);
+INSERT INTO `character_skills` VALUES (5, 136, 1, 60);
+INSERT INTO `character_skills` VALUES (5, 95, 52, 60);
+INSERT INTO `character_skills` VALUES (5, 414, 1, 1);
+INSERT INTO `character_skills` VALUES (5, 54, 30, 60);
+INSERT INTO `character_skills` VALUES (5, 374, 1, 1);
+INSERT INTO `character_skills` VALUES (5, 433, 1, 1);
+INSERT INTO `character_skills` VALUES (5, 173, 1, 60);
+INSERT INTO `character_skills` VALUES (5, 473, 1, 1);
+INSERT INTO `character_skills` VALUES (5, 44, 1, 60);
 
 -- ----------------------------
 -- Table structure for character_social
@@ -1626,7 +1680,7 @@ INSERT INTO `character_spell` VALUES (4, 7420, 1, 0);
 INSERT INTO `character_spell` VALUES (4, 2385, 1, 0);
 INSERT INTO `character_spell` VALUES (4, 8776, 1, 0);
 INSERT INTO `character_spell` VALUES (4, 12045, 1, 0);
-INSERT INTO `character_spell` VALUES (4, 7413, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 12066, 1, 0);
 INSERT INTO `character_spell` VALUES (4, 7624, 1, 0);
 INSERT INTO `character_spell` VALUES (4, 3914, 1, 0);
 INSERT INTO `character_spell` VALUES (4, 7623, 1, 0);
@@ -1752,62 +1806,64 @@ INSERT INTO `character_spell` VALUES (4, 8795, 1, 0);
 INSERT INTO `character_spell` VALUES (4, 12049, 1, 0);
 INSERT INTO `character_spell` VALUES (4, 12048, 1, 0);
 INSERT INTO `character_spell` VALUES (4, 12525, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10623, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 25908, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10601, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 2870, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 8166, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 20608, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 8170, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 2484, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10428, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 8143, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10396, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10479, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10538, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 8012, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10448, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 11315, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10605, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 15208, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10587, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10473, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10414, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16387, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 2645, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 131, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 6196, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 546, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 8177, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 556, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 6495, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 526, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 20777, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10442, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10614, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16316, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16342, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10432, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10627, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 15112, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16356, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16362, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10497, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 10468, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16305, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 18848, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16301, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16269, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16284, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16268, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 29193, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 29088, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 29080, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 17364, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16309, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16274, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 17489, 1, 0);
-INSERT INTO `character_spell` VALUES (15, 16291, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13905, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 12069, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13637, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13631, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 14809, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13635, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13642, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13882, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13920, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13858, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13746, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13794, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13657, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13661, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13815, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13659, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13836, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 14810, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13640, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13653, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13702, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13700, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13887, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13822, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13695, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13663, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13693, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13644, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13648, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13890, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 12061, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 12053, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 12065, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 12067, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 12070, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 8804, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 12050, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13939, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13917, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 12056, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13935, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 13937, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 12060, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 8024, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 5730, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 370, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 2484, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 8071, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 8018, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 8050, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 8044, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 529, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 324, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 8075, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 1535, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 2008, 1, 0);
+INSERT INTO `character_spell` VALUES (5, 547, 1, 0);
+INSERT INTO `character_spell` VALUES (4, 29438, 1, 0);
 
 -- ----------------------------
 -- Table structure for character_spell_cooldown
@@ -1821,11 +1877,13 @@ CREATE TABLE `character_spell_cooldown`  (
   `category_expire_time` bigint(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Spell category cooldown expire time',
   `item_id` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Item Identifier',
   PRIMARY KEY (`guid`, `spell`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of character_spell_cooldown
 -- ----------------------------
+INSERT INTO `character_spell_cooldown` VALUES (4, 8690, 0, 89, 1704248939, 6948);
+INSERT INTO `character_spell_cooldown` VALUES (5, 8690, 0, 89, 1674595725, 6948);
 
 -- ----------------------------
 -- Table structure for character_stats
@@ -1858,10 +1916,13 @@ CREATE TABLE `character_stats`  (
   `parry_chance` float NOT NULL DEFAULT 0,
   `crit_chance` float NOT NULL DEFAULT 0,
   `ranged_crit_chance` float NOT NULL DEFAULT 0,
+  `spell_crit_chance` float NOT NULL DEFAULT 0,
   `attack_power` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `ranged_attack_power` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `spell_damage` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `spell_healing` int(10) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of character_stats
@@ -1927,7 +1988,7 @@ CREATE TABLE `characters`  (
   `online` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   `played_time_total` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `played_time_level` int(11) UNSIGNED NOT NULL DEFAULT 0,
-  `create_time` bigint(20) UNSIGNED NOT NULL,
+  `create_time` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `logout_time` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `is_logout_resting` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   `rest_bonus` float NOT NULL DEFAULT 0,
@@ -1945,7 +2006,7 @@ CREATE TABLE `characters`  (
   `honor_last_week_cp` float NOT NULL DEFAULT 0,
   `honor_stored_hk` int(11) NOT NULL DEFAULT 0,
   `honor_stored_dk` int(11) NOT NULL DEFAULT 0,
-  `watched_faction` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `watched_faction` int(11) NOT NULL DEFAULT -1,
   `drunk` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
   `health` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `power1` int(10) UNSIGNED NOT NULL DEFAULT 0,
@@ -1970,11 +2031,11 @@ CREATE TABLE `characters`  (
 -- ----------------------------
 -- Records of characters
 -- ----------------------------
-INSERT INTO `characters` VALUES (1, 1, 'Repack', 2, 1, 1, 0, 0, 0, 0, 0, 60, 0, 7982089, 512, 22, 451, 16216.5, 16112.1, 69.4448, 2.3527, 0, 0, 0, 0, 0, '4194304 0 0 0 0 0 0 0 ', '', 0, 2956, 2936, 0, 1492803100, 0, 0, 0, 0, 0, 0, 0, 0, 2, 674999, 18, 0, 0, 0, 0, 0, 4294967295, 0, 17299, 0, 0, 0, 100, 0, '1 0 33554432 0 256 0 0 0 131072 0 0 0 0 0 0 0 0 8 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '21329 0 17782 0 21330 0 11840 0 21331 0 21598 0 21332 0 21333 0 21618 0 21581 0 12947 0 19384 0 19341 0 23041 0 23030 0 40001 1899 40001 1898 22811 0 40000 0 ', 12654, 0, NULL, NULL, NULL, 1);
-INSERT INTO `characters` VALUES (2, 1, 'By', 4, 4, 0, 0, 0, 0, 0, 0, 60, 0, 997987789, 512, 616, 1, 4519.98, -3570.21, 982.339, 1.91693, 0, 0, 0, 0, 0, '100663296 0 0 0 0 0 0 0 ', '', 0, 1599, 1594, 0, 1588539759, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 4294967295, 0, 5483, 0, 0, 0, 100, 0, '0 0 0 1073741824 0 0 0 0 0 0 0 0 0 0 0 0 0 131072 0 2048 0 65536 2304 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '16908 0 23053 0 16832 0 6796 0 16905 0 16910 0 16909 0 16906 0 16911 0 16907 0 21596 0 19376 0 19406 0 18815 0 19398 0 18584 172359680 18583 40960000 22812 0 19160 0 ', 12654, 0, NULL, NULL, NULL, 1);
-INSERT INTO `characters` VALUES (3, 1, 'Brotalnia', 1, 8, 0, 0, 0, 0, 0, 0, 60, 0, 0, 520, 876, 1, 16228.5, 16308.5, 29.2623, 5.47966, 0, 0, 0, 0, 0, '2 0 0 0 0 0 0 0 ', '', 0, 2492, 2483, 0, 1561306223, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 4294967295, 0, 1930, 3303, 0, 0, 100, 0, '0 0 0 536870912 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '12064 0 0 0 0 0 0 0 2586 0 0 0 0 0 11508 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 22630 0 0 0 5209 0 0 0 ', 0, 0, NULL, NULL, NULL, 1);
-INSERT INTO `characters` VALUES (4, 2, 'Pantine', 5, 8, 1, 0, 0, 0, 0, 0, 49, 3559, 997836056, 32, 1638, 1, -1253.93, 75.4584, 127.903, 1.74326, 0, 0, 0, 0, 0, '275453440 281018368 34816 0 0 0 0 0 ', '', 0, 614813, 1890, 0, 1662491610, 1, 105900, 1, 1621062384, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1773, 3087, 0, 0, 100, 0, '2144993281 2944235095 2712387591 2424779720 22794759 3221764096 522499 1086324672 4289807456 906232065 2017723493 13960715 12582944 1842488453 26195968 876648832 960495950 375395204 2148236802 18941835 1333133376 538517891 2134884600 1868563003 554013692 67636738 0 100738840 1048576 12601387 2155872768 553665536 4096 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '8749 0 7722 0 3942 0 4330 0 14434 847 9945 0 14433 0 7472 66 14279 723 14231 0 4550 0 2951 0 18706 0 0 0 12465 744 9680 241 6803 0 5215 0 0 0 4499 0 ', 0, 0, NULL, NULL, NULL, 1);
-INSERT INTO `characters` VALUES (15, 2, 'Orco', 2, 7, 0, 4, 6, 3, 2, 5, 60, 0, 97170402, 512, 1584, 230, 1384.64, -830.587, -87.6685, 4.76269, 0, 0, 0, 0, 0, '4194304 0 0 0 0 0 0 0 ', '', 0, 13964, 13842, 1656266468, 1660932349, 0, 0, 0, 0, 1660926249, 0, 0, 0, 2, 674999, 18, 0, 0, 0, 0, 0, 0, 0, 4350, 4562, 0, 0, 100, 0, '131073 0 50334976 2181038088 71434496 524288 2147745792 0 536870976 1174405152 679477248 0 8388614 0 0 0 0 0 2147483650 1024 0 387 8 2684354560 1027 0 0 0 0 0 8388608 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '16578 0 0 0 16580 0 154 0 16577 0 0 0 16579 0 16573 0 18432 0 16574 0 0 0 0 0 0 0 0 0 18461 0 18828 0 18826 0 0 0 15199 0 0 0 ', 0, 0, NULL, NULL, NULL, 1);
+INSERT INTO `characters` VALUES (1, 1, 'Repack', 2, 1, 1, 9, 2, 4, 0, 2, 60, 0, 7982089, 512, 22, 451, 16216.5, 16112.1, 69.4448, 2.3527, 0, 0, 0, 0, 0, '4194304 0 0 0 0 0 0 0 ', '', 0, 2956, 2936, 0, 1492803100, 0, 0, 0, 0, 0, 0, 0, 0, 2, 914999, 18, 0, 0, 0, 0, 0, -1, 0, 17299, 0, 0, 0, 100, 0, '1 0 33554432 0 256 0 0 0 131072 0 0 0 0 0 0 0 0 8 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '21329 0 17782 0 21330 0 11840 0 21331 0 21598 0 21332 0 21333 0 21618 0 21581 0 12947 0 19384 0 19341 0 23041 0 23030 0 40001 1899 40001 1898 22811 0 40000 0 ', 12654, 0, NULL, NULL, NULL, 1);
+INSERT INTO `characters` VALUES (2, 1, 'By', 4, 4, 0, 3, 5, 0, 6, 0, 60, 0, 997987789, 512, 616, 1, 4519.98, -3570.21, 982.339, 1.91693, 0, 0, 0, 0, 0, '100663296 0 0 0 0 0 0 0 ', '', 0, 1599, 1594, 0, 1588539759, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, -1, 0, 5483, 0, 0, 0, 100, 0, '0 0 0 1073741824 0 0 0 0 0 0 0 0 0 0 0 0 0 131072 0 2048 0 65536 2304 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '16908 0 23053 0 16832 0 6796 0 16905 0 16910 0 16909 0 16906 0 16911 0 16907 0 21596 0 19376 0 19406 0 18815 0 19398 0 18584 172359680 18583 40960000 22812 0 19160 0 ', 12654, 0, NULL, NULL, NULL, 1);
+INSERT INTO `characters` VALUES (3, 1, 'Brotalnia', 1, 8, 0, 11, 0, 6, 9, 8, 60, 0, 0, 520, 876, 1, 16228.5, 16308.5, 29.2623, 5.47966, 0, 0, 0, 0, 0, '2 0 0 0 0 0 0 0 ', '', 0, 2492, 2483, 0, 1561306223, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, -1, 0, 1930, 3303, 0, 0, 100, 0, '0 0 0 536870912 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '12064 0 0 0 0 0 0 0 2586 0 0 0 0 0 11508 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 22630 0 0 0 5209 0 0 0 ', 0, 0, NULL, NULL, NULL, 1);
+INSERT INTO `characters` VALUES (4, 2, 'Pantine', 5, 8, 1, 0, 0, 0, 0, 0, 50, 122355, 998050230, 34, 1497, 0, 1634.62, 224.062, -43.1031, 5.53403, 0, 0, 0, 0, 0, '275453440 281018368 34816 0 0 0 0 0 ', '', 0, 670619, 40452, 0, 1704247129, 1, 79729.4, 1, 1621062384, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1715, 3198, 0, 0, 100, 0, '2144993281 2944235095 2712387591 2525492168 22794759 3221764608 134740227 3502243776 4289807468 1996751105 2026112101 886375947 12582944 1844585605 26195968 876648832 960495950 375395204 2148269570 18941835 1342046272 538648963 2143273208 1868563003 554016764 67636738 2147614720 102835994 1048576 1623345323 2155872820 553665536 4096 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '8749 0 7722 0 3942 0 4330 0 9943 0 9945 0 11123 0 9645 904 14279 905 10003 904 4550 0 2951 0 18706 0 0 0 12465 884 9680 943 6803 0 5215 0 0 0 4499 0 ', 0, 0, NULL, NULL, NULL, 1);
+INSERT INTO `characters` VALUES (5, 2, 'Sabel', 2, 7, 1, 6, 3, 1, 4, 5, 12, 1567, 5225, 32, 1637, 1, 2077.66, -4804.26, 21.2269, 1.47769, 0, 0, 0, 0, 0, '4194304 0 0 0 0 0 0 0 ', '', 0, 13831, 290, 1674576384, 1674592334, 1, 2.31989, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 264, 331, 0, 0, 100, 0, '1 0 4278190080 2147745795 0 0 0 0 0 0 0 1048576 0 0 4 0 0 0 0 805306368 117440512 0 8 0 0 0 0 1048576 0 0 0 1024 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '0 0 0 0 0 0 154 0 1425 0 4675 0 2962 0 15004 0 9752 0 9755 0 0 0 0 0 0 0 0 0 4944 0 4563 0 4937 0 0 0 0 0 5572 0 ', 0, 0, NULL, NULL, NULL, 1);
 
 -- ----------------------------
 -- Table structure for characters_guid_delete
@@ -1983,7 +2044,7 @@ DROP TABLE IF EXISTS `characters_guid_delete`;
 CREATE TABLE `characters_guid_delete`  (
   `guid` int(11) NULL DEFAULT NULL,
   UNIQUE INDEX `key_guid`(`guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of characters_guid_delete
@@ -1996,7 +2057,7 @@ DROP TABLE IF EXISTS `characters_item_delete`;
 CREATE TABLE `characters_item_delete`  (
   `entry` int(11) NULL DEFAULT NULL,
   UNIQUE INDEX `key_entry`(`entry`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of characters_item_delete
@@ -2039,54 +2100,181 @@ CREATE TABLE `creature_respawn`  (
   `map` int(5) UNSIGNED NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `instance`) USING BTREE,
   INDEX `idx_instance`(`instance`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Grid Loading System' ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Grid Loading System' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of creature_respawn
 -- ----------------------------
-INSERT INTO `creature_respawn` VALUES (2289, 1662491861, 0, 0);
-INSERT INTO `creature_respawn` VALUES (2292, 1662491767, 0, 0);
-INSERT INTO `creature_respawn` VALUES (2293, 1662491785, 0, 0);
-INSERT INTO `creature_respawn` VALUES (2294, 1662491753, 0, 0);
-INSERT INTO `creature_respawn` VALUES (3163, 1662491752, 0, 0);
-INSERT INTO `creature_respawn` VALUES (4508, 1662491746, 0, 0);
-INSERT INTO `creature_respawn` VALUES (6007, 1662491748, 0, 0);
-INSERT INTO `creature_respawn` VALUES (6057, 1662491756, 0, 0);
-INSERT INTO `creature_respawn` VALUES (16093, 1662491755, 0, 0);
-INSERT INTO `creature_respawn` VALUES (16458, 1662491750, 0, 0);
-INSERT INTO `creature_respawn` VALUES (24748, 1662491746, 0, 1);
-INSERT INTO `creature_respawn` VALUES (29165, 1662491791, 0, 1);
-INSERT INTO `creature_respawn` VALUES (29167, 1662491893, 0, 1);
-INSERT INTO `creature_respawn` VALUES (29168, 1662491903, 0, 1);
-INSERT INTO `creature_respawn` VALUES (29171, 1662491822, 0, 1);
-INSERT INTO `creature_respawn` VALUES (29172, 1662491769, 0, 1);
-INSERT INTO `creature_respawn` VALUES (29175, 1662491791, 0, 1);
-INSERT INTO `creature_respawn` VALUES (45587, 1662491869, 0, 1);
-INSERT INTO `creature_respawn` VALUES (47924, 1662491784, 0, 1);
-INSERT INTO `creature_respawn` VALUES (47934, 1662491780, 0, 1);
-INSERT INTO `creature_respawn` VALUES (54001, 1662491612, 0, 0);
-INSERT INTO `creature_respawn` VALUES (54003, 1662491582, 0, 0);
-INSERT INTO `creature_respawn` VALUES (140693, 1662491661, 0, 0);
-INSERT INTO `creature_respawn` VALUES (140694, 1662491648, 0, 0);
-INSERT INTO `creature_respawn` VALUES (140695, 1662491657, 0, 0);
-INSERT INTO `creature_respawn` VALUES (140696, 1662491665, 0, 0);
-INSERT INTO `creature_respawn` VALUES (140697, 1662491718, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190214, 1662491620, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190216, 1662491614, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190217, 1662491609, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190218, 1662491631, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190219, 1662491623, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190220, 1662491630, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190221, 1662491624, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190222, 1662491617, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190223, 1662491607, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190224, 1662491615, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190225, 1662491626, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190226, 1662491622, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190227, 1662491624, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190230, 1662491670, 0, 0);
-INSERT INTO `creature_respawn` VALUES (190231, 1662491670, 0, 0);
-INSERT INTO `creature_respawn` VALUES (301755, 1662492400, 0, 0);
+INSERT INTO `creature_respawn` VALUES (151, 1704247735, 0, 0);
+INSERT INTO `creature_respawn` VALUES (1757, 1704245315, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2025, 1704245326, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2027, 1704245327, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2028, 1704245326, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2081, 1704245315, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2086, 1704245316, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2088, 1704330421, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2097, 1704247701, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2243, 1704247127, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2275, 1704247949, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2289, 1704248013, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2292, 1705244624, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2293, 1705244643, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2294, 1705244609, 0, 0);
+INSERT INTO `creature_respawn` VALUES (2299, 1704247344, 0, 0);
+INSERT INTO `creature_respawn` VALUES (3163, 1705244609, 0, 0);
+INSERT INTO `creature_respawn` VALUES (3216, 1704247682, 0, 0);
+INSERT INTO `creature_respawn` VALUES (4508, 1705244579, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6007, 1705244607, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6050, 1704247024, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6051, 1704247056, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6056, 1704247053, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6057, 1705244605, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6076, 1704246938, 0, 0);
+INSERT INTO `creature_respawn` VALUES (6306, 1704247888, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10494, 1704245498, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10495, 1704331709, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10497, 1704245463, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10511, 1704245675, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10512, 1704245674, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10513, 1704245671, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10514, 1704245671, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10515, 1704245678, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10516, 1704245669, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10517, 1704245663, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10518, 1704245679, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10519, 1704245657, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10520, 1704245673, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10521, 1704245680, 0, 0);
+INSERT INTO `creature_respawn` VALUES (10522, 1704245672, 0, 0);
+INSERT INTO `creature_respawn` VALUES (14773, 1704246485, 0, 0);
+INSERT INTO `creature_respawn` VALUES (15976, 1704244746, 0, 0);
+INSERT INTO `creature_respawn` VALUES (16011, 1704247152, 0, 0);
+INSERT INTO `creature_respawn` VALUES (16093, 1705244621, 0, 0);
+INSERT INTO `creature_respawn` VALUES (16152, 1705244625, 0, 0);
+INSERT INTO `creature_respawn` VALUES (16458, 1705244606, 0, 0);
+INSERT INTO `creature_respawn` VALUES (19760, 1704248089, 0, 1);
+INSERT INTO `creature_respawn` VALUES (19764, 1704248089, 0, 1);
+INSERT INTO `creature_respawn` VALUES (24732, 1704247910, 0, 1);
+INSERT INTO `creature_respawn` VALUES (24740, 1704248025, 0, 1);
+INSERT INTO `creature_respawn` VALUES (24747, 1704248085, 0, 1);
+INSERT INTO `creature_respawn` VALUES (24748, 1705244605, 0, 1);
+INSERT INTO `creature_respawn` VALUES (24754, 1704247975, 0, 1);
+INSERT INTO `creature_respawn` VALUES (24759, 1704247324, 0, 1);
+INSERT INTO `creature_respawn` VALUES (27654, 1704246051, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28273, 1704247721, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28274, 1704247721, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28275, 1704247871, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28276, 1704247869, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28277, 1704247869, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28279, 1704247457, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28280, 1704247457, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28282, 1704247985, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28283, 1704247983, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28284, 1704247983, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28295, 1704247721, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28297, 1704247869, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28298, 1704247457, 0, 1);
+INSERT INTO `creature_respawn` VALUES (28299, 1704247983, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29145, 1704247709, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29146, 1704246662, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29158, 1704248106, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29161, 1704246130, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29164, 1704248046, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29165, 1704247361, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29167, 1704247356, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29168, 1704247957, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29169, 1704248022, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29170, 1704247811, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29171, 1705244687, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29172, 1705244628, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29173, 1704247521, 0, 1);
+INSERT INTO `creature_respawn` VALUES (29175, 1705244646, 0, 1);
+INSERT INTO `creature_respawn` VALUES (42893, 1704246953, 0, 0);
+INSERT INTO `creature_respawn` VALUES (43213, 1704248012, 0, 1);
+INSERT INTO `creature_respawn` VALUES (43214, 1704248087, 0, 1);
+INSERT INTO `creature_respawn` VALUES (43215, 1704248033, 0, 1);
+INSERT INTO `creature_respawn` VALUES (43216, 1704248046, 0, 1);
+INSERT INTO `creature_respawn` VALUES (45461, 1704244754, 0, 0);
+INSERT INTO `creature_respawn` VALUES (45587, 1704245903, 0, 1);
+INSERT INTO `creature_respawn` VALUES (47924, 1704247958, 0, 1);
+INSERT INTO `creature_respawn` VALUES (47934, 1704247963, 0, 1);
+INSERT INTO `creature_respawn` VALUES (48629, 1704244702, 0, 0);
+INSERT INTO `creature_respawn` VALUES (48630, 1704244723, 0, 0);
+INSERT INTO `creature_respawn` VALUES (51736, 1704244648, 0, 0);
+INSERT INTO `creature_respawn` VALUES (51984, 1704245662, 0, 0);
+INSERT INTO `creature_respawn` VALUES (52257, 1704244683, 0, 0);
+INSERT INTO `creature_respawn` VALUES (53998, 1704247720, 0, 0);
+INSERT INTO `creature_respawn` VALUES (53999, 1704247722, 0, 0);
+INSERT INTO `creature_respawn` VALUES (54001, 1705244389, 0, 0);
+INSERT INTO `creature_respawn` VALUES (54003, 1705244434, 0, 0);
+INSERT INTO `creature_respawn` VALUES (54614, 1704245462, 0, 0);
+INSERT INTO `creature_respawn` VALUES (54625, 1704245470, 0, 0);
+INSERT INTO `creature_respawn` VALUES (79522, 1705244881, 0, 0);
+INSERT INTO `creature_respawn` VALUES (79550, 1705244881, 0, 0);
+INSERT INTO `creature_respawn` VALUES (79558, 1705244881, 0, 0);
+INSERT INTO `creature_respawn` VALUES (79580, 1705244881, 0, 0);
+INSERT INTO `creature_respawn` VALUES (79581, 1705244881, 0, 0);
+INSERT INTO `creature_respawn` VALUES (80454, 1704245841, 0, 0);
+INSERT INTO `creature_respawn` VALUES (80761, 1704248090, 0, 0);
+INSERT INTO `creature_respawn` VALUES (80810, 1704245284, 0, 0);
+INSERT INTO `creature_respawn` VALUES (81024, 1704245741, 0, 0);
+INSERT INTO `creature_respawn` VALUES (81032, 1704247990, 0, 0);
+INSERT INTO `creature_respawn` VALUES (89530, 1704246349, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90142, 1704246220, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90310, 1704246199, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90342, 1704246490, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90381, 1704246185, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90403, 1704247902, 0, 0);
+INSERT INTO `creature_respawn` VALUES (90457, 1705244881, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92268, 1704247496, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92270, 1704247806, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92272, 1704247782, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92274, 1704247574, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92275, 1704247478, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92278, 1704247398, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92279, 1704247587, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92281, 1704247841, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92364, 1704246572, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92385, 1704246635, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92528, 1704246544, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92535, 1704246529, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92596, 1704246585, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92597, 1704246603, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92602, 1704246513, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92603, 1704246453, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92604, 1704246468, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92605, 1704246482, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92608, 1704246532, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92613, 1704246436, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92630, 1704246495, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92703, 1704246421, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92712, 1704246563, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92715, 1704246654, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92716, 1704246625, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92718, 1704246412, 0, 0);
+INSERT INTO `creature_respawn` VALUES (92779, 1704246386, 0, 0);
+INSERT INTO `creature_respawn` VALUES (140693, 1705244510, 0, 0);
+INSERT INTO `creature_respawn` VALUES (140694, 1705244502, 0, 0);
+INSERT INTO `creature_respawn` VALUES (140695, 1705244518, 0, 0);
+INSERT INTO `creature_respawn` VALUES (140696, 1705244513, 0, 0);
+INSERT INTO `creature_respawn` VALUES (140697, 1705244664, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190214, 1705244432, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190216, 1705244429, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190217, 1705244356, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190218, 1705244417, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190220, 1704247840, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190221, 1704247847, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190222, 1705244440, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190223, 1705244438, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190224, 1705244429, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190225, 1705244451, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190226, 1705244449, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190227, 1705244445, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190230, 1705244436, 0, 0);
+INSERT INTO `creature_respawn` VALUES (190231, 1705244436, 0, 0);
+INSERT INTO `creature_respawn` VALUES (301770, 1705244393, 0, 0);
+INSERT INTO `creature_respawn` VALUES (301771, 1705244371, 0, 0);
+INSERT INTO `creature_respawn` VALUES (302422, 1704268968, 0, 0);
 
 -- ----------------------------
 -- Table structure for game_event_status
@@ -2100,19 +2288,35 @@ CREATE TABLE `game_event_status`  (
 -- ----------------------------
 -- Records of game_event_status
 -- ----------------------------
+INSERT INTO `game_event_status` VALUES (2);
 INSERT INTO `game_event_status` VALUES (5);
+INSERT INTO `game_event_status` VALUES (13);
 INSERT INTO `game_event_status` VALUES (16);
+INSERT INTO `game_event_status` VALUES (19);
+INSERT INTO `game_event_status` VALUES (21);
 INSERT INTO `game_event_status` VALUES (27);
-INSERT INTO `game_event_status` VALUES (31);
-INSERT INTO `game_event_status` VALUES (36);
-INSERT INTO `game_event_status` VALUES (45);
+INSERT INTO `game_event_status` VALUES (30);
+INSERT INTO `game_event_status` VALUES (37);
+INSERT INTO `game_event_status` VALUES (46);
 INSERT INTO `game_event_status` VALUES (47);
-INSERT INTO `game_event_status` VALUES (48);
 INSERT INTO `game_event_status` VALUES (49);
 INSERT INTO `game_event_status` VALUES (52);
 INSERT INTO `game_event_status` VALUES (53);
 INSERT INTO `game_event_status` VALUES (66);
+INSERT INTO `game_event_status` VALUES (67);
+INSERT INTO `game_event_status` VALUES (68);
+INSERT INTO `game_event_status` VALUES (69);
+INSERT INTO `game_event_status` VALUES (70);
+INSERT INTO `game_event_status` VALUES (71);
+INSERT INTO `game_event_status` VALUES (72);
+INSERT INTO `game_event_status` VALUES (73);
+INSERT INTO `game_event_status` VALUES (74);
+INSERT INTO `game_event_status` VALUES (75);
+INSERT INTO `game_event_status` VALUES (78);
+INSERT INTO `game_event_status` VALUES (81);
 INSERT INTO `game_event_status` VALUES (86);
+INSERT INTO `game_event_status` VALUES (129);
+INSERT INTO `game_event_status` VALUES (130);
 
 -- ----------------------------
 -- Table structure for gameobject_respawn
@@ -2125,7 +2329,7 @@ CREATE TABLE `gameobject_respawn`  (
   `map` int(5) UNSIGNED NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `instance`) USING BTREE,
   INDEX `idx_instance`(`instance`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Grid Loading System' ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Grid Loading System' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of gameobject_respawn
@@ -2141,7 +2345,7 @@ CREATE TABLE `gm_subsurveys`  (
   `rank` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `comment` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`survey_id`, `subsurvey_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gm_subsurveys
@@ -2158,7 +2362,7 @@ CREATE TABLE `gm_surveys`  (
   `overall_comment` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `create_time` int(10) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`survey_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gm_surveys
@@ -2190,7 +2394,7 @@ CREATE TABLE `gm_tickets`  (
   `ticket_type` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   `security_needed` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`ticket_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Player System' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gm_tickets
@@ -2206,7 +2410,7 @@ CREATE TABLE `group_instance`  (
   `permanent` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`leader_guid`, `instance`) USING BTREE,
   INDEX `idx_instance`(`instance`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of group_instance
@@ -2297,7 +2501,7 @@ CREATE TABLE `guild_eventlog`  (
   INDEX `idx_PlayerGuid1`(`player_guid1`) USING BTREE,
   INDEX `idx_PlayerGuid2`(`player_guid2`) USING BTREE,
   INDEX `idx_LogGuid`(`log_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild Eventlog' ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Guild Eventlog' ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of guild_eventlog
@@ -2351,7 +2555,7 @@ CREATE TABLE `instance`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idx_map`(`map`) USING BTREE,
   INDEX `idx_resettime`(`reset_time`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of instance
@@ -2365,18 +2569,18 @@ CREATE TABLE `instance_reset`  (
   `map` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `reset_time` bigint(40) NOT NULL DEFAULT 0,
   PRIMARY KEY (`map`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of instance_reset
 -- ----------------------------
-INSERT INTO `instance_reset` VALUES (249, 1662868800);
-INSERT INTO `instance_reset` VALUES (309, 1662609600);
-INSERT INTO `instance_reset` VALUES (409, 1662782400);
-INSERT INTO `instance_reset` VALUES (469, 1662782400);
-INSERT INTO `instance_reset` VALUES (509, 1662609600);
-INSERT INTO `instance_reset` VALUES (531, 1662782400);
-INSERT INTO `instance_reset` VALUES (533, 1662782400);
+INSERT INTO `instance_reset` VALUES (249, 1705636800);
+INSERT INTO `instance_reset` VALUES (309, 1705464000);
+INSERT INTO `instance_reset` VALUES (409, 1705723200);
+INSERT INTO `instance_reset` VALUES (469, 1705723200);
+INSERT INTO `instance_reset` VALUES (509, 1705464000);
+INSERT INTO `instance_reset` VALUES (531, 1705723200);
+INSERT INTO `instance_reset` VALUES (533, 1705723200);
 
 -- ----------------------------
 -- Table structure for item_instance
@@ -2400,7 +2604,7 @@ CREATE TABLE `item_instance`  (
   PRIMARY KEY (`guid`) USING BTREE,
   INDEX `idx_owner_guid`(`owner_guid`) USING BTREE,
   INDEX `idx_itemEntry`(`item_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Item System' ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Item System' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of item_instance
@@ -2483,50 +2687,35 @@ INSERT INTO `item_instance` VALUES (172, 14156, 3, 0, 0, 1, 0, '0 0 0 0 0 ', 1, 
 INSERT INTO `item_instance` VALUES (173, 14156, 3, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (174, 14156, 3, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (175, 14156, 3, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (176, 13262, 1, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 145, 0, 0);
+INSERT INTO `item_instance` VALUES (176, 13262, 3, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 145, 0, 0);
 INSERT INTO `item_instance` VALUES (177, 40002, 1, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 120, 0, 0);
 INSERT INTO `item_instance` VALUES (193, 6948, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (486, 6218, 4, 4, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (1471, 2605, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2000, 2320, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2029, 2325, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2071, 4340, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2081, 4341, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2091, 4342, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (2267, 10940, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2297, 3737, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2355, 16650, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2361, 16651, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2371, 16742, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2537, 2996, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2573, 6261, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (2583, 8343, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (2583, 8343, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2593, 10290, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2603, 14341, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2678, 3711, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2692, 8749, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 45, 0, 0);
-INSERT INTO `item_instance` VALUES (2888, 11206, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (2934, 4330, 4, 4, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (3101, 11138, 4, 0, 0, 5, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (3118, 2997, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (3153, 2321, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (3373, 7472, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '66 0 0 0 0 0 0 0 0 371 0 0 0 0 0 0 0 0 0 0 0 ', 188, 34, 0, 0);
+INSERT INTO `item_instance` VALUES (3153, 2321, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (3528, 2951, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (3700, 11083, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (3700, 11083, 4, 0, 0, 18, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (3759, 5215, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 98 0 0 102 0 0 0 0 0 0 0 0 ', 1018, 54, 0, 0);
-INSERT INTO `item_instance` VALUES (3850, 10939, 4, 0, 0, 10, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (3852, 10939, 4, 0, 0, 3, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (3853, 10939, 4, 0, 0, 10, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (3856, 10939, 4, 0, 0, 10, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (3852, 10939, 4, 0, 0, 7, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (3857, 10939, 4, 0, 0, 10, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4067, 11164, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4129, 11083, 4, 0, 0, 17, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4132, 11139, 4, 0, 0, 8, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4242, 10978, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4243, 10978, 4, 0, 0, 19, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4244, 10978, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (4245, 10978, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4246, 10978, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (4251, 4499, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (4252, 4499, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (4253, 4499, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
@@ -2537,121 +2726,99 @@ INSERT INTO `item_instance` VALUES (4257, 4499, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, 
 INSERT INTO `item_instance` VALUES (4258, 4499, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (4259, 4499, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (4260, 4499, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4305, 10312, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4333, 10312, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (4334, 1532, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (4407, 3942, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 45, 0, 0);
-INSERT INTO `item_instance` VALUES (4537, 11174, 4, 0, 0, 2, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4576, 11083, 4, 0, 0, 12, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4578, 11082, 4, 0, 0, 6, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4588, 11137, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (4588, 11137, 4, 0, 0, 13, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (4754, 11176, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (4822, 18706, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4895, 11082, 4, 0, 0, 7, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (4899, 6260, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (4915, 6339, 4, 4, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (5072, 11135, 4, 0, 0, 10, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (5072, 11135, 4, 0, 0, 2, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (5074, 11177, 4, 0, 0, 9, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (5076, 11134, 4, 0, 0, 10, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (5372, 16745, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (5373, 13331, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (5382, 11083, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (5384, 10939, 4, 0, 0, 10, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (5572, 8523, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (5636, 11137, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (5689, 2324, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (5813, 14231, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 2317 0 0 0 0 0 0 0 0 0 0 0 ', 2037, 24, 0, 0);
 INSERT INTO `item_instance` VALUES (5831, 7146, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (5840, 11135, 4, 0, 0, 10, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (5964, 11083, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (5966, 11137, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (5969, 11134, 4, 0, 0, 2, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (5983, 7722, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6053, 10938, 4, 0, 0, 9, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (6053, 10938, 4, 0, 0, 8, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (6055, 6803, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6058, 11175, 4, 0, 0, 5, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (6059, 4550, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (6135, 9945, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 1118 0 0 0 0 0 0 0 0 0 0 0 ', 383, 25, 0, 0);
 INSERT INTO `item_instance` VALUES (6223, 22526, 4, 0, 0, 2, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (6303, 16203, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6336, 11137, 4, 0, 0, 13, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6414, 14434, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '847 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 70, 0, 0);
-INSERT INTO `item_instance` VALUES (6556, 4339, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (6336, 11137, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (6414, 14434, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '908 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 70, 0, 0);
 INSERT INTO `item_instance` VALUES (6593, 10300, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6663, 11137, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6818, 11176, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6819, 14343, 4, 0, 0, 3, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (6818, 11176, 4, 0, 0, 4, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (6821, 16202, 4, 0, 0, 4, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6837, 4339, 4, 0, 0, 6, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6847, 4339, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6857, 4339, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6867, 6193, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6882, 4338, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (6925, 16220, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (6974, 14433, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 55, 0, 0);
-INSERT INTO `item_instance` VALUES (7016, 11178, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7071, 10807, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 65, 0, 0);
-INSERT INTO `item_instance` VALUES (7072, 6212, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7078, 12465, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '744 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7078, 12465, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '884 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7079, 10828, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 105 0 0 352 0 0 0 0 0 0 0 0 ', 1199, 65, 0, 0);
 INSERT INTO `item_instance` VALUES (7080, 10454, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7083, 14344, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7090, 4305, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7091, 4305, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7092, 4305, 4, 0, 0, 8, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7097, 4305, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7106, 4339, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7083, 14344, 4, 0, 0, 3, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7119, 11137, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7181, 10302, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7240, 11135, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7269, 16743, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7277, 16647, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7335, 9680, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '241 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 55, 0, 0);
-INSERT INTO `item_instance` VALUES (7350, 8463, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7335, 9680, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '943 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 54, 0, 0);
 INSERT INTO `item_instance` VALUES (7356, 11225, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7357, 11137, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7358, 11174, 4, 0, 0, 10, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7359, 10998, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7385, 11084, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7475, 11176, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7500, 4291, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 INSERT INTO `item_instance` VALUES (7510, 2604, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7520, 11084, 4, 0, 0, 18, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7525, 10940, 4, 0, 0, 12, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7624, 10300, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (7645, 14279, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '723 0 0 0 0 0 0 0 0 2166 0 0 0 0 0 0 0 0 0 0 0 ', 1886, 25, 0, 0);
-INSERT INTO `item_instance` VALUES (7752, 19022, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 55, 0, 0);
-INSERT INTO `item_instance` VALUES (7753, 8751, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 60, 0, 0);
-INSERT INTO `item_instance` VALUES (7771, 3943, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '63 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 70, 0, 0);
-INSERT INTO `item_instance` VALUES (7790, 4018, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '943 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 85, 0, 0);
-INSERT INTO `item_instance` VALUES (7794, 8749, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 45, 0, 0);
-INSERT INTO `item_instance` VALUES (7834, 4006, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 60, 0, 0);
-INSERT INTO `item_instance` VALUES (7838, 3967, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 50, 0, 0);
-INSERT INTO `item_instance` VALUES (7875, 11137, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8300, 117, 15, 0, 0, 4, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8304, 154, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8306, 159, 15, 0, 0, 2, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8308, 6948, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8309, 18828, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 95, 0, 0);
-INSERT INTO `item_instance` VALUES (8310, 18826, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 108, 0, 0);
-INSERT INTO `item_instance` VALUES (8311, 15199, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8312, 16573, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 63, 0, 0);
-INSERT INTO `item_instance` VALUES (8313, 16577, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 126, 0, 0);
-INSERT INTO `item_instance` VALUES (8314, 16579, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 95, 0, 0);
-INSERT INTO `item_instance` VALUES (8315, 16574, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 45, 0, 0);
-INSERT INTO `item_instance` VALUES (8316, 16578, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 77, 0, 0);
-INSERT INTO `item_instance` VALUES (8317, 16580, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 77, 0, 0);
-INSERT INTO `item_instance` VALUES (8318, 18461, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8319, 18432, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 36, 0, 0);
-INSERT INTO `item_instance` VALUES (8320, 11078, 15, 0, 0, 2, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8321, 14047, 15, 0, 0, 7, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8326, 22223, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 80, 0, 0);
-INSERT INTO `item_instance` VALUES (8328, 11000, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8331, 11325, 15, 0, 0, 3, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8340, 8950, 15, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
-INSERT INTO `item_instance` VALUES (8342, 11746, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 80, 0, 0);
-INSERT INTO `item_instance` VALUES (8343, 11932, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 100, 0, 0);
-INSERT INTO `item_instance` VALUES (8344, 11933, 15, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7520, 11084, 4, 0, 0, 7, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7525, 10940, 4, 0, 0, 13, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (7645, 14279, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '905 0 0 0 0 0 0 0 0 2166 0 0 0 0 0 0 0 0 0 0 0 ', 1886, 25, 0, 0);
+INSERT INTO `item_instance` VALUES (8352, 9645, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '904 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 35, 0, 0);
+INSERT INTO `item_instance` VALUES (8411, 2744, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8485, 15681, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 349 0 0 359 0 0 0 0 0 0 0 0 ', 442, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8506, 11123, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 65, 0, 0);
+INSERT INTO `item_instance` VALUES (8507, 3900, 4, 0, 0, 12, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8522, 4338, 4, 0, 0, 15, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8568, 9241, 4, 0, 0, 1, 0, '-1 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8653, 14343, 4, 0, 0, 5, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8655, 11178, 4, 0, 0, 2, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8656, 11176, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8659, 11137, 4, 0, 0, 20, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8713, 4339, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8714, 4339, 4, 0, 0, 10, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8754, 10003, 4, 4, 0, 1, 0, '0 0 0 0 0 ', 1, '904 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 25, 0, 0);
+INSERT INTO `item_instance` VALUES (8769, 11082, 4, 0, 0, 6, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8773, 11145, 4, 4, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8777, 11082, 4, 0, 0, 10, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8778, 11130, 4, 4, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8780, 6218, 4, 4, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8783, 6339, 4, 4, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8795, 1710, 4, 0, 0, 5, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8796, 18706, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8797, 19024, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8805, 154, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8809, 6948, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8894, 5572, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8900, 5175, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8902, 5572, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (8935, 9752, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 20, 0, 0);
+INSERT INTO `item_instance` VALUES (8938, 2962, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 40, 0, 0);
+INSERT INTO `item_instance` VALUES (8980, 4675, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 20, 0, 0);
+INSERT INTO `item_instance` VALUES (8987, 5572, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (9010, 9755, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 20, 0, 0);
+INSERT INTO `item_instance` VALUES (9014, 4882, 5, 0, 0, 1, 0, '-1 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (9022, 11845, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (9023, 4563, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 35, 0, 0);
+INSERT INTO `item_instance` VALUES (9024, 1425, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 55, 0, 0);
+INSERT INTO `item_instance` VALUES (9040, 4869, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (9120, 4937, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 40, 0, 0);
+INSERT INTO `item_instance` VALUES (9134, 4944, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (9135, 15004, 5, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 25, 0, 0);
+INSERT INTO `item_instance` VALUES (9136, 4500, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (9137, 15279, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 100 0 0 0 0 0 0 0 0 0 0 0 ', 134, 55, 0, 0);
+INSERT INTO `item_instance` VALUES (9138, 18706, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (9140, 17043, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 70, 0, 0);
+INSERT INTO `item_instance` VALUES (9141, 9943, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 406 0 0 1144 0 0 0 0 0 0 0 0 ', 795, 70, 0, 0);
+INSERT INTO `item_instance` VALUES (9143, 15681, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 0, '0 0 0 0 0 0 0 0 0 354 0 0 356 0 0 0 0 0 0 0 0 ', 863, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (9150, 15043, 4, 0, 0, 8, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
+INSERT INTO `item_instance` VALUES (9151, 15044, 4, 0, 0, 1, 0, '0 0 0 0 0 ', 1, '0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for item_loot
@@ -2679,12 +2846,12 @@ CREATE TABLE `item_text`  (
   `id` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `text` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Item System' ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Item System' ROW_FORMAT = FIXED;
 
 -- ----------------------------
 -- Records of item_text
 -- ----------------------------
-INSERT INTO `item_text` VALUES (177, 'Hey there!\n\nThank you for downloading my repack. If you haven\'t done so already, check the sql folder for some useful database patches like custom vendors. I plan on updating this repack periodically, so keep checking the thread if you don\'t want to miss any bug fixes.\n\nThis is version 18. Compiled 20-11-2020.\nIf you have any questions, you may contact me on youtube, acweb, ownedcore or reddit, and i\'ll try to help you out. Have fun');
+INSERT INTO `item_text` VALUES (177, 'Hey there!\n\nThank you for downloading my repack. If you haven\'t done so already, check the sql folder for some useful database patches like custom vendors. I plan on updating this repack periodically, so keep checking the thread if you don\'t want to miss any bug fixes.\n\nThis is version 22. Compiled 23-6-2022.\n');
 
 -- ----------------------------
 -- Table structure for mail
@@ -2707,12 +2874,12 @@ CREATE TABLE `mail`  (
   `checked` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idx_receiver`(`receiver_guid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Mail System' ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Mail System' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of mail
 -- ----------------------------
-INSERT INTO `mail` VALUES (1, 0, 61, 0, 3, 1, 'Need help?', 177, 1, 1698834669, 1490651544, 0, 0, 16);
+INSERT INTO `mail` VALUES (1, 0, 61, 0, 1, 3, 'Need help?', 177, 1, 1707007073, 1704415073, 0, 0, 2);
 
 -- ----------------------------
 -- Table structure for mail_items
@@ -2731,7 +2898,7 @@ CREATE TABLE `mail_items`  (
 -- ----------------------------
 -- Records of mail_items
 -- ----------------------------
-INSERT INTO `mail_items` VALUES (1, 176, 13262, 1);
+INSERT INTO `mail_items` VALUES (1, 176, 13262, 3);
 
 -- ----------------------------
 -- Table structure for migrations
@@ -2740,13 +2907,14 @@ DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations`  (
   `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
 -- ----------------------------
 INSERT INTO `migrations` VALUES ('20200316170243');
 INSERT INTO `migrations` VALUES ('20220813085336');
+INSERT INTO `migrations` VALUES ('20221001202815');
 
 -- ----------------------------
 -- Table structure for pet_aura
@@ -2769,7 +2937,7 @@ CREATE TABLE `pet_aura`  (
   `duration` int(11) NOT NULL DEFAULT 0,
   `effect_index_mask` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `caster_guid`, `item_guid`, `spell`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Pet System' ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Pet System' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of pet_aura
@@ -2799,7 +2967,7 @@ CREATE TABLE `pet_spell_cooldown`  (
   `spell` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Spell Identifier',
   `time` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`guid`, `spell`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of pet_spell_cooldown
@@ -2851,7 +3019,7 @@ CREATE TABLE `playerbot`  (
   `comment` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `ai` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`char_guid`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of playerbot
@@ -2873,7 +3041,7 @@ CREATE TABLE `saved_variables`  (
 -- ----------------------------
 -- Records of saved_variables
 -- ----------------------------
-INSERT INTO `saved_variables` VALUES (0, 0, 19186, 19193, 1);
+INSERT INTO `saved_variables` VALUES (0, 0, 19270, 19277, 1);
 
 -- ----------------------------
 -- Table structure for world
@@ -2883,7 +3051,7 @@ CREATE TABLE `world`  (
   `map` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `data` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`map`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of world
@@ -2898,10 +3066,16 @@ CREATE TABLE `worldstates`  (
   `value` int(11) NULL DEFAULT NULL,
   `comment` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   UNIQUE INDEX `key_entry`(`entry`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of worldstates
 -- ----------------------------
+
+-- ----------------------------
+-- View structure for v_character_action
+-- ----------------------------
+DROP VIEW IF EXISTS `v_character_action`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_character_action` AS select `characters`.`character_action_mig`.`guid` AS `guid`,`characters`.`character_action_mig`.`button` AS `button`,`characters`.`character_action_mig`.`action` AS `action`,`characters`.`character_action_mig`.`type` AS `type` from `character_action_mig` where (not(`characters`.`character_action_mig`.`guid` in (select `characters`.`character_action`.`guid` from `character_action`)));
 
 SET FOREIGN_KEY_CHECKS = 1;
