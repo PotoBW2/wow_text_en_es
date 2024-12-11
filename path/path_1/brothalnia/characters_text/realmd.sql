@@ -11,7 +11,7 @@
  Target Server Version : 50562 (5.5.62)
  File Encoding         : 65001
 
- Date: 10/12/2024 20:25:50
+ Date: 10/12/2024 22:04:55
 */
 
 SET NAMES utf8mb4;
@@ -56,7 +56,7 @@ CREATE TABLE `account`  (
 -- Records of account
 -- ----------------------------
 INSERT INTO `account` VALUES (1, 'ADMIN', 0, 'BCDA6D8AADA31117B0FA5106189ED1DA7C55D7F0635EC39A912AE25FA32EC72A90C72BBF9DC4B4AF', '674E0FDF712288C5709F2A16EA3008F1939263ECB1CD768E45DB29DB42EE81D1', '879030F33DD3A7774AD674CF0BF254B52BA66E3D65B87DA56652658C7D8709C7', '', NULL, '2018-11-12 14:59:21', '127.0.0.1', 0, 0, '00', '2023-06-23 09:51:36', 0, 0, 0, 0, 'Win', 'x86', 0, 0, NULL, 0, 0);
-INSERT INTO `account` VALUES (2, 'POTOBW', 0, '0D6061A7C728A44241AA3C08F89EE39C48C6197B9DDB3E75396A5D66C9EA77ED79F8F4B529EAA695', '2030CF7026C8E3B0609D8169DFAE4C13F08088AA5885C20B91899FC8B4DDBBAE', '8DCC8778293FB28E647DF973BFF180A0592099FD4234F5EADEA874184FB2A09F', '', NULL, '2021-09-07 10:30:21', '127.0.0.1', 0, 0, '00', '2024-06-07 10:33:11', 0, 0, 0, 6, 'Win', 'x86', 0, 0, NULL, 0, 0);
+INSERT INTO `account` VALUES (2, 'POTOBW', 0, '1453312BD3862AABABE6500BE2014BA8F947BE1BC90D840966D61AE9051A48038295C27903AE19F8', '2030CF7026C8E3B0609D8169DFAE4C13F08088AA5885C20B91899FC8B4DDBBAE', '8DCC8778293FB28E647DF973BFF180A0592099FD4234F5EADEA874184FB2A09F', '', NULL, '2021-09-07 10:30:21', '127.0.0.1', 0, 0, '00', '2024-12-10 22:01:52', 0, 0, 0, 6, 'Win', 'x86', 0, 0, NULL, 0, 0);
 
 -- ----------------------------
 -- Table structure for account_access
@@ -109,7 +109,7 @@ CREATE TABLE `allowed_clients`  (
   `os` char(50) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
   `platform` char(50) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL,
   `integrity_hash` varchar(40) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT ''
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_bin ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of allowed_clients
@@ -176,7 +176,7 @@ DROP TABLE IF EXISTS `antispam_blacklist`;
 CREATE TABLE `antispam_blacklist`  (
   `word` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`word`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of antispam_blacklist
@@ -230,7 +230,7 @@ CREATE TABLE `antispam_detected`  (
   `detectTime` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `unmuteTime` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of antispam_detected
@@ -244,7 +244,7 @@ CREATE TABLE `antispam_replacement`  (
   `from` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `to` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`from`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of antispam_replacement
@@ -272,7 +272,7 @@ CREATE TABLE `antispam_scores`  (
   `score` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   `type` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`word`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of antispam_scores
@@ -344,7 +344,7 @@ CREATE TABLE `antispam_unicode`  (
   `from` mediumint(5) UNSIGNED NOT NULL DEFAULT 0,
   `to` mediumint(5) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`from`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = FIXED;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
 
 -- ----------------------------
 -- Records of antispam_unicode
@@ -410,7 +410,7 @@ CREATE TABLE `geoip`  (
   `accuracy_radius` int(11) NULL DEFAULT NULL,
   INDEX `ip_start`(`network_start_integer`) USING BTREE,
   INDEX `ip_end`(`network_last_integer`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of geoip
@@ -424,7 +424,7 @@ CREATE TABLE `ip2nation`  (
   `ip` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `country` char(2) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '',
   INDEX `ip`(`ip`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ip2nation
@@ -444,7 +444,7 @@ CREATE TABLE `ip2nationcountries`  (
   `lon` float NOT NULL DEFAULT 0,
   PRIMARY KEY (`code`) USING BTREE,
   INDEX `code`(`code`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ip2nationcountries
@@ -474,7 +474,7 @@ DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations`  (
   `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -507,7 +507,7 @@ INSERT INTO `realmcharacters` VALUES (1, 2, 3);
 -- ----------------------------
 DROP TABLE IF EXISTS `realmlist`;
 CREATE TABLE `realmlist`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `address` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '127.0.0.1',
   `localAddress` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '127.0.0.1',
@@ -518,8 +518,8 @@ CREATE TABLE `realmlist`  (
   `timezone` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   `allowedSecurityLevel` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   `population` float UNSIGNED NOT NULL DEFAULT 0,
-  `gamebuild_min` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `gamebuild_max` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `gamebuild_min` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `gamebuild_max` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `flag` tinyint(3) UNSIGNED NOT NULL DEFAULT 2,
   `realmbuilds` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE,
@@ -529,7 +529,7 @@ CREATE TABLE `realmlist`  (
 -- ----------------------------
 -- Records of realmlist
 -- ----------------------------
-INSERT INTO `realmlist` VALUES (1, 'Lightbringer', '127.0.0.1', '127.0.0.1', '255.255.255.0', 8085, 1, 0, 1, 0, 0, 0, 0, 2, '5875 6005 6141 ');
+INSERT INTO `realmlist` VALUES (1, 'Lightbringer', '127.0.0.1', '127.0.0.1', '255.255.255.0', 8085, 1, 0, 1, 0, 0.02, 0, 0, 2, '5875 6005 6141 ');
 
 -- ----------------------------
 -- Table structure for uptime
@@ -553,10 +553,8 @@ INSERT INTO `uptime` VALUES (1, 1661628514, '2022-08-27 22:28:34', 0, 0, 0, 'a38
 INSERT INTO `uptime` VALUES (1, 1662602143, '2022-09-08 04:55:43', 0, 0, 0, '4ba5d4f7eb406e14e703');
 INSERT INTO `uptime` VALUES (1, 1662602485, '2022-09-08 05:01:25', 0, 0, 0, '4ba5d4f7eb406e14e703');
 INSERT INTO `uptime` VALUES (1, 1687528289, '2023-06-23 16:51:29', 0, 0, 0, '9e1bd089e56973e971f0');
-INSERT INTO `uptime` VALUES (1, 1704415076, '2024-01-04 19:37:56', 0, 0, 0, '9e1bd089e56973e971f0');
-INSERT INTO `uptime` VALUES (1, 1705268970, '2024-01-14 16:49:30', 0, 0, 0, '9e1bd089e56973e971f0');
-INSERT INTO `uptime` VALUES (1, 1717770583, '2024-06-07 10:29:43', 15056, 0, 1, '9e1bd089e56973e971f0');
-INSERT INTO `uptime` VALUES (1, 1733880163, '2024-12-10 20:22:43', 0, 0, 0, '9e1bd089e56973e971f0');
+INSERT INTO `uptime` VALUES (1, 1704019274, '2023-12-31 12:41:14', 0, 0, 0, 'e30f046781e60bf553a7');
+INSERT INTO `uptime` VALUES (1, 1733885957, '2024-12-10 21:59:17', 0, 0, 0, 'e30f046781e60bf553a7');
 
 -- ----------------------------
 -- Event structure for DetectUpdate
