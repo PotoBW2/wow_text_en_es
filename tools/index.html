@@ -12,9 +12,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
-<h1 class="text-center">Metro UI</h1>
-<h3 class="text-center">The Components Library</h3>
-<div data-role="cube"></div>
+<div class="grid container container-fluid">
+    <div class="row">
+        <div id="area_tool" class="cell-9">
+            <select data-role="select" id="select_tool" data-on-change="change_tool()" data-add-empty-value="true">
+                <option value="extrat_text" >Extractor de textos</option>
+                <option value="adjust_id">Ajustar IDs</option>
+            </select>
+            <h1 id="label_tool"></h1>
+            <h5 id="description_tool"></h5>
+        </div>
+        <div id="conf_db" class="cell-3">
+            <form>
+                <div class="form-group">
+                    <label>Servidor</label>
+                    <input type="text" placeholder="127.0.0.1" data-role="input" id="serv_form" onchange="change_db()"/>
+                </div>
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" data-role="input" data-prepend="<span class='mif-user'></span>" id="user_form" onchange="change_db()"/>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="root" data-role="input" id="pass_form" onchange="change_db()"/>
+                </div>
+                <div class="form-group">
+                    <label>Base de Datos</label>
+                    <select data-role="select" id="selt_db">
+                        <option >One</option>
+                        <option >Two</option>
+                        <option >Three</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <script src="js/metro.js"></script>
+<script src="js/base.js"></script>
 </body>
 </html>
