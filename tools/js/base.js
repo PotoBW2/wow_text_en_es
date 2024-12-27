@@ -16,7 +16,7 @@ function change_tool() {
 function obt_local() {
     ls = localStorage.getItem("wow_text_en_es")
     if (ls == null) {
-        dicc = {conn_db: {serv: "", user: "", no_pass: true}}
+        dicc = {conn_db: {serv: "", user: "", no_pass: false}}
         localStorage.setItem("wow_text_en_es", JSON.stringify(dicc))
         return dicc
     }
@@ -56,7 +56,6 @@ async function change_server() {
         pass = document.getElementById("pass_input")
         check_pass = document.getElementById("check_pass")
         check_pass.setAttribute("disabled", "")
-        check_pass.checked = true
         pass.setAttribute("disabled", "")
         user.setAttribute("disabled", "")
         user_text = document.getElementById("user_text")
@@ -95,10 +94,11 @@ async function change_server() {
             ls = obt_local()
             ls.conn_db.serv = serv
             ls.conn_db.user = ""
-            ls.conn_db.no_pass = true
+            ls.conn_db.no_pass = false
             guar_local(ls)
             user.removeAttribute("disabled")
             check_pass.removeAttribute("disabled")
+            pass.removeAttribute("disabled")
         } else {
             input.classList.add("is-danger")
             icon.classList.add("fa-exclamation-triangle")
@@ -146,6 +146,12 @@ async function charge_db(user, pass, check_pass) {
         text.classList.remove("is-success")
         text.classList.remove("is-danger")
         text.innerHTML = ""
+        field = document.getElementById("user_field")
+        loanding = document.createElement("div");
+        loanding.setAttribute("id", "user_loanding")
+        loanding.setAttribute("class", "control")
+        loanding.innerHTML = "<button class=\"button is-loading\">loanding</button>";
+        field.appendChild(loanding)
         input = document.getElementById("pass_input")
         text = document.getElementById("pass_text")
         icon = document.getElementById("pass_icon")
@@ -157,7 +163,12 @@ async function charge_db(user, pass, check_pass) {
         text.classList.remove("is-success")
         text.classList.remove("is-danger")
         text.innerHTML = ""
-
+        field_pass = document.getElementById("pass_field")
+        loanding_pass = document.createElement("div");
+        loanding_pass.setAttribute("id", "pass_loanding")
+        loanding_pass.setAttribute("class", "control")
+        loanding_pass.innerHTML = "<button class=\"button is-loading\">loanding</button>";
+        field_pass.appendChild(loanding_pass)
         resp = await fetch('http://localhost/wow_text_en_es/tools/php/list_bd.php', {
             method: 'POST',
             headers: {
@@ -168,6 +179,8 @@ async function charge_db(user, pass, check_pass) {
         locol = document.getElementById("selt_db")
         HTML = ""
         data = await resp.json()
+        document.getElementById("user_loanding").remove()
+        document.getElementById("pass_loanding").remove()
         if (data["type"] == "error") {
             if (data["mensage"].includes("Access denied for user")) {
                 document.getElementById("user_input").classList.add("is-danger")
@@ -306,8 +319,8 @@ async function init() {
         document.getElementById("serv_input").value = serv
         await change_server()
     }
-    if (!check_pass){
-        document.getElementById("check_pass").checked = false
+    if (check_pass == true){
+        document.getElementById("check_pass").checked = true
         await change_checked_pass()
     }
     if (user != ""){
