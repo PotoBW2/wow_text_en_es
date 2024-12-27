@@ -35,7 +35,7 @@
                                 <input class="input" type="text" placeholder="127.0.0.1" id="serv_input"
                                        onchange="change_server()"/>
                                 <span class="icon is-small is-left">
-                                                <i class="fas fa-plug"></i>
+                                                <i class="fas fa-server"></i>
                                             </span>
                                 <span class="icon is-small is-right">
                                                 <i id="serv_icon" class="fas"></i>
@@ -77,7 +77,7 @@
                                 <input class="input" type="password" placeholder="root" id="pass_input"
                                        onchange="change_pass()" disabled/>
                                 <span class="icon is-small is-left">
-                                                <i class="fas fa-keyboard"></i>
+                                                <i class="fas fa-key"></i>
                                             </span>
                                 <span class="icon is-small is-right">
                                                 <i id="pass_icon" class="fas"></i>
@@ -97,15 +97,29 @@
                 </div>
 
             </div>
-            <div class="form-group">
-                <label>Base de Datos</label>
-                <select data-role="select" id="selt_db" >
-                    <option>One</option>
-                    <option>Two</option>
-                    <option>Three</option>
-                </select>
-            </div>
+            <div class="field">
+                <label class="label">Base de Datos Origen</label>
+                <div class="field field-body">
+                    <div class="field is-expanded">
+                        <div id="bd_o_field" class="field has-addons">
+                            <div class="control has-icons-left has-icons-right  is-expanded">
+                                <div class="select">
+                                    <select id="bd_o_selt" disabled>
+                                    </select>
+                                </div>
+                                <span class="icon is-small is-left">
+                                                <i class="fas fa-database"></i>
+                                            </span>
+                                <span class="icon is-small is-right">
+                                                <i id="bd_o_icon" class="fas"></i>
+                                            </span>
+                            </div>
+                        </div>
+                        <p id="bd_o_text" class="help"></p>
+                    </div>
+                </div>
 
+            </div>
         </form>
     </div>
 </div>

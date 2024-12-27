@@ -44,6 +44,9 @@ async function change_server() {
     loanding.setAttribute("id", "serv_loanding")
     loanding.setAttribute("class", "control")
     loanding.innerHTML = "<button class=\"button is-loading\">loanding</button>";
+    db_o_select = document.getElementById("bd_o_selt")
+    db_o_select.setAttribute("disabled","")
+    db_o_select.innerHTML = ""
     field.appendChild(loanding)
     if (serv == "") {
         document.getElementById("serv_loanding").remove()
@@ -176,7 +179,7 @@ async function charge_db(user, pass, check_pass) {
             },
             body: JSON.stringify({hostname: serv, username: user, password: pass})
         })
-        locol = document.getElementById("selt_db")
+        locol = document.getElementById("bd_o_selt")
         HTML = ""
         data = await resp.json()
         document.getElementById("user_loanding").remove()
@@ -189,12 +192,43 @@ async function charge_db(user, pass, check_pass) {
                 text.innerHTML = "Acceso denegado. Usuario o contraseña incorrecta."
                 document.getElementById("user_icon").classList.add("fa-exclamation-triangle")
 
-                input = document.getElementById("pass_input").classList.add("is-danger")
-                icon = document.getElementById("pass_icon").classList.add("fa-exclamation-triangle")
+                document.getElementById("pass_input").classList.add("is-danger")
+                document.getElementById("pass_icon").classList.add("fa-exclamation-triangle")
                 text = document.getElementById("pass_text")
                 text.classList.add("is-danger")
                 text.innerHTML = "Acceso denegado. Usuario o contraseña incorrecta."
+            } else {
+                document.getElementById("serv_input").classList.add("is-danger")
+                document.getElementById("serv_icon").classList.add("fa-exclamation-triangle")
+                text = document.getElementById("serv_text")
+                text.classList.add("is-danger")
+                text.innerHTML = "No hay servicio de bases de datos en el servidor."
+
+                user_input = document.getElementById("user_input")
+                user_input.classList.remove("is-danger")
+                user_input.classList.remove("is-success")
+                user_input.setAttribute("disabled", "")
+                pass_input = document.getElementById("pass_input")
+                pass_input.classList.remove("is-danger")
+                pass_input.classList.remove("is-success")
+                pass_input.setAttribute("disabled", "")
+                document.getElementById("user_icon").classList.remove("fa-exclamation-triangle")
+                document.getElementById("user_icon").classList.remove("fa-check")
+                document.getElementById("pass_icon").classList.remove("fa-exclamation-triangle")
+                document.getElementById("pass_icon").classList.remove("fa-check")
+                text = document.getElementById("user_text")
+                text.classList.remove("is-danger")
+                text.classList.remove("is-success")
+                text.innerHTML = ""
+                text = document.getElementById("pass_text")
+                text.classList.remove("is-danger")
+                text.classList.remove("is-success")
+                text.innerHTML = ""
+                localStorage.removeItem("wow_text_en_es")
+
             }
+            locol.innerHTML = "";
+            locol.setAttribute("disabled", "")
         } else {
             ls = obt_local()
             ls.conn_db.user = user
@@ -215,6 +249,7 @@ async function charge_db(user, pass, check_pass) {
                 HTML = HTML + "<option value=\"" + data["data"][i] + "\">" + data["data"][i] + "</option>\n"
             }
             locol.innerHTML = HTML;
+            locol.removeAttribute("disabled")
         }
     }
 }
@@ -319,11 +354,11 @@ async function init() {
         document.getElementById("serv_input").value = serv
         await change_server()
     }
-    if (check_pass == true){
+    if (check_pass == true) {
         document.getElementById("check_pass").checked = true
         await change_checked_pass()
     }
-    if (user != ""){
+    if (user != "") {
         document.getElementById("user_input").value = user
         await change_user()
     }
