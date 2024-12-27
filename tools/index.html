@@ -3,52 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <title>Extractor de Textos</title>
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/metro.css">
-    <!-- Icons -->
-    <link rel="stylesheet" href="css/icons.css">
-    <meta name="metro4:locale" content="es-MX">
-    <meta name="metro4:init" content="true">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bulma.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/fa/css/all.css">
 </head>
-<body>
-<div class="grid container container-fluid">
-    <div class="row">
-        <div id="area_tool" class="cell-9">
-            <select data-role="select" id="select_tool" data-on-change="change_tool()" data-add-empty-value="true">
-                <option value="extrat_text" >Extractor de textos</option>
-                <option value="adjust_id">Ajustar IDs</option>
-            </select>
-            <h1 id="label_tool"></h1>
-            <h5 id="description_tool"></h5>
-        </div>
-        <div id="conf_db" class="cell-3">
-            <form>
-                <div class="form-group">
-                    <label>Servidor</label>
-                    <input type="text" placeholder="127.0.0.1" data-role="input" id="serv_form" onchange="change_db()"/>
+<body onload="init()">
+<div class="columns box">
+    <div id="area_tool" class="column">
+        <form>
+            <div class="form-group">
+                <label>Herramientas</label>
+                <select data-role="select" id="select_tool" data-on-change="change_tool()"
+                        data-add-empty-value="true">
+                    <option value="extrat_text">Extractor de textos</option>
+                    <option value="adjust_id">Ajustar IDs</option>
+                </select>
+            </div>
+        </form>
+        <h1 id="label_tool"></h1>
+        <h5 id="description_tool"></h5>
+    </div>
+    <div id="conf_db" class="column">
+        <form id="conn_form">
+            <div class="field">
+                <label class="label">Servidor</label>
+                <div class="field field-body">
+                    <div class="field is-expanded">
+                        <div id="serv_field" class="field has-addons">
+                            <div class="control has-icons-left has-icons-right  is-expanded">
+                                <input class="input" type="text" placeholder="127.0.0.1" id="serv_input"
+                                       onchange="change_server()"/>
+                                <span class="icon is-small is-left">
+                                                <i class="fas fa-plug"></i>
+                                            </span>
+                                <span class="icon is-small is-right">
+                                                <i id="serv_icon" class="fas"></i>
+                                            </span>
+                            </div>
+                        </div>
+                        <p id="serv_text" class="help"></p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Usuario</label>
-                    <input type="text" data-role="input" data-prepend="<span class='mif-user'></span>" id="user_form" onchange="change_db()"/>
+
+            </div>
+            <div class="field">
+                <label class="label">Usuario</label>
+                <div class="field field-body">
+                    <div class="field is-expanded">
+                        <div id="user_field" class="field has-addons">
+                            <div class="control has-icons-left has-icons-right  is-expanded">
+                                <input class="input" type="text" placeholder="root" id="user_input"
+                                       onchange="change_user()" disabled/>
+                                <span class="icon is-small is-left">
+                                                <i class="fas fa-user"></i>
+                                            </span>
+                                <span class="icon is-small is-right">
+                                                <i id="user_icon" class="fas"></i>
+                                            </span>
+                            </div>
+                        </div>
+                        <p id="user_text" class="help"></p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Contraseña</label>
-                    <input type="password" placeholder="root" data-role="input" id="pass_form" onchange="change_db()"/>
+
+            </div>
+            <div class="field">
+                <label class="label">Contraseña</label>
+                <div class="field field-body">
+                    <div class="field is-expanded">
+                        <div id="pass_field" class="field has-addons">
+                            <div class="control has-icons-left has-icons-right  is-expanded">
+                                <input class="input" type="password" placeholder="root" id="pass_input"
+                                       onchange="change_pass()" disabled/>
+                                <span class="icon is-small is-left">
+                                                <i class="fas fa-keyboard"></i>
+                                            </span>
+                                <span class="icon is-small is-right">
+                                                <i id="pass_icon" class="fas"></i>
+                                            </span>
+                            </div>
+                        </div>
+                        <p id="pass_text" class="help"></p>
+                    </div>
+                    <div class="field is-expanded">
+                        <div class="control">
+                            <label class="checkbox">
+                                <input id="check_pass" type="checkbox" checked disabled onchange="change_checked_pass()">
+                                Sin contraseña
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Base de Datos</label>
-                    <select data-role="select" id="selt_db">
-                        <option >One</option>
-                        <option >Two</option>
-                        <option >Three</option>
-                    </select>
-                </div>
-            </form>
-        </div>
+
+            </div>
+            <div class="form-group">
+                <label>Base de Datos</label>
+                <select data-role="select" id="selt_db" >
+                    <option>One</option>
+                    <option>Two</option>
+                    <option>Three</option>
+                </select>
+            </div>
+
+        </form>
     </div>
 </div>
-<script src="js/metro.js"></script>
+<div class="columns box">
+
+</div>
 <script src="js/base.js"></script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+body {
+    /*background: #1da1f2;*/
+    padding: 10px;
+}
+.columns {
+    /*background: #daebfe;*/
+    margin: 25px;
+    padding: 25px;
+    /*border-radius: 25px;*/
+}
+
+.invisible{
+    display: none;
+}
