@@ -40,14 +40,10 @@ async function change_server() {
     text.classList.remove("is-success")
     text.classList.remove("is-danger")
     text.innerHTML = ""
-    loanding = document.createElement("div");
-    loanding.setAttribute("id", "serv_loanding")
-    loanding.setAttribute("class", "control")
-    loanding.innerHTML = "<button class=\"button is-loading\">loanding</button>";
     db_o_select = document.getElementById("bd_o_selt")
-    db_o_select.setAttribute("disabled","")
+    db_o_select.setAttribute("disabled", "")
     db_o_select.innerHTML = ""
-    field.appendChild(loanding)
+    field.classList.add("is-loading")
     if (serv == "") {
         document.getElementById("serv_loanding").remove()
         input.classList.add("is-danger")
@@ -89,7 +85,7 @@ async function change_server() {
             body: JSON.stringify({hostname: serv})
         })
         data = await resp.json()
-        document.getElementById("serv_loanding").remove()
+        field.classList.remove("is-loading")
         if (data) {
             input.classList.add("is-success")
             icon.classList.add("fa-check")
@@ -150,15 +146,10 @@ async function charge_db(user, pass, check_pass) {
         text.classList.remove("is-danger")
         text.innerHTML = ""
         field = document.getElementById("user_field")
-        loanding = document.createElement("div");
-        loanding.setAttribute("id", "user_loanding")
-        loanding.setAttribute("class", "control")
-        loanding.innerHTML = "<button class=\"button is-loading\">loanding</button>";
-        field.appendChild(loanding)
+        field.classList.add("is-loading")
         input = document.getElementById("pass_input")
         text = document.getElementById("pass_text")
         icon = document.getElementById("pass_icon")
-        field = document.getElementById("pass_field")
         input.classList.remove("is-danger")
         icon.classList.remove("fa-exclamation-triangle")
         input.classList.remove("is-success")
@@ -167,11 +158,7 @@ async function charge_db(user, pass, check_pass) {
         text.classList.remove("is-danger")
         text.innerHTML = ""
         field_pass = document.getElementById("pass_field")
-        loanding_pass = document.createElement("div");
-        loanding_pass.setAttribute("id", "pass_loanding")
-        loanding_pass.setAttribute("class", "control")
-        loanding_pass.innerHTML = "<button class=\"button is-loading\">loanding</button>";
-        field_pass.appendChild(loanding_pass)
+        field_pass.classList.add("is-loading")
         resp = await fetch('http://localhost/wow_text_en_es/tools/php/list_bd.php', {
             method: 'POST',
             headers: {
@@ -182,8 +169,8 @@ async function charge_db(user, pass, check_pass) {
         locol = document.getElementById("bd_o_selt")
         HTML = ""
         data = await resp.json()
-        document.getElementById("user_loanding").remove()
-        document.getElementById("pass_loanding").remove()
+        field.classList.remove("is-loading")
+        field_pass.classList.remove("is-loading")
         if (data["type"] == "error") {
             if (data["mensage"].includes("Access denied for user")) {
                 document.getElementById("user_input").classList.add("is-danger")
@@ -267,11 +254,7 @@ function change_user() {
     text.classList.remove("is-success")
     text.classList.remove("is-danger")
     text.innerHTML = ""
-    loanding = document.createElement("div");
-    loanding.setAttribute("id", "user_loanding")
-    loanding.setAttribute("class", "control")
-    loanding.innerHTML = "<button class=\"button is-loading\">loanding</button>";
-    field.appendChild(loanding)
+    field.classList.add("is-loading")
     condicion = true
     if (user == "") {
         input.classList.add("is-danger")
@@ -308,7 +291,7 @@ function change_user() {
             text.innerHTML = "Solo se permiten letras minúsculas."
         }
     }
-    document.getElementById("user_loanding").remove()
+    field.classList.remove("is-loading")
 }
 
 function change_pass() {
@@ -324,11 +307,7 @@ function change_pass() {
     text.classList.remove("is-success")
     text.classList.remove("is-danger")
     text.innerHTML = ""
-    loanding = document.createElement("div");
-    loanding.setAttribute("id", "pass_loanding")
-    loanding.setAttribute("class", "control")
-    loanding.innerHTML = "<button class=\"button is-loading\">loanding</button>";
-    field.appendChild(loanding)
+    field.classList.add("is-loading")
     condicion = true
     if (pass == "") {
         input.classList.add("is-danger")
@@ -341,7 +320,7 @@ function change_pass() {
         text.classList.add("is-success")
         charge_db(document.getElementById("user_input"), input, document.getElementById("check_pass"))
     }
-    document.getElementById("pass_loanding").remove()
+    field.classList.remove("is-loading")
 }
 
 
