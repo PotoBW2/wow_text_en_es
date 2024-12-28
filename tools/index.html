@@ -28,89 +28,72 @@
         <form id="conn_form">
             <div class="field">
                 <label class="label">Servidor</label>
-                <div class="field field-body">
-                    <div class="field is-expanded">
-                        <div id="serv_field" class="control has-icons-left has-icons-right  is-expanded">
-                            <input class="input" type="text" placeholder="127.0.0.1" id="serv_input"
-                                   onchange="change_server()"/>
-                            <span class="icon is-small is-left">
+                <div class="field is-expanded">
+                    <div id="serv_field" class="control has-icons-left has-icons-right  is-expanded">
+                        <input class="input" type="text" placeholder="127.0.0.1" id="serv_input"
+                               onchange="change_server()"/>
+                        <span class="icon is-small is-left">
                                                 <i class="fas fa-server"></i>
                                             </span>
-                            <span class="icon is-small is-right">
+                        <span class="icon is-small is-right">
                                                 <i id="serv_icon" class="fas"></i>
                                             </span>
-                        </div>
-                        <p id="serv_text" class="help"></p>
                     </div>
+                    <p id="serv_text" class="help"></p>
                 </div>
-
             </div>
             <div class="field">
                 <label class="label">Usuario</label>
-                <div class="field field-body">
-                    <div class="field is-expanded">
-                        <div id="user_field" class="control has-icons-left has-icons-right  is-expanded">
-                            <input class="input" type="text" placeholder="root" id="user_input"
-                                   onchange="change_user()" disabled/>
-                            <span class="icon is-small is-left">
+                <div class="field is-expanded">
+                    <div id="user_field" class="control has-icons-left has-icons-right  is-expanded">
+                        <input class="input" type="text" placeholder="root" id="user_input"
+                               onchange="change_user()" disabled/>
+                        <span class="icon is-small is-left">
                                                 <i class="fas fa-user"></i>
                                             </span>
-                            <span class="icon is-small is-right">
+                        <span class="icon is-small is-right">
                                                 <i id="user_icon" class="fas"></i>
                                             </span>
-                        </div>
-                        <p id="user_text" class="help"></p>
                     </div>
+                    <p id="user_text" class="help"></p>
                 </div>
-
             </div>
             <div class="field">
                 <label class="label">Contraseña</label>
-                <div class="field field-body">
-                    <div class="field is-expanded">
-                        <div id="pass_field" class="control has-icons-left has-icons-right  is-expanded">
-                            <input class="input" type="password" placeholder="root" id="pass_input"
-                                   onchange="change_pass()" disabled/>
-                            <span class="icon is-small is-left">
+                <div class="field is-grouped">
+                    <p id="pass_field" class="control has-icons-left has-icons-right  is-expanded">
+                        <input class="input" type="password" placeholder="root" id="pass_input"
+                               onchange="change_pass()" disabled/>
+                        <span class="icon is-small is-left">
                                                 <i class="fas fa-key"></i>
                                             </span>
-                            <span class="icon is-small is-right">
+                        <span class="icon is-small is-right">
                                                 <i id="pass_icon" class="fas"></i>
                                             </span>
-                        </div>
-                        <p id="pass_text" class="help"></p>
-                    </div>
-                    <div class="field ">
-                        <div class="control">
-                            <label class="checkbox">
-                                <input id="check_pass" type="checkbox" disabled onchange="change_checked_pass()">
-                                Sin contraseña
-                            </label>
-                        </div>
-                    </div>
+                    </p>
+                    <p class="control">
+                        <label class="checkbox">
+                            <input id="check_pass" type="checkbox" disabled onchange="change_checked_pass()">
+                            Sin contraseña
+                        </label>
+                    </p>
                 </div>
-
+                <p id="pass_text" class="help"></p>
             </div>
             <div class="field">
                 <label class="label">Base de Datos Origen</label>
-                <div class="field field-body">
-                    <div class="field is-expanded">
-                        <div id="bd_o_field" class="field has-addons">
-                            <div class="control has-icons-left  is-expanded">
-                                <div class="select">
-                                    <select id="bd_o_selt" disabled>
-                                    </select>
-                                </div>
-                                <span class="icon is-small is-left">
+                <div class="field is-expanded">
+                    <div class="control has-icons-left  is-expanded">
+                        <div class="select">
+                            <select id="bd_o_selt" disabled>
+                            </select>
+                        </div>
+                        <span class="icon is-small is-left">
                                                 <i class="fas fa-database"></i>
                                             </span>
-
-                            </div>
-                        </div>
-                        <p id="bd_o_text" class="help"></p>
                     </div>
+                    <p id="bd_o_text" class="help"></p>
                 </div>
-
             </div>
         </form>
     </div>
