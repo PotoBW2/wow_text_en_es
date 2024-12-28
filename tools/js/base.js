@@ -107,7 +107,7 @@ async function change_server() {
     }
 }
 
-function change_checked_pass() {
+async function change_checked_pass() {
     check_pass = document.getElementById("check_pass")
     pass = document.getElementById("pass_input")
     pass.classList.remove("is-danger")
@@ -123,7 +123,7 @@ function change_checked_pass() {
     } else {
         pass.removeAttribute("disabled")
     }
-    charge_db(document.getElementById("user_input"), pass, check_pass)
+    await charge_db(document.getElementById("user_input"), pass, check_pass)
 }
 
 async function charge_db(user, pass, check_pass) {
@@ -135,9 +135,11 @@ async function charge_db(user, pass, check_pass) {
         bol_pass = false
     }
     if (serv != "" && user != "" && bol_pass) {
-        input = document.getElementById("user_input")
-        text = document.getElementById("user_text")
-        icon = document.getElementById("user_icon")
+        let input = document.getElementById("user_input")
+        let text = document.getElementById("user_text")
+        let icon = document.getElementById("user_icon")
+        const field_user = document.getElementById("user_field")
+        const field_pass = document.getElementById("pass_field")
         input.classList.remove("is-danger")
         icon.classList.remove("fa-exclamation-triangle")
         input.classList.remove("is-success")
@@ -145,8 +147,7 @@ async function charge_db(user, pass, check_pass) {
         text.classList.remove("is-success")
         text.classList.remove("is-danger")
         text.innerHTML = ""
-        field = document.getElementById("user_field")
-        field.classList.add("is-loading")
+        field_user.classList.add("is-loading")
         input = document.getElementById("pass_input")
         text = document.getElementById("pass_text")
         icon = document.getElementById("pass_icon")
@@ -157,7 +158,6 @@ async function charge_db(user, pass, check_pass) {
         text.classList.remove("is-success")
         text.classList.remove("is-danger")
         text.innerHTML = ""
-        field_pass = document.getElementById("pass_field")
         field_pass.classList.add("is-loading")
         resp = await fetch('http://localhost/wow_text_en_es/tools/php/list_bd.php', {
             method: 'POST',
@@ -169,7 +169,7 @@ async function charge_db(user, pass, check_pass) {
         locol = document.getElementById("bd_o_selt")
         HTML = ""
         data = await resp.json()
-        field.classList.remove("is-loading")
+        field_user.classList.remove("is-loading")
         field_pass.classList.remove("is-loading")
         if (data["type"] == "error") {
             if (data["mensage"].includes("Access denied for user")) {
@@ -241,7 +241,7 @@ async function charge_db(user, pass, check_pass) {
     }
 }
 
-function change_user() {
+async function change_user() {
     input = document.getElementById("user_input")
     user = input.value
     text = document.getElementById("user_text")
@@ -283,7 +283,7 @@ function change_user() {
             input.classList.add("is-success")
             icon.classList.add("fa-check")
             text.classList.add("is-success")
-            charge_db(input, pass, document.getElementById("check_pass"))
+            await charge_db(input, pass, document.getElementById("check_pass"))
         } else {
             input.classList.add("is-danger")
             icon.classList.add("fa-exclamation-triangle")
@@ -294,7 +294,7 @@ function change_user() {
     field.classList.remove("is-loading")
 }
 
-function change_pass() {
+async function change_pass() {
     input = document.getElementById("pass_input")
     pass = input.value
     text = document.getElementById("pass_text")
@@ -318,7 +318,7 @@ function change_pass() {
         input.classList.add("is-success")
         icon.classList.add("fa-check")
         text.classList.add("is-success")
-        charge_db(document.getElementById("user_input"), input, document.getElementById("check_pass"))
+        await charge_db(document.getElementById("user_input"), input, document.getElementById("check_pass"))
     }
     field.classList.remove("is-loading")
 }

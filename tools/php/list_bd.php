@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 $data = json_decode(file_get_contents('php://input'), true);
 $hostname = $data['hostname'];
 $username = $data['username'];
