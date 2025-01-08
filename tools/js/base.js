@@ -881,7 +881,7 @@ async function t_traducir() {
                 camp.innerHTML = progreso.toString()
                 progeso.value = Math.round(progreso * 100 / max)
                 text_traslated = text_traslated + "<tr><td>" + data_ids["data"][i]["text_en"] + "</td><td>" + data_textos["data"]["text_es"] + "</td></tr>"
-                await esperar(62000)
+                await esperar(63000)
             }
         }
         tabla.innerHTML = text_traslated
