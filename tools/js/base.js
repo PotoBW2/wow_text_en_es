@@ -821,9 +821,12 @@ function close_modal() {
 
 async function t_traducir() {
     let camp = document.getElementById("t_Traducidos")
+    camp.innerHTML="0"
     const progeso = document.getElementById("t_progress")
     progeso.classList.add("is-primary")
     progeso.removeAttribute("value")
+    const tabla = document.getElementById("t_tabla")
+    tabla.innerHTML = ""
     ids = await fetch('php/traslater_tool/obtain_empty_text.php', {
         method: 'POST',
         headers: {
@@ -845,6 +848,7 @@ async function t_traducir() {
         progeso.setAttribute("value", "0")
         progeso.classList.remove("is-primary")
         text_traslated = ""
+        let falls = 0
         for (let i = 0; i < max; i++) {
             let textos = await fetch('php/traslater_tool/traslater_tool.php', {
                 method: 'POST',
@@ -862,18 +866,25 @@ async function t_traducir() {
 
             data_textos = await textos.json()
             if (data_textos["type"] == "error") {
-                modal.classList.add("is-active")
-                modal_mess.innerHTML = data_textos["mensage"]
-                i = max
+                if ((data_textos["mensage"] == "Could not resolve host: translate.google.com" || data_textos["mensage"].includes("Failed to connect to translate.google.com port 443 after") ) && falls != 60) {
+                    falls++
+                    i--
+                    await esperar(1000)
+                } else {
+                    modal.classList.add("is-active")
+                    modal_mess.innerHTML = data_textos["mensage"]
+                    i = max
+                }
             } else {
+                falls = 0
                 progreso++
                 camp.innerHTML = progreso.toString()
                 progeso.value = Math.round(progreso * 100 / max)
                 text_traslated = text_traslated + "<tr><td>" + data_ids["data"][i]["text_en"] + "</td><td>" + data_textos["data"]["text_es"] + "</td></tr>"
-                await esperar(65536)
+                await esperar(62000)
             }
         }
-        document.getElementById("t_tabla").innerHTML = text_traslated
+        tabla.innerHTML = text_traslated
     }
 }
 
