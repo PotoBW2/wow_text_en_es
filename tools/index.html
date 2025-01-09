@@ -22,6 +22,7 @@
                                 <option value="extrat_text">Extractor de textos v1.00</option>
                                 <option value="adjust_id">Ajustar ids v1.00</option>
                                 <option value="traducir">Traducir textos en Inglés v1.00</option>
+                                <option value="inyectar_locales">Inyectar texto en Español</option>
                             </select>
                         </div>
                         <span class="icon is-small is-left">
@@ -373,6 +374,199 @@
                                 </tr>
                                 </tfoot>
                                 <tbody id="t_tabla">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="inyect_locales">
+        <div class="columns box">
+            <div class="column">
+                <H1>ORIGEN</H1>
+                <form>
+                    <div class="field">
+                        <label class="label">Base de Datos</label>
+                        <div class="control has-icons-left">
+                            <div class="select is-fullwidth">
+                                <select id="il_bd_o_selt" disabled onchange="change_il_bd_o()">
+                                </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-database"></i>
+                        </span>
+                        </div>
+
+                    </div>
+                    <div class="field">
+                        <label class="label">Tabla en Inlgés</label>
+                        <div class="control has-icons-left ">
+                            <div class="select is-fullwidth">
+                                <select id="il_t_en_selt" disabled onchange="change_il_c_en_o()">
+                                </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-table"></i>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Campo en Inlgés</label>
+                        <div class="control has-icons-left ">
+                            <div class="select is-fullwidth">
+                                <select id="il_c_en_selt" disabled>
+                                </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-table-cells"></i>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Identificador Inlgés</label>
+                        <div class="control has-icons-left ">
+                            <div class="select is-fullwidth">
+                                <select id="il_id_en_selt" disabled>
+                                </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-fingerprint"></i>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Tabla en Español</label>
+                        <div class="control has-icons-left ">
+                            <div class="select is-fullwidth">
+                                <select id="il_t_es_selt" disabled onchange="change_il_c_es_o()">
+                                </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-table"></i>
+                        </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="column">
+                <form>
+                    <div class="field">
+                        <label class="label">Campo en Español</label>
+                        <div class="control has-icons-left ">
+                            <div class="select is-fullwidth">
+                                <select id="il_c_es_selt" disabled>
+                                </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-table-cells"></i>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Identificador Español</label>
+                        <div class="control has-icons-left ">
+                            <div class="select is-fullwidth">
+                                <select id="il_id_es_selt" disabled>
+                                </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-fingerprint"></i>
+                        </span>
+                        </div>
+                    </div>
+                </form>
+                <H1>DESTINO</H1>
+                <form>
+                    <div class="field">
+                        <label class="label">Base de Datos</label>
+                        <div class="control has-icons-left">
+                            <div class="select is-fullwidth">
+                                <select id="il_bd_d_selt" disabled onchange="change_il_bd_d()">
+                                </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-database"></i>
+                        </span>
+                        </div>
+
+                    </div>
+                    <div class="field">
+                        <label class="label">Tabla</label>
+                        <div class="control has-icons-left ">
+                            <div class="select is-fullwidth">
+                                <select id="il_t_d_selt" disabled>
+                                </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-table"></i>
+                        </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="columns box">
+
+            <nav class="level column">
+                <!-- Left side -->
+                <div class="level-left">
+                    <div class="level-item has-text-centered">
+                        <div>
+                            <p class="heading">Introducido</p>
+                            <p class="title" id="il_Introducido">0</p>
+                        </div>
+                    </div>
+                    <div class="level-item has-text-centered">
+                        <div>
+                            <p class="heading">Actualizado</p>
+                            <p class="title" id="il_Actualizado">0</p>
+                        </div>
+                    </div>
+                    <div class="level-item has-text-centered">
+                        <div>
+                            <p class="heading">Expansionado</p>
+                            <p class="title" id="il_Expansionado">0</p>
+                        </div>
+                    </div>
+                    <div class="level-item has-text-centered">
+                        <div>
+                            <p class="heading">Saltado</p>
+                            <p class="title" id="il_Saltado">0</p>
+                        </div>
+                    </div>
+                </div>
+                <progress id="il_progress" class="progress" value="0" max="100"></progress>
+                <div class="level-right">
+                    <button class="button is-left" onclick="il_insertar()">Executar</button>
+                </div>
+            </nav>
+        </div>
+        <div class="columns box">
+            <div class="fixed-grid has-1-cols column">
+                <div class="grid">
+                    <div class="cell">
+                        <button class="button is-success" onclick="mostrar_insertados()">Mostrar Insertados</button>
+                        <button class="button is-link" onclick="mostrar_actualizados()">Mostrar Actualizados</button>
+                        <button class="button is-danger" onclick="mostrar_saltados()">Mostrar Saltados</button>
+                    </div>
+                    <div class="cell">
+                        <div class="columns">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Texto en Ingles</th>
+                                    <th>Texto en Español</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th>Texto en Ingles</th>
+                                    <th>Texto en Español</th>
+                                </tr>
+                                </tfoot>
+                                <tbody id="il_tabla">
                                 </tbody>
                             </table>
                         </div>

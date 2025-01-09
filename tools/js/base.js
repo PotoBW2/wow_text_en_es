@@ -20,6 +20,8 @@ function change_tool() {
     ai.hidden = true;
     let t = document.getElementById("traducir")
     t.hidden = true;
+    let il = document.getElementById("inyect_locales")
+    il.hidden = true;
     switch (tool.value) {
         case "extrat_text":
             label.innerHTML = "Extractor de Textos"
@@ -36,13 +38,19 @@ function change_tool() {
             description.innerHTML = "Herramienta que permite traducir todos los textos en inglés que no estén traducidos (esta traducción es proporcionada por Google y no está exenta de errores)."
             t.hidden = false;
             break
+        case "inyectar_locales":
+            label.innerHTML = "Inyectar Texto en Español"
+            description.innerHTML = "Herramienta que permite introducir los textos ya traducidos en las bases de datos del Core."
+            il.hidden = false;
+            break
+
     }
 }
 
 function obt_local() {
     ls = localStorage.getItem("wow_text_en_es")
     if (ls == null) {
-        dicc = {conn_db: {serv: "", user: "", no_pass: false}}
+        dicc = { conn_db: { serv: "", user: "", no_pass: false } }
         localStorage.setItem("wow_text_en_es", JSON.stringify(dicc))
         return dicc
     }
@@ -106,7 +114,7 @@ async function change_server() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({hostname: serv})
+            body: JSON.stringify({ hostname: serv })
         })
         data = await resp.json()
         field.classList.remove("is-loading")
@@ -185,12 +193,14 @@ async function charge_db(user, pass, check_pass) {
         field_pass.classList.add("is-loading")
         document.getElementById("et_bd_o_selt").parentElement.classList.add("is-loading")
         document.getElementById("et_bd_d_selt").parentElement.classList.add("is-loading")
+        document.getElementById("il_bd_o_selt").parentElement.classList.add("is-loading")
+        document.getElementById("il_bd_d_selt").parentElement.classList.add("is-loading")
         resp = await fetch('php/list_bd.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({hostname: serv, username: user, password: pass})
+            body: JSON.stringify({ hostname: serv, username: user, password: pass })
         })
         HTML = ""
         data = await resp.json()
@@ -242,6 +252,8 @@ async function charge_db(user, pass, check_pass) {
             reiniciar_herramientas()
             document.getElementById("et_bd_o_selt").parentElement.classList.remove("is-loading")
             document.getElementById("et_bd_d_selt").parentElement.classList.remove("is-loading")
+            document.getElementById("il_bd_o_selt").parentElement.classList.remove("is-loading")
+            document.getElementById("il_bd_d_selt").parentElement.classList.remove("is-loading")
 
         } else {
             ls = obt_local()
@@ -274,9 +286,18 @@ function reiniciar_herramientas() {
     et_bd_d.innerHTML = "";
     et_bd_o.setAttribute("disabled", "")
     et_bd_d.setAttribute("disabled", "")
+    const il_bd_o = document.getElementById("il_bd_o_selt")
+    const il_bd_d = document.getElementById("il_bd_d_selt")
+    il_bd_o.innerHTML = "";
+    il_bd_d.innerHTML = "";
+    il_bd_o.setAttribute("disabled", "")
+    il_bd_d.setAttribute("disabled", "")
     change_et_c_en_o()
     change_et_c_es_o()
     change_et_bd_o()
+    change_il_c_en_o()
+    change_il_c_es_o()
+    change_il_bd_o()
 }
 
 function cargar_bd_de_herramientas(HTML) {
@@ -288,6 +309,16 @@ function cargar_bd_de_herramientas(HTML) {
     et_bd_d.innerHTML = HTML;
     et_bd_o.removeAttribute("disabled")
     et_bd_d.removeAttribute("disabled")
+    const il_bd_o = document.getElementById("il_bd_o_selt")
+    const il_bd_d = document.getElementById("il_bd_d_selt")
+    il_bd_o.parentElement.classList.remove("is-loading")
+    il_bd_d.parentElement.classList.remove("is-loading")
+    il_bd_o.innerHTML = HTML;
+    il_bd_d.innerHTML = HTML;
+    il_bd_o.removeAttribute("disabled")
+    il_bd_d.removeAttribute("disabled")
+    change_il_bd_o()
+    change_il_bd_d()
     change_et_bd_o()
     change_et_bd_d()
 }
@@ -420,7 +451,7 @@ async function change_et_bd_o() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({hostname: ls.conn_db.serv, username: ls.conn_db.user, password: pass, database: valor_bd})
+        body: JSON.stringify({ hostname: ls.conn_db.serv, username: ls.conn_db.user, password: pass, database: valor_bd })
     })
     data = await resp.json()
     let HTML = ""
@@ -610,7 +641,7 @@ async function change_et_bd_d() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({hostname: ls.conn_db.serv, username: ls.conn_db.user, password: pass, database: valor_bd})
+        body: JSON.stringify({ hostname: ls.conn_db.serv, username: ls.conn_db.user, password: pass, database: valor_bd })
     })
     data = await resp.json()
     let HTML = ""
@@ -821,7 +852,7 @@ function close_modal() {
 
 async function t_traducir() {
     let camp = document.getElementById("t_Traducidos")
-    camp.innerHTML="0"
+    camp.innerHTML = "0"
     const progeso = document.getElementById("t_progress")
     progeso.classList.add("is-primary")
     progeso.removeAttribute("value")
@@ -866,7 +897,7 @@ async function t_traducir() {
 
             data_textos = await textos.json()
             if (data_textos["type"] == "error") {
-                if ((data_textos["mensage"] == "Could not resolve host: translate.google.com" || data_textos["mensage"].includes("Failed to connect to translate.google.com port 443 after") ) && falls != 60) {
+                if ((data_textos["mensage"] == "Could not resolve host: translate.google.com" || data_textos["mensage"].includes("Failed to connect to translate.google.com port 443 after")) && falls != 60) {
                     falls++
                     i--
                     await esperar(1000)
@@ -892,3 +923,214 @@ function esperar(milisegundos) {
     return new Promise(resolve => setTimeout(resolve, milisegundos));
 }
 
+async function change_il_c_en_o(){
+    const cell_en = document.getElementById("il_c_en_selt")
+    const id_en = document.getElementById("il_id_en_selt")
+    cell_en.innerHTML = ""
+    id_en.innerHTML = ""
+    cell_en.setAttribute("disabled", "")
+    id_en.setAttribute("disabled", "")
+    const p_cell_en = cell_en.parentElement
+    const p_id_en = cell_en.parentElement
+    p_cell_en.classList.add("is-loading")
+    p_id_en.classList.add("is-loading")
+    const bd = document.getElementById("il_bd_o_selt")
+    let valor_bd = bd.value
+    ls = obt_local()
+    let pass = ""
+    if (!ls.conn_db.no_pass) {
+        pass = document.getElementById("pass_input").value
+    }
+    resp = await fetch('php/list_cells.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            hostname: ls.conn_db.serv,
+            username: ls.conn_db.user,
+            password: pass,
+            database: valor_bd,
+            table: document.getElementById("il_t_en_selt").value
+        })
+    })
+    data = await resp.json()
+    let HTML = ""
+    let HTML_id = ""
+    if (data["type"] == "error") {
+        let user = document.getElementById("user_input")
+        let pass = document.getElementById("pass_input")
+        let check_pass = document.getElementById("check_pass")
+        await charge_db(user, pass, check_pass)
+        p_cell_en.classList.remove("is-loading")
+        p_id_en.classList.remove("is-loading")
+    } else {
+        for (let i = 0; i < data["data"].length; i++) {
+            let type = data["data"][i]["Type"]
+            if (isStringField(type)) {
+                HTML = HTML + "<option value=\"" + data["data"][i]["Field"] + "\">" + data["data"][i]["Field"] + "( " + type + " )</option>\n"
+            }
+        }
+        for (let i = 0; i < data["data"].length; i++) {
+            let type = data["data"][i]["Type"]
+            if (!isStringField(type)) {
+                HTML_id = HTML_id + "<option value=\"" + data["data"][i]["Field"] + "\">" + data["data"][i]["Field"] + "( " + type + " )</option>\n"
+            }
+        }
+        cell_en.innerHTML = HTML
+        id_en.innerHTML = HTML_id
+        cell_en.removeAttribute("disabled")
+        id_en.removeAttribute("disabled")
+        p_cell_en.classList.remove("is-loading")
+        p_id_en.classList.remove("is-loading")
+    }
+}
+
+async function change_il_c_es_o() {
+    const cell_es = document.getElementById("il_c_es_selt")
+    const id_es = document.getElementById("il_id_es_selt")
+    cell_es.innerHTML = ""
+    id_es.innerHTML = ""
+    cell_es.setAttribute("disabled", "")
+    id_es.setAttribute("disabled", "")
+    const p_cell_es = cell_es.parentElement
+    const p_id_es = id_es.parentElement
+    p_cell_es.classList.add("is-loading")
+    p_id_es.classList.add("is-loading")
+    const bd = document.getElementById("il_bd_o_selt")
+    let valor_bd = bd.value
+    ls = obt_local()
+    let pass = ""
+    if (!ls.conn_db.no_pass) {
+        pass = document.getElementById("pass_input").value
+    }
+    resp = await fetch('php/list_cells.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            hostname: ls.conn_db.serv,
+            username: ls.conn_db.user,
+            password: pass,
+            database: valor_bd,
+            table: document.getElementById("il_t_es_selt").value
+        })
+    })
+    data = await resp.json()
+    let HTML = ""
+    let HTML_id = ""
+    if (data["type"] == "error") {
+        let user = document.getElementById("user_input")
+        let pass = document.getElementById("pass_input")
+        let check_pass = document.getElementById("check_pass")
+        p_cell_es.classList.remove("is-loading")
+        p_id_es.classList.remove("is-loading")
+        await charge_db(user, pass, check_pass)
+    } else {
+        for (let i = 0; i < data["data"].length; i++) {
+            let type = data["data"][i]["Type"]
+            if (isStringField(type)) {
+                HTML = HTML + "<option value=\"" + data["data"][i]["Field"] + "\">" + data["data"][i]["Field"] + "( " + type + " )</option>\n"
+            }
+        }
+        for (let i = 0; i < data["data"].length; i++) {
+            let type = data["data"][i]["Type"]
+            if (!isStringField(type)) {
+                HTML_id = HTML_id + "<option value=\"" + data["data"][i]["Field"] + "\">" + data["data"][i]["Field"] + "( " + type + " )</option>\n"
+            }
+        }
+        cell_es.innerHTML = HTML
+        cell_es.removeAttribute("disabled")
+        p_cell_es.classList.remove("is-loading")
+        id_es.innerHTML = HTML_id
+        id_es.removeAttribute("disabled")
+        p_id_es.classList.remove("is-loading")
+    }
+}
+
+async function change_il_bd_o() {
+    const tabla_en = document.getElementById("il_t_en_selt")
+    const tabla_es = document.getElementById("il_t_es_selt")
+    tabla_en.innerHTML = ""
+    tabla_es.innerHTML = ""
+    tabla_en.setAttribute("disabled", "")
+    tabla_es.setAttribute("disabled", "")
+    const p_tabla_en = tabla_en.parentElement
+    const p_tabla_es = tabla_es.parentElement
+    p_tabla_en.classList.add("is-loading")
+    p_tabla_es.classList.add("is-loading")
+    const bd = document.getElementById("il_bd_o_selt")
+    let valor_bd = bd.value
+    ls = obt_local()
+    let pass = ""
+    if (!ls.conn_db.no_pass) {
+        pass = document.getElementById("pass_input").value
+    }
+    resp = await fetch('php/list_table.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ hostname: ls.conn_db.serv, username: ls.conn_db.user, password: pass, database: valor_bd })
+    })
+    data = await resp.json()
+    let HTML = ""
+    if (data["type"] == "error") {
+        let user = document.getElementById("user_input")
+        let pass = document.getElementById("pass_input")
+        let check_pass = document.getElementById("check_pass")
+        p_tabla_en.classList.remove("is-loading")
+        p_tabla_es.classList.remove("is-loading")
+        await charge_db(user, pass, check_pass)
+    } else {
+        for (let i = 0; i < data["data"].length; i++) {
+            HTML = HTML + "<option value=\"" + data["data"][i] + "\">" + data["data"][i] + "</option>\n"
+        }
+        tabla_en.innerHTML = HTML
+        tabla_es.innerHTML = HTML
+        tabla_en.removeAttribute("disabled")
+        tabla_es.removeAttribute("disabled")
+        p_tabla_en.classList.remove("is-loading")
+        p_tabla_es.classList.remove("is-loading")
+        await change_il_c_en_o()
+        await change_il_c_es_o()
+    }
+}
+
+async function change_il_bd_d() {
+    const tabla = document.getElementById("il_t_d_selt")
+    tabla.innerHTML = ""
+    tabla.setAttribute("disabled", "")
+    const p_tabla = tabla.parentElement
+    p_tabla.classList.add("is-loading")
+    const bd = document.getElementById("il_bd_d_selt")
+    let valor_bd = bd.value
+    ls = obt_local()
+    let pass = ""
+    if (!ls.conn_db.no_pass) {
+        pass = document.getElementById("pass_input").value
+    }
+    resp = await fetch('php/list_table.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ hostname: ls.conn_db.serv, username: ls.conn_db.user, password: pass, database: valor_bd })
+    })
+    data = await resp.json()
+    let HTML = ""
+    if (data["type"] == "error") {
+        let user = document.getElementById("user_input")
+        let pass = document.getElementById("pass_input")
+        let check_pass = document.getElementById("check_pass")
+        await charge_db(user, pass, check_pass)
+    } else {
+        for (let i = 0; i < data["data"].length; i++) {
+            HTML = HTML + "<option value=\"" + data["data"][i] + "\">" + data["data"][i] + "</option>\n"
+        }
+        tabla.innerHTML = HTML
+        tabla.removeAttribute("disabled")
+        p_tabla.classList.remove("is-loading")
+    }
+}
