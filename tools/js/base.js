@@ -1134,3 +1134,115 @@ async function change_il_bd_d() {
         p_tabla.classList.remove("is-loading")
     }
 }
+
+async function il_insertar() {
+    document.getElementById("il_Introducido").innerHTML = "0"
+    document.getElementById("il_Actualizado").innerHTML = "0"
+    document.getElementById("il_Expansionado").innerHTML = "0"
+    document.getElementById("il_Saltado").innerHTML = "0"
+    const progeso = document.getElementById("il_progress")
+    progeso.classList.add("is-primary")
+    progeso.removeAttribute("value")
+    ids = await fetch('php/copi_locales/obtein_id.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            hostname: ls.conn_db.serv,
+            username: ls.conn_db.user,
+            password: document.getElementById("pass_input").value,
+            database: document.getElementById("il_bd_o_selt").value,
+            tab_en: document.getElementById("il_t_en_selt").value,
+            tab_es: document.getElementById("il_t_es_selt").value,
+            id_en: document.getElementById("il_id_en_selt").value,
+            id_es: document.getElementById("il_id_es_selt").value
+        })
+    })
+    data_ids = await ids.json()
+    if (data_ids["type"] == "error") {
+        console.log(data_ids["mesage"])
+    } else {
+        // let text_en_es = []
+        // let progreso = 0
+        // let max = data_ids["data"].length
+        // progeso.setAttribute("value", "0")
+        // for (let i = 0; i < max; i++) {
+        //     let textos = await fetch('php/copi_locales/obtain_text_en_es.php', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({
+        //             hostname: ls.conn_db.serv,
+        //             username: ls.conn_db.user,
+        //             password: document.getElementById("pass_input").value,
+        //             database: document.getElementById("il_bd_o_selt").value,
+        //             tab_en: document.getElementById("il_t_en_selt").value,
+        //             tab_es: document.getElementById("il_t_es_selt").value,
+        //             cell_en: document.getElementById("il_c_en_selt").value,
+        //             cell_es: document.getElementById("il_c_es_selt").value,
+        //             id_en: document.getElementById("il_id_en_selt").value,
+        //             id_es: document.getElementById("il_id_es_selt").value,
+        //             id: data_ids["data"][i]
+        //         })
+        //     })
+
+        //     data_textos = await textos.json()
+        //     if (data_textos["type"] == "error") {
+        //         console.log(data_textos["mesage"])
+        //     } else {
+        //         text_en_es.push(data_textos["data"])
+        //         progreso++
+        //         progeso.value = Math.round(progreso * 100 / max)
+        //     }
+        // }
+        // progreso = 0
+        // max = text_en_es.length
+        // progeso.value = 0
+        // progeso.classList.remove("is-primary")
+        // text_inserted = ""
+        // text_updated = ""
+        // text_espansioned = ""
+        // text_jumped = ""
+        // for (let i = 0; i < max; i++) {
+        //     let textos = await fetch('php/copi_locales/incertando.php', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({
+        //             hostname: ls.conn_db.serv,
+        //             username: ls.conn_db.user,
+        //             password: document.getElementById("pass_input").value,
+        //             database: document.getElementById("il_bd_d_selt").value,
+        //             table: document.getElementById("il_t_d_selt").value,
+        //             text_en: text_en_es[i]["eng"],
+        //             text_es: text_en_es[i]["esp"],
+        //             exp: document.getElementById("il_exp_d_selt").value
+        //         })
+        //     })
+        //     data_textos = await textos.json()
+        //     if (data_textos["type"] == "error") {
+        //         console.log(data_textos["mesage"])
+        //     } else {
+        //         let camp = document.getElementById("et_" + data_textos["data"]["accion"])
+        //         camp.innerHTML = (Number(camp.innerHTML) + 1).toString()
+        //         progreso++
+        //         progeso.value = Math.round(progreso * 100 / max)
+        //         if (data_textos["data"]["accion"] == "Introducido") {
+        //             text_inserted = text_inserted + "<tr><td>" + text_en_es[i]["eng"] + "</td><td>" + text_en_es[i]["esp"] + "</td></tr>"
+        //         } else {
+        //             if (data_textos["data"]["accion"] == "Actualizado") {
+        //                 text_updated = text_updated + "<tr><td>" + text_en_es[i]["eng"] + "</td><td>" + text_en_es[i]["esp"] + "</td></tr>"
+        //             } else {
+        //                 if (data_textos["data"]["accion"] == "Saltado") {
+        //                     text_jumped = text_jumped + "<tr><td>" + text_en_es[i]["eng"] + "</td><td>" + text_en_es[i]["esp"] + "</td></tr>"
+        //                 }
+        //             }
+        //         }
+
+        //     }
+        // }
+    }
+}
