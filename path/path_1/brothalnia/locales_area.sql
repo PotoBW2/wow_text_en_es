@@ -1,17 +1,17 @@
 /*
- Navicat Premium Data Transfer
+ Navicat Premium Dump SQL
 
- Source Server         : 127.0.0.1
+ Source Server         : mangos 22
  Source Server Type    : MySQL
- Source Server Version : 50562
- Source Host           : localhost:3306
+ Source Server Version : 50562 (5.5.62)
+ Source Host           : 127.0.0.1:3306
  Source Schema         : mangos
 
  Target Server Type    : MySQL
- Target Server Version : 50562
+ Target Server Version : 50562 (5.5.62)
  File Encoding         : 65001
 
- Date: 05/05/2022 12:28:48
+ Date: 09/01/2025 22:01:13
 */
 
 SET NAMES utf8mb4;
@@ -32,7 +32,7 @@ CREATE TABLE `locales_area`  (
   `NameLoc7` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `NameLoc8` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`Entry`) USING BTREE
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of locales_area
@@ -45,9 +45,9 @@ INSERT INTO `locales_area` VALUES (7, '검은바다 만', 'Crique des Flots noir
 INSERT INTO `locales_area` VALUES (8, '슬픔의 늪', 'Marais des Chagrins (Swamp of Sorrows)', 'Sümpfe des Elends', '悲伤沼泽', '', 'Pantano de las Penas', '', 'Болото Печали');
 INSERT INTO `locales_area` VALUES (9, '노스샤이어 계곡', 'Vallée de Northshire', 'Nordhaintal', '北郡山谷', '', 'Valle de Villanorte', '', 'Долина Североземья');
 INSERT INTO `locales_area` VALUES (10, '그늘숲', 'Bois de la Pénombre (Duskwood)', 'Dämmerwald', '暮色森林', '', 'Bosque del Ocaso', '', 'Сумеречный лес');
-INSERT INTO `locales_area` VALUES (11, '저습지', 'Les Paluns (Wetlands)', 'Sumpfland', '湿地', '', 'Humedales', '', 'Болотина');
+INSERT INTO `locales_area` VALUES (11, '저습지', 'Les Paluns (Wetlands)', 'Sumpfland', '湿地', '', 'Los Humedales', '', 'Болотина');
 INSERT INTO `locales_area` VALUES (12, '엘윈 숲', 'Forêt d\'Elwynn', 'Wald von Elwynn', '艾尔文森林', '', 'Bosque de Elwynn', '', 'Элвиннский лес');
-INSERT INTO `locales_area` VALUES (13, '세계수', 'L\'Arbre-monde', 'Der Weltbaum', '世界之树', '', 'El árbol del mundo', '', 'Древо Жизни');
+INSERT INTO `locales_area` VALUES (13, '세계수', 'L\'Arbre-monde', 'Der Weltbaum', '世界之树', '', 'El Árbol del Mundo', '', 'Древо Жизни');
 INSERT INTO `locales_area` VALUES (14, '듀로타', 'Durotar', 'Durotar', '杜隆塔尔', '', 'Durotar', '', 'Дуротар');
 INSERT INTO `locales_area` VALUES (15, '먼지진흙 습지대', 'Marécage d\'Âprefange (Dustwallow Marsh)', 'Marschen von Dustwallow', '尘泥沼泽', '', 'Marjal Revolcafango', '', 'Пылевые топи');
 INSERT INTO `locales_area` VALUES (16, '아즈샤라', 'Azshara', 'Azshara', '艾萨拉', '', 'Azshara', '', 'Азшара');
@@ -56,30 +56,30 @@ INSERT INTO `locales_area` VALUES (18, '수정 호수', 'Lac de Cristal', 'Krist
 INSERT INTO `locales_area` VALUES (19, '줄구룹', 'Zul\'Gurub', 'Zul\'Gurub', '祖尔格拉布', '', 'Zul\'Gurub', '', 'Зул\'Гуруб');
 INSERT INTO `locales_area` VALUES (20, '문브룩', 'Ruisselune', 'Moonbrook', '月溪镇', '', 'Arroyo de la Luna', '', 'Луноречье');
 INSERT INTO `locales_area` VALUES (21, '쿨 티라스', 'Kul Tiras', 'Kul Tiras', '库尔提拉斯', '', 'Kul Tiras', '', 'Кул-Тирас');
-INSERT INTO `locales_area` VALUES (22, '프로그래머의 섬', 'Ile des programmeurs', 'Programmierer-Insel', 'Programmer Isle', '', 'Isla de los Programadores', '', 'Остров Программиста');
+INSERT INTO `locales_area` VALUES (22, '프로그래머의 섬', 'Ile des programmeurs', 'Programmierer-Insel', 'Programmer Isle', '', 'Isla del programador', '', 'Остров Программиста');
 INSERT INTO `locales_area` VALUES (23, '노스샤이어 강', 'Fleuve Northshire', 'Der Nordhain', '北郡河', '', 'Río de la Costa Norte', '', 'Река Североземья');
-INSERT INTO `locales_area` VALUES (24, '노스샤이어 수도원', 'Abbaye de Northshire', 'Abtei von Nordhain', '北郡修道院', '', 'Abadía de la Costa Norte', '', 'Аббатство Североземья');
+INSERT INTO `locales_area` VALUES (24, '노스샤이어 수도원', 'Abbaye de Northshire', 'Abtei von Nordhain', '北郡修道院', '', 'Abadía de Villanorte', '', 'Аббатство Североземья');
 INSERT INTO `locales_area` VALUES (25, '검은바위 산', 'Mont Blackrock', 'Der Blackrock', '黑石山', '', 'Montaña Roca Negra', '', 'Черная гора');
 INSERT INTO `locales_area` VALUES (26, '등대', 'Phare', 'Leuchtturm', '灯塔', '', 'Faro', '', 'Маяк');
 INSERT INTO `locales_area` VALUES (28, '서부 역병지대', 'Maleterres de l\'ouest (Western Plaguelands)', 'Westliche Pestländer', '西瘟疫之地', '', 'Tierras de la Peste del Oeste', '', 'Западные Чумные земли');
 INSERT INTO `locales_area` VALUES (30, '나인', 'Neuf', 'Nine', 'Nine', '', 'Nueve', '', 'Девять');
-INSERT INTO `locales_area` VALUES (32, '묘지', 'Le cimetière', 'Der Friedhof', '大墓地', '', 'El cementerio', '', 'Кладбище');
+INSERT INTO `locales_area` VALUES (32, '묘지', 'Le cimetière', 'Der Friedhof', '大墓地', '', 'El Cementerio', '', 'Кладбище');
 INSERT INTO `locales_area` VALUES (33, '가시덤불 골짜기', 'Vallée de Strangleronce (Stranglethorn Vale)', 'Schlingendorntal', '荆棘谷', '', 'Valle de Tuercespina', '', 'Тернистая долина');
 INSERT INTO `locales_area` VALUES (34, '메아리 광산', 'Mine de la crête aux échos', 'Echokammmine', '回音山矿洞', '', 'Mina Cresta de Eco', '', 'Рудник Горного Эха');
-INSERT INTO `locales_area` VALUES (35, '무법항', 'Baie-du-Butin', 'Booty Bay', '藏宝海湾', '', 'Bahía Botín', '', 'Пиратская Бухта');
+INSERT INTO `locales_area` VALUES (35, '무법항', 'Baie-du-Butin', 'Booty Bay', '藏宝海湾', '', 'Bahía del Botín', '', 'Пиратская Бухта');
 INSERT INTO `locales_area` VALUES (36, '알터랙 산맥', 'Montagnes d\'Alterac', 'Alteracgebirge', '奥特兰克山脉', '', 'Montañas de Alterac', '', 'Альтеракские горы');
 INSERT INTO `locales_area` VALUES (37, '나즈페리티 호수', 'Lac Nazfériti', 'Der Nazferitisee', '纳菲瑞提湖', '', 'Lago Nazferiti', '', 'Озеро Назферити');
 INSERT INTO `locales_area` VALUES (38, '모단 호수', 'Loch Modan', 'Loch Modan', '洛克莫丹', '', 'Lago Modan', '', 'Лок Модан');
-INSERT INTO `locales_area` VALUES (40, '서부 몰락지대', 'Marche de l\'Ouest (Westfall)', 'Westfall', '西部荒野', '', 'Caída del Oeste', '', 'Западный Край');
-INSERT INTO `locales_area` VALUES (41, '죽음의 고개', 'Défilé de Deuillevent (Deadwind Pass)', 'Gebirgspass der Totenwinde', '逆风小径', '', 'Paso de Viento Muerto', '', 'Перевал Мертвого Ветра');
-INSERT INTO `locales_area` VALUES (42, '다크샤이어', 'Darkshire', 'Dunkelhain', '夜色镇', '', 'Comarca Oscura', '', 'Темнолесье');
+INSERT INTO `locales_area` VALUES (40, '서부 몰락지대', 'Marche de l\'Ouest (Westfall)', 'Westfall', '西部荒野', '', 'Páramos de Poniente', '', 'Западный Край');
+INSERT INTO `locales_area` VALUES (41, '죽음의 고개', 'Défilé de Deuillevent (Deadwind Pass)', 'Gebirgspass der Totenwinde', '逆风小径', '', 'Paso de la Muerte', '', 'Перевал Мертвого Ветра');
+INSERT INTO `locales_area` VALUES (42, '다크샤이어', 'Darkshire', 'Dunkelhain', '夜色镇', '', 'Villa Oscura', '', 'Темнолесье');
 INSERT INTO `locales_area` VALUES (43, '거친 해안', 'Le Rivage cruel', 'Die wilden Ufer', '蛮荒海岸', '', 'Costa Salvaje', '', 'Пустынный берег');
 INSERT INTO `locales_area` VALUES (44, '붉은마루 산맥', 'Les Carmines (Redridge Mts)', 'Rotkammgebirge', '赤脊山', '', 'Montañas Crestagrana', '', 'Красногорье');
 INSERT INTO `locales_area` VALUES (45, '아라시 고원', 'Hautes-terres d\'Arathi', 'Arathihochland', '阿拉希高地', '', 'Tierras Altas de Arathi', '', 'Нагорье Арати');
 INSERT INTO `locales_area` VALUES (46, '불타는 평원', 'Steppes ardentes', 'Brennende Steppe', '燃烧平原', '', 'Estepas Ardientes', '', 'Пылающие степи');
 INSERT INTO `locales_area` VALUES (47, '동부 내륙지', 'Les Hinterlands', 'Hinterland', '辛特兰', '', 'Las Tierras del Interior', '', 'Внутренние земли');
 INSERT INTO `locales_area` VALUES (49, '사자의 구멍', 'Gouffre du mort', 'Dead Man\'s Hole', '亡者之穴', '', 'Agujero del Hombre Muerto', '', 'Нора Мертвеца');
-INSERT INTO `locales_area` VALUES (51, '이글거리는 협곡', 'Gorge des Vents brûlants (Searing Gorge)', 'Sengende Schlucht', '灼热峡谷', '', 'Garganta Abrasadora', '', 'Тлеющее ущелье');
+INSERT INTO `locales_area` VALUES (51, '이글거리는 협곡', 'Gorge des Vents brûlants (Searing Gorge)', 'Sengende Schlucht', '灼热峡谷', '', 'La Garganta de Fuego', '', 'Тлеющее ущелье');
 INSERT INTO `locales_area` VALUES (53, '도둑 야영지', 'Camp des voleurs', 'Diebeslager', '盗贼营地', '', 'Campamento de Ladrones', '', 'Воровской лагерь');
 INSERT INTO `locales_area` VALUES (54, '석영 광산', 'Mine de Jasperlode', 'Jaspismine', '玉石矿洞', '', 'Mina Jasperlode', '', 'Яшмовая шахта');
 INSERT INTO `locales_area` VALUES (55, '영웅의 계곡', 'Valley of Heroes UNUSED', 'Valley of Heroes UNUSED', '英雄谷', '', 'Valle de los Héroes NO UTILIZADO', '', 'Аллея Героев НЕ ИСПОЛЬЗУЕТСЯ');
@@ -87,7 +87,7 @@ INSERT INTO `locales_area` VALUES (56, '수호영웅의 안식처', 'Veillée de
 INSERT INTO `locales_area` VALUES (57, '개미굴 광산', 'Mine de Fargodeep', 'Tiefenschachtmine', '法戈第矿洞', '', 'Mina del Pozo Profundo', '', 'Рудник Подземных Глубин');
 INSERT INTO `locales_area` VALUES (59, '노스샤이어 포도밭', 'Vignes de Northshire', 'Weinberge von Nordhain', '北郡农场', '', 'Viñedos de la Costa Norte', '', 'Виноградники Североземья');
 INSERT INTO `locales_area` VALUES (60, '숲 가장자리', 'La Lisière', 'Der Waldrand', '林边空地', '', 'Borde del Bosque', '', 'Лесная опушка');
-INSERT INTO `locales_area` VALUES (61, '천둥 폭포', 'Chutes du Tonnerre', 'Donnerfälle', '雷霆瀑布', '', 'Caida del Trueno', '', 'Ревущий водопад');
+INSERT INTO `locales_area` VALUES (61, '천둥 폭포', 'Chutes du Tonnerre', 'Donnerfälle', '雷霆瀑布', '', 'Caída del Trueno', '', 'Ревущий водопад');
 INSERT INTO `locales_area` VALUES (62, '브랙웰 호박밭', 'Champ de potirons des Brackwell', 'Brackwells Kürbisbeet', '布莱克威尔南瓜田', '', 'Calabazas Brackwell', '', 'Тыквенное поле Бреквеллов');
 INSERT INTO `locales_area` VALUES (63, '스톤필드 농장', 'La ferme des Stonefield', 'Hof der Stonefields', '斯通菲尔德农场', '', 'La granja Campo de Piedra', '', 'Ферма Стоунфилдов');
 INSERT INTO `locales_area` VALUES (64, '맥클루어 포도밭', 'Les Vignes des Maclure', 'Weinberge der Maclures', '马科伦农场', '', 'Los Vviñedos de Maclure', '', 'Виноградники Маклура');
@@ -95,13 +95,13 @@ INSERT INTO `locales_area` VALUES (65, '*** 야외 던전 ***', '***Donjon sur c
 INSERT INTO `locales_area` VALUES (66, '*** 야외 던전 ***', '***Donjon sur carte***', '***Dungeon auf Karte***', '***大型地下城***', '', '***En un mapa de calabozo***', '', '***Используй меня повторно 6***');
 INSERT INTO `locales_area` VALUES (67, '*** 야외 던전 ***', '***Donjon sur carte***', '***Dungeon auf Karte***', '***大型地下城***', '', '***En un mapa de calabozo***', '', '***Используй меня повторно 5***');
 INSERT INTO `locales_area` VALUES (68, '영원의 호수', 'Lac placide', 'Der Immerruhsee', '止水湖', '', 'Lago Siempre Quieto', '', 'Озеро Безмолвия');
-INSERT INTO `locales_area` VALUES (69, '레이크샤이어', 'Lakeshire', 'Seenhain', '湖畔镇', '', 'Lakeshire', '', 'Приозерье');
+INSERT INTO `locales_area` VALUES (69, '레이크샤이어', 'Lakeshire', 'Seenhain', '湖畔镇', '', 'Villa del Lago', '', 'Приозерье');
 INSERT INTO `locales_area` VALUES (70, '돌망루 요새', 'Guet-de-pierre', 'Steinwacht', '石堡', '', 'Reloj de Piedra', '', 'Крепость Каменной Стражи');
 INSERT INTO `locales_area` VALUES (71, '함락된 돌망루 요새', 'Chutes de Guet-de-pierre', 'Steinwachtfälle', '石堡瀑布', '', 'Cataratas de Reloj de Piedra', '', 'Водопад Каменной Стражи');
 INSERT INTO `locales_area` VALUES (72, '어둠의 문', 'La Porte des ténèbres', 'Das Dunkle Portal', '黑暗之门', '', 'El Portal Oscuro', '', 'Темный портал');
 INSERT INTO `locales_area` VALUES (73, '타락의 흉터', 'La Balafre impure', 'Die faulende Narbe', '腐烂之痕', '', 'La Cicatriz Contaminada', '', 'Гниющий шрам');
-INSERT INTO `locales_area` VALUES (74, '눈물의 연못', 'Bassin des larmes', 'Tränenteich', '泪水之池', '', 'Charco de Lágrimas', '', 'Озеро Слез');
-INSERT INTO `locales_area` VALUES (75, '스토나드', 'Stonard', 'Stonard', '斯通纳德', '', 'Stonard', '', 'Каменор');
+INSERT INTO `locales_area` VALUES (74, '눈물의 연못', 'Bassin des larmes', 'Tränenteich', '泪水之池', '', 'Charca de Lágrimas', '', 'Озеро Слез');
+INSERT INTO `locales_area` VALUES (75, '스토나드', 'Stonard', 'Stonard', '斯通纳德', '', 'Rocal', '', 'Каменор');
 INSERT INTO `locales_area` VALUES (76, '드레노어 성역', 'Sanctuaire des friches', 'Das Fallow Heiligtum', '农田避难所', '', 'Santuario en Barbecho', '', 'Болотное пристанище');
 INSERT INTO `locales_area` VALUES (77, '앤빌마', 'Anvilmar', 'Anvilmar', '安威玛尔', '', 'Yunquemar', '', 'Старая Наковальня');
 INSERT INTO `locales_area` VALUES (80, '스톰윈드 산맥', 'Monts Stormwind', 'Berge von Stormwind', '暴风山脉', '', 'Montañas de Ventormenta', '', 'Горы Штормграда');
@@ -112,12 +112,12 @@ INSERT INTO `locales_area` VALUES (84, '제프의 남서 사분면', 'Quadrant d
 INSERT INTO `locales_area` VALUES (85, '티리스팔 숲', 'Clairières de Tirisfal', 'Tirisfal', '提瑞斯法林地', '', 'Claros de Tirisfal', '', 'Тирисфальские леса');
 INSERT INTO `locales_area` VALUES (86, '돌무덤 호수', 'Lac du Cairn', 'Der Steinhügelsee', '石碑湖', '', 'Lago Montones de Piedras', '', 'Озеро Каменных Столбов');
 INSERT INTO `locales_area` VALUES (87, '골드샤이어', 'Goldshire', 'Goldhain', '闪金镇', '', 'Villadorada', '', 'Златоземье');
-INSERT INTO `locales_area` VALUES (88, '동부 벌목지', 'Camp de bûcherons du Val d\'est', 'Holzfällerlager des Osttals', '东谷伐木场', '', 'Campamento maderero del Valle del Este', '', 'Лесопилка Восточной долины');
+INSERT INTO `locales_area` VALUES (88, '동부 벌목지', 'Camp de bûcherons du Val d\'est', 'Holzfällerlager des Osttals', '东谷伐木场', '', 'Aserradero de la Vega del Este', '', 'Лесопилка Восточной долины');
 INSERT INTO `locales_area` VALUES (89, '거울 호수 과수원', 'Verger du lac Miroir', 'Obsthain am Spiegelsee', '明镜湖果园', '', 'Huerto del lago espejo', '', 'Сад у Зеркального озера');
 INSERT INTO `locales_area` VALUES (91, '아조라의 탑', 'Tour d\'Azora', 'Turm von Azora', '阿祖拉之塔', '', 'Torre de Azora', '', 'Башня Азоры');
-INSERT INTO `locales_area` VALUES (92, '거울 호수', 'Lac Miroir', 'Spiegelsee', '明镜湖', '', 'Reflejo del lago', '', 'Зеркальное озеро');
+INSERT INTO `locales_area` VALUES (92, '거울 호수', 'Lac Miroir', 'Spiegelsee', '明镜湖', '', 'Lago Espejo', '', 'Зеркальное озеро');
 INSERT INTO `locales_area` VALUES (93, '벌골 오우거 소굴', 'Tertre des ogres Vul\'Gol', 'Ogerhort Vul\'Gol', '沃古尔食人魔山', '', 'Montículo de ogros Vul\'Gol', '', 'Лощина Вул\'Гол');
-INSERT INTO `locales_area` VALUES (94, '까마귀 언덕', 'Colline-aux-Corbeaux', 'Rabenflucht', '乌鸦岭', '', 'Colina del cuervo', '', 'Вороний Холм');
+INSERT INTO `locales_area` VALUES (94, '까마귀 언덕', 'Colline-aux-Corbeaux', 'Rabenflucht', '乌鸦岭', '', 'Cerro del Cuervo', '', 'Вороний Холм');
 INSERT INTO `locales_area` VALUES (95, '붉은마루 협곡', 'Canyons des Carmines', 'Rotkammschlucht', '赤脊峡谷', '', 'Cañones Crestagrana', '', 'Каньоны Красногорья');
 INSERT INTO `locales_area` VALUES (96, '일갈라의 탑', 'Tour d\'Ilgalar', 'Der Turm von Ilgalar', '伊尔加拉之塔', '', 'Torre de Ilgalar', '', 'Башня Илгалара');
 INSERT INTO `locales_area` VALUES (97, '앨더의 제재소', 'Scierie d\'Alther', 'Althers Mühle', '奥瑟尔伐木场', '', 'Molino de Alther', '', 'Лесопилка Альтера');
@@ -127,19 +127,19 @@ INSERT INTO `locales_area` VALUES (100, '네싱워리 원정대', 'Expédition d
 INSERT INTO `locales_area` VALUES (101, '쿠르젠 주둔지', 'Base de Kurzen', 'Kurzens Truppenlager', '库尔森的营地', '', 'Compuesto de Kurzen', '', 'Лагерь Курцена');
 INSERT INTO `locales_area` VALUES (102, '줄쿤다의 폐허', 'Ruines de Zul\'Kunda', 'Ruinen von Zul\'Kunda', '祖昆达废墟', '', 'Ruinas de Zul\'Kunda', '', 'Руины Зул\'Кунды');
 INSERT INTO `locales_area` VALUES (103, '줄맘웨의 폐허', 'Ruines de Zul\'Mamwe', 'Ruinen von Zul\'Mamwe', '祖玛维废墟', '', 'Ruinas de Zul\'Mamwe', '', 'Руины Зул\'Мамве');
-INSERT INTO `locales_area` VALUES (104, '썩은내 산호초', 'Le Récif infâme', 'Das finstere Riff', '暗礁海', '', 'El Arrecife Vil', '', 'Коварный риф');
+INSERT INTO `locales_area` VALUES (104, '썩은내 산호초', 'Le Récif infâme', 'Das finstere Riff', '暗礁海', '', 'El Arrecife Mortal', '', 'Коварный риф');
 INSERT INTO `locales_area` VALUES (105, '모쉬오그 오우거 소굴', 'Tertre des ogres Mosh\'Ogg', 'Ogerhügel der Mosh\'Ogg', '莫什奥格食人魔山', '', 'Montículo de Ogros Mosh\'Ogg', '', 'Холм Мош\'Огг');
 INSERT INTO `locales_area` VALUES (106, '보급창', 'La réserve', 'Das Vorratslager', '储藏室', '', 'El arsenal', '', 'Схрон');
 INSERT INTO `locales_area` VALUES (107, '살딘 농장', 'Ferme des Saldean', 'Saldeans Farm', '萨丁农场', '', 'Granja de Saldean', '', 'Ферма Сальдена');
-INSERT INTO `locales_area` VALUES (108, '감시의 언덕', 'Colline des sentinelles', 'Späherkuppe', '哨兵岭', '', 'Centinela del Cerro', '', 'Сторожевой холм');
+INSERT INTO `locales_area` VALUES (108, '감시의 언덕', 'Colline des sentinelles', 'Späherkuppe', '哨兵岭', '', 'Colina del Centinela', '', 'Сторожевой холм');
 INSERT INTO `locales_area` VALUES (109, '펄브로우 호박밭', 'Ferme de potirons de Furlbrow', 'Furlbrows Kürbishof', '法布隆南瓜农场', '', 'Granja de Calabazas de Furlbrow', '', 'Тыквенная ферма Хмуроброва');
-INSERT INTO `locales_area` VALUES (111, '장고로드 광산', 'Mine de Jangolode', 'Der Jangoschacht', '詹戈洛德矿洞', '', 'Mina Jangolode', '', 'Рудник Янго');
+INSERT INTO `locales_area` VALUES (111, '장고로드 광산', 'Mine de Jangolode', 'Der Jangoschacht', '詹戈洛德矿洞', '', 'Mina de Jango', '', 'Рудник Янго');
 INSERT INTO `locales_area` VALUES (113, '황금해안 채석장', 'Carrière de la côte de l\'Or', 'Der Goldküstensteinbruch', '金海岸矿洞', '', 'Cantera Costa Dorada', '', 'Прииск на Золотом Берегу');
 INSERT INTO `locales_area` VALUES (115, '서부 몰락지대 등대', 'Phare de l\'Ouest', 'Der Leuchtturm von Westfall', '西部荒野灯塔', '', 'Faro Caída del Oeste', '', 'Маяк в Западном Крае');
 INSERT INTO `locales_area` VALUES (116, '안개 골짜기', 'Vallée des brumes', 'Das neblige Tal', '迷雾谷', '', 'Valle Brumoso', '', 'Туманная долина');
 INSERT INTO `locales_area` VALUES (117, '그롬골 주둔지', 'Campement Grom\'gol', 'Das Basislager von Grom\'gol', '格罗姆高营地', '', 'Campamento Base de Grom\'gol', '', 'Лагерь Гром\'гол');
 INSERT INTO `locales_area` VALUES (118, '웰가르의 발굴현장', 'Excavations de Whelgar', 'Whelgars Ausgrabungsstätte', '维尔加挖掘场', '', 'Sitio de excavación de Whelgar', '', 'Раскопки Вельгара');
-INSERT INTO `locales_area` VALUES (120, '서부 주둔지', 'Garnison du ruisseau de l\'ouest', 'Weststromgarnison', '西泉要塞', '', 'Guarnición Arroyo del Oeste', '', 'Гарнизон у Западного ручья');
+INSERT INTO `locales_area` VALUES (120, '서부 주둔지', 'Garnison du ruisseau de l\'ouest', 'Weststromgarnison', '西泉要塞', '', 'Cuartel de Arroyoeste', '', 'Гарнизон у Западного ручья');
 INSERT INTO `locales_area` VALUES (121, '고요의 정원 묘지', 'Cimetière des jardins paisibles', 'Der Friedhof \"Stille Gärten\"', '静谧花园墓场', '', 'Cementerio Jardines Tranquilos', '', 'Безмятежное кладбище');
 INSERT INTO `locales_area` VALUES (122, '줄다이아 폐허', 'Ruines de Zuuldaia', 'Ruinen von Zuuldaia', '祖丹亚废墟', '', 'Ruinas de Zuuldaia', '', 'Руины Зуулдая');
 INSERT INTO `locales_area` VALUES (123, '발랄 폐허', 'Ruines de Bal\'lal', 'Ruinen von Bal\'lal', '巴拉尔废墟', '', 'Ruinas de Bal\'lal', '', 'Руины Бал\'лал');
@@ -152,9 +152,9 @@ INSERT INTO `locales_area` VALUES (130, '은빛소나무 숲', 'Forêt des Pins 
 INSERT INTO `locales_area` VALUES (131, '카라노스', 'Kharanos', 'Kharanos', '卡拉诺斯', '', 'Kharanos', '', 'Каранос');
 INSERT INTO `locales_area` VALUES (132, '눈마루 골짜기', 'Vallée des Frigères', 'Das Coldridgetal', '寒脊山谷', '', 'Valle Cresta Fría', '', 'Холодная долина');
 INSERT INTO `locales_area` VALUES (133, '놈리건', 'Gnomeregan', 'Gnomeregan', '诺莫瑞根', '', 'Gnomeregan', '', 'Гномреган');
-INSERT INTO `locales_area` VALUES (134, '골볼라 채석장', 'Carrière de Gol\'Bolar', 'Der Gol\'bolar Steinbruch', '古博拉采掘场', '', 'Cantera Gol\'Bolar', '', 'Карьер Гол\'Болар');
-INSERT INTO `locales_area` VALUES (135, '서리갈기 소굴', 'Repaire des Frostmane', 'Höhle der Frostmane', '霜鬃巨魔要塞', '', 'Bastión Peloescarcha', '', 'Форт Мерзлогривов');
-INSERT INTO `locales_area` VALUES (136, '은빛 동굴', 'L\'antre Gris', 'Der Graufelsbau', '灰色洞穴', '', 'La Guarida Canosa', '', 'Серая берлога');
+INSERT INTO `locales_area` VALUES (134, '골볼라 채석장', 'Carrière de Gol\'Bolar', 'Der Gol\'bolar Steinbruch', '古博拉采掘场', '', 'Cantera de Gol\'Bolar', '', 'Карьер Гол\'Болар');
+INSERT INTO `locales_area` VALUES (135, '서리갈기 소굴', 'Repaire des Frostmane', 'Höhle der Frostmane', '霜鬃巨魔要塞', '', 'Poblado Peloescarcha', '', 'Форт Мерзлогривов');
+INSERT INTO `locales_area` VALUES (136, '은빛 동굴', 'L\'antre Gris', 'Der Graufelsbau', '灰色洞穴', '', 'El Cubil Pardo', '', 'Серая берлога');
 INSERT INTO `locales_area` VALUES (137, '브루날 마을', 'Brassetout', 'Brewnall', '烈酒村', '', 'Pueblo Brewnall', '', 'Поселок Пивоваров');
 INSERT INTO `locales_area` VALUES (138, '안개소나무 은거처', 'Refuge de Brumepins', 'Nebelfichtenzuflucht', '雾松避难所', '', 'Refugio de Pino Brumoso', '', 'Сторожка у заснеженной сосны');
 INSERT INTO `locales_area` VALUES (139, '동부 역병지대', 'Maleterres de l\'est (Eastern Plaguelands)', 'Östliche Pestländer', '东瘟疫之地', '', 'Tierras de la Peste del Este', '', 'Восточные Чумные земли');
@@ -171,12 +171,12 @@ INSERT INTO `locales_area` VALUES (150, '메네실 항구', 'Port de Menethil', 
 INSERT INTO `locales_area` VALUES (151, '디자이너의 섬', 'Ile des concepteurs', 'Designer-Insel', 'Designer Island', '', 'Isla del Diseñador', '', 'Остров Дизайнера');
 INSERT INTO `locales_area` VALUES (152, '보루', 'La Barricade', 'Das Bollwerk', '亡灵壁垒', '', 'La Baluarte', '', 'Бастион');
 INSERT INTO `locales_area` VALUES (153, '로데론의 폐허', 'Ruines de Lordaeron', 'Ruinen von Lordaeron', '洛丹伦废墟', '', 'Ruinas de Lordaeron', '', 'Руины Лордерона');
-INSERT INTO `locales_area` VALUES (154, '데스넬', 'Le Glas', 'Deathknell', '丧钟镇', '', 'Sentencia de Muerte', '', 'Могильник');
-INSERT INTO `locales_area` VALUES (155, '검은그물 거미굴', 'Grottes des Tisse-nuit', 'Nachtwebergrund', '夜行蜘蛛洞穴', '', 'Hueco de la Telaraña Nocturna', '', 'Паучья низина');
+INSERT INTO `locales_area` VALUES (154, '데스넬', 'Le Glas', 'Deathknell', '丧钟镇', '', 'Camposanto', '', 'Могильник');
+INSERT INTO `locales_area` VALUES (155, '검은그물 거미굴', 'Grottes des Tisse-nuit', 'Nachtwebergrund', '夜行蜘蛛洞穴', '', 'Hoya Nocturácnidas', '', 'Паучья низина');
 INSERT INTO `locales_area` VALUES (156, '솔리덴 농장', 'Ferme des Solliden', 'Sollidens Bauernhof', '索利丹农场', '', 'Granja de Solliden', '', 'Усадьба Соллиден');
 INSERT INTO `locales_area` VALUES (157, '아가만드 밀농장', 'Moulins d\'Agamand', 'Agamands Mühlen', '阿加曼德磨坊', '', 'Molinos de Agamand', '', 'Мельницы Агамондов');
 INSERT INTO `locales_area` VALUES (158, '아가만드가 납골당', 'Crypte de la famille Agamand', 'Gruft der Familie Agamand', '阿加曼德家族墓穴', '', 'Cripta de la Familia Agamand', '', 'Семейная усыпальница Агамондов');
-INSERT INTO `locales_area` VALUES (159, '브릴', 'Brill', 'Brill', '布瑞尔', '', 'Rodaballo', '', 'Брилл');
+INSERT INTO `locales_area` VALUES (159, '브릴', 'Brill', 'Brill', '布瑞尔', '', 'Rémol', '', 'Брилл');
 INSERT INTO `locales_area` VALUES (160, '속삭임의 정원', 'Jardins des murmures', 'Flüstergärten', '耳语花园', '', 'Jardines Susurrantes', '', 'Шепчущие сады');
 INSERT INTO `locales_area` VALUES (161, '평온의 정원', 'Terrasse de la quiétude', 'Terrasse der Erholung', '休息区', '', 'Terraza del Reposo', '', 'Терраса Покоя');
 INSERT INTO `locales_area` VALUES (162, '청명 호수', 'Lac Etincelant', 'Blendwassersee', '澈水湖', '', 'Lago Agua Brillante', '', 'Озеро Ясноводное');
@@ -192,9 +192,9 @@ INSERT INTO `locales_area` VALUES (172, '펜리스 섬', 'Ile de Fenris', 'Insel
 INSERT INTO `locales_area` VALUES (173, '파올의 안식처', 'Repos de Faol', 'Faols Ruheplatz', '法奥之墓', '', 'Descanso de Faol', '', 'Могила Фаола');
 INSERT INTO `locales_area` VALUES (186, '돌라나르', 'Dolanaar', 'Dolanaar', '多兰纳尔', '', 'Dolanaar', '', 'Доланаар');
 INSERT INTO `locales_area` VALUES (187, '다르나서스', 'Darnassus UNUSED', 'Darnassus UNUSED', 'Darnassus UNUSED', '', 'Darnassus SIN UTILIZAR', '', 'Дарнас НЕ ИСПОЛЬЗУЕТСЯ');
-INSERT INTO `locales_area` VALUES (188, '그늘 협곡', 'Sombrevallon', 'Shadowglen', '幽影谷', '', 'Cañada Sombría', '', 'Тенистая долина');
+INSERT INTO `locales_area` VALUES (188, '그늘 협곡', 'Sombrevallon', 'Shadowglen', '幽影谷', '', 'Cañada Umbría', '', 'Тенистая долина');
 INSERT INTO `locales_area` VALUES (189, '스틸그릴의 정비소', 'Dépôt de Steelgrill', 'Steelgrills Depot', '钢架补给站', '', 'Depósito de Parrillas de Acero', '', 'Поселок Сталежара');
-INSERT INTO `locales_area` VALUES (190, '하스글렌', 'Hearthglen', 'Hearthglen', '壁炉谷', '', 'Hearthglen', '', 'Дольный Очаг');
+INSERT INTO `locales_area` VALUES (190, '하스글렌', 'Hearthglen', 'Hearthglen', '壁炉谷', '', 'Vega del Amparo', '', 'Дольный Очаг');
 INSERT INTO `locales_area` VALUES (192, '북마루 벌목지', 'Camp de bûcherons de la Crête du nord', 'Holzlager Northridge', '北山伐木场', '', 'Campamento de Madera de Crestanorte', '', 'Лесопилка Северного Кряжа');
 INSERT INTO `locales_area` VALUES (193, '안돌할 폐허', 'Ruines d\'Andorhal', 'Die Ruinen von Andorhal', '安多哈尔废墟', '', 'Ruinas de Andorhal', '', 'Руины Андорала');
 INSERT INTO `locales_area` VALUES (195, '강령술 학교', 'Ecole de nécromancie', 'Schule der Totenbeschwörung', '通灵术学校', '', 'Escuela de Nigromancia', '', 'Школа некромантии');
@@ -206,22 +206,22 @@ INSERT INTO `locales_area` VALUES (200, '달슨의 눈물', 'Larmes de Dalson', 
 INSERT INTO `locales_area` VALUES (201, '가론의 흉가', 'La Flétrissure de Gahrron', 'Gahrrons Trauerfeld', '盖罗恩农场', '', 'Marchitamiento de Gahrron', '', 'Пустошь Гаррона');
 INSERT INTO `locales_area` VALUES (202, '고통의 흉가', 'Le Repaire putride', 'Das trostlose Feld', '嚎哭鬼屋', '', 'El refugio Retorcido', '', 'Удел Страданий');
 INSERT INTO `locales_area` VALUES (203, '마르덴홀드 요새', 'Donjon de Mardenholde', 'Burg Mardenholde', '玛登霍尔德城堡', '', 'Fortaleza de Mardenholde', '', 'Крепость Марденхольд');
-INSERT INTO `locales_area` VALUES (204, '장작나무 마을', 'Bois-du-Bûcher', 'Pyrewood', '焚木村', '', 'Pueblo de Pira de Madera', '', 'Деревня Погребальных Костров');
+INSERT INTO `locales_area` VALUES (204, '장작나무 마을', 'Bois-du-Bûcher', 'Pyrewood', '焚木村', '', 'Aldea Piroleña', '', 'Деревня Погребальных Костров');
 INSERT INTO `locales_area` VALUES (205, '던 모드르', 'Dun Modr', 'Dun Modr', '丹莫德', '', 'Dun Modr', '', 'Дун Модр');
-INSERT INTO `locales_area` VALUES (206, '서부 몰락지대', 'Marche de l\'Ouest (Westfall)', 'Westfall', '西部荒野', '', 'Caída del Oeste', '', 'Западный Край');
+INSERT INTO `locales_area` VALUES (206, '서부 몰락지대', 'Marche de l\'Ouest (Westfall)', 'Westfall', '西部荒野', '', 'Páramos de Poniente', '', 'Западный Край');
 INSERT INTO `locales_area` VALUES (207, '대해', 'La Grande mer', 'Das große Meer', '无尽之海', '', 'El Gran Mar', '', 'Великое море');
 INSERT INTO `locales_area` VALUES (208, '철갑 동굴', 'Unused Ironcladcove', 'Ungenutzt - Ironcladbucht', '铁甲山谷', '', 'Cofre Acorazado sin Usar', '', 'Не используется Потайная бухта');
-INSERT INTO `locales_area` VALUES (209, '그림자송곳니 성채', 'Donjon d\'Ombrecroc', 'Burg Shadowfang', '影牙城堡', '', 'Fortaleza Colmillo Sombrío', '', 'Крепость Темного Клыка');
+INSERT INTO `locales_area` VALUES (209, '그림자송곳니 성채', 'Donjon d\'Ombrecroc', 'Burg Shadowfang', '影牙城堡', '', 'Castillo de Colmillo Oscuro', '', 'Крепость Темного Клыка');
 INSERT INTO `locales_area` VALUES (210, '*** 야외 던전 ***', '***Donjon sur carte***', '***Dungeon auf Karte***', '***大型地下城***', '', '***En un mapa de calabozo***', '', '***Используй меня повторно 2***');
 INSERT INTO `locales_area` VALUES (211, '얼음 호수', 'Lac glacial', 'Iceflowsee', '涌冰湖', '', 'Lago  Flujo de Hielo', '', 'Заледеневшее озеро');
 INSERT INTO `locales_area` VALUES (212, '투구바닥 호수', 'Lac du Lit d\'Helm', 'Helmsbedsee', '盔枕湖', '', 'Lago Cama de Timón', '', 'Озеро Хельмово Ложе');
-INSERT INTO `locales_area` VALUES (213, '심원 광산', 'Mine du gouffre d\'Elem', 'Tiefenfelsmine', '埃利姆矿洞', '', 'Mina Profundo Elem', '', 'Серебряный рудник');
+INSERT INTO `locales_area` VALUES (213, '심원 광산', 'Mine du gouffre d\'Elem', 'Tiefenfelsmine', '埃利姆矿洞', '', 'Mina de Elem', '', 'Серебряный рудник');
 INSERT INTO `locales_area` VALUES (214, '대해', 'La Grande mer', 'Das große Meer', '无尽之海', '', 'El Gran Mar', '', 'Великое море');
 INSERT INTO `locales_area` VALUES (215, '멀고어', 'Mulgore', 'Mulgore', '莫高雷', '', 'Mulgore', '', 'Мулгор');
 INSERT INTO `locales_area` VALUES (219, '알렉스턴 농장', 'Ferme des Alexston', 'Alexstons Bauernhof', '阿历克斯顿农场', '', 'Arquería Alexston', '', 'Поместье Алекстона');
 INSERT INTO `locales_area` VALUES (220, '붉은구름 고원', 'Mesa de Nuage rouge', 'Red Cloud Mesa', '红云台地', '', 'Mesa Nube Roja', '', 'Плато Красного Облака');
 INSERT INTO `locales_area` VALUES (221, '나라체 야영지', 'Camp Narache', 'Camp Narache', '纳拉其营地', '', 'Campamento Narache', '', 'Лагерь Нараче');
-INSERT INTO `locales_area` VALUES (222, '블러드후프 마을', 'Village Bloodhoof', 'Bloodhoof', '血蹄村', '', 'Pueblo Pezuña de Sangre', '', 'Деревня Кровавого Копыта');
+INSERT INTO `locales_area` VALUES (222, '블러드후프 마을', 'Village Bloodhoof', 'Bloodhoof', '血蹄村', '', 'Poblado Pezuña de Sangre', '', 'Деревня Кровавого Копыта');
 INSERT INTO `locales_area` VALUES (223, '황소바위 호수', 'Lac Taureau-de-pierre', 'Stonebullsee', '石牛湖', '', 'Lago del Toro de Piedra', '', 'Озеро Каменного Быка');
 INSERT INTO `locales_area` VALUES (224, '습격당한 짐마차 행렬', 'Caravane dévastée', 'Überfallene Karawane', '被破坏的货车', '', 'Caravana Devastada', '', 'Разграбленный караван');
 INSERT INTO `locales_area` VALUES (225, '붉은 바위 언덕', 'Rochers rouges', 'Teufelsfelsen', '赤色石', '', 'Rocas Rojas', '', 'Красные скалы');
@@ -230,12 +230,12 @@ INSERT INTO `locales_area` VALUES (227, '발간 농장', 'Champ de Valgan', 'Val
 INSERT INTO `locales_area` VALUES (228, '공동묘지', 'Le Sépulcre', 'Das Grabmal', '瑟伯切尔', '', 'El Sepulcro', '', 'Гробница');
 INSERT INTO `locales_area` VALUES (229, '올슨 농장', 'Ferme des Olsen', 'Olsen\'s Farthing', '奥森农场', '', 'Farthing de Olsen', '', 'Удел Ольсена');
 INSERT INTO `locales_area` VALUES (230, '그레이메인 성벽', 'Le mur de Greymane', 'Der Graumarnwall', '格雷迈恩之墙', '', 'El Muro de Cringrís', '', 'Стена Седогрива');
-INSERT INTO `locales_area` VALUES (231, '베렌의 동굴', 'Péril de Beren', 'Beren\'s Peril', '博伦的巢穴', '', 'El Peligro de Beren', '', 'Погибель Берена');
+INSERT INTO `locales_area` VALUES (231, '베렌의 동굴', 'Péril de Beren', 'Beren\'s Peril', '博伦的巢穴', '', 'El Desafío de Beren', '', 'Погибель Берена');
 INSERT INTO `locales_area` VALUES (232, '여명의 섬', 'Les îles de l\'aube', 'Die Morgeninseln', '黎明岛', '', 'Las Islas del Amanecer', '', 'Рассветные острова');
-INSERT INTO `locales_area` VALUES (233, '앰버밀', 'Moulin-de-l\'Ambre', 'Ambermill', '安伯米尔', '', 'Molino de Ámbar', '', 'Янтарная мельница');
+INSERT INTO `locales_area` VALUES (233, '앰버밀', 'Moulin-de-l\'Ambre', 'Ambermill', '安伯米尔', '', 'Molino Ámbar', '', 'Янтарная мельница');
 INSERT INTO `locales_area` VALUES (235, '펜리스 요새', 'Donjon de Fenris', 'Burg Fenris', '芬里斯城堡', '', 'Castillo de Fenris', '', 'Крепость Фенриса');
-INSERT INTO `locales_area` VALUES (236, '그림자송곳니 성채', 'Donjon d\'Ombrecroc', 'Burg Shadowfang', '影牙城堡', '', 'Fortaleza Colmillo Sombrío', '', 'Крепость Темного Клыка');
-INSERT INTO `locales_area` VALUES (237, '오래된 나루터', 'Le bac délabré', 'Die verfallene Fähre', '破旧渡口', '', 'El Ferry Decrépito', '', 'Старая переправа');
+INSERT INTO `locales_area` VALUES (236, '그림자송곳니 성채', 'Donjon d\'Ombrecroc', 'Burg Shadowfang', '影牙城堡', '', 'Castillo de Colmillo Oscuro', '', 'Крепость Темного Клыка');
+INSERT INTO `locales_area` VALUES (237, '오래된 나루터', 'Le bac délabré', 'Die verfallene Fähre', '破旧渡口', '', 'El Viejo Embarcadero', '', 'Старая переправа');
 INSERT INTO `locales_area` VALUES (238, '말덴의 과수원', 'Verger de Malden', 'Maldens Obsthain', '玛尔丁果园', '', 'Huerto de Malden', '', 'Сад Мальдена');
 INSERT INTO `locales_area` VALUES (239, '이바르 호박밭', 'Le lopin d\'Ivar', 'Das Ivar-Feld', '伊瓦农场', '', 'El Parche de Ivar', '', 'Делянка Ивара');
 INSERT INTO `locales_area` VALUES (240, '죽음의 농장', 'Le Champ des morts', 'Das Todesfeld', '亡者农场', '', 'El Campo Muerto', '', 'Мертвое поле');
@@ -246,7 +246,7 @@ INSERT INTO `locales_area` VALUES (244, '휘플가 저택', 'Le domaine de Whipp
 INSERT INTO `locales_area` VALUES (245, '요르겐 농장', 'La ferme des Yorgen', 'Yorgens Bauernhof', '约根农场', '', 'La Granja de Yorgen', '', 'Усадьба Йоргена');
 INSERT INTO `locales_area` VALUES (246, '용광로', 'Le Chaudron', 'Der Kessel', '大熔炉', '', 'El Caldero', '', 'Котлован');
 INSERT INTO `locales_area` VALUES (247, '검댕가루 발굴현장', 'Site de fouilles de Grimesilt', 'Grimesilt-Grabungsstätte', '煤渣挖掘场', '', 'Sitio de Excavación de Grimesilt', '', 'Карьер Грязнули');
-INSERT INTO `locales_area` VALUES (249, '우레망치 바위굴', 'Rocher des Cognepeurs', 'Schreckensfels', '巨槌石', '', 'Falda Machapavoroso', '', 'Скала Молота Ужаса');
+INSERT INTO `locales_area` VALUES (249, '우레망치 바위굴', 'Rocher des Cognepeurs', 'Schreckensfels', '巨槌石', '', 'Roca Machacamiedo', '', 'Скала Молота Ужаса');
 INSERT INTO `locales_area` VALUES (250, '타우릿산의 폐허', 'Ruines de Thaurissan', 'Die Ruinen von Thaurissan', '索瑞森废墟', '', 'Ruinas de Thaurissan', '', 'Руины Тауриссана');
 INSERT INTO `locales_area` VALUES (251, '화염 마루', 'Corniche des flammes', 'Flammenkamm', '烈焰峰', '', 'Cresta de la Llama', '', 'Пламенеющий Стяг');
 INSERT INTO `locales_area` VALUES (252, '검은바위 요새', 'Bastion des Blackrock', 'Festung der Blackrock', '黑石要塞', '', 'Fortaleza Roca Negra', '', 'Крепость Черной горы');
@@ -257,7 +257,7 @@ INSERT INTO `locales_area` VALUES (256, '알드랏실', 'Aldrassil', 'Aldrassil'
 INSERT INTO `locales_area` VALUES (257, '그늘 거미굴', 'Grotte de Sombrefil', 'Schattenweberhöhle', '黑丝洞', '', 'Cueva del Hilo de las Sombras', '', 'Паучье логово');
 INSERT INTO `locales_area` VALUES (258, '악마 바위굴', 'Gangreroche', 'Teufelsfels', '地狱石', '', 'Roca Vil', '', 'Пещера Бесов');
 INSERT INTO `locales_area` VALUES (259, '알아메스 호수', 'Lac Al\'Ameth', 'Al\'Amethsee', '奥拉密斯湖', '', 'Lago Al\'Ameth', '', 'Озеро Аль\'Амет');
-INSERT INTO `locales_area` VALUES (260, '별바람 마을', 'Brise-stellaire', 'Starbreeze', '星风村', '', 'Pueblo Brisa Estrella', '', 'Деревня Звездного Ветра');
+INSERT INTO `locales_area` VALUES (260, '별바람 마을', 'Brise-stellaire', 'Starbreeze', '星风村', '', 'Aldea Brisa Estelar', '', 'Деревня Звездного Ветра');
 INSERT INTO `locales_area` VALUES (261, '나무옹이 요새', 'Camp des Pins-tordus', 'Höhle der Knarzklauen', '脊骨堡', '', 'Bastión de Pino Nudoso', '', 'Лагерь у Кривой Сосны');
 INSERT INTO `locales_area` VALUES (262, '바네실 지하굴', 'Refuge des saisons de Ban\'ethil', 'Grabhügel von Ban\'ethil', '班奈希尔兽穴', '', 'Guarida Carretilla de Ban\'ethil', '', 'Обитель Бен\'этиль');
 INSERT INTO `locales_area` VALUES (263, '바위 동굴', 'La Faille', 'Die Kluft', '大断崖', '', 'La Hendidura', '', 'Расселина');
@@ -267,9 +267,9 @@ INSERT INTO `locales_area` VALUES (266, '생명의 호수', 'Lac d\'Aigue-vive',
 INSERT INTO `locales_area` VALUES (267, '힐스브래드 구릉지', 'Contreforts d\'Hillsbrad', 'Vorgebirge von Hillsbrad', '希尔斯布莱德丘陵', '', 'Laderas de Trabalomas', '', 'Предгорья Хилсбрада');
 INSERT INTO `locales_area` VALUES (268, '아즈샤라 분화구', 'Cratère d\'Azshara', 'Azshara-Krater', '积雪平原', '', 'Cráter de Azshara', '', 'Кратер Азшары');
 INSERT INTO `locales_area` VALUES (269, '던 알가즈', 'Dun Algaz', 'Dun Algaz', '丹奥加兹', '', 'Dun Algaz', '', 'Дун Альгаз');
-INSERT INTO `locales_area` VALUES (271, '사우스쇼어', 'Southshore', 'Southshore', '南海镇', '', 'Costa Sur', '', 'Южнобережье');
-INSERT INTO `locales_area` VALUES (272, '타렌 밀농장', 'Moulin-de-Tarren', 'Tarrens Mühle', '塔伦米尔', '', 'Molino de Tarren', '', 'Мельница Таррен');
-INSERT INTO `locales_area` VALUES (275, '던홀드 요새', 'Donjon de Durnholde', 'Burg Durnholde', '敦霍尔德城堡', '', 'Fortaleza de Durnholde', '', 'Крепость Дарнхольд');
+INSERT INTO `locales_area` VALUES (271, '사우스쇼어', 'Southshore', 'Southshore', '南海镇', '', 'Costasur', '', 'Южнобережье');
+INSERT INTO `locales_area` VALUES (272, '타렌 밀농장', 'Moulin-de-Tarren', 'Tarrens Mühle', '塔伦米尔', '', 'Molino Tarren', '', 'Мельница Таррен');
+INSERT INTO `locales_area` VALUES (275, '던홀드 요새', 'Donjon de Durnholde', 'Burg Durnholde', '敦霍尔德城堡', '', 'Castillo de Durnholde', '', 'Крепость Дарнхольд');
 INSERT INTO `locales_area` VALUES (276, '돌다지 고개', 'UNUSED Passage de Formepierre', 'UNUSED Stonewrought Pass', '石坝小径', '', 'Paso de piedra(SIN USAR)', '', 'НЕ ИСПОЛЬЗУЕТСЯ Подгорная тропа');
 INSERT INTO `locales_area` VALUES (277, '구릉지 동굴', 'Les cavernes des contreforts', 'Die Vorgebirgshöhlen', '丘陵洞穴', '', 'Las cavernas de Colinas de Pie', '', 'Пещеры предгорий');
 INSERT INTO `locales_area` VALUES (278, '로다미어 포로수용소', 'Camp d\'internement de Lordamere', 'Lordamere-Internierungslager', '洛丹米尔收容所', '', 'Campo de Internamiento de Lordamere', '', 'Лордамерские выселки');
@@ -304,14 +304,14 @@ INSERT INTO `locales_area` VALUES (309, '아이언비어드의 고분', 'Tombe d
 INSERT INTO `locales_area` VALUES (310, '수정 광산', 'Mine aux cristaux', 'Kristalladermine', '水晶矿洞', '', 'Mina de Cristal', '', 'Хрустальная шахта');
 INSERT INTO `locales_area` VALUES (311, '아보라즈의 폐허', 'Ruines d\'Aboraz', 'Ruinen von Aboraz', '阿博拉兹废墟', '', 'Ruinas de Aboraz', '', 'Руины Абораза');
 INSERT INTO `locales_area` VALUES (312, '자네이로 섬', 'Cap Janeiro', 'Janeirospitze', '加尼罗哨站', '', 'Punta de Janeiro', '', 'Остров Жанейро');
-INSERT INTO `locales_area` VALUES (313, '북부습곡 장원', 'Manoir de Nordclos', 'Nordhof', '诺斯弗德农场', '', 'Mansión del Pliegue Norte', '', 'Северное поместье');
+INSERT INTO `locales_area` VALUES (313, '북부습곡 장원', 'Manoir de Nordclos', 'Nordhof', '诺斯弗德农场', '', 'Mansión Redilnorte', '', 'Северное поместье');
 INSERT INTO `locales_area` VALUES (314, '고셰크 농장', 'Ferme de Go\'Shek', 'Go\'Sheks Hof', '格沙克农场', '', 'Granja Go\'Shek', '', 'Ферма Го\'Шека');
 INSERT INTO `locales_area` VALUES (315, '다비리 농장', 'Ferme des Dabyrie', 'Bauernhof der Dabyries', '达比雷农场', '', 'Granja de Dabyrie', '', 'Усадьба Дабири');
 INSERT INTO `locales_area` VALUES (316, '돌주먹일족 소굴', 'Hall Rochepoing', 'Halle der Felsfäuste', '石拳大厅', '', 'Salón Puño de Roca', '', 'Крепость Тяжелого Кулака');
-INSERT INTO `locales_area` VALUES (317, '마른나무껍질 마을', 'Village Witherbark', 'Witherbark', '枯木村', '', 'Pueblo de Secacorteza', '', 'Деревня Сухокожих');
+INSERT INTO `locales_area` VALUES (317, '마른나무껍질 마을', 'Village Witherbark', 'Witherbark', '枯木村', '', 'Foco de hechizo del Poblado Secacorteza (DND)', '', 'Деревня Сухокожих');
 INSERT INTO `locales_area` VALUES (318, '마른수염 골짜기', 'Gorge des Sèches-moustaches', 'Schlucht der Trockenstoppel', '枯须峡谷', '', 'Garganta de Bigotes Secos', '', 'Теснина Сухоусов');
-INSERT INTO `locales_area` VALUES (320, '임시 주둔지', 'Refuge de l\'Ornière', 'Die Zuflucht', '避难谷地', '', 'Refugio de Punto', '', 'Опорный пункт');
-INSERT INTO `locales_area` VALUES (321, '해머폴', 'Trépas-d\'Orgrim', 'Hammerfall', '落锤镇', '', 'Caída de Martillo', '', 'Павший Молот');
+INSERT INTO `locales_area` VALUES (320, '임시 주둔지', 'Refuge de l\'Ornière', 'Die Zuflucht', '避难谷地', '', 'Refugio de la Zaga', '', 'Опорный пункт');
+INSERT INTO `locales_area` VALUES (321, '해머폴', 'Trépas-d\'Orgrim', 'Hammerfall', '落锤镇', '', 'Sentencia', '', 'Павший Молот');
 INSERT INTO `locales_area` VALUES (322, '검은바다 난파지', 'Epaves des Flots noirs', 'Schiffswracks der Schwarzmeerräuber', '黑水湾沉船', '', 'Naufragios de Aguas Negras', '', 'Обломки судов Черноводья');
 INSERT INTO `locales_area` VALUES (323, '오브린의 야영지', 'Camp de O\'Breen', 'O\'Breens Lager', '奥布瑞恩营地', '', 'Campamento de O\'Breen', '', 'Лагерь О\'Брина');
 INSERT INTO `locales_area` VALUES (324, '스트롬가드 요새', 'Donjon de Stromgarde', 'Burg Stromgarde', '激流堡', '', 'Fortaleza de Stromgarde', '', 'Крепость Стромгард');
@@ -319,7 +319,7 @@ INSERT INTO `locales_area` VALUES (325, '아라소르의 탑', 'La Tour d\'Arath
 INSERT INTO `locales_area` VALUES (326, '성소', 'Le Sanctuaire', 'Das Sanktum', '密室', '', 'El Santuario', '', 'Святилище');
 INSERT INTO `locales_area` VALUES (327, '팔디르의 만', 'La Crique de Faldir', 'Die Faldirbucht', '法迪尔海湾', '', 'Cala de Faldir', '', 'Бухта Фальдира');
 INSERT INTO `locales_area` VALUES (328, '가라앉은 산호초', 'Le récif englouti', 'Das versunkene Riff', '水下暗礁', '', 'El Arrecife Ahogado', '', 'Подводный риф');
-INSERT INTO `locales_area` VALUES (330, '탄돌 교각', 'Viaduc de Thandol', 'Thandol-Übergang', '萨多尔大桥', '', 'Lapso Thandol ', '', 'Мост Тандола');
+INSERT INTO `locales_area` VALUES (330, '탄돌 교각', 'Viaduc de Thandol', 'Thandol-Übergang', '萨多尔大桥', '', 'Puente Thandol', '', 'Мост Тандола');
 INSERT INTO `locales_area` VALUES (331, '잿빛 골짜기', 'Ashenvale', 'Ashenvale', '灰谷', '', 'Vallefresno', '', 'Ясеневый лес');
 INSERT INTO `locales_area` VALUES (332, '대해', 'La Grande mer', 'Das große Meer', '无尽之海', '', 'El Gran Mar', '', 'Великое море');
 INSERT INTO `locales_area` VALUES (333, '동쪽 봉인의 마법진', 'Cercle de lien oriental', 'Kreis der östlichen Bindung', '东部禁锢法阵', '', 'Círculo de Vinculación del Este', '', 'Восточный круг Обуздания');
@@ -350,13 +350,13 @@ INSERT INTO `locales_area` VALUES (357, '페랄라스', 'Feralas', 'Feralas', '�
 INSERT INTO `locales_area` VALUES (358, '칼날가시 협곡', 'Ravin de Roncelame', 'Dornrankenklamm', '刺刃峡谷', '', 'Barranco de Hojas de Zarza', '', 'Ежевичная лощина');
 INSERT INTO `locales_area` VALUES (359, '바엘 모단', 'Bael Modan', 'Bael Modan', '巴尔莫丹', '', 'Bael Modan', '', 'Бейл Модан');
 INSERT INTO `locales_area` VALUES (360, '투자개발회사 광산', 'Mine de la KapitalRisk', 'Die Mine der Venture Co.', '风险投资公司矿洞', '', 'La mina Venture Co.', '', 'Рудник Торговой Компании');
-INSERT INTO `locales_area` VALUES (361, '악령의 숲', 'Gangrebois (Felwood)', 'Teufelswald', '费伍德森林', '', 'Madera Vil', '', 'Оскверненный лес');
-INSERT INTO `locales_area` VALUES (362, '칼바위 언덕', 'Tranchecolline', 'Klingenhügel', '剃刀岭', '', 'Cerro Rasuradora', '', 'Колючий Холм');
+INSERT INTO `locales_area` VALUES (361, '악령의 숲', 'Gangrebois (Felwood)', 'Teufelswald', '费伍德森林', '', 'Frondavil', '', 'Оскверненный лес');
+INSERT INTO `locales_area` VALUES (362, '칼바위 언덕', 'Tranchecolline', 'Klingenhügel', '剃刀岭', '', 'Cerrotajo', '', 'Колючий Холм');
 INSERT INTO `locales_area` VALUES (363, '시험의 골짜기', 'Vallée des épreuves', 'Das Tal der Prüfungen', '试炼谷', '', 'Valle de las Pruebas', '', 'Долина Испытаний');
-INSERT INTO `locales_area` VALUES (364, '동굴 막사', 'L\'Antre', 'Der Höhlenbau', '大兽穴', '', 'La Guarida', '', 'Логово');
+INSERT INTO `locales_area` VALUES (364, '동굴 막사', 'L\'Antre', 'Der Höhlenbau', '大兽穴', '', 'El Cubil', '', 'Логово');
 INSERT INTO `locales_area` VALUES (365, '불타는 칼날 소굴', 'Convent de la Lame ardente', 'Koven der Brennenden Klinge', '火刃集会所', '', 'Aquelarre Hoja Ardiente', '', 'Грот Пылающего Клинка');
 INSERT INTO `locales_area` VALUES (366, '콜카르 바윗골', 'Combe des Kolkar', 'Kolkarklippe', '科卡尔峭壁', '', 'Peñón de Kolkar', '', 'Утес Колкар');
-INSERT INTO `locales_area` VALUES (367, '센진 마을', 'Village de Sen\'jin', 'Sen\'jin', '森金村', '', 'Pueblo Sen\'jin', '', 'Деревня Сен\'джин');
+INSERT INTO `locales_area` VALUES (367, '센진 마을', 'Village de Sen\'jin', 'Sen\'jin', '森金村', '', 'Poblado Sen\'jin', '', 'Деревня Сен\'джин');
 INSERT INTO `locales_area` VALUES (368, '메아리 섬', 'Îles de l\'Écho', 'Die Echoinseln', '回音群岛', '', 'Islas del Eco', '', 'Острова Эха');
 INSERT INTO `locales_area` VALUES (369, '천둥 골짜기', 'Falaises du Tonnerre', 'Donnergrat', '雷霆山', '', 'Cresta Trueno', '', 'Громовой хребет');
 INSERT INTO `locales_area` VALUES (370, '모래바람 협곡', 'Ravin asséché', 'Staubwindklamm', '枯水谷', '', 'Barranco de Quebrada Seca', '', 'Сухая лощина');
@@ -374,7 +374,7 @@ INSERT INTO `locales_area` VALUES (382, '진흙늪', 'La Videfange', 'Das Schlic
 INSERT INTO `locales_area` VALUES (383, '메마른 언덕', 'Les Collines arides', 'Die trockenen Hügel', '无水岭', '', 'Las Colinas Secas', '', 'Сухие холмы');
 INSERT INTO `locales_area` VALUES (384, '공포의 안개봉우리', 'Pic de Brume-funeste', 'Glutnebelgipfel', '鬼雾峰', '', 'Pico de la Bruma Aterradora', '', 'Вершина Багрового Тумана');
 INSERT INTO `locales_area` VALUES (385, '북부 전초기지', 'Fort du Nord', 'Die Feste Northwatch', '北方城堡', '', 'Bastión de la Guardia del Norte', '', 'Крепость Северной Стражи');
-INSERT INTO `locales_area` VALUES (386, '잊혀진 웅덩이', 'Les Bassins oubliés', 'Die vergessenen Teiche', '遗忘之池', '', 'Las Piscinas Olvidadas', '', 'Забытые пруды');
+INSERT INTO `locales_area` VALUES (386, '잊혀진 웅덩이', 'Les Bassins oubliés', 'Die vergessenen Teiche', '遗忘之池', '', 'Las Charcas del Olvido', '', 'Забытые пруды');
 INSERT INTO `locales_area` VALUES (387, '푸른 오아시스', 'Oasis luxuriante', 'Die blühende Oase', '甜水绿洲', '', 'Oasis de Agua Rxuberante', '', 'Цветущий оазис');
 INSERT INTO `locales_area` VALUES (388, '죽은 오아시스', 'L\'oasis stagnante', 'Die brackige Oase', '死水绿洲', '', 'El Oasis Estancado', '', 'Застывший оазис');
 INSERT INTO `locales_area` VALUES (390, '거인의 들판', 'Champ des Géants', 'Feld der Riesen', '巨人旷野', '', 'Campo de Gigantes', '', 'Поля Великанов');
@@ -383,34 +383,34 @@ INSERT INTO `locales_area` VALUES (392, '톱니항', 'Ratchet', 'Ratchet', '棘�
 INSERT INTO `locales_area` VALUES (393, '검은창 해안', 'Grève des Darkspear', 'Strand der Darkspear', '暗矛海滩', '', 'Hebra Lanza Negra', '', 'Побережье Черного Копья');
 INSERT INTO `locales_area` VALUES (394, '다로미어 호수', 'Lac DarrowmereUNUSED', 'Darrowmere Lake UNUSED', '达隆米尔湖', '', 'Lago Darrowmere SIN UTILIZAR', '', 'Озеро Дарроумир НЕ ИСПОЛЬЗУЕТСЯ');
 INSERT INTO `locales_area` VALUES (395, '카엘 다로우', 'Caer Darrow UNUSED', 'Caer Darrow UNUSED', 'Caer Darrow UNUSED', '', 'Caer Darrow SIN UTILIZAR', '', 'Каэр Дэрроу НЕ ИСПОЛЬЗУЕТСЯ');
-INSERT INTO `locales_area` VALUES (396, '윈터후프 우물', 'Puits Winterhoof', 'Wasserbrunnen von Winterhoof', '冰蹄水井', '', 'Pozo de agua de Pezuña de Invierno', '', 'Колодец Заиндевевшего Копыта');
+INSERT INTO `locales_area` VALUES (396, '윈터후프 우물', 'Puits Winterhoof', 'Wasserbrunnen von Winterhoof', '冰蹄水井', '', 'Pozo Pezuña Invernal', '', 'Колодец Заиндевевшего Копыта');
 INSERT INTO `locales_area` VALUES (397, '썬더혼 우물', 'Puits Thunderhorn', 'Wasserbrunnen von Thunderhorn', '雷角水井', '', 'Pozo de agua de Cuerno de Trueno', '', 'Колодец Громового Рога');
 INSERT INTO `locales_area` VALUES (398, '와일드메인 우물', 'Puits Wildmane', 'Wasserbrunnen von Wildmane', '蛮鬃水井', '', 'Pozo de agua de Melena Salvaje', '', 'Колодец Буйногривых');
 INSERT INTO `locales_area` VALUES (399, '지평선 마루', 'Crête de Skyline', 'Skylineridge', '冲天岭', '', 'Cresta Línea del Cielo', '', 'Гряда на горизонте');
-INSERT INTO `locales_area` VALUES (400, '버섯구름 봉우리', 'Mille pointes (Thousand Needles)', 'Tausend Nadeln', '千针石林', '', 'Mil agujas', '', 'Тысяча Игл');
+INSERT INTO `locales_area` VALUES (400, '버섯구름 봉우리', 'Mille pointes (Thousand Needles)', 'Tausend Nadeln', '千针石林', '', 'Las Mil Agujas', '', 'Тысяча Игл');
 INSERT INTO `locales_area` VALUES (401, '타이더스 계단', 'L\'Escalier des marées', 'Die Tidusstaffel', '提度斯阶梯', '', 'La Escalera de Tidus', '', 'Лестница Прилива');
-INSERT INTO `locales_area` VALUES (403, '그늘 쉼터 여관', 'Auberge du Repos ombragé', 'Gasthaus Zur süßen Ruh', '树荫旅店', '', 'Posada El Descanso Sombrío', '', 'Таверна \"Последний привал\"');
+INSERT INTO `locales_area` VALUES (403, '그늘 쉼터 여관', 'Auberge du Repos ombragé', 'Gasthaus Zur süßen Ruh', '树荫旅店', '', 'Posada Reposo Umbrío', '', 'Таверна \"Последний привал\"');
 INSERT INTO `locales_area` VALUES (404, '바엘던 발굴현장', 'Site de fouilles de Bael\'Dun', 'Grabungsstätte von Bael\'dun', '巴尔丹挖掘场', '', 'Excavación de Bael\'dun', '', 'Раскопки Бейл\'дана');
 INSERT INTO `locales_area` VALUES (405, '잊혀진 땅', 'Désolace', 'Desolace', '凄凉之地', '', 'Desolace', '', 'Пустоши');
-INSERT INTO `locales_area` VALUES (406, '돌발톱 산맥', 'Les Serres-Rocheuses (Stonetalon Mts)', 'Steinkrallengebirge', '石爪山脉', '', 'Montañas Espolón', '', 'Когтистые горы');
+INSERT INTO `locales_area` VALUES (406, '돌발톱 산맥', 'Les Serres-Rocheuses (Stonetalon Mts)', 'Steinkrallengebirge', '石爪山脉', '', 'Sierra Espolón', '', 'Когтистые горы');
 INSERT INTO `locales_area` VALUES (407, '오그리마', 'Orgrimmar UNUSED', 'Orgrimmar UNUSED', '奥格瑞玛', '', 'Orgrimmar SIN UTILIZAR', '', 'Оргриммар НЕ ИСПОЛЬЗУЕТСЯ');
 INSERT INTO `locales_area` VALUES (408, '길리짐의 섬', 'Ile de Gillijim', 'Gillijims Insel', '吉利吉姆之岛', '', 'Isla de Gillijim', '', 'Остров Гиллиджима');
 INSERT INTO `locales_area` VALUES (409, '학자 라피디스의 섬', 'Ile du docteur Lapidis', 'Insel des Doktor Lapidis', '拉匹迪斯之岛', '', 'Isla del Doctor Lapidis', '', 'Остров доктора Лапидиса');
 INSERT INTO `locales_area` VALUES (410, '칼바람 협곡', 'Canyon de Tranchevent', 'Klingenschlucht', '烈风峡谷', '', 'Cañón del Viento de Navaja', '', 'Каньон Колючего Ветра');
 INSERT INTO `locales_area` VALUES (411, '배스랜 서식지', 'Repaire de Bathran', 'Bathrans Schlupfwinkel', '巴斯兰鬼屋', '', 'El Refugio de Bathran', '', 'Убежище Батрана');
 INSERT INTO `locales_area` VALUES (412, '오르딜아란의 폐허', 'Les Ruines d\'Ordil\'Aran', 'Die Ruinen von Ordil\'Aran', '奥迪拉兰废墟', '', 'Las ruinas de Ordil\'Aran', '', 'Руины Ордил\'Арана');
-INSERT INTO `locales_area` VALUES (413, '마에스트라 주둔지', 'Poste de Maestra', 'Maestras Posten', '迈斯特拉岗哨', '', 'Mensaje de la Maestra', '', 'Застава Мейстры');
-INSERT INTO `locales_area` VALUES (414, '조람 해안', 'La grève de Zoram', 'Der Zoramstrand', '佐拉姆海岸', '', 'La Hebra de Zoram', '', 'Зорамское взморье');
+INSERT INTO `locales_area` VALUES (413, '마에스트라 주둔지', 'Poste de Maestra', 'Maestras Posten', '迈斯特拉岗哨', '', 'Atalaya de Maestra', '', 'Застава Мейстры');
+INSERT INTO `locales_area` VALUES (414, '조람 해안', 'La grève de Zoram', 'Der Zoramstrand', '佐拉姆海岸', '', 'La Ensenada de Zoram', '', 'Зорамское взморье');
 INSERT INTO `locales_area` VALUES (415, '아스트라나르', 'Astranaar', 'Astranaar', '阿斯特兰纳', '', 'Astranaar', '', 'Астранаар');
-INSERT INTO `locales_area` VALUES (416, '아에시나의 제단', 'Le sanctuaire d\'Aessina', 'Der Schrein von Aessina', '艾森娜神殿', '', 'El Santuario de Aessina', '', 'Святилище Эссины');
+INSERT INTO `locales_area` VALUES (416, '아에시나의 제단', 'Le sanctuaire d\'Aessina', 'Der Schrein von Aessina', '艾森娜神殿', '', 'Santuario de Aessina', '', 'Святилище Эссины');
 INSERT INTO `locales_area` VALUES (417, '불타버린 신전', 'Sanctuaire de Scarfeu', 'Schrein des sengenden Feuers', '火痕神殿', '', 'Santuario de la Cicatriz de Fuego', '', 'Святилище Огненной Расщелины');
-INSERT INTO `locales_area` VALUES (418, '별가루의 폐허', 'Les ruines de Chimétoile', 'Die Sternenstaubruinen', '星尘废墟', '', 'Las Ruinas de Polvo de Estrellas', '', 'Руины Звездной Пыли');
-INSERT INTO `locales_area` VALUES (419, '울부짖는 골짜기', 'Le Val hurlant', 'Das heulende Tal', '狼嚎谷', '', 'El Valle de los Aullidos', '', 'Воющая долина');
+INSERT INTO `locales_area` VALUES (418, '별가루의 폐허', 'Les ruines de Chimétoile', 'Die Sternenstaubruinen', '星尘废墟', '', 'Las Ruinas del Polvo Estelar', '', 'Руины Звездной Пыли');
+INSERT INTO `locales_area` VALUES (419, '울부짖는 골짜기', 'Le Val hurlant', 'Das heulende Tal', '狼嚎谷', '', 'La Vega del Aullido', '', 'Воющая долина');
 INSERT INTO `locales_area` VALUES (420, '실바람 산장', 'Refuge de Vent-argent', 'Silberwindzuflucht', '银风避难所', '', 'Refugio  Viento de Plata', '', 'Приют Серебряного Ветра');
 INSERT INTO `locales_area` VALUES (421, '미스트랄 호수', 'Lac Mystral', 'Mystralsee', '密斯特拉湖', '', 'Lago Mystral', '', 'Озеро Мистраль');
-INSERT INTO `locales_area` VALUES (422, '유성 호수', 'Lac Tombeciel', 'Himmelssturzsee', '坠星湖', '', 'Lago Cielo Caído', '', 'Зеркало Небес');
+INSERT INTO `locales_area` VALUES (422, '유성 호수', 'Lac Tombeciel', 'Himmelssturzsee', '坠星湖', '', 'Lago Cielo Estrellado', '', 'Зеркало Небес');
 INSERT INTO `locales_area` VALUES (424, '아이리스 호수', 'Lac Iris', 'Irissee', '伊瑞斯湖', '', 'Lago Iris', '', 'Озеро Ирис');
-INSERT INTO `locales_area` VALUES (425, '달샘', 'Puits de lune', 'Mondbrunnen', '月亮井', '', 'Lunabuena', '', 'Лунный колодец');
+INSERT INTO `locales_area` VALUES (425, '달샘', 'Puits de lune', 'Mondbrunnen', '月亮井', '', 'Poza de la Luna', '', 'Лунный колодец');
 INSERT INTO `locales_area` VALUES (426, '라이네나무 은신처', 'Retraite de Raynewood', 'Raynewood', '林中树居', '', 'Retiro de Madera de Rayne', '', 'Приют в Ночных Лесах');
 INSERT INTO `locales_area` VALUES (427, '그늘 동굴', 'Le creux ombragé', 'Der Schattenwinkel', '林荫小径', '', 'El Rincón Sombrío', '', 'Тенистый закоулок');
 INSERT INTO `locales_area` VALUES (428, '어둠의 터', 'Défilé de la nuit', 'Nachtflucht', '夜道谷', '', 'Desfile Nocturno', '', 'Ночная поляна');
@@ -424,7 +424,7 @@ INSERT INTO `locales_area` VALUES (435, '악마벼락 협곡', 'Canyon de la Mal
 INSERT INTO `locales_area` VALUES (436, '악마벼락 마루', 'Crête de la Malechute', 'Dämonenstieg', '屠魔山', '', 'Cresta Caída del Demonio', '', 'Гряда Гибели Демона');
 INSERT INTO `locales_area` VALUES (437, '전쟁노래부족 벌목기지', 'Camp de bûcherons Warsong', 'Das Holzfällerlager der Warsong', '战歌伐木营地', '', 'Campamento de Madera Grito de guerra', '', 'Лесозаготовки Песни Войны');
 INSERT INTO `locales_area` VALUES (438, '어둠의 나무', 'L\'Ombrage', 'Schattengrün', '大树荫', '', 'Sombra de la Rama', '', 'Тенистая Крона');
-INSERT INTO `locales_area` VALUES (439, '소금 평원', 'Les Salines', 'Die schimmernde Ebene', '闪光平原', '', 'Los Pisos Relucientes', '', 'Мерцающая равнина');
+INSERT INTO `locales_area` VALUES (439, '소금 평원', 'Les Salines', 'Die schimmernde Ebene', '闪光平原', '', 'El Desierto de Sal', '', 'Мерцающая равнина');
 INSERT INTO `locales_area` VALUES (440, '타나리스', 'Tanaris', 'Tanaris', '塔纳利斯', '', 'Tanaris', '', 'Танарис');
 INSERT INTO `locales_area` VALUES (441, '팔라딤 호수', 'Lac Falathim', 'Falathimsee', '法拉希姆湖', '', 'Lago falathim', '', 'Озеро Фалатим');
 INSERT INTO `locales_area` VALUES (442, '아우버다인', 'Auberdine', 'Auberdine', '奥伯丁', '', 'Berenjena', '', 'Аубердин');
@@ -433,8 +433,8 @@ INSERT INTO `locales_area` VALUES (444, '알살락스의 탑', 'Tour d\'Althalax
 INSERT INTO `locales_area` VALUES (445, '절벽 폭포', 'Chutes de la Bondissante', 'Cliffspring Falls', '峭壁之泉', '', 'Catarata Acantilado de la Primavera', '', 'Водопад Скалистый');
 INSERT INTO `locales_area` VALUES (446, '바샬아란', 'Bashal\'Aran', 'Bashal\'Aran', '巴莎兰', '', 'Bashal\'Aran', '', 'Башал\'Аран');
 INSERT INTO `locales_area` VALUES (447, '아메스아란', 'Ameth\'Aran', 'Ameth\'Aran', '亚米萨兰', '', 'Ameth\'Aran', '', 'Амет\'Аран');
-INSERT INTO `locales_area` VALUES (448, '고대정령의 숲', 'Bosquet des Anciens', 'Der Hain der Uralten', '古树之林', '', 'Arboleda de los Antiguos', '', 'Роща Древних');
-INSERT INTO `locales_area` VALUES (449, '지배자의 무덤', 'Le Glaive du Maître', 'Die Meistergleve', '主宰之剑', '', 'La Guja del Maestro', '', 'Меч Властителя');
+INSERT INTO `locales_area` VALUES (448, '고대정령의 숲', 'Bosquet des Anciens', 'Der Hain der Uralten', '古树之林', '', 'El Páramo de los Ancestros', '', 'Роща Древних');
+INSERT INTO `locales_area` VALUES (449, '지배자의 무덤', 'Le Glaive du Maître', 'Die Meistergleve', '主宰之剑', '', 'El Glaive del Maestro', '', 'Меч Властителя');
 INSERT INTO `locales_area` VALUES (450, '렘트레블의 발굴현장', 'Excavations de Remtravel', 'Remtravels Ausgrabung', '雷姆塔维尔挖掘场', '', 'Excavación de Remtravel', '', 'Раскопки рассеянного геолога');
 INSERT INTO `locales_area` VALUES (452, '안개 해안', 'La lisière des brumes', 'Nebelrand', '薄雾海', '', 'Filo de la Niebla', '', 'Туманный Предел');
 INSERT INTO `locales_area` VALUES (453, '침식지', 'Le Lent reflux', 'Der lange Strand', '长桥码头', '', 'El Lavado Largo', '', 'Длинный пролив');
@@ -443,16 +443,16 @@ INSERT INTO `locales_area` VALUES (455, '검은나무일족 소굴', 'Tanière d
 INSERT INTO `locales_area` VALUES (456, '폭포수 강', 'La Bondissante', 'Cliffspring', '壁泉河', '', 'Río Acantilado de Primavera', '', 'Река Скалистая');
 INSERT INTO `locales_area` VALUES (457, '장막의 바다', 'La Mer voilée', 'Das verhüllte Meer', '迷雾之海', '', 'El Mar Velado', '', 'Сокрытое море');
 INSERT INTO `locales_area` VALUES (458, '황금길', 'Route de l\'or', 'Goldstraße', '黄金之路', '', 'Camino de Oro', '', 'Золотой Путь');
-INSERT INTO `locales_area` VALUES (459, '붉은십자군 경비초소', 'Poste de garde de la Croisade', 'Scharlachroter Wachposten', '血色十字军哨岗', '', 'Puesto de Vigilancia Escarlata', '', 'Сторожевой пост Алого ордена');
-INSERT INTO `locales_area` VALUES (460, '해바위 야영지', 'Retraite de Roche-Soleil', 'Sonnenfels', '烈日石居', '', 'Retiro Roca del Sol', '', 'Приют у Солнечного Камня');
-INSERT INTO `locales_area` VALUES (461, '칼바람 바위산', 'Combe des Cisailles', 'Die Scherwindklippe', '狂风峭壁', '', 'Peñasco Los Vientos que Escuchan', '', 'Утес Ветрорезов');
+INSERT INTO `locales_area` VALUES (459, '붉은십자군 경비초소', 'Poste de garde de la Croisade', 'Scharlachroter Wachposten', '血色十字军哨岗', '', 'Atalaya Escarlata', '', 'Сторожевой пост Алого ордена');
+INSERT INTO `locales_area` VALUES (460, '해바위 야영지', 'Retraite de Roche-Soleil', 'Sonnenfels', '烈日石居', '', 'Refugio Roca del Sol', '', 'Приют у Солнечного Камня');
+INSERT INTO `locales_area` VALUES (461, '칼바람 바위산', 'Combe des Cisailles', 'Die Scherwindklippe', '狂风峭壁', '', 'Risco Cortaviento', '', 'Утес Ветрорезов');
 INSERT INTO `locales_area` VALUES (463, '바위웅덩이 호수', 'Lac de la Combe', 'Felskesselsee', '峭壁湖', '', 'Lago de la Piscina del Risco', '', 'Скалистое озеро');
 INSERT INTO `locales_area` VALUES (464, '땅거미 호수', 'Lac Mirkfallon', 'Mirkfallonsee', '暗色湖', '', 'Lago Mirkfallon', '', 'Мутное озеро');
-INSERT INTO `locales_area` VALUES (465, '잿더미 계곡', 'Le Val calciné', 'Das verbrannte Tal', '焦炭谷', '', 'El Valle Carbonizado', '', 'Обугленная долина');
+INSERT INTO `locales_area` VALUES (465, '잿더미 계곡', 'Le Val calciné', 'Das verbrannte Tal', '焦炭谷', '', 'La Vega Carbonizada', '', 'Обугленная долина');
 INSERT INTO `locales_area` VALUES (466, '혈폭풍일족의 골짜기', 'Vallée des Rouges-furies', 'Tal der Blutfurien', '血怒峡谷', '', 'Valle de las Furias Sangrientas', '', 'Долина Кровавой Ярости');
-INSERT INTO `locales_area` VALUES (467, '돌발톱 봉우리', 'Pic des Serres-Rocheuses', 'Der Steinkrallengipfel', '石爪峰', '', 'Pico Espolón', '', 'Пик Каменного Когтя');
+INSERT INTO `locales_area` VALUES (467, '돌발톱 봉우리', 'Pic des Serres-Rocheuses', 'Der Steinkrallengipfel', '石爪峰', '', 'Cima del Espolón', '', 'Пик Каменного Когтя');
 INSERT INTO `locales_area` VALUES (468, '갈퀴발톱굴', 'L\'antre des Serres', 'Der Krallenbau', '猛禽洞穴', '', 'La Guarida de Talon', '', 'Логово Когтя');
-INSERT INTO `locales_area` VALUES (469, '큰소나무 계곡', 'Val de Grandbois', 'Hochwipfeltal', '巨木谷', '', 'Valle Gran Madera', '', 'Долина Высокого леса');
+INSERT INTO `locales_area` VALUES (469, '큰소나무 계곡', 'Val de Grandbois', 'Hochwipfeltal', '巨木谷', '', 'Vega del Gran Bosque', '', 'Долина Высокого леса');
 INSERT INTO `locales_area` VALUES (470, '썬더 블러프', 'Thunder Bluff UNUSED', 'Thunder Bluff UNUSED', '雷霆崖', '', 'Cima del Trueno SIN USAR', '', 'Громовой Утес НЕ ИСПОЛЬЗУЕТСЯ');
 INSERT INTO `locales_area` VALUES (471, '용사의 바람절벽', 'Mesa de Brave-vent', 'Brave Wind Mesa', '强风台地', '', 'Mesa del Viento Valiente', '', 'Плато Дерзкого Ветра');
 INSERT INTO `locales_area` VALUES (472, '부싯돌 고원', 'Mesa de Pierrefeu', 'Fire Stone Mesa', '火石台地', '', 'Mesa de Piedra de Fuego', '', 'Плато Огненного Камня');
@@ -467,26 +467,26 @@ INSERT INTO `locales_area` VALUES (480, '에톡 야영지', 'Camp E\'thok', 'Cam
 INSERT INTO `locales_area` VALUES (481, '갈래발굽 바윗골', 'Combe du Sabot fendu', 'Spalthufklippe', '裂蹄峭壁', '', 'Peñasco de Peralte', '', 'Утес Треснувшего Копыта');
 INSERT INTO `locales_area` VALUES (482, '마루둥지', 'Haut-perchoir', 'Der Steilhang', '风巢', '', 'Percha Alta', '', 'Скальное гнездовье');
 INSERT INTO `locales_area` VALUES (483, '회오리 협곡', 'Canyon des hurlements', 'Der kreischende Canyon', '尖啸峡谷', '', 'El Cañón Chirriante', '', 'Каньон Визга');
-INSERT INTO `locales_area` VALUES (484, '높새바람 봉우리', 'Poste de Librevent', 'Freiwindposten', '乱风岗', '', 'Puesto de Viento Libre', '', 'Застава Вольного Ветра');
-INSERT INTO `locales_area` VALUES (485, '구름 승강장', 'La Grande élévation', 'Der große Aufzug', '升降梯', '', 'El Gran Ascensor', '', 'Великий Подъемник');
+INSERT INTO `locales_area` VALUES (484, '높새바람 봉우리', 'Poste de Librevent', 'Freiwindposten', '乱风岗', '', 'Poblado Viento Libre', '', 'Застава Вольного Ветра');
+INSERT INTO `locales_area` VALUES (485, '구름 승강장', 'La Grande élévation', 'Der große Aufzug', '升降梯', '', 'El Gran Elevador', '', 'Великий Подъемник');
 INSERT INTO `locales_area` VALUES (486, '갈라크 소굴', 'Repaire des Galak', 'Galakhöhle', '加拉克城堡', '', 'Bastión Galak', '', 'Форт Галак');
 INSERT INTO `locales_area` VALUES (487, '하피 동굴', 'Tanière des Volplumes', 'Bau der Wildfedern', '飞羽洞穴', '', 'Guarida Pluma Pícaro', '', 'Логово Легкоперых');
 INSERT INTO `locales_area` VALUES (488, '비바람 바위굴', 'La niche érodée', 'Der Wetterwinkel', '老屋', '', 'El Rincón Degradado', '', 'Угол Семи Ветров');
 INSERT INTO `locales_area` VALUES (489, '탈라나르', 'Thalanaar', 'Thalanaar', '萨兰纳尔', '', 'Thalanaar', '', 'Таланаар');
 INSERT INTO `locales_area` VALUES (490, '운고로 분화구', 'Cratère d\'Un\'Goro', 'Un\'Goro-Krater', '安戈洛环形山', '', 'Cráter de Un\'Goro', '', 'Кратер Ун\'Горо');
-INSERT INTO `locales_area` VALUES (491, '가시덩굴 우리', 'Kraal de Tranchebauge', 'Der Kral von Razorfen', '剃刀沼泽', '', 'Kraul Fenomeno de Navaja', '', 'Лабиринты Иглошкурых');
+INSERT INTO `locales_area` VALUES (491, '가시덩굴 우리', 'Kraal de Tranchebauge', 'Der Kral von Razorfen', '剃刀沼泽', '', 'Horado Rajacieno', '', 'Лабиринты Иглошкурых');
 INSERT INTO `locales_area` VALUES (492, '까마귀 언덕 묘지', 'Cimetière de Colline-aux-Corbeaux', 'Friedhof von Rabenflucht', '乌鸦岭墓地', '', 'Cementerio Colina del uervo', '', 'Кладбище Вороньего Холма');
 INSERT INTO `locales_area` VALUES (493, '달의 숲', 'Reflet-de-Lune (Moonglade)', 'Moonglade', '月光林地', '', 'Claro de la Luna', '', 'Лунная поляна');
-INSERT INTO `locales_area` VALUES (495, 'DELETE ME', 'SUPPRIMEZ-MOI', 'DELETE ME', 'DELETE ME', '', 'BORRAME', '', 'Удалите МЕНЯ');
-INSERT INTO `locales_area` VALUES (496, '담쟁이 마을', 'Mur-de-Fougères', 'Brackenwall', '蕨墙村', '', 'Aldea Muralla de Helechos', '', 'Деревня Гиблотопь');
+INSERT INTO `locales_area` VALUES (495, 'DELETE ME', 'SUPPRIMEZ-MOI', 'DELETE ME', 'DELETE ME', '', 'Bórrame', '', 'Удалите МЕНЯ');
+INSERT INTO `locales_area` VALUES (496, '담쟁이 마을', 'Mur-de-Fougères', 'Brackenwall', '蕨墙村', '', 'Poblado Murohelecho', '', 'Деревня Гиблотопь');
 INSERT INTO `locales_area` VALUES (497, '늪지기 오두막', 'Manoir des Flammeroles', 'Swamplight-Anwesen', '水光庄园', '', 'Mansión Luz del Pantano', '', 'Сторожка \"Болотный огонек\"');
 INSERT INTO `locales_area` VALUES (498, '붉은늪지 동굴', 'Terrier des Rougefanges', 'Blutsumpfbau', '鲜血沼泽墓穴', '', 'Madriguera de Pantano Sangriento', '', 'Логово Кровавой Топи');
 INSERT INTO `locales_area` VALUES (499, '암흑안개 거미굴', 'Caverne de Sombrebrume', 'Graunebelhöhlen', '黑雾洞穴', '', 'Caverna Oscura', '', 'Мглистая пещера');
 INSERT INTO `locales_area` VALUES (500, '모글 야영지', 'Cap Moggle', 'Moggle-Spitze', '摩戈尔哨塔', '', 'Punto Moggle', '', 'Вершина Моггл');
 INSERT INTO `locales_area` VALUES (501, '비질의 추락지', 'Epave de Beezil', 'Beezils Wrack', '比吉尔的飞艇残骸', '', 'Naufragio de Beezil', '', 'Место крушения Бизиля');
 INSERT INTO `locales_area` VALUES (502, '마녀 언덕', 'Colline des sorcières', 'Hexenhügel', '女巫岭', '', 'Colina de la Bruja', '', 'Ведьмин холм');
-INSERT INTO `locales_area` VALUES (503, '감시초소', 'Halte de la Vigie', 'Späherwacht', '警戒哨岗', '', 'Punto de Centinela', '', 'Сторожевой пост');
-INSERT INTO `locales_area` VALUES (504, '북부 경비탑', 'Tour de la halte nord', 'Nordwacht', '北点哨塔', '', 'Torre del Punto Norte', '', 'Северная башня');
+INSERT INTO `locales_area` VALUES (503, '감시초소', 'Halte de la Vigie', 'Späherwacht', '警戒哨岗', '', 'Alto del Centinela', '', 'Сторожевой пост');
+INSERT INTO `locales_area` VALUES (504, '북부 경비탑', 'Tour de la halte nord', 'Nordwacht', '北点哨塔', '', 'Torre de la Punta Norte', '', 'Северная башня');
 INSERT INTO `locales_area` VALUES (505, '서부 경비탑', 'Tour du cap ouest', 'Westwacht', '西点哨塔', '', 'Torre del Punto Oeste', '', 'Западная башня');
 INSERT INTO `locales_area` VALUES (506, '버려진 경비탑', 'Halte perdue', 'Die verlassene Wacht', '废弃哨塔', '', 'Punto Perdido', '', 'Разрушенная башня');
 INSERT INTO `locales_area` VALUES (507, '푸른늪지', 'Marais bleu', 'Blaumoor', '蓝色沼泽', '', 'Pantano Azul', '', 'Синяя топь');
@@ -496,7 +496,7 @@ INSERT INTO `locales_area` VALUES (510, '용의 늪', 'Le cloaque aux dragons', 
 INSERT INTO `locales_area` VALUES (511, '용의 둥지', 'Tourbière du Ver', 'Der Drachensumpf', '巨龙沼泽', '', 'Ciénaga del Wyrm', '', 'Драконьи топи');
 INSERT INTO `locales_area` VALUES (512, '오닉시아의 둥지', 'Onyxia\'s Lair UNUSED', 'Onyxia\'s Lair UNUSED', '奥妮克希亚的巢穴', '', 'Guarida de Onyxia SIN UTILIZAR', '', 'Логово Ониксии НЕ ИСПОЛЬЗУЕТСЯ');
 INSERT INTO `locales_area` VALUES (513, '테라모어 섬', 'Ile de Theramore', 'Die Insel Theramore', '塞拉摩岛', '', 'Isla Theramore', '', 'Остров Терамор');
-INSERT INTO `locales_area` VALUES (514, '거점 요새', 'Citadelle de Theramore', 'Foothold-Zitadelle', '塞拉摩堡垒', '', 'Ciudadela de Apoyo', '', 'Цитадель');
+INSERT INTO `locales_area` VALUES (514, '거점 요새', 'Citadelle de Theramore', 'Foothold-Zitadelle', '塞拉摩堡垒', '', 'Ciudadela Garrida', '', 'Цитадель');
 INSERT INTO `locales_area` VALUES (515, '철갑 감옥', 'Prison du cuirassé', 'Ironclad-Gefängnis', '铁栏监狱', '', 'Prisión Acorazada', '', 'Потайная бухта');
 INSERT INTO `locales_area` VALUES (516, '먼지진흙 만', 'Baie d\'Âprefange', 'Dustwallow Bay', '尘泥海湾', '', 'Bahía Revolcafango', '', 'Пылевая бухта');
 INSERT INTO `locales_area` VALUES (517, '성난파도 만', 'Crique du Mascaret', 'Tidefury-Bucht', '狂潮湾', '', 'Ensenada Furia Marea', '', 'Залив Яростных Волн');
@@ -512,7 +512,7 @@ INSERT INTO `locales_area` VALUES (543, '골락카 간헐천', 'Sources de Golak
 INSERT INTO `locales_area` VALUES (556, '대호수', 'Le Loch', 'Der Loch', '洛克湖', '', 'El Lago', '', 'Озеро Лок');
 INSERT INTO `locales_area` VALUES (576, '부랑자 소굴', 'Repaire des mendiants', 'Bettlerschlupfwinkel', '乞丐鬼屋', '', 'Guarida del Mendigo', '', 'Приют Бродяги');
 INSERT INTO `locales_area` VALUES (596, '코도 무덤', 'Cimetière des kodos', 'Der Kodofriedhof', '科多兽坟场', '', 'Cementerio de Kodo', '', 'Кладбище кодо');
-INSERT INTO `locales_area` VALUES (597, '침묵의 초소', 'Poste de Rôdeur-fantôme', 'Geistwandlerposten', '幽灵岗哨', '', 'Puesto del Caminante Fantasma', '', 'Застава Скитающихся Духов');
+INSERT INTO `locales_area` VALUES (597, '침묵의 초소', 'Poste de Rôdeur-fantôme', 'Geistwandlerposten', '幽灵岗哨', '', 'Campamento del Espíritu Errante', '', 'Застава Скитающихся Духов');
 INSERT INTO `locales_area` VALUES (598, '살데리스 해안', 'Grève de Sar\'theris', 'Sar\'theris-Strand', '萨瑟里斯海岸', '', 'Playa de Sar\'theris', '', 'Побережье Сар\'Терис');
 INSERT INTO `locales_area` VALUES (599, '천둥도끼 요새', 'Forteresse de Hache-Tonnerre', 'Festung Thunder Axe', '雷斧堡垒', '', 'Fortaleza del Hacha del Trueno', '', 'Крепость Громового Топора');
 INSERT INTO `locales_area` VALUES (600, '볼간의 구덩이', 'Trou de Bolgan', 'Bolgans Loch', '波尔甘的洞穴', '', 'Agujero de Bolgan', '', 'Пещера Болгана');
@@ -521,10 +521,10 @@ INSERT INTO `locales_area` VALUES (603, '살게론', 'Sargeron', 'Sargeron', '�
 INSERT INTO `locales_area` VALUES (604, '마그람 마을', 'Village des Magram', 'Magram', '玛格拉姆村', '', 'Villa Magram', '', 'Деревня Маграм');
 INSERT INTO `locales_area` VALUES (606, '겔키스 마을', 'Village des Gelkis', 'Gelkis', '吉尔吉斯村', '', 'Pueblo Gelkis', '', 'Деревня Гелкис');
 INSERT INTO `locales_area` VALUES (607, '뾰족바위 골짜기', 'Vallée des Lances', 'Das Tal der Speere', '长矛谷', '', 'Valle de las Lanzas', '', 'Долина Копий');
-INSERT INTO `locales_area` VALUES (608, '나이젤의 야영지', 'Combe de Nijel', 'Die Nijelspitze', '尼耶尔前哨站', '', 'Punto de Nijel', '', 'Высота Найджела');
+INSERT INTO `locales_area` VALUES (608, '나이젤의 야영지', 'Combe de Nijel', 'Die Nijelspitze', '尼耶尔前哨站', '', 'Punta de Nijel', '', 'Высота Найджела');
 INSERT INTO `locales_area` VALUES (609, '콜카르 마을', 'Village des Kolkar', 'Kolkar', '科尔卡村', '', 'Pueblo Kolkar', '', 'Деревня Колкар');
 INSERT INTO `locales_area` VALUES (616, '하이잘 산', 'Hyjal', 'Hyjal', '海加尔山', '', 'Hyjal', '', 'Хиджал');
-INSERT INTO `locales_area` VALUES (618, '여명의 설원', 'Berceau-de-l\'Hiver (Winterspring)', 'Winterspring', '冬泉谷', '', 'Vacaciones de Invierno', '', 'Зимние Ключи');
+INSERT INTO `locales_area` VALUES (618, '여명의 설원', 'Berceau-de-l\'Hiver (Winterspring)', 'Winterspring', '冬泉谷', '', 'Cuna del Invierno', '', 'Зимние Ключи');
 INSERT INTO `locales_area` VALUES (636, '검은늑대 강', 'Fleuve Loup-noir', 'Schwarzwolfschnellen', '黑狼河', '', 'Río Lobo Negro', '', 'Волчья река');
 INSERT INTO `locales_area` VALUES (637, '코도 바위', 'Rocher des kodos', 'Kodofels', '科多石', '', 'Roca Kodo', '', 'Дольмен Кодо');
 INSERT INTO `locales_area` VALUES (638, '비밀의 길', 'Chemin secret', 'Verborgener Pfad', '秘道', '', 'Camino Oculto', '', 'Потайная тропа');
@@ -539,14 +539,14 @@ INSERT INTO `locales_area` VALUES (698, '신전 정원', 'The Temple Gardens UNU
 INSERT INTO `locales_area` VALUES (699, '엘룬의 신전', 'Temple of Elune UNUSED', 'Temple of Elune UNUSED', '月神殿', '', 'Templo de Elune NO UTILIZADO', '', 'Храм Элуны НЕ ИСПОЛЬЗУЕТСЯ');
 INSERT INTO `locales_area` VALUES (700, '세나리온 자치령', 'Cenarion Enclave UNUSED', 'Cenarion Enclave UNUSED', 'Cenarion Enclave UNUSED', '', 'Enclave de Cenarion SIN UTILIZAR', '', 'Анклав Кенария НЕ ИСПОЛЬЗУЕТСЯ');
 INSERT INTO `locales_area` VALUES (701, '전사의 정원', 'Warrior\'s Terrace UNUSED', 'Warrior\'s Terrace UNUSED', 'Warrior\'s Terrace UNUSED', '', 'Terraza del Guerrero SIN UTILIZAR', '', 'Терраса Воинов НЕ ИСПОЛЬЗУЕТСЯ');
-INSERT INTO `locales_area` VALUES (702, '루테란 마을', 'Rut\'theran', 'Rut\'theran', '鲁瑟兰村', '', 'Pueblo de Rut\'theran', '', 'Деревня Рут\'теран');
-INSERT INTO `locales_area` VALUES (716, '아이언밴드 야영지', 'Base d\'Ironband', 'Ironbands Truppenlager', '铁环营地', '', 'Compuesto de Banda de Hierro', '', 'Мастерская Сталекрута');
+INSERT INTO `locales_area` VALUES (702, '루테란 마을', 'Rut\'theran', 'Rut\'theran', '鲁瑟兰村', '', 'Pueblo Rut\'theran', '', 'Деревня Рут\'теран');
+INSERT INTO `locales_area` VALUES (716, '아이언밴드 야영지', 'Base d\'Ironband', 'Ironbands Truppenlager', '铁环营地', '', 'Complejo Vetaferro', '', 'Мастерская Сталекрута');
 INSERT INTO `locales_area` VALUES (717, '스톰윈드 지하감옥', 'La Prison', 'Das Verlies', '监狱', '', 'La Empalizada', '', 'Тюрьма');
-INSERT INTO `locales_area` VALUES (718, '통곡의 동굴', 'Cavernes des lamentations', 'Die Höhlen des Wehklagens', '哀嚎洞穴', '', 'Cavernas de los Lamentos', '', 'Пещеры Стенаний');
-INSERT INTO `locales_area` VALUES (719, '검은심연의 나락', 'Profondeurs de Brassenoire', 'Blackfathom-Tiefe', '黑暗深渊', '', 'Profundidades Negras', '', 'Непроглядная Пучина');
+INSERT INTO `locales_area` VALUES (718, '통곡의 동굴', 'Cavernes des lamentations', 'Die Höhlen des Wehklagens', '哀嚎洞穴', '', 'Cuevas de los Lamentos', '', 'Пещеры Стенаний');
+INSERT INTO `locales_area` VALUES (719, '검은심연의 나락', 'Profondeurs de Brassenoire', 'Blackfathom-Tiefe', '黑暗深渊', '', 'Cavernas de Brazanegra', '', 'Непроглядная Пучина');
 INSERT INTO `locales_area` VALUES (720, '격투의 섬', 'Ile de la Dispute', 'Prügel-Eiland', '勇士岛', '', 'Isla Fray', '', 'Остров Битв');
 INSERT INTO `locales_area` VALUES (721, '놈리건', 'Gnomeregan', 'Gnomeregan', '诺莫瑞根', '', 'Gnomeregan', '', 'Гномреган');
-INSERT INTO `locales_area` VALUES (722, '가시덩굴 구릉', 'Souilles de Tranchebauge', 'Die Hügel von Razorfen', '剃刀高地', '', 'Bajos de Razorfen', '', 'Курганы Иглошкурых');
+INSERT INTO `locales_area` VALUES (722, '가시덩굴 구릉', 'Souilles de Tranchebauge', 'Die Hügel von Razorfen', '剃刀高地', '', 'Zahúrda Rajacieno', '', 'Курганы Иглошкурых');
 INSERT INTO `locales_area` VALUES (736, '바네실 동굴', 'Creux de Ban\'ethil', 'Ban\'ethil Hollow', '班尼希尔山谷', '', 'Hueco Ban\'ethil', '', 'Лощина Бен\'этиль');
 INSERT INTO `locales_area` VALUES (796, '붉은십자군 수도원', 'Monastère écarlate', 'Das scharlachrote Kloster', '血色修道院', '', 'Monasterio Escarlata', '', 'Монастырь Алого ордена');
 INSERT INTO `locales_area` VALUES (797, '제로드 선착장', 'Le Débarcadère de Jerod', 'Jerods Anlegestelle', '杰罗德码头', '', 'Desembarco de Jerod', '', 'Лагерь Джерода');
@@ -580,11 +580,11 @@ INSERT INTO `locales_area` VALUES (838, '북부 관문 통행로', 'Passage de l
 INSERT INTO `locales_area` VALUES (839, '남부 관문 통행로', 'Passage de la porte Sud', 'Südtorpass', '南门小径', '', 'Paso de la Puerta Sur', '', 'Южные врата');
 INSERT INTO `locales_area` VALUES (856, '황혼의 숲', 'Bosquet du crépuscule', 'Der Zwielichtshain', '黎明森林', '', 'Arboleda Crepúsculo', '', 'Мглистая роща');
 INSERT INTO `locales_area` VALUES (876, 'GM의 안식처', 'Ile des MJ', 'GM-Insel', 'GM Island', '', 'Isla GM', '', 'Остров ГМ');
-INSERT INTO `locales_area` VALUES (877, 'Delete ME', 'Supprimez-MOI', 'Delete ME', 'Delete ME', '', 'BORRAME', '', 'Удалите МЕНЯ');
+INSERT INTO `locales_area` VALUES (877, 'Delete ME', 'Supprimez-MOI', 'Delete ME', 'Delete ME', '', 'Bórrame', '', 'Удалите МЕНЯ');
 INSERT INTO `locales_area` VALUES (878, '분노의 강', 'Fleuve Furie-du-Sud', 'Der Südstrom', '怒水河', '', 'Río Furia del Sur', '', 'Река Строптивая');
 INSERT INTO `locales_area` VALUES (879, '분노의 강', 'Fleuve Furie-du-Sud', 'Der Südstrom', '怒水河', '', 'Río Furia del Sur', '', 'Река Строптивая');
-INSERT INTO `locales_area` VALUES (880, '탄돌 교각', 'Viaduc de Thandol', 'Thandol-Übergang', '萨多尔大桥', '', 'Lapso Thandol ', '', 'Мост Тандола');
-INSERT INTO `locales_area` VALUES (881, '탄돌 교각', 'Viaduc de Thandol', 'Thandol-Übergang', '萨多尔大桥', '', 'Lapso Thandol ', '', 'Мост Тандола');
+INSERT INTO `locales_area` VALUES (880, '탄돌 교각', 'Viaduc de Thandol', 'Thandol-Übergang', '萨多尔大桥', '', 'Puente Thandol', '', 'Мост Тандола');
+INSERT INTO `locales_area` VALUES (881, '탄돌 교각', 'Viaduc de Thandol', 'Thandol-Übergang', '萨多尔大桥', '', 'Puente Thandol', '', 'Мост Тандола');
 INSERT INTO `locales_area` VALUES (896, '속죄의 섬', 'Ile de la purification', 'Fegefeuer-Insel', '赎罪岛', '', 'Isla de la Purgación', '', 'Остров Очищения');
 INSERT INTO `locales_area` VALUES (916, '얀센 농장', 'La ferme des Jansen', 'Jansens Siedlung', '贾森农场', '', 'El Lugar de Jansen', '', 'Владение Янсена');
 INSERT INTO `locales_area` VALUES (917, '메마른 논밭', 'L\'acre mort', 'Der Todesacker', '死亡农地', '', 'El Acre Muerto', '', 'Мертвая пашня');
@@ -601,11 +601,11 @@ INSERT INTO `locales_area` VALUES (927, '반짝이는 호숫가', 'Le Rivage ray
 INSERT INTO `locales_area` VALUES (928, '북부 해안 골짜기', 'Creux de la côte nord', 'North Tide\'s Hollow', '北流谷', '', 'Hueco de la Marea Norte', '', 'Северная приливная низина');
 INSERT INTO `locales_area` VALUES (936, '곰발바닥 마루', 'Falaise de Vieillegriffe', 'Grautatzengrat', '灰爪山', '', 'Cresta Zarpa Gimoteo', '', 'Хребет Седых Лап');
 INSERT INTO `locales_area` VALUES (956, '신록의 들판', 'Les Champs verdoyants', 'Die saftgrünen Felder', '青草平原', '', 'Los Campos Verdes', '', 'Зеленеющие поля');
-INSERT INTO `locales_area` VALUES (976, '가젯잔', 'Gadgetzan', 'Gadgetzan', '加基森', '', 'Artilugiozan', '', 'Прибамбасск');
-INSERT INTO `locales_area` VALUES (977, '스팀휘들 항구', 'Port Gentepression', 'Steamwheedle', '热砂港', '', 'Puerto de Vapor', '', 'Порт Картеля');
+INSERT INTO `locales_area` VALUES (976, '가젯잔', 'Gadgetzan', 'Gadgetzan', '加基森', '', 'Gadgetzan', '', 'Прибамбасск');
+INSERT INTO `locales_area` VALUES (977, '스팀휘들 항구', 'Port Gentepression', 'Steamwheedle', '热砂港', '', 'Puerto Bonvapor', '', 'Порт Картеля');
 INSERT INTO `locales_area` VALUES (978, '줄파락', 'Zul\'Farrak', 'Zul\'Farrak', '祖尔法拉克', '', 'Zul\'Farrak', '', 'Зул\'Фаррак');
 INSERT INTO `locales_area` VALUES (979, '슬픈모래 감시탑', 'Guet de Tristesable', 'Sandsorrow-Wache', '流沙岗哨', '', 'Reloj de Dolor de Arena', '', 'Застава Скорбных Песков');
-INSERT INTO `locales_area` VALUES (980, '덤불나무 골짜기', 'Vallée des Chardonniers', 'Disteltal', '灌木谷', '', 'Valle Carne Frotada', '', 'Долина Кактусов');
+INSERT INTO `locales_area` VALUES (980, '덤불나무 골짜기', 'Vallée des Chardonniers', 'Disteltal', '灌木谷', '', 'El Valle Cardizal', '', 'Долина Кактусов');
 INSERT INTO `locales_area` VALUES (981, '모래지옥 협곡', 'Le Gouffre béant', 'Die klaffende Schlucht', '大裂口', '', 'El Abismo Enorme', '', 'Зияющая бездна');
 INSERT INTO `locales_area` VALUES (982, '맹독의 둥지', 'Le Repaire nuisible', 'Der giftige Unterschlupf', '腐化之巢', '', 'La Guarida Nociva', '', 'Ядовитый улей');
 INSERT INTO `locales_area` VALUES (983, '모래망치 주둔지', 'Base des Cognedunes', 'Truppenlager der Dünenbrecher', '砂槌营地', '', 'Compuesto de Mazo de Dunas', '', 'Поселение Песчаного Молота');
@@ -646,7 +646,7 @@ INSERT INTO `locales_area` VALUES (1097, '고요의 강둑', 'La Rive silencieus
 INSERT INTO `locales_area` VALUES (1098, '미스트맨틀 장원', 'Manoir Mistmantle', 'Anwesen der Mistmantles', '密斯特曼托庄园', '', 'Mansión Manto de Niebla', '', 'Поместье Мистмантла');
 INSERT INTO `locales_area` VALUES (1099, '모자케 야영지', 'Camp Mojache', 'Camp Mojache', '莫沙彻营地', '', 'Campamento Mojache', '', 'Лагерь Мохаче');
 INSERT INTO `locales_area` VALUES (1100, '그림토템 주둔지', 'Base des Totem sinistre', 'Truppenlager der Grimmtotem', '恐怖图腾营地', '', 'Compuesto Tótem Siniestro', '', 'Лагерь Зловещего Тотема');
-INSERT INTO `locales_area` VALUES (1101, '고통의 구덩이', 'Gouffre grouillant', 'Die verwundene Tiefe', '痛苦深渊', '', 'El Abismo Retorcido', '', 'Гудящая Бездна');
+INSERT INTO `locales_area` VALUES (1101, '고통의 구덩이', 'Gouffre grouillant', 'Die verwundene Tiefe', '痛苦深渊', '', 'Las Entrañas Retorcidas', '', 'Гудящая Бездна');
 INSERT INTO `locales_area` VALUES (1102, '갈기바람 호수', 'Lac des rafales', 'Wildwindsee', '狂风湖', '', 'Lago Viento Salvaje', '', 'Штормовое озеро');
 INSERT INTO `locales_area` VALUES (1103, '골두니 전초기지', 'Avant-poste des Gordunni', 'Außenposten der Gordunni', '戈杜尼前哨站', '', 'Puesto de Avanzada Gordunni', '', 'Поселение Гордунни');
 INSERT INTO `locales_area` VALUES (1104, '모크골둔', 'Mok\'Gordun', 'Mok\'Gordun', '莫克高顿', '', 'Mok\'Gordun', '', 'Мок\'Гордун');
@@ -661,19 +661,19 @@ INSERT INTO `locales_area` VALUES (1112, '비취비늘 호수', 'Lac Jademir', '
 INSERT INTO `locales_area` VALUES (1113, '오네이로스', 'Oneiros', 'Oneiros', '奥奈罗斯', '', 'Oneiros', '', 'Онейрос');
 INSERT INTO `locales_area` VALUES (1114, '까마귀바람 폐허', 'Ruines de Vent-du-Corbeau', 'Ruinen von Rabenwind', '鸦风废墟', '', 'Ruinas Viento del Cuervo', '', 'Руины Яростного Ветра');
 INSERT INTO `locales_area` VALUES (1115, '무쇠설인 소굴', 'Repaire des Griffes féroces', 'Wutschrammfeste', '怒痕堡', '', 'Cicatriz de Rabia Mantenida', '', 'Пещера Бешеного оврага');
-INSERT INTO `locales_area` VALUES (1116, '페더문 요새', 'Bastion de Feathermoon', 'Festung Feathermoon', '羽月要塞', '', 'Fortaleza de Pluma Luna', '', 'Крепость Оперенной Луны');
+INSERT INTO `locales_area` VALUES (1116, '페더문 요새', 'Bastion de Feathermoon', 'Festung Feathermoon', '羽月要塞', '', 'Bastión Plumaluna', '', 'Крепость Оперенной Луны');
 INSERT INTO `locales_area` VALUES (1117, '솔라살 폐허', 'Ruines de Solarsal', 'Ruinen von Solarsal', '索兰萨尔废墟', '', 'Ruinas de Solarsal', '', 'Руины Соларсаля');
 INSERT INTO `locales_area` VALUES (1118, '낮은벌', 'Lower Wilds UNUSED', 'Lower Wilds UNUSED', 'Lower Wilds UNUSED', '', 'Comodines Inferiores SIN USAR', '', 'Низинные чащобы НЕ ИСПОЛЬЗУЕТСЯ');
-INSERT INTO `locales_area` VALUES (1119, '쌍둥이 바위산', 'Les Colosses jumeaux', 'Die Zwillingskolosse', '双塔山', '', 'Los Colosales Gemelos', '', 'Два Колосса');
+INSERT INTO `locales_area` VALUES (1119, '쌍둥이 바위산', 'Les Colosses jumeaux', 'Die Zwillingskolosse', '双塔山', '', 'Los Dos Colosos', '', 'Два Колосса');
 INSERT INTO `locales_area` VALUES (1120, '살도르 섬', 'Ile de Sardor', 'Insel Sardor', '萨尔多岛', '', 'Isla de Sardor', '', 'Остров Сардор');
 INSERT INTO `locales_area` VALUES (1121, '공포의 섬', 'lle de l\'effroi', 'Die Insel des Schreckens', '恐怖之岛', '', 'Isla del Pavor', '', 'Остров Ужаса');
-INSERT INTO `locales_area` VALUES (1136, '높은벌', 'Les plateaux sauvages', 'Die obere Wildnis', '高原荒野', '', 'Alto Desierto', '', 'Высокогорные дебри');
-INSERT INTO `locales_area` VALUES (1137, '낮은벌', 'Etendues sauvages', 'Die untere Wildnis', '低地荒野', '', 'Comodines Inferiores', '', 'Низинные чащобы');
+INSERT INTO `locales_area` VALUES (1136, '높은벌', 'Les plateaux sauvages', 'Die obere Wildnis', '高原荒野', '', 'Altas Tierras Salvajes', '', 'Высокогорные дебри');
+INSERT INTO `locales_area` VALUES (1137, '낮은벌', 'Etendues sauvages', 'Die untere Wildnis', '低地荒野', '', 'Bajas Tierras Salvajes', '', 'Низинные чащобы');
 INSERT INTO `locales_area` VALUES (1156, '불모의 땅 남부', 'Tarides du sud', 'Südliches Brachland', '南贫瘠之地', '', 'Baldíos del Sur', '', 'Южные степи');
 INSERT INTO `locales_area` VALUES (1157, '남부 황금길', 'Route de l\'or méridionale', 'Südliche Goldstraße', '南黄金之路', '', 'Camino del Oro del Sur', '', 'Южный Золотой Путь');
 INSERT INTO `locales_area` VALUES (1176, '줄파락', 'Zul\'Farrak', 'Zul\'Farrak', '祖尔法拉克', '', 'Zul\'Farrak', '', 'Зул\'Фаррак');
 INSERT INTO `locales_area` VALUES (1196, '알카즈 섬', 'UNUSEDAlcaz Island', 'UNUSEDAlcaz Island', '奥卡兹岛', '', 'Isla Alcaz NO USADO', '', 'НЕ ИСПОЛЬЗУЕТСЯ Остров Альказ');
-INSERT INTO `locales_area` VALUES (1216, '나무구렁 요새', 'Repaire des Grumegueules', 'Holzschlundfeste', '木喉要塞', '', 'Asimiento de las Fauces de Madera', '', 'Крепость Древобрюхов');
+INSERT INTO `locales_area` VALUES (1216, '나무구렁 요새', 'Repaire des Grumegueules', 'Holzschlundfeste', '木喉要塞', '', 'Bastión de los Fauces de Madera', '', 'Крепость Древобрюхов');
 INSERT INTO `locales_area` VALUES (1217, '반디르 야영지', 'Campement de Vanndir', 'Vanndir-Lager', '范迪尔营地', '', 'Campamento Vanndir', '', 'Лагерь Ванндир');
 INSERT INTO `locales_area` VALUES (1218, '아즈샤라', 'TESTAzshara', 'TESTAzshara', 'TESTAzshara', '', 'PRUEBA Azshara', '', 'ТЕСТАзшара');
 INSERT INTO `locales_area` VALUES (1219, '레가쉬 야영지', 'Campement Legashi', 'Lager der Legashi', '雷加什营地', '', 'Campamento de Legash', '', 'Лагерь Легаш');
@@ -700,7 +700,7 @@ INSERT INTO `locales_area` VALUES (1276, '돌발톱 토굴길', 'La Perce des Se
 INSERT INTO `locales_area` VALUES (1277, '돌발톱 토굴길', 'La Perce des Serres', 'Der Steinkrallenpfad', '石爪小径', '', 'El Camino de las Garras', '', 'Туннель Когтя');
 INSERT INTO `locales_area` VALUES (1296, '바위어금니 농장', 'Ferme Brochepierre', 'Felshauerhof', '石牙农场', '', 'Granja Colmillo de Roca', '', 'Ферма Каменного Клыка');
 INSERT INTO `locales_area` VALUES (1297, '톱니멧돼지 농장', 'Ferme Rêche-pourceau', 'Scheckeneberhof', '野猪农场', '', 'Granja de Vinos Dentados', '', 'Свиноферма');
-INSERT INTO `locales_area` VALUES (1316, '가시덩굴 구릉', 'Souilles de Tranchebauge', 'Die Hügel von Razorfen', '剃刀高地', '', 'Bajos de Razorfen', '', 'Курганы Иглошкурых');
+INSERT INTO `locales_area` VALUES (1316, '가시덩굴 구릉', 'Souilles de Tranchebauge', 'Die Hügel von Razorfen', '剃刀高地', '', 'Zahúrda Rajacieno', '', 'Курганы Иглошкурых');
 INSERT INTO `locales_area` VALUES (1336, '해적단 소굴', 'Crique des Gréements', 'Lost-Rigger-Bucht', '落帆海湾', '', 'Ensenada del Aparejador Perdido', '', 'Бухта Сорванных Парусов');
 INSERT INTO `locales_area` VALUES (1337, '울다만', 'Uldaman', 'Uldaman', '奥达曼', '', 'Uldaman', '', 'Ульдаман');
 INSERT INTO `locales_area` VALUES (1338, '로다미어 호수', 'Lac Lordamere', 'Der Lordameresee', '洛丹米尔湖', '', 'Lago Lordamere', '', 'Озеро Лордамер');
@@ -708,7 +708,7 @@ INSERT INTO `locales_area` VALUES (1339, '로다미어 호수', 'Lac Lordamere',
 INSERT INTO `locales_area` VALUES (1357, '갤로우 삼거리', 'Fourche du gibet', 'Galgeneck', '绞刑场', '', 'Rincón de la Horca', '', 'Перекресток Висельников');
 INSERT INTO `locales_area` VALUES (1377, '실리더스', 'Silithus', 'Silithus', '希利苏斯', '', 'Silithus', '', 'Силитус');
 INSERT INTO `locales_area` VALUES (1397, '에메랄드 숲', 'Forêt d\'émeraude', 'Smaragdwald', '翠叶森林', '', 'Bosque Esmeralda', '', 'Изумрудный лес');
-INSERT INTO `locales_area` VALUES (1417, '가라앉은 사원', 'Temple englouti', 'Versunkener Tempel', '沉没的神庙', '', 'Templo Hundido', '', 'Затонувший храм');
+INSERT INTO `locales_area` VALUES (1417, '가라앉은 사원', 'Temple englouti', 'Versunkener Tempel', '沉没的神庙', '', 'Templo Sumergido', '', 'Затонувший храм');
 INSERT INTO `locales_area` VALUES (1437, '우레망치 요새', 'Bastion Cognepeur', 'Feste Schreckensfels', '巨槌要塞', '', 'Bastión Machapavoroso', '', 'Форт Молота Ужаса');
 INSERT INTO `locales_area` VALUES (1438, '네더가드 요새', 'Rempart-du-Néant', 'Burg Nethergarde', '守望堡', '', 'Fortaleza de Grande Inferior', '', 'Крепость Стражей Пустоты');
 INSERT INTO `locales_area` VALUES (1439, '우레망치 주둔지', 'Poste Cognepeur', 'Schreckensfelsposten', '巨槌岗哨', '', 'Publicación Machapavoroso', '', 'Стоянка Молота Ужаса');
@@ -733,7 +733,7 @@ INSERT INTO `locales_area` VALUES (1579, '죽음의 폐광', 'Unused The Deadmin
 INSERT INTO `locales_area` VALUES (1580, '철갑 동굴', 'Unused Ironclad Cove 003', 'Unused Ironclad Cove 003', 'Unused Ironclad Cove 003', '', 'Minas muertas no utilizadas 003', '', 'НЕ ИСПОЛЬЗУЕТСЯ Потайная бухта 003');
 INSERT INTO `locales_area` VALUES (1581, '죽음의 폐광', 'Les Mortemines', 'Die Todesminen', '死亡矿井', '', 'Las Minas de la Muerte', '', 'Мертвые копи');
 INSERT INTO `locales_area` VALUES (1582, '철갑 동굴', 'Crique du cuirassé', 'Ironcladbucht', '铁甲湾', '', 'Cala Acorazada', '', 'Потайная бухта');
-INSERT INTO `locales_area` VALUES (1583, '검은바위 첨탑', 'Pic Blackrock', 'Blackrockspitze', '黑石塔', '', 'Aguja Roca Negra', '', 'Пик Черной горы');
+INSERT INTO `locales_area` VALUES (1583, '검은바위 첨탑', 'Pic Blackrock', 'Blackrockspitze', '黑石塔', '', 'Cumbre de Roca Negra', '', 'Пик Черной горы');
 INSERT INTO `locales_area` VALUES (1584, '검은바위 나락', 'Profondeurs de Blackrock', 'Blackrocktiefen', '黑石深渊', '', 'Profundidades de Roca Negra', '', 'Глубины Черной горы');
 INSERT INTO `locales_area` VALUES (1597, '랩터 서식지', 'Raptor Grounds UNUSED', 'Raptor Grounds UNUSED', 'Raptor Grounds UNUSED', '', 'Jardines de Raptor SIN UTILIZAR', '', 'Земли ящеров НЕ ИСПОЛЬЗУЕТСЯ');
 INSERT INTO `locales_area` VALUES (1598, '그롤돔 농장', 'Grol\'dom Farm UNUSED', 'Grol\'dom Hof UNUSED', 'Grol\'dom Farm UNUSED', '', 'Granja Grol\'dom SIN UTILIZAR', '', 'Ферма Гроль\'дома НЕ ИСПОЛЬЗУЕТСЯ');
@@ -745,9 +745,9 @@ INSERT INTO `locales_area` VALUES (1603, '아가마고르', 'Agama\'gor UNUSED',
 INSERT INTO `locales_area` VALUES (1617, '영웅의 계곡', 'Vallée des héros', 'Das Tal der Helden', '英雄谷', '', 'Valle de los Héroes', '', 'Аллея Героев');
 INSERT INTO `locales_area` VALUES (1637, '오그리마', 'Orgrimmar', 'Orgrimmar', '奥格瑞玛', '', 'Orgrimmar', '', 'Оргриммар');
 INSERT INTO `locales_area` VALUES (1638, '썬더 블러프', 'Thunder Bluff', 'Thunder Bluff', '雷霆崖', '', 'Cima del Trueno', '', 'Громовой Утес');
-INSERT INTO `locales_area` VALUES (1639, '장로의 봉우리', 'Cime des Anciens', 'Die Anhöhe der Ältesten', '长者高地', '', 'Cima de los Ancestro', '', 'Вершина Старейшин');
-INSERT INTO `locales_area` VALUES (1640, '정기의 봉우리', 'Cime des Esprits', 'Die Anhöhe der Geister', '灵魂高地', '', 'Cima de los Espíritus', '', 'Вершина Духов');
-INSERT INTO `locales_area` VALUES (1641, '수렵의 봉우리', 'Cime des chasseurs', 'Die Anhöhe der Jäger', '猎人高地', '', 'Cima de los Cazadores', '', 'Вершина Охотников');
+INSERT INTO `locales_area` VALUES (1639, '장로의 봉우리', 'Cime des Anciens', 'Die Anhöhe der Ältesten', '长者高地', '', 'Alto de los Ancestros', '', 'Вершина Старейшин');
+INSERT INTO `locales_area` VALUES (1640, '정기의 봉우리', 'Cime des Esprits', 'Die Anhöhe der Geister', '灵魂高地', '', 'Alto de los Espíritus', '', 'Вершина Духов');
+INSERT INTO `locales_area` VALUES (1641, '수렵의 봉우리', 'Cime des chasseurs', 'Die Anhöhe der Jäger', '猎人高地', '', 'Alto de los Cazadores', '', 'Вершина Охотников');
 INSERT INTO `locales_area` VALUES (1657, '다르나서스', 'Darnassus', 'Darnassus', '达纳苏斯', '', 'Darnassus', '', 'Дарнас');
 INSERT INTO `locales_area` VALUES (1658, '세나리온 자치령', 'Enclave cénarienne', 'Die Enklave des Cenarius', '塞纳里奥区', '', 'Enclave Cenarion', '', 'Анклав Кенария');
 INSERT INTO `locales_area` VALUES (1659, '장인의 정원', 'Terrasse des Artisans', 'Die Terrasse der Handwerker', '工匠区', '', 'Terraza de los Artesanos', '', 'Терраса Ремесленников');
@@ -761,7 +761,7 @@ INSERT INTO `locales_area` VALUES (1680, '마루터기', 'L\'Avancée', 'Die Lan
 INSERT INTO `locales_area` VALUES (1681, '물안개 호숫가', 'Rivage brumeux', 'Nebelufer', '雾气湖岸', '', 'Orilla Brumosa', '', 'Мглистый берег');
 INSERT INTO `locales_area` VALUES (1682, '단드레드 장원', 'Clos de Dandred', 'Dandreds Senke', '达伦德农场', '', 'Pliegue de Dandred', '', 'Овчарня Дандреда');
 INSERT INTO `locales_area` VALUES (1683, '침묵의 동굴', 'Caverne stérile', 'Growlesshöhle', '无草洞', '', 'Cueva sin Crecimiento', '', 'Промерзшая пещера');
-INSERT INTO `locales_area` VALUES (1684, '서리바람 거점', 'Pointe du Noroît', 'Chillwindspitze', '冰风岗', '', 'Punto de Viento Helado', '', 'Берег Промозглого Ветра');
+INSERT INTO `locales_area` VALUES (1684, '서리바람 거점', 'Pointe du Noroît', 'Chillwindspitze', '冰风岗', '', 'Campamento del Orvallo', '', 'Берег Промозглого Ветра');
 INSERT INTO `locales_area` VALUES (1697, '랩터 서식지', 'Terres des Raptors', 'Raptorgründe', '迅猛龙巢穴', '', 'Jardines de los Raptors', '', 'Земли Ящеров');
 INSERT INTO `locales_area` VALUES (1698, '가시덩굴 벌판', 'Ronceplaie', 'Dornennarbe', '迅猛龙平原', '', 'Bramblescar', '', 'Ежевичный овраг');
 INSERT INTO `locales_area` VALUES (1699, '가시덩굴 언덕', 'Colline des épines', 'Dornenhügel', '荆棘岭', '', 'Colina de Espinas', '', 'Тернистый холм');
@@ -770,8 +770,8 @@ INSERT INTO `locales_area` VALUES (1701, '검은가시 마루', 'Crête de Noir�
 INSERT INTO `locales_area` VALUES (1702, '명예의 감시탑', 'Le lieu de l\'Honneur', 'Ehrenmal', '荣耀岗哨', '', 'Estandarte de Honor', '', 'Застава Чести');
 INSERT INTO `locales_area` VALUES (1703, '몰샨의 망루', 'Le Rempart de Mor\'shan', 'Der Mor\'shan-Schutzwall', '摩尔沙农场', '', 'La Muralla de Mor\'shan', '', 'Застава Мор\'шан');
 INSERT INTO `locales_area` VALUES (1704, '그롤돔 농장', 'Ferme de Grol\'dom', 'Grol\'doms Hof', '格罗多姆农场', '', 'Granja Grol\'dom', '', 'Ферма Гроль\'дома');
-INSERT INTO `locales_area` VALUES (1717, '가시덩굴 우리', 'Kraal de Tranchebauge', 'Der Kral von Razorfen', '剃刀沼泽', '', 'Kraul Fenomeno de Navaja', '', 'Лабиринты Иглошкурых');
-INSERT INTO `locales_area` VALUES (1718, '구름 승강장', 'La Grande élévation', 'Der große Aufzug', '升降梯', '', 'El Gran Ascensor', '', 'Великий Подъемник');
+INSERT INTO `locales_area` VALUES (1717, '가시덩굴 우리', 'Kraal de Tranchebauge', 'Der Kral von Razorfen', '剃刀沼泽', '', 'Horado Rajacieno', '', 'Лабиринты Иглошкурых');
+INSERT INTO `locales_area` VALUES (1718, '구름 승강장', 'La Grande élévation', 'Der große Aufzug', '升降梯', '', 'El Gran Elevador', '', 'Великий Подъемник');
 INSERT INTO `locales_area` VALUES (1737, '안개계곡 골짜기', 'Valbrume', 'Nebeltal', '薄雾谷', '', 'Valle de la Bruma', '', 'Мглистая долина');
 INSERT INTO `locales_area` VALUES (1738, '네크마니 수원지', 'Fontaine des Nek\'mani', 'Nek\'maniquellbrunnen', '纳克迈尼圣泉', '', 'Fuente Nek\'mani', '', 'Родник Нек\'Мани');
 INSERT INTO `locales_area` VALUES (1739, '붉은해적단 주둔지', 'Base de la Voile sanglante', 'Truppenlager der Blutsegelbukaniere', '血帆营地', '', 'Compuesto Velasangre', '', 'Лагерь Кровавого Паруса');
@@ -790,7 +790,7 @@ INSERT INTO `locales_area` VALUES (1765, '피멍울 폭포', 'Chutes de la Vén�
 INSERT INTO `locales_area` VALUES (1766, '불벼락 골짜기', 'Val Grêlé', 'Narbengrund', '碎痕谷', '', 'Valle Cicatriz Destrozada', '', 'Долина Рваных Ран');
 INSERT INTO `locales_area` VALUES (1767, '강철나무 숲', 'Bois d\'Arbrefer', 'Der Eisenwald', '铁木森林', '', 'Bosques de Hierro', '', 'Железнолесье');
 INSERT INTO `locales_area` VALUES (1768, '강철나무 굴', 'Caverne d\'Arbrefer', 'Eisenstammhöhle', '铁木山洞', '', 'Caverna del Árbol de Hierro', '', 'Пещера Железнолесья');
-INSERT INTO `locales_area` VALUES (1769, '나무구렁 요새', 'Repaire des Grumegueules', 'Holzschlundfeste', '木喉要塞', '', 'Asimiento de las Fauces de Madera', '', 'Крепость Древобрюхов');
+INSERT INTO `locales_area` VALUES (1769, '나무구렁 요새', 'Repaire des Grumegueules', 'Holzschlundfeste', '木喉要塞', '', 'Bastión de los Fauces de Madera', '', 'Крепость Древобрюхов');
 INSERT INTO `locales_area` VALUES (1770, '어둠의 요새', 'Fort des ombres', 'Schattenfeste', '暗影堡', '', 'Bastión de las Sombras', '', 'Оплот Теней');
 INSERT INTO `locales_area` VALUES (1771, '책략가의 사원', 'Sanctuaire du Trompeur', 'Schrein des Betrügers', '欺诈者神祠', '', 'Santuario del Engañador', '', 'Святилище Искусителя');
 INSERT INTO `locales_area` VALUES (1777, '이타리우스의 동굴', 'Caverne d\'Itharius', 'Itharius\' Höhle', '伊萨里奥斯的洞穴', '', 'Cueva de Itharius', '', 'Пещера Итара');
@@ -830,7 +830,7 @@ INSERT INTO `locales_area` VALUES (1959, '먼지불 골짜기', 'Vallée des Esc
 INSERT INTO `locales_area` VALUES (1977, '줄구룹', 'Zul\'Gurub', 'Zul\'Gurub', '祖尔格拉布', '', 'Zul\'Gurub', '', 'Зул\'Гуруб');
 INSERT INTO `locales_area` VALUES (1978, '안개갈대 주둔지', 'Poste de Brumejonc', 'Nebelschilfposten', '芦苇哨岗', '', 'Poste de Caña Brumosa', '', 'Тростниковая застава');
 INSERT INTO `locales_area` VALUES (1997, '피멍울 초소', 'Poste de la Vénéneuse', 'Blutgiftposten', '血毒岗哨', '', 'Puesto de Veneno de Sangre', '', 'Застава Отравленной Крови');
-INSERT INTO `locales_area` VALUES (1998, '갈퀴가지 숲', 'Clairière de Griffebranche', 'Nachtlaublichtung', '刺枝林地', '', 'Claro de la Rama de la Garra', '', 'Поляна Когтистых Ветвей');
+INSERT INTO `locales_area` VALUES (1998, '갈퀴가지 숲', 'Clairière de Griffebranche', 'Nachtlaublichtung', '刺枝林地', '', 'Claro Ramaespolón', '', 'Поляна Когтистых Ветвей');
 INSERT INTO `locales_area` VALUES (2017, '스트라솔름', 'Stratholme', 'Stratholme', '斯坦索姆', '', 'Stratholme', '', 'Стратхольм');
 INSERT INTO `locales_area` VALUES (2037, '그림자송곳니 성채', 'UNUSEDShadowfang Keep 003', 'UNUSEDShadowfang Keep 003', 'UNUSEDShadowfang Keep 003', '', 'Castillo Colmillo Oscuro SIN USAR 003', '', 'НЕ ИСПОЛЬЗУЕТСЯ Крепость Темного Клыка 003');
 INSERT INTO `locales_area` VALUES (2057, '스칼로맨스', 'Scholomance', 'Scholomance', '通灵学院', '', 'Scholomance', '', 'Некроситет');
@@ -839,15 +839,15 @@ INSERT INTO `locales_area` VALUES (2078, '황혼의 해안', 'Rivage du crépusc
 INSERT INTO `locales_area` VALUES (2079, '알카즈 섬', 'Ile d\'Alcaz', 'Insel Alcaz', '奥卡兹岛', '', 'Isla de Alcaz', '', 'Остров Алькац');
 INSERT INTO `locales_area` VALUES (2097, '먹구름 봉우리', 'Cime de Noir-nuage', 'Düsterwolkengipfel', '黑云峰', '', 'Pináculo de la Nube Oscura', '', 'Пик Темного Облака');
 INSERT INTO `locales_area` VALUES (2098, '새벽숲 지하묘지', 'Catacombes du Bois-de-l\'Aube', 'Katakomben des Morgenwaldes', '黎明墓穴', '', 'Catacumbas de Madera del Amanecer', '', 'Катакомбы Утреннего Леса');
-INSERT INTO `locales_area` VALUES (2099, '돌망루 요새', 'Donjon de Guet-de-pierre', 'Burg Steinwacht', '石堡要塞', '', 'Torre de la Guardia de Piedra', '', 'Крепость Каменной Стражи');
+INSERT INTO `locales_area` VALUES (2099, '돌망루 요새', 'Donjon de Guet-de-pierre', 'Burg Steinwacht', '石堡要塞', '', 'Fuerte de Petravista', '', 'Крепость Каменной Стражи');
 INSERT INTO `locales_area` VALUES (2100, '마라우돈', 'Maraudon', 'Maraudon', '玛拉顿', '', 'Maraudon', '', 'Мародон');
 INSERT INTO `locales_area` VALUES (2101, '스타우트라거 여관', 'Auberge de la Fortebière', 'Gasthof Zum Starkbier-Lager', '烈酒旅店', '', 'Posada Cerveza Fuerte', '', 'Таверна \"Крепкое пойло\"');
-INSERT INTO `locales_area` VALUES (2102, '썬더브루 양조장', 'Distillerie Thunderbrew', 'Brauerei Donnerbräu', '雷酒酿制厂', '', 'Destilería Cerveza Trueno', '', 'Таверна \"Громоварка\"');
+INSERT INTO `locales_area` VALUES (2102, '썬더브루 양조장', 'Distillerie Thunderbrew', 'Brauerei Donnerbräu', '雷酒酿制厂', '', 'Destilería Cebatruenos', '', 'Таверна \"Громоварка\"');
 INSERT INTO `locales_area` VALUES (2103, '메네실 요새', 'Donjon de Menethil', 'Burg Menethil', '米奈希尔城堡', '', 'Fortaleza de Menethil', '', 'Крепость Менетил');
 INSERT INTO `locales_area` VALUES (2104, '깊은바다 선술집', 'Taverne de l\'Eau-profonde', 'Deepwater Taverne', '深水旅店', '', 'Taberna de Aguas Profundas', '', 'Таверна \"Большая вода\"');
 INSERT INTO `locales_area` VALUES (2117, '암흑의 무덤', 'Tombeau des ombres', 'Schattengrab', '灰影墓穴', '', 'Tumba de Sombra', '', 'Мрачный склеп');
 INSERT INTO `locales_area` VALUES (2118, '브릴 마을회관', 'Hôtel de ville de Brill', 'Rathaus von Brill', '布瑞尔城镇大厅', '', 'Ayuntamiento de Remol', '', 'Ратуша Брилла');
-INSERT INTO `locales_area` VALUES (2119, '갤로우 선술집', 'Taverne des Pendus', 'Taverne Zur Galgenschlinge', '恐惧之末旅店', '', 'Taberna del Final de la Horca', '', 'Таверна \"Петля висельника\"');
+INSERT INTO `locales_area` VALUES (2119, '갤로우 선술집', 'Taverne des Pendus', 'Taverne Zur Galgenschlinge', '恐惧之末旅店', '', 'Taberna Gallows\' End', '', 'Таверна \"Петля висельника\"');
 INSERT INTO `locales_area` VALUES (2137, '예언의 웅덩이', 'The Pools of VisionUNUSED', 'The Pools of VisionUNUSED', 'The Pools of VisionUNUSED', '', 'Las Piscinas de la Visión SIN USAR', '', 'Пруды ВиденийНЕ ИСПОЛЬЗУЕТСЯ');
 INSERT INTO `locales_area` VALUES (2138, '공포의 안개굴', 'Refuge de Brume-funeste', 'Glutnebelbau', '鬼雾兽穴', '', 'Guarida de la Niebla del Terror', '', 'Пещера Багрового Тумана');
 INSERT INTO `locales_area` VALUES (2157, '바엘던 요새', 'Donjon de Bael\'dun', 'Burg Bael\'dun', '巴尔丹城堡', '', 'Fortaleza de Bael\'dun', '', 'Крепость Бейл\'дан');
@@ -866,7 +866,7 @@ INSERT INTO `locales_area` VALUES (2240, '신기루 경주장', 'Piste des mirag
 INSERT INTO `locales_area` VALUES (2241, '눈호랑이 바위', 'Roc des Sabres-de-Givre', 'Frostsäblerfelsen', '霜刀石', '', 'Roca Sable de Hielo', '', 'Уступ Ледопардов');
 INSERT INTO `locales_area` VALUES (2242, '숨겨진 숲', 'Le Bosquet caché', 'Der versteckte Hain', '隐秘小林', '', 'La Arboleda Escondida', '', 'Сокрытая роща');
 INSERT INTO `locales_area` VALUES (2243, '나무구렁 야영지', 'Poste des Grumegueules', 'Holzschlundposten', '木喉岗哨', '', 'Puesto de Fauces de Madera', '', 'Застава Древобрюхов');
-INSERT INTO `locales_area` VALUES (2244, '눈사태일족 마을', 'Village Tombe-hiver', 'Lager der Winterfelle', '寒水村', '', 'Pueblo de Caida del Invierno', '', 'Деревня Зимней Спячки');
+INSERT INTO `locales_area` VALUES (2244, '눈사태일족 마을', 'Village Tombe-hiver', 'Lager der Winterfelle', '寒水村', '', 'Pueblo de Caída del Invierno', '', 'Деревня Зимней Спячки');
 INSERT INTO `locales_area` VALUES (2245, '마즈소릴', 'Mazthoril', 'Mazthoril', '麦索瑞尔', '', 'Mazthoril', '', 'Мазторил');
 INSERT INTO `locales_area` VALUES (2246, '얼음불꽃 온천', 'Sources de Givrefeu', 'Die Frostfeuerquellen', '冰火温泉', '', 'Aguas Termales de Fuego Helado', '', 'Источники Ледяного огня');
 INSERT INTO `locales_area` VALUES (2247, '얼음엉겅퀴 언덕', 'Collines des Chardons de glace', 'Eisdistelberge', '冰蓟岭', '', 'Colinas de Cardo de Hielo', '', 'Холмы Ледополоха');
@@ -875,16 +875,16 @@ INSERT INTO `locales_area` VALUES (2249, '서리속삭임 골짜기', 'Gorge du 
 INSERT INTO `locales_area` VALUES (2250, '올빼미날개 숲', 'Fourré de l\'Aile de la chouette', 'Eulenflügeldickicht', '枭翼树丛', '', 'Matorral de Ala de Búho', '', 'Совиная чаща');
 INSERT INTO `locales_area` VALUES (2251, '켈테릴 호수', 'Lac Kel\'Theril', 'Kel\'Therilsee', '凯斯利尔湖', '', 'Lago Kel\'Theril', '', 'Озеро Кел\'Терил');
 INSERT INTO `locales_area` VALUES (2252, '켈테릴의 폐허', 'Les ruines de Kel\'Theril', 'Die Ruinen von Kel\'Theril', '凯斯利尔废墟', '', 'Las Ruinas de Kel\'Theril', '', 'Руины Кел\'Терила');
-INSERT INTO `locales_area` VALUES (2253, '별똥별 마을', 'Pluie-d\'Etoiles', 'Starfall', '坠星村', '', 'Pueblo Caída de Estrellas', '', 'Деревня Звездопада');
+INSERT INTO `locales_area` VALUES (2253, '별똥별 마을', 'Pluie-d\'Etoiles', 'Starfall', '坠星村', '', 'Aldea Estrella Fugaz', '', 'Деревня Звездопада');
 INSERT INTO `locales_area` VALUES (2254, '반탈로우 지하굴', 'Refuge des saisons de Ban\'Thallow', 'Grabhügel von Ban\'Thallow', '班萨罗兽穴', '', 'Guarida de Carretilla  Ban\'Thallow', '', 'Берлога Бен\'Таллоу');
-INSERT INTO `locales_area` VALUES (2255, '눈망루 마을', 'Long-guet', 'Everlook', '永望镇', '', 'Alguna Vez Miras', '', 'Круговзор');
+INSERT INTO `locales_area` VALUES (2255, '눈망루 마을', 'Long-guet', 'Everlook', '永望镇', '', 'Vista Eterna', '', 'Круговзор');
 INSERT INTO `locales_area` VALUES (2256, '검은속삭임 협곡', 'Gorge du Sombre murmure', 'Die flüsternde Schlucht', '暗语峡谷', '', 'Garganta de Susurro Oscuro', '', 'Теснина Зловещего Шепота');
-INSERT INTO `locales_area` VALUES (2257, '깊은굴 지하철', 'Tram des profondeurs', 'Die Tiefenbahn', '矿道地铁', '', 'Tranvía Carrera Profunda', '', 'Подземный поезд');
+INSERT INTO `locales_area` VALUES (2257, '깊은굴 지하철', 'Tram des profondeurs', 'Die Tiefenbahn', '矿道地铁', '', 'Tranvía de Deeprun', '', 'Подземный поезд');
 INSERT INTO `locales_area` VALUES (2258, '곰팡이 계곡', 'La Vallée des fongus', 'Das Fungustal', '蘑菇谷', '', 'El Valle Fúngico', '', 'Грибная долина');
 INSERT INTO `locales_area` VALUES (2259, '마리스 농장', 'UNUSEDLa ferme des Marris', 'UNUSEDThe Marris Stead', 'UNUSEDThe Marris Stead', '', 'SIN UTILIZAR El Lugar de Marris', '', 'НЕ ИСПОЛЬЗУЕТСЯПоместье Маррисов');
 INSERT INTO `locales_area` VALUES (2260, '마리스 농장', 'La ferme des Marris', 'Marris\' Siedlung', '玛瑞斯农场', '', 'El Lugar de Marris', '', 'Поместье Маррисов');
 INSERT INTO `locales_area` VALUES (2261, '지하 납골당', 'Le caveau de Zaeldarr', 'Das Tiefgewölbe', '墓室', '', 'El Bajo Granja Pequeña', '', 'Крипта');
-INSERT INTO `locales_area` VALUES (2262, '다로우샤이어', 'Darrowshire', 'Darrowshire', '达隆郡', '', 'Darrowshire', '', 'Дарроушир');
+INSERT INTO `locales_area` VALUES (2262, '다로우샤이어', 'Darrowshire', 'Darrowshire', '达隆郡', '', 'Villa Darrow', '', 'Дарроушир');
 INSERT INTO `locales_area` VALUES (2263, '산마루 경비탑', 'Tour de garde de la couronne', 'Turm der Kronenwache', '皇冠哨塔', '', 'Torre de la Guardia de la Corona', '', 'Башня королевской стражи');
 INSERT INTO `locales_area` VALUES (2264, '코린 삼거리', 'La Croisée de Corin', 'Corins Kreuzung', '考林路口', '', 'Cruce de Corin', '', 'Перекресток Корина');
 INSERT INTO `locales_area` VALUES (2265, '붉은십자군 주둔지', 'Camp de la Croisade', 'Scharlachroter Stützpunkt', '血色十字军营地', '', 'Campamento Base Escarlata', '', 'Лагерь Алого ордена');
@@ -904,7 +904,7 @@ INSERT INTO `locales_area` VALUES (2278, '스컬지 요새', 'Fort-Fléau', 'Gei
 INSERT INTO `locales_area` VALUES (2279, '스트라솔름', 'Stratholme', 'Stratholme', '斯坦索姆', '', 'Stratholme', '', 'Стратхольм');
 INSERT INTO `locales_area` VALUES (2280, '스트라솔름', 'UNUSED Stratholme', 'UNUSED Stratholme', 'UNUSED Stratholme', '', 'Comenzo de Holme SIN USO', '', 'НЕ ИСПОЛЬЗУЕТСЯ Стратхольм');
 INSERT INTO `locales_area` VALUES (2297, '다로미어 호수', 'Lac Darrowmere', 'Darrowmeresee', '达隆米尔湖', '', 'Lago Darrowmere', '', 'Озеро Дарроумир');
-INSERT INTO `locales_area` VALUES (2298, '카엘 다로우', 'Caer Darrow', 'Caer Darrow', '凯尔达隆', '', 'Caer Darrow', '', 'Каэр Дарроу');
+INSERT INTO `locales_area` VALUES (2298, '카엘 다로우', 'Caer Darrow', 'Caer Darrow', '凯尔达隆', '', 'Castel Darrow', '', 'Каэр Дарроу');
 INSERT INTO `locales_area` VALUES (2299, '다로미어 호수', 'Lac Darrowmere', 'Darrowmeresee', '达隆米尔湖', '', 'Lago Darrowmere', '', 'Озеро Дарроумир');
 INSERT INTO `locales_area` VALUES (2300, '시간의 동굴', 'Grottes du temps', 'Die Höhlen der Zeit', '时光之穴', '', 'Cavernas del Tiempo', '', 'Пещеры Времени');
 INSERT INTO `locales_area` VALUES (2301, '엉겅퀴 마을', 'Village des Crins-de-Chardon', 'Lager der Distelfelle', '蓟皮村', '', 'Pueblo de Piel de Cardo', '', 'Деревня Колючего Меха');
@@ -927,16 +927,16 @@ INSERT INTO `locales_area` VALUES (2357, '붉은송곳니 야영지', 'Camp de D
 INSERT INTO `locales_area` VALUES (2358, '숲의 노래', 'Chant des forêts', 'Forest Song', '林歌神殿', '', 'Canción del Bosque', '', 'Лесная Песнь');
 INSERT INTO `locales_area` VALUES (2359, '푸른발 마을', 'Village des Pattes-vertes', 'Laubtatzenlichtung', '绿爪村', '', 'Pueblo Zarpa Verde', '', 'Деревня Зеленой Лапы');
 INSERT INTO `locales_area` VALUES (2360, '은빛날개 전초기지', 'Avant-poste d\'Aile-argent', 'Außenposten der Silverwing', '银翼哨站', '', 'Puesto de Avanzada del Ala Plateada', '', 'Аванпост Среброкрылых');
-INSERT INTO `locales_area` VALUES (2361, '나이트헤이븐', 'Havrenuit', 'Nighthaven', '永夜港', '', 'Refugio de la Noche', '', 'Ночная Гавань');
+INSERT INTO `locales_area` VALUES (2361, '나이트헤이븐', 'Havrenuit', 'Nighthaven', '永夜港', '', 'Amparo de la Noche', '', 'Ночная Гавань');
 INSERT INTO `locales_area` VALUES (2362, '레물로스의 제단', 'Sanctuaire de Remulos', 'Der Schrein von Remulos', '雷姆洛斯神殿', '', 'Santuario de Remulos', '', 'Святилище Ремула');
-INSERT INTO `locales_area` VALUES (2363, '스톰레이지 지하굴', 'Refuge des saisons de Malfurion', 'Die Stormrage Grabhügel', '怒风兽穴', '', 'Dens de Túmulos de Tempestira', '', 'Кельи Малфуриона');
+INSERT INTO `locales_area` VALUES (2363, '스톰레이지 지하굴', 'Refuge des saisons de Malfurion', 'Die Stormrage Grabhügel', '怒风兽穴', '', 'Túmulo de Tempestira', '', 'Кельи Малфуриона');
 INSERT INTO `locales_area` VALUES (2364, '대해', 'La Grande mer', 'Das große Meer', '无尽之海', '', 'El Gran Mar', '', 'Великое море');
 INSERT INTO `locales_area` VALUES (2365, '대해', 'La Grande mer', 'Das große Meer', '无尽之海', '', 'El Gran Mar', '', 'Великое море');
 INSERT INTO `locales_area` VALUES (2366, '검은늪', 'Le Noir Marécage', 'Das schwarze Fenn', '黑色沼泽', '', 'El Pantano Negro', '', 'Черные топи');
 INSERT INTO `locales_area` VALUES (2367, '옛 힐스브래드 구릉지', 'Anciens contreforts d\'Hillsbrad', 'Die alten Vorgebirge von Hillsbrad', 'Old Hillsbrad Foothills', '', 'Antiguas Laderas de Trabalomas', '', 'Старые предгорья Хилсбрада');
-INSERT INTO `locales_area` VALUES (2368, '타렌 밀농장', 'Moulin-de-Tarren', 'Tarrens Mühle', '塔伦米尔', '', 'Molino de Tarren', '', 'Мельница Таррен');
-INSERT INTO `locales_area` VALUES (2369, '사우스쇼어', 'Southshore', 'Southshore', '南海镇', '', 'Costa Sur', '', 'Южнобережье');
-INSERT INTO `locales_area` VALUES (2370, '던홀드 요새', 'Donjon de Durnholde', 'Burg Durnholde', '敦霍尔德城堡', '', 'Fortaleza de Durnholde', '', 'Крепость Дарнхольд');
+INSERT INTO `locales_area` VALUES (2368, '타렌 밀농장', 'Moulin-de-Tarren', 'Tarrens Mühle', '塔伦米尔', '', 'Molino Tarren', '', 'Мельница Таррен');
+INSERT INTO `locales_area` VALUES (2369, '사우스쇼어', 'Southshore', 'Southshore', '南海镇', '', 'Costasur', '', 'Южнобережье');
+INSERT INTO `locales_area` VALUES (2370, '던홀드 요새', 'Donjon de Durnholde', 'Burg Durnholde', '敦霍尔德城堡', '', 'Castillo de Durnholde', '', 'Крепость Дарнхольд');
 INSERT INTO `locales_area` VALUES (2371, '던 가록', 'Dun Garok', 'Dun Garok', '丹加洛克', '', 'Dun Garok', '', 'Дун Гарок');
 INSERT INTO `locales_area` VALUES (2372, '힐스브래드 농장', 'Champs d\'Hillsbrad', 'Die Felder von Hillsbrad', '希尔斯布莱德农场', '', 'Campos de Trabalomas', '', 'Хилсбрадские поля');
 INSERT INTO `locales_area` VALUES (2373, '동부 해안', 'Rivage oriental', 'Oststrand', '东部海滩', '', 'Playa Oriental', '', 'Восточное побережье');
@@ -957,7 +957,7 @@ INSERT INTO `locales_area` VALUES (2404, '테드리스 아란', 'Tethris Aran', 
 INSERT INTO `locales_area` VALUES (2405, '에텔 레소르', 'Ethel Rethor', 'Ethel Rethor', '艾瑟雷索', '', 'Ethel Rethor', '', 'Этель-Ретор');
 INSERT INTO `locales_area` VALUES (2406, '라나즈자르 섬', 'Ile de Ranazjar', 'Die Insel Ranazjar', '拉纳加尔岛', '', 'Isla Ranazjar', '', 'Остров Раназьяр');
 INSERT INTO `locales_area` VALUES (2407, '코르메크의 오두막', 'Hutte de Kormek', 'Kormeks Hütte', '考米克小屋', '', 'Choza de Kormek', '', 'Хижина Кормека');
-INSERT INTO `locales_area` VALUES (2408, '그늘수렵 마을', 'Proie-de-l\'Ombre', 'Shadowprey', '葬影村', '', 'Pueblo de Presas de las Sombras', '', 'Деревня Ночных Охотников');
+INSERT INTO `locales_area` VALUES (2408, '그늘수렵 마을', 'Proie-de-l\'Ombre', 'Shadowprey', '葬影村', '', 'Aldea Cazasombras', '', 'Деревня Ночных Охотников');
 INSERT INTO `locales_area` VALUES (2417, '검은바위 고개', 'Défilé des Blackrock', 'Blackrockpass', '黑石小径', '', 'Paso Roca Negra', '', 'Перевал Черной горы');
 INSERT INTO `locales_area` VALUES (2418, '모건의 망루', 'Veille de Morgan', 'Morgans Wacht', '摩根的岗哨', '', 'Vigilia de Morgan', '', 'Дозор Моргана');
 INSERT INTO `locales_area` VALUES (2419, '뱀갈퀴 바위굴', 'Roc sinueux', 'Schlitterfels', '滑石', '', 'Roca Deslizante', '', 'Скользкая скала');
@@ -980,16 +980,16 @@ INSERT INTO `locales_area` VALUES (2522, '이실디엔 폐허', 'Ruines d\'Isild
 INSERT INTO `locales_area` VALUES (2537, '그림토템 초소', 'Poste Totem sinistre', 'Posten der Grimmtotem', '恐怖图腾岗哨', '', 'Puesto Tótem Siniestro', '', 'Застава Зловещего Тотема');
 INSERT INTO `locales_area` VALUES (2538, '아파라제 야영지', 'Camp Aparaje', 'Camp Aparaje', '阿帕拉耶营地', '', 'Campamento Aparaje', '', 'Лагерь Апарахе');
 INSERT INTO `locales_area` VALUES (2539, '말라카진', 'Malaka\'jin', 'Malaka\'jin', '玛拉卡金', '', 'Malaka\'jin', '', 'Малака\'джин');
-INSERT INTO `locales_area` VALUES (2540, '구릉바위 협곡', 'Ravin des Eboulis', 'Steinschlagklamm', '滚岩峡谷', '', 'Barranco de Desprendimiento de Rocas', '', 'Ущелье Камнепадов');
+INSERT INTO `locales_area` VALUES (2540, '구릉바위 협곡', 'Ravin des Eboulis', 'Steinschlagklamm', '滚岩峡谷', '', 'Barranco del Alud', '', 'Ущелье Камнепадов');
 INSERT INTO `locales_area` VALUES (2541, '시쉬르 협곡', 'Canyon de Sishir', 'Sishircanyon', '希塞尔山谷', '', 'Cañón de Sishir', '', 'Сиширский каньон');
-INSERT INTO `locales_area` VALUES (2557, '혈투의 전장', 'Hache-tripes', 'Düsterbruch', '厄运之槌', '', 'Mazo Terrible', '', 'Забытый Город');
+INSERT INTO `locales_area` VALUES (2557, '혈투의 전장', 'Hache-tripes', 'Düsterbruch', '厄运之槌', '', 'La Masacre', '', 'Забытый Город');
 INSERT INTO `locales_area` VALUES (2558, '죽음의 협곡', 'Ravin de Deuillevent', 'Schlucht der Totenwinde', '逆风谷', '', 'Barranco de Viento Muerto', '', 'Овраг Мертвого Ветра');
 INSERT INTO `locales_area` VALUES (2559, '다이아몬드 강', 'Rivière Diamondhead', 'Diamondhead', '钻石河', '', 'Río Cabeza de Diamante', '', 'Река Алмазная');
 INSERT INTO `locales_area` VALUES (2560, '아리덴의 야영지', 'Camp d\'Ariden', 'Aridens Lager', '埃瑞丁营地', '', 'Campamento de Ariden', '', 'Лагерь Аридена');
 INSERT INTO `locales_area` VALUES (2561, '악의 소굴', 'L\'Etau', 'Das Laster', '罪恶谷', '', 'El Vicio', '', 'Погань');
 INSERT INTO `locales_area` VALUES (2562, '카라잔', 'Karazhan', 'Karazhan', '卡拉赞', '', 'Karazhan', '', 'Каражан');
 INSERT INTO `locales_area` VALUES (2563, '모건의 터', 'Le lopin de Morgan', 'Morgan\'s Plot', '摩根墓场', '', 'La Trama de Morgan', '', 'Надел Моргана');
-INSERT INTO `locales_area` VALUES (2577, '혈투의 전장', 'Hache-tripes', 'Düsterbruch', '厄运之槌', '', 'Mazo Terrible', '', 'Забытый Город');
+INSERT INTO `locales_area` VALUES (2577, '혈투의 전장', 'Hache-tripes', 'Düsterbruch', '厄运之槌', '', 'La Masacre', '', 'Забытый Город');
 INSERT INTO `locales_area` VALUES (2597, '알터랙 계곡', 'Vallée d\'Alterac', 'Alteractal', '奥特兰克山谷', '', 'Valle de Alterac', '', 'Альтеракская долина');
 INSERT INTO `locales_area` VALUES (2617, '스크래블스크류의 야영지', 'Camp de Scrabblescrew', 'Scrabblescrews Lager', '瑟卡布斯库的营地', '', 'Campamento de Tornillo Escarbado', '', 'Лагерь Заржавня');
 INSERT INTO `locales_area` VALUES (2618, '비취불꽃 비탈', 'Défilé des Jadefeu', 'Jadefeuerbach', '碧火小径', '', 'Carrera de Fuego de Jade', '', 'Холм Нефритового Пламени');
@@ -1001,7 +1001,7 @@ INSERT INTO `locales_area` VALUES (2623, '오염의 흉터', 'La Balafre infecte
 INSERT INTO `locales_area` VALUES (2624, '검은나무 호수', 'Lac de Noirbois', 'Blackwoodsee', '黑木湖', '', 'Lago de Madera Negra', '', 'Озеро Чернолесья');
 INSERT INTO `locales_area` VALUES (2625, '동부방벽 관문', 'Porte du Mur d\'est', 'Ostwalltor', '东墙大门', '', 'Puerta del Muro Este', '', 'Восточные ворота');
 INSERT INTO `locales_area` VALUES (2626, '공포의 거미굴', 'Tunnel de Tisse-terreur', 'Terrorweb-Tunnel', '恶蛛隧道', '', 'Túnel Red del Terror', '', 'Туннель Ужаса');
-INSERT INTO `locales_area` VALUES (2627, '테러데일', 'Val-Terreur', 'Schreckenstal', '恐惧谷', '', 'Terrordale', '', 'Долина Ужаса');
+INSERT INTO `locales_area` VALUES (2627, '테러데일', 'Val-Terreur', 'Schreckenstal', '恐惧谷', '', 'Valle del Terror', '', 'Долина Ужаса');
 INSERT INTO `locales_area` VALUES (2637, '카르가시아 요새', 'Donjon de Kargathia', 'Burg Kargathia', '卡加希亚要塞', '', 'Fortaleza de Kargathia', '', 'Крепость Каргатия');
 INSERT INTO `locales_area` VALUES (2657, '뼈의 골짜기', 'Vallée des ossements', 'Tal der Knochen', '白骨之谷', '', 'Valle de los Huesos', '', 'Долина Костей');
 INSERT INTO `locales_area` VALUES (2677, '검은날개 둥지', 'Repaire de l\'Aile noire', 'Pechschwingenhort', '黑翼之巢', '', 'Guarida de Alanegra', '', 'Логово Крыла Тьмы');
@@ -1017,7 +1017,7 @@ INSERT INTO `locales_area` VALUES (2743, '하이브조라', 'Ruche\'Zora', 'Bau 
 INSERT INTO `locales_area` VALUES (2744, '하이브레갈', 'Ruche\'Regal', 'Bau des Regalschwarms', '雷戈虫巢', '', 'Hive\'Regal', '', 'Улей Регал');
 INSERT INTO `locales_area` VALUES (2757, '전사한 용사의 제단', 'Autel du Guerrier mort', 'Schrein des gefallenen Kriegers', '战士之魂神殿', '', 'Santuario del Guerrero Caído', '', 'Святилище Павшего Воина');
 INSERT INTO `locales_area` VALUES (2777, '알터랙 계곡', 'UNUSED Alterac Valley', 'UNUSED Alterac Valley', 'UNUSED Alterac Valley', '', 'Valle de Alterac SIN UTILIZAR', '', 'НЕ ИСПОЛЬЗУЕТСЯ Альтеракская долина');
-INSERT INTO `locales_area` VALUES (2797, '검은심연의 나락', 'Profondeurs de Brassenoire', 'Blackfathom-Tiefe', '黑暗深渊', '', 'Profundidades Negras', '', 'Непроглядная Пучина');
+INSERT INTO `locales_area` VALUES (2797, '검은심연의 나락', 'Profondeurs de Brassenoire', 'Blackfathom-Tiefe', '黑暗深渊', '', 'Cavernas de Brazanegra', '', 'Непроглядная Пучина');
 INSERT INTO `locales_area` VALUES (2817, '*** 야외 던전 ***', '***Donjon sur la carte***', '***Dungeon auf Karte***', '***大型地下城***', '', '***En un mapa de calabozo***', '', '***Используй меня повторно 4***');
 INSERT INTO `locales_area` VALUES (2837, '지배자의 지하실', 'La cave du maître', 'Der Keller des Meisters', '主宰的庇护所', '', 'La Bodega del Maestro', '', 'Хозяйский погреб');
 INSERT INTO `locales_area` VALUES (2838, '돌다지 고개', 'Passage de Formepierre', 'Stonewroughtpass', '石坝小径', '', 'Paso de Piedra', '', 'Подгорная тропа');
@@ -1026,16 +1026,16 @@ INSERT INTO `locales_area` VALUES (2857, '싸움 우리', 'La Cage des grondemen
 INSERT INTO `locales_area` VALUES (2877, '땅덩어리 시험용', 'Test de Chunk', 'Brocken-Test', 'Chunk Test', '', 'Prueba de Fragmentos', '', 'Глыба Тест');
 INSERT INTO `locales_area` VALUES (2897, '조람가르 전초기지', 'Avant-poste de Zoram\'gar', 'Zoram\'gar-Außenposten', '佐拉姆加前哨站', '', 'Puesto de Avanzada de Zoram\'gar', '', 'Форт Зорам\'гар');
 INSERT INTO `locales_area` VALUES (2917, '전설의 전당', 'Hall des Légendes', 'Halle der Legenden', '传说大厅', '', 'Salón de las Leyendas', '', 'Зал Легенд');
-INSERT INTO `locales_area` VALUES (2918, '용사의 전당', 'Hall des Champions', 'Halle der Champions', '勇士大厅', '', 'Salón de los Campeones', '', 'Зал Защитника');
+INSERT INTO `locales_area` VALUES (2918, '용사의 전당', 'Hall des Champions', 'Halle der Champions', '勇士大厅', '', 'Sala de Campeones', '', 'Зал Защитника');
 INSERT INTO `locales_area` VALUES (2937, '그로쉬고크 주둔지', 'Base des Grosh\'gok', 'Das Grosh\'gok Lager', '格罗高克营地', '', 'Compuesto Grosh\'gok', '', 'Поселок Грош\'гок');
 INSERT INTO `locales_area` VALUES (2938, '수면의 협곡', 'Gorge endormie', 'Die schlummernde Schlucht', '沉睡峡谷', '', 'Garganta Durmiente', '', 'Спящая теснина');
-INSERT INTO `locales_area` VALUES (2957, '깊은무쇠 광산', 'Mine de Gouffrefer', 'Irondeep-Mine', '深铁矿洞', '', 'Mina Hierro Profundo', '', 'Железный рудник');
+INSERT INTO `locales_area` VALUES (2957, '깊은무쇠 광산', 'Mine de Gouffrefer', 'Irondeep-Mine', '深铁矿洞', '', 'Mina Profundo de Hierro', '', 'Железный рудник');
 INSERT INTO `locales_area` VALUES (2958, '돌심장 전초기지', 'Avant-poste de Stonehearth', 'Stonehearth-Außenposten', '石炉哨站', '', 'Puesto de Avanzada del Hogar de Piedra', '', 'Форт Каменного Очага');
 INSERT INTO `locales_area` VALUES (2959, '던 발다르', 'Dun Baldar', 'Dun Baldar', '丹巴达尔', '', 'Dun Baldar', '', 'Дун Болдар');
 INSERT INTO `locales_area` VALUES (2960, '얼음날개 고개', 'Défilé de l\'Aile de glace', 'Icewingpass', '冰翼小径', '', 'Paso de Alas de Hielo', '', 'Перевал Ледяного Крыла');
 INSERT INTO `locales_area` VALUES (2961, '서리늑대 마을', 'Village Frostwolf', 'Frostwolf', '霜狼村', '', 'Pueblo Lobo Gélido', '', 'Деревня Северного Волка');
-INSERT INTO `locales_area` VALUES (2962, '거점 보초탑', 'Tour de la halte', 'Turmstellung', '哨塔高地', '', 'Punto de la Torre', '', 'Смотровая башня');
-INSERT INTO `locales_area` VALUES (2963, '얼음이빨 광산', 'Mine de Froide-dent', 'Coldtooth-Mine', '冷齿矿洞', '', 'Mina de Dientes Fríos', '', 'Рудник Ледяного Зуба');
+INSERT INTO `locales_area` VALUES (2962, '거점 보초탑', 'Tour de la halte', 'Turmstellung', '哨塔高地', '', 'Punto de la torre', '', 'Смотровая башня');
+INSERT INTO `locales_area` VALUES (2963, '얼음이빨 광산', 'Mine de Froide-dent', 'Coldtooth-Mine', '冷齿矿洞', '', 'Mina Dientefrío', '', 'Рудник Ледяного Зуба');
 INSERT INTO `locales_area` VALUES (2964, '겨울도끼 요새', 'Repaire des Winterax', 'Feste der Winterax', '冰斧要塞', '', 'Bastión Invernal', '', 'Форт Ледяной Секиры');
 INSERT INTO `locales_area` VALUES (2977, '', 'Garnison de Glace-sang', 'Iceblood-Garnison', '冰血要塞', '', 'Guarnición de Sangre Helada', '', 'Гарнизон Стылой Крови');
 INSERT INTO `locales_area` VALUES (2978, '', 'Donjon Frostwolf', 'Burg Frostwolf', '霜狼要塞', '', 'Fortaleza Lobo Gélido', '', 'Крепость Северного Волка');
@@ -1066,12 +1066,12 @@ INSERT INTO `locales_area` VALUES (3277, '', 'Goulet des Warsong', 'Warsongschlu
 INSERT INTO `locales_area` VALUES (3297, '', 'Cimetière Frostwolf', 'Friedhof der Frostwolf', '霜狼墓地', '', 'Cementerio Lobo Gélido', '', 'Кладбище Северного Волка');
 INSERT INTO `locales_area` VALUES (3298, '', 'Col Frostwolf', 'Frostwolfpass', '霜狼小径', '', 'Paso Lobo Gélido', '', 'Перевал Северного Волка');
 INSERT INTO `locales_area` VALUES (3299, '', 'Col de Dun Baldar', 'Pass von Dun Baldar', '丹巴达尔小径', '', 'Paso de Dun Baldar', '', 'Перевал Дун Болдар');
-INSERT INTO `locales_area` VALUES (3300, '', 'Cimetière de Glace-sang', 'Iceblood-Friedhof', '冰血墓地', '', 'Cementerio Sangre de Hielo', '', 'Кладбище Стылой Крови');
-INSERT INTO `locales_area` VALUES (3301, '', 'Cimetière des neiges', 'Snowfall-Friedhof', '落雪墓地', '', 'Cementerio de Nevadas', '', 'Кладбище Снегопада');
-INSERT INTO `locales_area` VALUES (3302, '', 'Cimetière de Stonehearth', 'Stonehearth-Friedhof', '石炉墓地', '', 'Cementerio Corazón de piedra', '', 'Кладбище Каменного Очага');
+INSERT INTO `locales_area` VALUES (3300, '', 'Cimetière de Glace-sang', 'Iceblood-Friedhof', '冰血墓地', '', 'Cementerio de sangre helada', '', 'Кладбище Стылой Крови');
+INSERT INTO `locales_area` VALUES (3301, '', 'Cimetière des neiges', 'Snowfall-Friedhof', '落雪墓地', '', 'Cementerio de nevadas', '', 'Кладбище Снегопада');
+INSERT INTO `locales_area` VALUES (3302, '', 'Cimetière de Stonehearth', 'Stonehearth-Friedhof', '石炉墓地', '', 'Cementerio de Stonehearth', '', 'Кладбище Каменного Очага');
 INSERT INTO `locales_area` VALUES (3303, '', 'Cimetière Stormpike', 'Stormpike-Friedhof', '雷矛墓地', '', 'Cementerio Pico Tormenta', '', 'Кладбище Грозовой Вершины');
-INSERT INTO `locales_area` VALUES (3304, '', 'Fortin de l\'Aile de glace', 'Icewing-Bunker', '冰翼碉堡', '', 'Búnker de Alas de Hielo', '', 'Укрытие Ледяного Крыла');
-INSERT INTO `locales_area` VALUES (3305, '', 'Fortin de Stoneheartth', 'Stonehearth-Bunker', '石炉碉堡', '', 'Búnker Corazon de Piedra', '', 'Укрытие Каменного Очага');
+INSERT INTO `locales_area` VALUES (3304, '', 'Fortin de l\'Aile de glace', 'Icewing-Bunker', '冰翼碉堡', '', 'Búnker Ala de Hielo', '', 'Укрытие Ледяного Крыла');
+INSERT INTO `locales_area` VALUES (3305, '', 'Fortin de Stoneheartth', 'Stonehearth-Bunker', '石炉碉堡', '', 'Búnker Hogar de Piedra', '', 'Укрытие Каменного Очага');
 INSERT INTO `locales_area` VALUES (3306, '', 'Crête des Follepattes', 'Wildpfotengrat', '蛮爪岭', '', 'Cresta Zarpa Salvaje', '', 'Гряда Дикой Лапы');
 INSERT INTO `locales_area` VALUES (3317, '', 'Village des Revantusk', 'Revantusk', '恶齿村', '', 'Pueblo Sacador', '', 'Деревня Сломанного Клыка');
 INSERT INTO `locales_area` VALUES (3318, '', 'Rocher de Durotan', 'Fels von Durotan', '杜隆坦之石', '', 'Roca de Durotan', '', 'Обелиск Дуротана');
@@ -1095,11 +1095,11 @@ INSERT INTO `locales_area` VALUES (3398, '', 'Frontière de la folie', 'Rand des
 INSERT INTO `locales_area` VALUES (3417, '', 'Salle de Trollbane', 'Trollbanes Halle', '托尔贝恩大厅', '', 'Salón de la Perdición de los Trolls', '', 'Зал Троллебоя');
 INSERT INTO `locales_area` VALUES (3418, '', 'L\'antre des Profanateurs', 'Die entweihte Feste', '污染者之穴', '', 'Guarida del Profanador', '', 'Логово Осквернителя');
 INSERT INTO `locales_area` VALUES (3419, '', 'Pointe de Pagle', 'Pagles Spitze', '帕格渔点', '', 'Pointe de Pagle', '', 'Стоянка Пэгла');
-INSERT INTO `locales_area` VALUES (3420, '', 'Ferme', 'Hof', '农场', '', 'Granja', '', 'Ферма');
-INSERT INTO `locales_area` VALUES (3421, '', 'Forge', 'Schmiede', '铁匠铺', '', 'Herrería', '', 'Кузница');
+INSERT INTO `locales_area` VALUES (3420, '', 'Ferme', 'Hof', '农场', '', 'granja', '', 'Ферма');
+INSERT INTO `locales_area` VALUES (3421, '', 'Forge', 'Schmiede', '铁匠铺', '', 'herrero', '', 'Кузница');
 INSERT INTO `locales_area` VALUES (3422, '', 'Scierie', 'Sägewerk', '伐木场', '', 'Serreria', '', 'Лесопилка');
 INSERT INTO `locales_area` VALUES (3423, '', 'Mine d\'or', 'Goldmine', '矿洞', '', 'Mina de Oro', '', 'Золотой рудник');
-INSERT INTO `locales_area` VALUES (3424, '', 'Ecuries', 'Ställe', '兽栏', '', 'Establos', '', 'Стойла');
+INSERT INTO `locales_area` VALUES (3424, '', 'Ecuries', 'Ställe', '兽栏', '', 'establos', '', 'Стойла');
 INSERT INTO `locales_area` VALUES (3425, '', 'Fort cénarien', 'Burg Cenarius', '塞纳里奥要塞', '', 'Bastión Cenarion', '', 'Крепость Кенария');
 INSERT INTO `locales_area` VALUES (3426, '', 'Halte de Staghelm', 'Staghelms Stätte', '鹿盔岗哨', '', 'Punta de Staghelm', '', 'Лагерь Оленьего Шлема');
 INSERT INTO `locales_area` VALUES (3427, '', 'Campement de Bronzebeard', 'Bronzebeards Lager', '铜须营地', '', 'Campamento Barbabronce', '', 'Лагерь Бронзоборода');

@@ -1,17 +1,17 @@
 /*
- Navicat Premium Data Transfer
+ Navicat Premium Dump SQL
 
- Source Server         : 127.0.0.1
+ Source Server         : mangos 22
  Source Server Type    : MySQL
- Source Server Version : 50562
- Source Host           : localhost:3306
+ Source Server Version : 50562 (5.5.62)
+ Source Host           : 127.0.0.1:3306
  Source Schema         : mangos
 
  Target Server Type    : MySQL
- Target Server Version : 50562
+ Target Server Version : 50562 (5.5.62)
  File Encoding         : 65001
 
- Date: 06/05/2022 16:55:29
+ Date: 09/01/2025 22:02:56
 */
 
 SET NAMES utf8mb4;
@@ -30,14 +30,14 @@ CREATE TABLE `locales_taxi_node`  (
   `name_loc5` varchar(256) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `name_loc6` varchar(256) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`entry`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of locales_taxi_node
 -- ----------------------------
-INSERT INTO `locales_taxi_node` VALUES (1, '노스샤이어 대성당', 'Abbaye de Northshire', 'Abtei von Nordhain', '北郡修道院', '北郡修道院', 'Abadía de la Costa Norte');
+INSERT INTO `locales_taxi_node` VALUES (1, '노스샤이어 대성당', 'Abbaye de Northshire', 'Abtei von Nordhain', '北郡修道院', '北郡修道院', 'Abadía de Villanorte');
 INSERT INTO `locales_taxi_node` VALUES (2, '스톰윈드 (엘윈 숲)', 'Stormwind, Elwynn', 'Stormwind, Elwynn', '暴风城，艾尔文森林', '暴風城，艾爾文森林', 'Ventormenta, Elwynn');
-INSERT INTO `locales_taxi_node` VALUES (3, '프로그래머의 섬', 'Ile des programmeurs', 'Programmierer-Insel', 'Programmer Isle', 'Programmer Isle', 'Isla de los Programadores');
+INSERT INTO `locales_taxi_node` VALUES (3, '프로그래머의 섬', 'Ile des programmeurs', 'Programmierer-Insel', 'Programmer Isle', 'Programmer Isle', 'Isla del programador');
 INSERT INTO `locales_taxi_node` VALUES (4, '감시의 언덕 (서부 몰락지대)', 'Colline des sentinelles, marche de l\'Ouest', 'Späherkuppe, Westfall', '哨兵岭，西部荒野', '哨兵嶺，西部荒野', 'Colina del Centinela, Páramos de Poniente');
 INSERT INTO `locales_taxi_node` VALUES (5, '레이크샤이어 (붉은마루 산맥)', 'Lakeshire, les Carmines', 'Seenhain, Rotkammgebirge', '湖畔镇，赤脊山', '湖畔鎮，赤脊山', 'Villa del Lago, Crestagrana');
 INSERT INTO `locales_taxi_node` VALUES (6, '아이언포지 (던 모로)', 'Ironforge, Dun Morogh', 'Ironforge, Dun Morogh', '铁炉堡，丹莫罗', '鐵爐堡，丹莫洛', 'Forjaz, Dun Morogh');
@@ -115,7 +115,7 @@ INSERT INTO `locales_taxi_node` VALUES (77, '타우라조 야영지 (불모의 �
 INSERT INTO `locales_taxi_node` VALUES (78, '낙스라마스', 'Naxxramas', 'Naxxramas', '纳克萨玛斯', '納克薩瑪斯', 'Naxxramas');
 INSERT INTO `locales_taxi_node` VALUES (79, '마샬의 야영지 (운고로 분화구)', 'Refuge des Marshal, cratère d\'Un\'Goro', 'Marshals Zuflucht, Un\'Goro-Krater', '马绍尔营地，安戈洛环形山', '馬紹爾營地，安戈洛環形山', 'Refugio de Marshal, Cráter de Un\'Goro');
 INSERT INTO `locales_taxi_node` VALUES (80, '톱니항 (불모의 땅)', 'Ratchet, les Tarides', 'Ratchet, Brachland', '棘齿城，贫瘠之地', '棘齒城，貧瘠之地', 'Trinquete, Los Baldíos');
-INSERT INTO `locales_taxi_node` VALUES (81, '필르밍', 'Enregistrement', 'Filmen', '拍摄', '薄霧之地', 'Grabación');
+INSERT INTO `locales_taxi_node` VALUES (81, '필르밍', 'Enregistrement', 'Filmen', '拍摄', '薄霧之地', 'Grabando');
 INSERT INTO `locales_taxi_node` VALUES (84, '역병의 숲 경비탑 (동부 역병지대)', 'Tour de Pestebois, Maleterres de l\'est', 'Pestwaldturm, östliche Pestländer', '病木林哨塔，东瘟疫之地', '病木林哨塔，東瘟疫之地', 'Torre del Bosque de la Peste, Tierras de la Peste de Este');
 INSERT INTO `locales_taxi_node` VALUES (85, '북부관문 경비탑 (동부 역병지대)', 'Tour du Col du nord, Maleterres de l\'est', 'Nordpassturm, östliche Pestländer', '北地哨塔，东瘟疫之地', '北地哨塔，東瘟疫之地', 'Torre del Paso Norte, Tierras de la Peste del Este');
 INSERT INTO `locales_taxi_node` VALUES (86, '동부방벽 경비탑 (동부 역병지대)', 'Tour du Mur d\'est, Maleterres de l\'est', 'Ostwallturm, östliche Pestländer', '东墙哨塔，东瘟疫之地', '東牆之塔，東瘟疫之地', 'Torre de la Muralla del Este, Tierras de la Peste del Este');

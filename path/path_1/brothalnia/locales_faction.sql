@@ -1,17 +1,17 @@
 /*
- Navicat Premium Data Transfer
+ Navicat Premium Dump SQL
 
- Source Server         : 127.0.0.1
+ Source Server         : mangos 22
  Source Server Type    : MySQL
- Source Server Version : 50562
- Source Host           : localhost:3306
+ Source Server Version : 50562 (5.5.62)
+ Source Host           : 127.0.0.1:3306
  Source Schema         : mangos
 
  Target Server Type    : MySQL
- Target Server Version : 50562
+ Target Server Version : 50562 (5.5.62)
  File Encoding         : 65001
 
- Date: 05/05/2022 12:59:07
+ Date: 09/01/2025 22:02:00
 */
 
 SET NAMES utf8mb4;
@@ -36,7 +36,7 @@ CREATE TABLE `locales_faction`  (
   `description_loc5` varchar(512) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `description_loc6` varchar(512) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`entry`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of locales_faction
@@ -57,7 +57,7 @@ INSERT INTO `locales_faction` VALUES (17, '놀 - 붉은마루일족', 'Gnoll - C
 INSERT INTO `locales_faction` VALUES (18, '놀 - 잿빛가죽일족', 'Gnoll - Sombrepoil', 'Gnoll - Schattenfelle', '暗皮豺狼人', '暗皮豺狼人', 'Gnoll: Pellejo Negro', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (19, '멀록', 'Murloc', 'Murloc', '鱼人', '魚人', 'Múrloc', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (20, '언데드 - 스컬지', 'Mort-vivant, Fléau', 'Untoter, Geißel', '亡灵(天灾军团)', '不死族(天譴軍團)', 'No-muerto, la Plaga', '', '', '', '', '', '');
-INSERT INTO `locales_faction` VALUES (21, '무법항', 'Baie-du-Butin', 'Booty Bay', '藏宝海湾', '藏寶海灣', 'Bahía Botín', '최근 급속한 성장을 이룬 무법항은 검은바다 해적단의 레빌가즈 남작이 다스리고 있는 해안 도시입니다. 스팀휘들 무역회사의 지부 이며 붉은해적단과는 적대적 관계 입니다.', 'Ce port en pleine expansion est dirigé par le baron Revilgaz, des Écumeurs des Flots noirs. Ces derniers appartiennent au cartel Gentepression, et sont des ennemis mortels des boucaniers de la Voile sanglante.', 'In dieser blühenden Küstenstadt hat Baron Revilgaz von den Schwarzmeerräubern das Sagen. Teil des Steamwheedle-Kartells und Todfeinde der Blutsegelbukaniere.', '一个由黑水海盗的头目，大财主里维加兹经营的繁荣的海港城市。它也是热砂集团的一部分，主要仇敌是血帆海盗。', '身為黑水強盜的大財主里維加茲，掌控這座繁榮的沿海城市。血帆冒險家們不共戴天的仇敵，同時也是熱砂公司的一部份。', 'Esta incipiente ciudad costera está dirigida por el Barón Revilgaz, de los Asaltantes Aguasnegras. Son enemigos mortales de los Bucaneros Velasangre y en parte del Cártel Bonvapor.');
+INSERT INTO `locales_faction` VALUES (21, '무법항', 'Baie-du-Butin', 'Booty Bay', '藏宝海湾', '藏寶海灣', 'Bahía del Botín', '최근 급속한 성장을 이룬 무법항은 검은바다 해적단의 레빌가즈 남작이 다스리고 있는 해안 도시입니다. 스팀휘들 무역회사의 지부 이며 붉은해적단과는 적대적 관계 입니다.', 'Ce port en pleine expansion est dirigé par le baron Revilgaz, des Écumeurs des Flots noirs. Ces derniers appartiennent au cartel Gentepression, et sont des ennemis mortels des boucaniers de la Voile sanglante.', 'In dieser blühenden Küstenstadt hat Baron Revilgaz von den Schwarzmeerräubern das Sagen. Teil des Steamwheedle-Kartells und Todfeinde der Blutsegelbukaniere.', '一个由黑水海盗的头目，大财主里维加兹经营的繁荣的海港城市。它也是热砂集团的一部分，主要仇敌是血帆海盗。', '身為黑水強盜的大財主里維加茲，掌控這座繁榮的沿海城市。血帆冒險家們不共戴天的仇敵，同時也是熱砂公司的一部份。', 'Esta incipiente ciudad costera está dirigida por el Barón Revilgaz, de los Asaltantes Aguasnegras. Son enemigos mortales de los Bucaneros Velasangre y en parte del Cártel Bonvapor.');
 INSERT INTO `locales_faction` VALUES (22, '야수 - 거미', 'Bête - Araignée', 'Wildtier - Spinne', '蜘蛛', '蜘蛛', 'Bestia: araña', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (23, '야수 - 멧돼지', 'Bête - Sanglier', 'Wildtier - Eber', '野猪', '野豬', 'Bestia: jabalí', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (24, '늑대인간', 'Worgen', 'Worg', '狼人', '狼人', 'Ferocanis', '', '', '', '', '', '');
@@ -98,7 +98,7 @@ INSERT INTO `locales_faction` VALUES (58, '야수 - 고릴라', 'Bête - Gorille
 INSERT INTO `locales_faction` VALUES (59, '토륨 대장조합', 'Confrérie du thorium', 'Thoriumbruderschaft', '瑟银兄弟会', '瑟銀兄弟會', 'Hermandad del torio', '토륨 대장조합의 드워프들은 각종 세공술로 잘 알려져 있으며 검은바위 산의 비밀을 밝혀내고자 노력하고 있습니다.', 'Les nains de la Confrérie du thorium personnifient l’excellence dans l’artisanat, et sont résolus à percer les secrets du mont Blackrock.', 'Die Zwerge der Thoriumbruderschaft verkörpern den Höhepunkt der Handwerkskunst und sind davon besessen, die Geheimnisse des Blackrocks zu enträtseln.', '瑟银兄弟会的矮人有着无与伦比的制造技术，并致力于解开黑石山中的全部秘密。', '瑟銀兄弟會的矮人們集中了最為卓越的工匠手藝。也愛好解開黑石山的神秘面紗。', 'Los enanos de la Hermandad del torio son la personificación de la excelencia en la artesanía y están decididos a desvelar los secretos de la Montaña Roca Negra.');
 INSERT INTO `locales_faction` VALUES (60, '나가', 'Naga', 'Naga', '纳迦', '納迦(怪物)', 'Naga', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (61, '달라란', 'Dalaran', 'Dalaran', '达拉然', '達拉然', 'Dalaran', '', '', '', '', '', '');
-INSERT INTO `locales_faction` VALUES (62, '외로운 영혼', 'Esprit mélancolique', 'Unglückseliger Geist', '弃灵', '棄靈', 'Espíritu abandonado', '', '', '', '', '', '');
+INSERT INTO `locales_faction` VALUES (62, '외로운 영혼', 'Esprit mélancolique', 'Unglückseliger Geist', '弃灵', '棄靈', 'Espíritu Abandonado', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (63, '다크하울', 'Darkhowl', 'Darkhowl', 'Darkhowl', '暗吼', 'Aullido Oscuro', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (64, '그렐', 'Grell', 'Grell', '劣魔', '劣魔', 'Grell', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (65, '펄볼그', 'Furbolg', 'Furbolg', '熊怪', '熊怪', 'Fúrbolg', '', '', '', '', '', '');
@@ -141,7 +141,7 @@ INSERT INTO `locales_faction` VALUES (168, '네더가드 짐마차', 'Caravane d
 INSERT INTO `locales_faction` VALUES (169, '스팀휘들 무역회사', 'Cartel Gentepression', 'Steamwheedle-Kartell', '热砂港', '熱砂港', 'Cártel Bonvapor', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (189, '얼라이언스', 'Alliance (Générique)', 'Allianz Allgemein', '联盟', '聯盟', 'Genérico de la Alianza', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (209, '네더가드', 'Rempart-du-Néant', 'Nethergarde', '守望堡', '奈瑟加德', 'Nethergarde', '', '', '', '', '', '');
-INSERT INTO `locales_faction` VALUES (229, '통곡의 동굴', 'Cavernes des lamentations', 'Die Höhlen des Wehklagens', '哀嚎洞穴', '哀嚎洞穴', 'Cavernas de los Lamentos', '', '', '', '', '', '');
+INSERT INTO `locales_faction` VALUES (229, '통곡의 동굴', 'Cavernes des lamentations', 'Die Höhlen des Wehklagens', '哀嚎洞穴', '哀嚎洞穴', 'Cuevas de los Lamentos', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (249, '실리시드', 'Silithides', 'Sillithid', '异种蝎', '異種蠍', 'Silítidos', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (269, '실버문 생존자', 'Survivants de Lune-d\'argent', 'Überlebende aus Silbermond', '银月幸存者', '銀月倖存者', 'Lunargenta Despogiz', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (270, '잔달라 부족', 'Tribu Zandalar', 'Stamm der Zandalar', '赞达拉部族', '贊達拉部族', 'Tribu Zandalar', '잔달라 부족은 요잠바 섬으로 와서 줄구룹의 부활한 혈신과 아탈라이 사제에 맞서 싸우기 위해 모험가들의 도움을 구하고 있습니다.', 'Ces trolls sont venus sur l’île de Yojamba pour tenter de trouver de l’aide contre le Dieu sanglant ressuscité et ses prêtres atal’ai, à Zul\'Gurub.', 'Diese Trolle sind zur Insel Yojamba gereist, um Hilfe im Kampf gegen den wiederauferstandenen Blutgott und seine Priester der Atal\'ai in Zul\'Gurub zu erbitten.', '这群居住在尤亚姆巴岛的巨魔正在努力招募全世界的勇士，希望他们能够帮助自己对抗祖尔格拉布中的邪神哈卡以及他的阿塔莱祭司们。', '食人妖已在尤亞姆巴島上努力招募幫手，對抗復活的血神，以及祖爾格拉布的阿塔萊祭司。', 'Estos trols han acudido a la isla de Yojamba en un esfuerzo por conseguir aliados contra el resurrecto Dios Sangriento y sus sacerdotes Atal\'ai en Zul\'Gurub.');
@@ -151,7 +151,7 @@ INSERT INTO `locales_faction` VALUES (310, '야수 - 박쥐', 'Bête - Chauve-so
 INSERT INTO `locales_faction` VALUES (311, '티탄', 'Titan', 'Titanisch', '泰坦', '泰坦', 'Titán', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (329, '감독관 피즐', 'Sous-chef Fizzule', 'Zuchtmeister Fizzule', '工头费苏勒', '工頭費蘇勒', 'Capataz Burbujita', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (349, '라벤홀트 암살단', 'Ravenholdt', 'Ravenholdt', '拉文霍德', '拉文霍德', 'Ravenholdt', '도적과 암살자 길드인 라벤홀트 암살단의 일원이 되려면 비상한 솜씨를 지녀야 합니다. 비밀결사대와는 적대 관계입니다.', 'Cette guilde de voleurs et d’assassins, ennemie jurée du Syndicat, n’accepte que les individus les plus talentueux.', 'Diese Gilde von Dieben und Meuchelmördern heißt nur jene willkommen, die über außergewöhnliches Können verfügen. Erzrivalen des Syndikats.', '这个由盗贼与刺客组成的行会只欢迎那些有着出色实力的人进入他们的领地。他们也是辛迪加的仇敌。', '這個小偷與刺客公會，只歡迎身懷非凡卓越本事的人加入。辛迪加的世仇。', 'La hermandad de ladrones y asesinos solo da la bienvenida a los más aguerridos. Son enemigos acérrimos del Sindicato.');
-INSERT INTO `locales_faction` VALUES (369, '가젯잔', 'Gadgetzan', 'Gadgetzan', '加基森', '加基森', 'Artilugiozan', '스팀휘들 무역회사의 수도인 이곳은 고블린 최고의 기술자들과 연금술사, 상인들의 고향입니다.', 'Capitale du cartel Gentepression, c’est la demeure des meilleurs ingénieurs, alchimistes et marchands gobelins.', 'Hauptstadt des Steamwheedle-Kartells und die Heimat der besten Ingenieure, Alchemisten und Händler, die die Goblins zu bieten haben.', '热砂集团的首府，诸多优秀地精技师、炼金师和商人的家乡。', '熱沙公司首都，同為哥布林最精良工程師、化學家和商人之都。', 'Capital del Cártel Bonvapor y hogar de los mejores ingenieros, alquimistas y mercaderes goblin.');
+INSERT INTO `locales_faction` VALUES (369, '가젯잔', 'Gadgetzan', 'Gadgetzan', '加基森', '加基森', 'Gadgetzan', '스팀휘들 무역회사의 수도인 이곳은 고블린 최고의 기술자들과 연금술사, 상인들의 고향입니다.', 'Capitale du cartel Gentepression, c’est la demeure des meilleurs ingénieurs, alchimistes et marchands gobelins.', 'Hauptstadt des Steamwheedle-Kartells und die Heimat der besten Ingenieure, Alchemisten und Händler, die die Goblins zu bieten haben.', '热砂集团的首府，诸多优秀地精技师、炼金师和商人的家乡。', '熱沙公司首都，同為哥布林最精良工程師、化學家和商人之都。', 'Capital del Cártel Bonvapor y hogar de los mejores ingenieros, alquimistas y mercaderes goblin.');
 INSERT INTO `locales_faction` VALUES (389, '놈리건 버그', 'Insecte de Gnomeregan', 'Gnomeregan-Bug', 'Gnomeregan Bug', '諾姆瑞根蟲', 'Bicho de Gnomeregan', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (409, '하피', 'Harpie', 'Harpyie', '鹰身人', '鷹身人', 'Arpía', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (429, '불타는 칼날단', 'Lame ardente', 'Brennende Klinge', '火刃氏族', '火刃氏族', 'Filo Ardiente', '', '', '', '', '', '');
@@ -176,14 +176,14 @@ INSERT INTO `locales_faction` VALUES (570, ' 대장기술 - 도끼 제작', ' Fo
 INSERT INTO `locales_faction` VALUES (571, ' 대장기술 - 검 제작', ' Forge - Fabricant d\'épées', ' Schmiedekunst - Schwertschmiedekunst', ' Blacksmithing - Swordsmithing', ' 鍛造 - 劍類鍛造', ' Herrería: espadas', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (572, '트롤 - 썩은가지부족', 'Troll, Vilebranch', 'Troll, Vilebranch', '邪枝巨魔', '邪枝食人妖', 'Trol, Vilrama', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (573, '남쪽바다 해적단', 'Flibustiers des Mers du sud', 'Südmeerfreibeuter', '南海海盗', '南海海盜', 'Filibusteros del Mar del Sur', '', '', '', '', '', '');
-INSERT INTO `locales_faction` VALUES (574, '카엘 다로우', 'Caer Darrow', 'Caer Darrow', '凯尔达隆', '凱爾達隆', 'Caer Darrow', '', '', '', '', '', '');
+INSERT INTO `locales_faction` VALUES (574, '카엘 다로우', 'Caer Darrow', 'Caer Darrow', '凯尔达隆', '凱爾達隆', 'Castel Darrow', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (575, '오염되지 않은 펄볼그', 'Furbolg, non corrompu', 'Furbolg, nicht verderbt', '未堕落的熊怪', '未墮落的熊怪', 'Fúrbolg, incorrupto', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (576, '나무구렁 요새', 'Les Grumegueules', 'Holzschlundfeste', '木喉要塞', '木喉要塞', 'Bastión de los Fauces de Madera', '타락하지 않은 마지막 펄볼그 부족인 나무구렁부족은 동족의 고통을 끝내고 자신들의 주체성을 지킬 방법을 모색하고 있습니다.', 'Les Grumegueules sont la dernière tribu furbolg à échapper à la corruption. Ils cherchent à préserver leur spiritualité et à mettre un terme aux souffrances de leur peuple.', 'Als der letzte unverderbte Stamm der Furbolgs, wollen die Furbolgs der Holzschlundfeste ihren spirituellen Lebensweg bewahren und das Leiden ihrer Artgenossen beenden.', '作为最后一支尚未堕落的熊怪部族，木喉部族正致力于保留他们那种独特的精神修行之道，并试图终结其他熊怪部族的痛苦。', '身為最後一個尚未墮落的熊怪部族，木喉還在尋求保護心智的方法以終結同胞的受難。', 'Como la última tribu fúrbolg sin corromper, los Fauces de Madera persiguen preservar sus tradiciones espirituales y acabar con el sufrimiento de sus congéneres.');
-INSERT INTO `locales_faction` VALUES (577, '눈망루 마을', 'Long-guet', 'Everlook', '永望镇', '永望鎮', 'Alguna Vez Miras', '스팀휘들 무역회사의 고블린들이 무역 거점으로 운영 중인 이곳은 여명의 설원을 가로지르는 주 무역로가 교차되는 지점에 위치하고 있습니다.', 'Administré par les gobelins du cartel Gentepression, ce comptoir se trouve au croisement des routes commerciales du Berceau-de-l’hiver.', 'Dies ist ein von den Goblins des Steamwheedle-Kartells geführter Handelsposten, der sich im Zentrum der Haupthandelswege von Winterspring befindet.', '热砂集团经营之下的一座贸易城市，坐落于冬泉谷的两条主要干道的交叉处。', '熱砂公司的哥布林經營這座貿易商埠區，就位在冬泉谷主要貿易道路的十字路口上。', 'Este enclave comercial, regentado por los goblins del Cártel Bonvapor, se sitúa en el cruce de las principales rutas comerciales de Cuna del Invierno.');
-INSERT INTO `locales_faction` VALUES (589, '눈호랑이 조련사', 'Éleveurs de sabres-d\'hiver', 'Wintersäblerausbilder', '冬刃豹训练师', '冬刃豹訓練師', 'Instructores de Sableinvernales', '이들은 은둔 중인 나이트 엘프들이며 여명의 설원에서 눈호랑이를 기르고 훈련시킵니다.', 'Ce petit groupe d’elfes de la nuit vit en reclus. Ses membres élèvent et dressent des sabres-d’hiver au Berceau-de-l’hiver.', 'Eine kleine Gruppe zurückgezogener Nachtelfen zieht in der Gegend von Winterspring Wintersäbler auf und bildet sie aus.', '这是一些专门在冬泉谷地区驯养冬泉霜刃豹的暗夜精灵。', '這個孤寂的夜精靈小團隊提升並訓練了冬泉谷區域的冬刃豹。', 'Estos pequeños grupos de recluidos elfos de la noche cría y amaestra sableinvernales en el  área de Cuna del invierno.');
+INSERT INTO `locales_faction` VALUES (577, '눈망루 마을', 'Long-guet', 'Everlook', '永望镇', '永望鎮', 'Vista Eterna', '스팀휘들 무역회사의 고블린들이 무역 거점으로 운영 중인 이곳은 여명의 설원을 가로지르는 주 무역로가 교차되는 지점에 위치하고 있습니다.', 'Administré par les gobelins du cartel Gentepression, ce comptoir se trouve au croisement des routes commerciales du Berceau-de-l’hiver.', 'Dies ist ein von den Goblins des Steamwheedle-Kartells geführter Handelsposten, der sich im Zentrum der Haupthandelswege von Winterspring befindet.', '热砂集团经营之下的一座贸易城市，坐落于冬泉谷的两条主要干道的交叉处。', '熱砂公司的哥布林經營這座貿易商埠區，就位在冬泉谷主要貿易道路的十字路口上。', 'Este enclave comercial, regentado por los goblins del Cártel Bonvapor, se sitúa en el cruce de las principales rutas comerciales de Cuna del Invierno.');
+INSERT INTO `locales_faction` VALUES (589, '눈호랑이 조련사', 'Éleveurs de sabres-d\'hiver', 'Wintersäblerausbilder', '冬刃豹训练师', '冬刃豹訓練師', 'Entrenadores de Sableinvernales', '이들은 은둔 중인 나이트 엘프들이며 여명의 설원에서 눈호랑이를 기르고 훈련시킵니다.', 'Ce petit groupe d’elfes de la nuit vit en reclus. Ses membres élèvent et dressent des sabres-d’hiver au Berceau-de-l’hiver.', 'Eine kleine Gruppe zurückgezogener Nachtelfen zieht in der Gegend von Winterspring Wintersäbler auf und bildet sie aus.', '这是一些专门在冬泉谷地区驯养冬泉霜刃豹的暗夜精灵。', '這個孤寂的夜精靈小團隊提升並訓練了冬泉谷區域的冬刃豹。', 'Estos pequeños grupos de recluidos elfos de la noche cría y amaestra sableinvernales en el  área de Cuna del invierno.');
 INSERT INTO `locales_faction` VALUES (609, '세나리온 의회', 'Cercle cénarien', 'Zirkel des Cenarius', '塞纳里奥议会', '塞納里奧議會', 'Círculo Cenarion', '세나리온 의회의 드루이드들은 자연의 수호자이며 평온한 달의 숲이 그들의 고향입니다.', 'Gardiens de la nature, les druides du Cercle cénarien ont établi leur demeure dans la paisible vallée de Reflet-de-Lune.', 'Die Druiden des Zirkels des Cenarius sind Beschützer der Natur und leben im friedlichen Moonglade.', '塞纳里奥议会的德鲁伊是自然的守卫者，他们定居于宁静的月光林地。', '塞納里奧的德魯伊是大自然的守護神，將寧靜的月光林地當成自己的家。', 'Los druidas del Círculo Cenarion son guardianes de la Naturaleza y conviven en el calmo Claro de la Luna.');
 INSERT INTO `locales_faction` VALUES (629, '트롤 - 뾰족창부족', 'Trolls Shatterspear', 'Shatterspear', '断矛巨魔', '斷矛食人妖', 'Trols Rompelanzas', '', '', '', '', '', '');
-INSERT INTO `locales_faction` VALUES (630, '라바사우루스 조련사', 'Eleveurs de ravasaures', 'Ravasaurusausbilder', '暴掠龙训练师', '暴掠龍訓練師', 'Instructores de ravasaurios', '', '', '', '', '', '');
+INSERT INTO `locales_faction` VALUES (630, '라바사우루스 조련사', 'Eleveurs de ravasaures', 'Ravasaurusausbilder', '暴掠龙训练师', '暴掠龍訓練師', 'Entrenadores de Ravasaurios', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (649, '청지기 이그젝큐투스', 'Chambellan Executus', 'Majordomus Exekutus', '管理者埃克索图斯', '管理者埃克索圖斯', 'Mayordomo Executus', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (669, '야수 - 독수리', 'Bête - Charognard', 'Wildtier - Aasvogel', 'Beast - Carrion Bird', '禿鷹', 'Bestia: pájaro carroñero', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (670, '야수 - 살쾡이', 'Bête - Chat', 'Wildtier - Katze', 'Beast - Cat', '貓', 'Bestia: gato', '', '', '', '', '', '');
@@ -202,7 +202,7 @@ INSERT INTO `locales_faction` VALUES (729, '서리늑대 부족', 'Clan Frostwol
 INSERT INTO `locales_faction` VALUES (730, '스톰파이크 경비대', 'Garde Stormpike', 'Stormpikegarde', '雷矛卫队', '雷矛衛隊', 'Guardia de Pico Tormenta', '스톰파이크 드워프들은 오크 서리늑대 부족과 전투가 벌어지고 있는 알터랙 계곡에 거점을 마련하고 있습니다.', 'Les nains Stormpike se sont établis dans la vallée d’Alterac, où ils affrontent sans cesse les orcs Frostwolf.', 'Die Zwerge von Stormpike haben sich im Alteractal niedergelassen, wo sie in ständige Auseinandersetzungen mit den Orcs des Frostwolfklans verwickelt sind.', '一群在奥特兰克山谷建立了永久居所的矮人，正与霜狼氏族的兽人激烈交战中。', '雷矛矮人以奧特蘭克山谷為家，因其在戰爭中受霜狼獸人所封鎖。', 'Los enanos Pico Tormenta se han asentado en el Valle de Alterac, ensarzándose en batalla con los orcos Lobo Gélido.');
 INSERT INTO `locales_faction` VALUES (749, '히드락시안 물의 군주', 'Les Hydraxiens', 'Hydraxianer', '海达希亚水元素', '海達希亞水元素', 'Señores del Agua de Hydraxis', '이 정령들은 아즈샤라 동부의 섬에 위치하고 있습니다. 라그나로스 군대와는 적대 관계입니다.', 'Ennemis jurés des armées de Ragnaros, ces élémentaires se sont installés dans les îles à l’est d’Azshara.', 'Diese Elementarwesen leben auf den Inseln östlich von Azshara. Erzrivalen der Armeen von Ragnaros.', '这些元素生物定居于艾萨拉的东部的一座小岛上，是拉格纳罗斯及其军团的死敌。', '這些元素已經完成他們在艾薩拉東邊島的家。拉格納羅斯軍隊不共戴天的仇敵。', 'Estos elementales han hecho su hogar en las islas al este de Azshara. Son enemigos acérrimos de los ejércitos de Ragnaros.');
 INSERT INTO `locales_faction` VALUES (750, '설퍼론 불의 군주', 'Seigneurs du feu de Sulfuron', 'Sulfuronfeuerlords', '萨弗隆火元素', '薩弗隆火元素', 'Señores del Fuego Sulfuron', '', '', '', '', '', '');
-INSERT INTO `locales_faction` VALUES (769, '기즐록의 허수아비', 'Mannequin de Gizlock', 'Gizlocks Attrappe', '吉兹洛克的假人', '吉茲洛克的假人', 'Muñeco de Gizlock', '', '', '', '', '', '');
+INSERT INTO `locales_faction` VALUES (769, '기즐록의 허수아비', 'Mannequin de Gizlock', 'Gizlocks Attrappe', '吉兹洛克的假人', '吉茲洛克的假人', 'Diana de Gizlock', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (770, '기즐록의 부적', 'Amulette de Gizlock', 'Gizlocks Glücksbringer', 'Gizlock\'s Charm', '吉茲洛克的護身符', 'Talismán de Gizlock', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (771, '기즐록', 'Gizlock', 'Gizlock', '吉兹洛克', '吉茲洛克', 'Gizlock', '', '', '', '', '', '');
 INSERT INTO `locales_faction` VALUES (789, '모로가이', 'Moro\'gai', 'Moro\'gai', '莫洛加', '莫洛加', 'Moro\'gai', '', '', '', '', '', '');
