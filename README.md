@@ -24,17 +24,17 @@
 Herramientas
 -----------------
 
-- [Ajustador de ids][14]: Herramienta para ajustar los identificadores de los textos acabados de insertar para evitar
+- Ajustador de ids: Herramienta para ajustar los identificadores de los textos acabados de insertar para evitar
   errores en las demás herramientas. Está programado en [PHP][5], [SQL][1], [JavaScript][4], [HTML][6].
-- [Corrector de Texto][15]: Permite sustituir cadenas o subcadenas de textos (parte del texto) por otra
+- Corrector de Texto: Permite sustituir cadenas o subcadenas de textos (parte del texto) por otra
   cadena definida por el usuario. Solo sustituye los textos en español. Está programado en [PHP][5], [SQL][1],
   [JavaScript][4], [HTML][6]. Esta Herramienta aun esta en la version 1.00. Pendiente a desarrollo.
-- [Extractor de texto][16]: Herramienta para extraer los textos en ingles de un campo de una tabla e introducirlos en la
+- Extractor de texto: Herramienta para extraer los textos en ingles de un campo de una tabla e introducirlos en la
   base de datos para su posterior traducción. Está programado en [PHP][5], [SQL][1], [JavaScript][4], [HTML][6].
-- [Traductor de textos en Ingles][17]: Herramienta que permite traducir todos los textos en inglés que no estén
+- Traductor de textos en Ingles: Herramienta que permite traducir todos los textos en inglés que no estén
   traducidos (esta traducción es proporcionada por Google y no está exenta de errores). Está programado en [PHP][5] y
   [SQL][1].
-- [Inyector de textos en Español][26]: Herramienta que permite introducir los textos ya traducidos en las bases de datos
+- Inyector de textos en Español: Herramienta que permite introducir los textos ya traducidos en las bases de datos
   del Core. Está programado en [PHP][5], [SQL][1],[JavaScript][4], [HTML][6].
 
 Softwares, Lenguajes y Librerías
