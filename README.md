@@ -78,10 +78,10 @@ o personaje, misión, objeto que lo dice. Esto agilizaría la solución del prob
 
 
 
-**Guías de Uso**
+**Guía de Uso**
 ----
-
-Actualmente lo tenemos ninguna guía disponible trabajamos arduamente en realizar almenos una.
+[![Alt text](https://img.youtube.com/vi/GnyrFtJyxGU/0.jpg)](https://www.youtube.com/watch?v=GnyrFtJyxGU)
+[Youtube.](https://www.youtube.com/watch?v=GnyrFtJyxGU)
 
 **Expansiones referidas a los textos**
 ----
